@@ -14,6 +14,10 @@
 		0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DE24CE1A8300C9F9B5 /* LaunchScreen.storyboard */; };
 		0100D7EB24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7EA24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift */; };
 		0100D7F924CE1C0600C9F9B5 /* GWNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7F824CE1C0600C9F9B5 /* GWNetworkManager.swift */; };
+		0100D7FC24CE301A00C9F9B5 /* CurrentlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7FB24CE301A00C9F9B5 /* CurrentlyViewController.swift */; };
+		0100D7FE24CE302200C9F9B5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7FD24CE302200C9F9B5 /* BaseViewController.swift */; };
+		0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */; };
+		0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80124CE46A200C9F9B5 /* NotificationNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,10 @@
 		0100D7EA24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekWeather_3Tests.swift; sourceTree = "<group>"; };
 		0100D7EC24CE1A8300C9F9B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0100D7F824CE1C0600C9F9B5 /* GWNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWNetworkManager.swift; sourceTree = "<group>"; };
+		0100D7FB24CE301A00C9F9B5 /* CurrentlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentlyViewController.swift; sourceTree = "<group>"; };
+		0100D7FD24CE302200C9F9B5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		0100D80124CE46A200C9F9B5 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,10 @@
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
 				0100D7F824CE1C0600C9F9B5 /* GWNetworkManager.swift */,
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
+				0100D7FB24CE301A00C9F9B5 /* CurrentlyViewController.swift */,
+				0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */,
+				0100D80124CE46A200C9F9B5 /* NotificationNames.swift */,
+				0100D7FD24CE302200C9F9B5 /* BaseViewController.swift */,
 				0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */,
 				0100D7DE24CE1A8300C9F9B5 /* LaunchScreen.storyboard */,
 				0100D7E124CE1A8300C9F9B5 /* Info.plist */,
@@ -200,9 +212,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0100D7F924CE1C0600C9F9B5 /* GWNetworkManager.swift in Sources */,
+				0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */,
+				0100D7FC24CE301A00C9F9B5 /* CurrentlyViewController.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
 				0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */,
+				0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */,
 				0100D7D624CE1A8200C9F9B5 /* SceneDelegate.swift in Sources */,
+				0100D7FE24CE302200C9F9B5 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

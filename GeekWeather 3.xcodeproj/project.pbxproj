@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */; };
 		0100D7D624CE1A8200C9F9B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */; };
-		0100D7D824CE1A8200C9F9B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7D724CE1A8200C9F9B5 /* ViewController.swift */; };
-		0100D7DB24CE1A8200C9F9B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7D924CE1A8200C9F9B5 /* Main.storyboard */; };
+		0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */; };
 		0100D7DD24CE1A8300C9F9B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
 		0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DE24CE1A8300C9F9B5 /* LaunchScreen.storyboard */; };
 		0100D7EB24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7EA24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift */; };
+		0100D7F924CE1C0600C9F9B5 /* GWNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7F824CE1C0600C9F9B5 /* GWNetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,14 +30,14 @@
 		0100D7D024CE1A8200C9F9B5 /* GeekWeather 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekWeather 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0100D7D724CE1A8200C9F9B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0100D7DA24CE1A8200C9F9B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0100D7DF24CE1A8300C9F9B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0100D7E124CE1A8300C9F9B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0100D7E624CE1A8300C9F9B5 /* GeekWeather 3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GeekWeather 3Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0100D7EA24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekWeather_3Tests.swift; sourceTree = "<group>"; };
 		0100D7EC24CE1A8300C9F9B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0100D7F824CE1C0600C9F9B5 /* GWNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWNetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +81,8 @@
 			children = (
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
-				0100D7D724CE1A8200C9F9B5 /* ViewController.swift */,
-				0100D7D924CE1A8200C9F9B5 /* Main.storyboard */,
+				0100D7F824CE1C0600C9F9B5 /* GWNetworkManager.swift */,
+				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
 				0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */,
 				0100D7DE24CE1A8300C9F9B5 /* LaunchScreen.storyboard */,
 				0100D7E124CE1A8300C9F9B5 /* Info.plist */,
@@ -182,7 +182,6 @@
 			files = (
 				0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */,
 				0100D7DD24CE1A8300C9F9B5 /* Assets.xcassets in Resources */,
-				0100D7DB24CE1A8200C9F9B5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +199,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0100D7D824CE1A8200C9F9B5 /* ViewController.swift in Sources */,
+				0100D7F924CE1C0600C9F9B5 /* GWNetworkManager.swift in Sources */,
+				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
 				0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */,
 				0100D7D624CE1A8200C9F9B5 /* SceneDelegate.swift in Sources */,
 			);
@@ -225,14 +225,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0100D7D924CE1A8200C9F9B5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0100D7DA24CE1A8200C9F9B5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0100D7DE24CE1A8300C9F9B5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -365,6 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R986STKYJ7;
 				INFOPLIST_FILE = "GeekWeather 3/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,6 +376,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R986STKYJ7;
 				INFOPLIST_FILE = "GeekWeather 3/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

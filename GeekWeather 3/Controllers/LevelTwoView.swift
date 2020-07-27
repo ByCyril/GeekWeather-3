@@ -9,7 +9,7 @@
 import UIKit
 
 final class LevelTwoView: BaseView {
-    
+    let label = UILabel(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
     override init(frame: CGRect) {
         super.init(frame: frame)
 //        notificationManager.listen(for: Observe.data.currentWeatherData, in: self)
@@ -22,7 +22,7 @@ final class LevelTwoView: BaseView {
     }
     
     private func initUI() {
-        let label = UILabel(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
+
         label.backgroundColor = .blue
         addSubview(label)
     }

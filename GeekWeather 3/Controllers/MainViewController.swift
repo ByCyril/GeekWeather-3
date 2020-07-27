@@ -37,6 +37,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionViewLayout.scrollDirection = .vertical
         collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionViewLayout.itemSize = view.frame.size
+        collectionViewLayout.minimumLineSpacing = 0
+        collectionViewLayout.minimumInteritemSpacing = 0
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         collectionView?.register(ControllerViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -59,11 +61,24 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        cell.alpha = 0
         
-        UIView.animate(withDuration: 0.8) {
-            cell.alpha = 1
+        if indexPath.row == 0 {
+            levelOneView?.label.alpha = 0
+            UIView.animate(withDuration: 0.8) {
+                self.levelOneView?.label.alpha = 1
+            }
+        } else if indexPath.row == 1 {
+            levelTwoView?.label.alpha = 0
+            UIView.animate(withDuration: 0.8) {
+                self.levelTwoView?.label.alpha = 1
+            }
+        } else if indexPath.row == 2 {
+            levelThreeView?.label.alpha = 0
+            UIView.animate(withDuration: 0.8) {
+                self.levelThreeView?.label.alpha = 1
+            }
         }
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -8,12 +8,12 @@
 
 import UIKit
 
-class BaseViewController: UIViewController, NotificationManagerDelegate {
+class BaseView: UIView, NotificationManagerDelegate {
  
     let notificationManager = NotificationManager()
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nil, bundle: nil)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         notificationManager.delegate = self
     }
     

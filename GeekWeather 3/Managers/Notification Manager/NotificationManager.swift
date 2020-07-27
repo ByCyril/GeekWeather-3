@@ -16,7 +16,7 @@ final class NotificationManager {
     
     weak var delegate: NotificationManagerDelegate?
     
-    func listen(for name: Notification.Name, in vc: UIViewController) {
+    func listen(for name: Notification.Name, in vc: Any) {
         guard let delegate = self.delegate else { return }
         NotificationCenter.default.addObserver(vc, selector: #selector(delegate.update(from:)), name: name, object: nil)
     }

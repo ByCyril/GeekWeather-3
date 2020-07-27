@@ -12,7 +12,11 @@ final class CurrentlyViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        notificationManager.listen(for: Observe.data.currentWeatherData, in: self)
+    }
+    
+    override func update(from notification: NSNotification) {
         
-        listen(for: Observe.data.currentWeatherData, in: self)
     }
 }

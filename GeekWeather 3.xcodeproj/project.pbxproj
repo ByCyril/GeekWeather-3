@@ -13,11 +13,14 @@
 		0100D7DD24CE1A8300C9F9B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
 		0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DE24CE1A8300C9F9B5 /* LaunchScreen.storyboard */; };
 		0100D7EB24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7EA24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift */; };
-		0100D7F924CE1C0600C9F9B5 /* GWNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7F824CE1C0600C9F9B5 /* GWNetworkManager.swift */; };
+		0100D7F924CE1C0600C9F9B5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7F824CE1C0600C9F9B5 /* NetworkManager.swift */; };
 		0100D7FC24CE301A00C9F9B5 /* CurrentlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7FB24CE301A00C9F9B5 /* CurrentlyViewController.swift */; };
 		0100D7FE24CE302200C9F9B5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7FD24CE302200C9F9B5 /* BaseViewController.swift */; };
 		0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */; };
 		0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80124CE46A200C9F9B5 /* NotificationNames.swift */; };
+		0100D80424CE4F2000C9F9B5 /* RequestURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80324CE4F2000C9F9B5 /* RequestURL.swift */; };
+		0100D80624CE4F3700C9F9B5 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80524CE4F3700C9F9B5 /* Unit.swift */; };
+		0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +44,14 @@
 		0100D7E624CE1A8300C9F9B5 /* GeekWeather 3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GeekWeather 3Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0100D7EA24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekWeather_3Tests.swift; sourceTree = "<group>"; };
 		0100D7EC24CE1A8300C9F9B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0100D7F824CE1C0600C9F9B5 /* GWNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWNetworkManager.swift; sourceTree = "<group>"; };
+		0100D7F824CE1C0600C9F9B5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0100D7FB24CE301A00C9F9B5 /* CurrentlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentlyViewController.swift; sourceTree = "<group>"; };
 		0100D7FD24CE302200C9F9B5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		0100D80124CE46A200C9F9B5 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
+		0100D80324CE4F2000C9F9B5 /* RequestURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestURL.swift; sourceTree = "<group>"; };
+		0100D80524CE4F3700C9F9B5 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
+		0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,12 +95,9 @@
 			children = (
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
-				0100D7F824CE1C0600C9F9B5 /* GWNetworkManager.swift */,
-				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
-				0100D7FB24CE301A00C9F9B5 /* CurrentlyViewController.swift */,
 				0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */,
-				0100D80124CE46A200C9F9B5 /* NotificationNames.swift */,
-				0100D7FD24CE302200C9F9B5 /* BaseViewController.swift */,
+				0100D80924CE52AF00C9F9B5 /* Managers */,
+				0100D80C24CE52E400C9F9B5 /* Controllers */,
 				0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */,
 				0100D7DE24CE1A8300C9F9B5 /* LaunchScreen.storyboard */,
 				0100D7E124CE1A8300C9F9B5 /* Info.plist */,
@@ -109,6 +112,44 @@
 				0100D7EC24CE1A8300C9F9B5 /* Info.plist */,
 			);
 			path = "GeekWeather 3Tests";
+			sourceTree = "<group>";
+		};
+		0100D80924CE52AF00C9F9B5 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0100D80B24CE52C100C9F9B5 /* Network Manager */,
+				0100D80A24CE52B600C9F9B5 /* Notification Manager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		0100D80A24CE52B600C9F9B5 /* Notification Manager */ = {
+			isa = PBXGroup;
+			children = (
+				0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */,
+				0100D80124CE46A200C9F9B5 /* NotificationNames.swift */,
+			);
+			path = "Notification Manager";
+			sourceTree = "<group>";
+		};
+		0100D80B24CE52C100C9F9B5 /* Network Manager */ = {
+			isa = PBXGroup;
+			children = (
+				0100D7F824CE1C0600C9F9B5 /* NetworkManager.swift */,
+				0100D80324CE4F2000C9F9B5 /* RequestURL.swift */,
+				0100D80524CE4F3700C9F9B5 /* Unit.swift */,
+			);
+			path = "Network Manager";
+			sourceTree = "<group>";
+		};
+		0100D80C24CE52E400C9F9B5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
+				0100D7FB24CE301A00C9F9B5 /* CurrentlyViewController.swift */,
+				0100D7FD24CE302200C9F9B5 /* BaseViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,11 +252,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0100D7F924CE1C0600C9F9B5 /* GWNetworkManager.swift in Sources */,
+				0100D7F924CE1C0600C9F9B5 /* NetworkManager.swift in Sources */,
 				0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */,
 				0100D7FC24CE301A00C9F9B5 /* CurrentlyViewController.swift in Sources */,
+				0100D80624CE4F3700C9F9B5 /* Unit.swift in Sources */,
+				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
 				0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */,
+				0100D80424CE4F2000C9F9B5 /* RequestURL.swift in Sources */,
 				0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */,
 				0100D7D624CE1A8200C9F9B5 /* SceneDelegate.swift in Sources */,
 				0100D7FE24CE302200C9F9B5 /* BaseViewController.swift in Sources */,

@@ -22,6 +22,8 @@
 		0100D80624CE4F3700C9F9B5 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80524CE4F3700C9F9B5 /* Unit.swift */; };
 		0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */; };
 		0100D80E24CE537E00C9F9B5 /* ControllerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80D24CE537E00C9F9B5 /* ControllerViewCell.swift */; };
+		0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */; };
+		0100D81224CE5F5600C9F9B5 /* LevelThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		0100D80524CE4F3700C9F9B5 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		0100D80D24CE537E00C9F9B5 /* ControllerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerViewCell.swift; sourceTree = "<group>"; };
+		0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoView.swift; sourceTree = "<group>"; };
+		0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,8 @@
 			children = (
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
 				0100D7FB24CE301A00C9F9B5 /* LevelOneView.swift */,
+				0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */,
+				0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */,
 				0100D7FD24CE302200C9F9B5 /* BaseView.swift */,
 				0100D80D24CE537E00C9F9B5 /* ControllerViewCell.swift */,
 			);
@@ -260,12 +266,14 @@
 				0100D80E24CE537E00C9F9B5 /* ControllerViewCell.swift in Sources */,
 				0100D7FC24CE301A00C9F9B5 /* LevelOneView.swift in Sources */,
 				0100D80624CE4F3700C9F9B5 /* Unit.swift in Sources */,
+				0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
 				0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */,
 				0100D80424CE4F2000C9F9B5 /* RequestURL.swift in Sources */,
 				0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */,
 				0100D7D624CE1A8200C9F9B5 /* SceneDelegate.swift in Sources */,
+				0100D81224CE5F5600C9F9B5 /* LevelThreeView.swift in Sources */,
 				0100D7FE24CE302200C9F9B5 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

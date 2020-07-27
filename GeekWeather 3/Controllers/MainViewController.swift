@@ -16,19 +16,19 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     private var levelOneView: LevelOneView?
     private var levelTwoView: LevelTwoView?
+    private var levelThreeView: LevelThreeView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContainerViews()
         setupCollectionView()
-        
     }
     
     private func setupContainerViews() {
         levelOneView = LevelOneView(frame: .zero)
         levelTwoView = LevelTwoView(frame: .zero)
-        
-        views = [levelOneView!, levelTwoView!]
+        levelThreeView = LevelThreeView(frame: .zero)
+        views = [levelOneView!, levelTwoView!, levelThreeView!]
         collectionView?.reloadData()
     }
     
@@ -56,6 +56,14 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         view.layoutIfNeeded()
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.alpha = 0
+        
+        UIView.animate(withDuration: 0.8) {
+            cell.alpha = 1
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -1,5 +1,5 @@
 //
-//  CurrentlyViewController.swift
+//  LevelTwoView.swift
 //  GeekWeather 3
 //
 //  Created by Cyril Garcia on 7/26/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class LevelOneView: BaseView {
+final class LevelTwoView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +23,7 @@ final class LevelOneView: BaseView {
     
     private func initUI() {
         let label = UILabel(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
-        label.backgroundColor = .red
+        label.backgroundColor = .blue
         addSubview(label)
     }
     

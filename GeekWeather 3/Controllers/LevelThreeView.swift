@@ -10,9 +10,10 @@ import UIKit
 
 final class LevelThreeView: BaseView {
     let label = UILabel(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-//        notificationManager.listen(for: Observe.data.currentWeatherData, in: self)
+ 
+    init() {
+        super.init(frame: .zero)
+        //        notificationManager.listen(for: Observe.data.currentWeatherData, in: self)
         backgroundColor = .white
         initUI()
     }
@@ -28,5 +29,13 @@ final class LevelThreeView: BaseView {
     }
     
     override func update(from notification: NSNotification) {}
+    
+    override func animate() {
+        label.alpha = 0
+        
+        UIView.animate(withDuration: 0.8) {
+            self.label.alpha = 1
+        }
+    }
 }
 

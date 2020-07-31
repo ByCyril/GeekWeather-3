@@ -24,6 +24,8 @@
 		0100D80E24CE537E00C9F9B5 /* ControllerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80D24CE537E00C9F9B5 /* ControllerViewCell.swift */; };
 		0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */; };
 		0100D81224CE5F5600C9F9B5 /* LevelThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */; };
+		014D2A3424D3F2AD0038623E /* NVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014D2A3024D3F2A60038623E /* NVFoundation.framework */; };
+		014D2A3524D3F2AD0038623E /* NVFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 014D2A3024D3F2A60038623E /* NVFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +36,35 @@
 			remoteGlobalIDString = 0100D7CF24CE1A8200C9F9B5;
 			remoteInfo = "GeekWeather 3";
 		};
+		014D2A2F24D3F2A60038623E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 014D2A2A24D3F2A60038623E /* NVFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 010B54CB23B4B11900966E10;
+			remoteInfo = NVFoundation;
+		};
+		014D2A3124D3F2A60038623E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 014D2A2A24D3F2A60038623E /* NVFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 010B54D423B4B11900966E10;
+			remoteInfo = NVFoundationTests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		014D2A3624D3F2AE0038623E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				014D2A3524D3F2AD0038623E /* NVFoundation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0100D7D024CE1A8200C9F9B5 /* GeekWeather 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekWeather 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +88,7 @@
 		0100D80D24CE537E00C9F9B5 /* ControllerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerViewCell.swift; sourceTree = "<group>"; };
 		0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoView.swift; sourceTree = "<group>"; };
 		0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeView.swift; sourceTree = "<group>"; };
+		014D2A2A24D3F2A60038623E /* NVFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NVFoundation.xcodeproj; path = ../../../Xcode/NVFoundation/NVFoundation.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				014D2A3424D3F2AD0038623E /* NVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,9 +113,11 @@
 		0100D7C724CE1A8100C9F9B5 = {
 			isa = PBXGroup;
 			children = (
+				014D2A2A24D3F2A60038623E /* NVFoundation.xcodeproj */,
 				0100D7D224CE1A8200C9F9B5 /* GeekWeather 3 */,
 				0100D7E924CE1A8300C9F9B5 /* GeekWeather 3Tests */,
 				0100D7D124CE1A8200C9F9B5 /* Products */,
+				014D2A3324D3F2AD0038623E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +195,22 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		014D2A2B24D3F2A60038623E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				014D2A3024D3F2A60038623E /* NVFoundation.framework */,
+				014D2A3224D3F2A60038623E /* NVFoundationTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		014D2A3324D3F2AD0038623E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,6 +221,7 @@
 				0100D7CC24CE1A8200C9F9B5 /* Sources */,
 				0100D7CD24CE1A8200C9F9B5 /* Frameworks */,
 				0100D7CE24CE1A8200C9F9B5 /* Resources */,
+				014D2A3624D3F2AE0038623E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,6 +280,12 @@
 			mainGroup = 0100D7C724CE1A8100C9F9B5;
 			productRefGroup = 0100D7D124CE1A8200C9F9B5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 014D2A2B24D3F2A60038623E /* Products */;
+					ProjectRef = 014D2A2A24D3F2A60038623E /* NVFoundation.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0100D7CF24CE1A8200C9F9B5 /* GeekWeather 3 */,
@@ -236,6 +293,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		014D2A3024D3F2A60038623E /* NVFoundation.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NVFoundation.framework;
+			remoteRef = 014D2A2F24D3F2A60038623E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		014D2A3224D3F2A60038623E /* NVFoundationTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NVFoundationTests.xctest;
+			remoteRef = 014D2A3124D3F2A60038623E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0100D7CE24CE1A8200C9F9B5 /* Resources */ = {

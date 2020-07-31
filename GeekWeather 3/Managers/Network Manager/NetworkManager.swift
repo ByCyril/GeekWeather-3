@@ -27,6 +27,10 @@ final class NetworkManager {
                 do {
                     let _ = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject]
                     
+                    DispatchQueue.main.async { [weak self] in
+                        self?.notificationManager.post(data: ["currentWeather":""],
+                                                       to: Observe.data.currentWeatherData)
+                    }
                 } catch {
                     print("error")
                 }

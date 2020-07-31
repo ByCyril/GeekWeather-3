@@ -22,5 +22,6 @@ class BaseView: UIView, NotificationManagerDelegate {
     }
 
     func update(from notification: NSNotification) {}
+    func animate() {}
      
 }

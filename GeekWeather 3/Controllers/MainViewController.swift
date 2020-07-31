@@ -12,11 +12,13 @@ import CoreLocation
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   
     private var collectionView: UICollectionView?
-    private var views: [UIView]?
+    private var views: [BaseView]?
     
-    private var levelOneView: LevelOneView?
-    private var levelTwoView: LevelTwoView?
-    private var levelThreeView: LevelThreeView?
+    private var levelOneView = LevelOneView()
+    private var levelTwoView = LevelTwoView()
+    private var levelThreeView = LevelThreeView()
+    
+    private var networkManager: NetworkManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +26,19 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         setupCollectionView()
     }
     
+    private func networkCall() {
+        
+//        let config = URLSessionConfiguration.default
+//        config.timeoutIntervalForRequest = 5
+//        let session = URLSession(configuration: config)
+//        networkManager = NetworkManager(session)
+        
+//        let requestUrl = RequestURL(location: <#T##CLLocation#>, unit: <#T##Unit#>)
+//        networkManager?.fetch(<#T##param: RequestURL##RequestURL#>)
+    }
+    
     private func setupContainerViews() {
-        levelOneView = LevelOneView(frame: .zero)
-        levelTwoView = LevelTwoView(frame: .zero)
-        levelThreeView = LevelThreeView(frame: .zero)
-        views = [levelOneView!, levelTwoView!, levelThreeView!]
+        views = [levelOneView, levelTwoView, levelThreeView]
         collectionView?.reloadData()
     }
     
@@ -62,23 +72,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        if indexPath.row == 0 {
-            levelOneView?.label.alpha = 0
-            UIView.animate(withDuration: 0.8) {
-                self.levelOneView?.label.alpha = 1
-            }
-        } else if indexPath.row == 1 {
-            levelTwoView?.label.alpha = 0
-            UIView.animate(withDuration: 0.8) {
-                self.levelTwoView?.label.alpha = 1
-            }
-        } else if indexPath.row == 2 {
-            levelThreeView?.label.alpha = 0
-            UIView.animate(withDuration: 0.8) {
-                self.levelThreeView?.label.alpha = 1
-            }
-        }
-        
+        let levelView = views![indexPath.row]
+        levelView.animate()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

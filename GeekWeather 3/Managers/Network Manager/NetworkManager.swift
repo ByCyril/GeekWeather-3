@@ -6,7 +6,6 @@
 //  Copyright © 2020 ByCyril. All rights reserved.
 //
 
-import CoreLocation
 import UIKit
 
 final class NetworkManager {
@@ -22,14 +21,22 @@ final class NetworkManager {
     
     func fetch(_ param: RequestURL) {
         
-        let task = session.dataTask(with: param.requestUrl()) { (data, response, error) in
+        let task = session.dataTask(with: param.url) { (data, response, error) in
             if let data = data {
                 do {
-                    let _ = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject]
+                    let _ = try JSONSerialization.jsonObject(with: data,
+                                                             options: .mutableContainers) as? [String: AnyObject]
                     
                     DispatchQueue.main.async { [weak self] in
-                        self?.notificationManager.post(data: ["currentWeather":""],
-                                                       to: Observe.data.currentWeatherData)
+                        let currently = Currently(timestamp: 0.0)
+                        let daily = Daily(timestamp: 0.0)
+                        let hourly = Hourly(timestamp: 0.0)
+                        let weatherData = Weather(currently: currently, daily: daily, hourly: hourly)
+                        
+                        let data: [AnyHashable: Any] = [Observe.data.response.rawValue: weatherData]
+                        
+                        self?.notificationManager.post(data: data,
+                                                       to: Observe.data.response)
                     }
                 } catch {
                     print("error")

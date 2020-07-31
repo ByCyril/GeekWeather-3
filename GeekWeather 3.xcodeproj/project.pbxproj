@@ -26,6 +26,10 @@
 		0100D81224CE5F5600C9F9B5 /* LevelThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */; };
 		014D2A3424D3F2AD0038623E /* NVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014D2A3024D3F2A60038623E /* NVFoundation.framework */; };
 		014D2A3524D3F2AD0038623E /* NVFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 014D2A3024D3F2A60038623E /* NVFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		014D2A3824D3F39B0038623E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3724D3F39B0038623E /* Weather.swift */; };
+		014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3924D3F6090038623E /* LocationManager.swift */; };
+		014D2A3C24D3F64A0038623E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3B24D3F64A0038623E /* Location.swift */; };
+		014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +93,10 @@
 		0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoView.swift; sourceTree = "<group>"; };
 		0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeView.swift; sourceTree = "<group>"; };
 		014D2A2A24D3F2A60038623E /* NVFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NVFoundation.xcodeproj; path = ../../../Xcode/NVFoundation/NVFoundation.xcodeproj; sourceTree = "<group>"; };
+		014D2A3724D3F39B0038623E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		014D2A3924D3F6090038623E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		014D2A3B24D3F64A0038623E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerAuthorizationStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +167,7 @@
 			children = (
 				0100D80B24CE52C100C9F9B5 /* Network Manager */,
 				0100D80A24CE52B600C9F9B5 /* Notification Manager */,
+				014D2A3D24D3F7550038623E /* Location Manager */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -178,6 +187,7 @@
 				0100D7F824CE1C0600C9F9B5 /* NetworkManager.swift */,
 				0100D80324CE4F2000C9F9B5 /* RequestURL.swift */,
 				0100D80524CE4F3700C9F9B5 /* Unit.swift */,
+				014D2A3724D3F39B0038623E /* Weather.swift */,
 			);
 			path = "Network Manager";
 			sourceTree = "<group>";
@@ -209,6 +219,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		014D2A3D24D3F7550038623E /* Location Manager */ = {
+			isa = PBXGroup;
+			children = (
+				014D2A3924D3F6090038623E /* LocationManager.swift */,
+				014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */,
+				014D2A3B24D3F64A0038623E /* Location.swift */,
+			);
+			path = "Location Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,7 +359,11 @@
 				0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */,
 				0100D80E24CE537E00C9F9B5 /* ControllerViewCell.swift in Sources */,
 				0100D7FC24CE301A00C9F9B5 /* LevelOneView.swift in Sources */,
+				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,
+				014D2A3C24D3F64A0038623E /* Location.swift in Sources */,
+				014D2A3824D3F39B0038623E /* Weather.swift in Sources */,
 				0100D80624CE4F3700C9F9B5 /* Unit.swift in Sources */,
+				014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */,
 				0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,

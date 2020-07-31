@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreLocation
 
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   
@@ -19,6 +18,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private var levelThreeView = LevelThreeView()
     
     private var networkManager: NetworkManager?
+    private var locationManager: LocationManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -6,13 +6,12 @@
 //  Copyright © 2020 ByCyril. All rights reserved.
 //
 
-import CoreLocation
 import Foundation
 
 struct RequestURL {
     var base = "https://api.openweathermap.org/data/2.5/onecall"
 
-    var location: CLLocation
+    var location: Location
     var unit: Unit
     
     var appId = "appid=79048569b8ad1fa5c026d1be99adc0cd" {
@@ -26,10 +25,10 @@ struct RequestURL {
             exclude = "exclude=\(exclude)"
         }
     }
-        
-    func requestUrl() -> URL {
-        let lon = "lon=\(location.coordinate.longitude)"
-        let lat = "lat=\(location.coordinate.latitude)"
+    
+    var url: URL {
+        let lon = "lon=" + location.longitude
+        let lat = "lat=" + location.latitude
         return URL(string: "\(base)?\(lat)&\(lon)&\(appId)&\(unit.rawValue)&\(exclude)")!
     }
 }

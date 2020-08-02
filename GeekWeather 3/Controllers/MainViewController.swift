@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import NVFoundation
+import CoreLocation
 
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   
@@ -22,19 +24,18 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupContainerViews()
-        setupCollectionView()
+//        setupContainerViews()
+//        setupCollectionView()
+        networkCall()
     }
     
     private func networkCall() {
         
-//        let config = URLSessionConfiguration.default
-//        config.timeoutIntervalForRequest = 5
-//        let session = URLSession(configuration: config)
-//        networkManager = NetworkManager(session)
+        networkManager = NetworkManager(self)
         
-//        let requestUrl = RequestURL(location: <#T##CLLocation#>, unit: <#T##Unit#>)
-//        networkManager?.fetch(<#T##param: RequestURL##RequestURL#>)
+        let url = RequestURL(location: CLLocation(latitude: 37.3482, longitude: -121.8164), .imperial)
+        print(url.url.absoluteString)
+//        networkManager?.fetch(url)
     }
     
     private func setupContainerViews() {
@@ -90,4 +91,16 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return cell
     }
     
+}
+
+extension MainViewController: NetworkManagerDelegate {
+    func didReceiveError(_ error: Error?) {
+        print(error?.localizedDescription)
+    }
+    
+    
+    func didFinishFetching(_ currently: Currently, _ hourly: [Hourly], _ daily: [Daily]) {
+        
+    }
+
 }

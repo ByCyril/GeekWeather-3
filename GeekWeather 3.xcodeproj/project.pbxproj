@@ -13,20 +13,16 @@
 		0100D7DD24CE1A8300C9F9B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
 		0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DE24CE1A8300C9F9B5 /* LaunchScreen.storyboard */; };
 		0100D7EB24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7EA24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift */; };
-		0100D7F924CE1C0600C9F9B5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7F824CE1C0600C9F9B5 /* NetworkManager.swift */; };
 		0100D7FC24CE301A00C9F9B5 /* LevelOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7FB24CE301A00C9F9B5 /* LevelOneView.swift */; };
 		0100D7FE24CE302200C9F9B5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7FD24CE302200C9F9B5 /* BaseView.swift */; };
 		0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */; };
 		0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80124CE46A200C9F9B5 /* NotificationNames.swift */; };
-		0100D80424CE4F2000C9F9B5 /* RequestURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80324CE4F2000C9F9B5 /* RequestURL.swift */; };
-		0100D80624CE4F3700C9F9B5 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80524CE4F3700C9F9B5 /* Unit.swift */; };
 		0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */; };
 		0100D80E24CE537E00C9F9B5 /* ControllerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80D24CE537E00C9F9B5 /* ControllerViewCell.swift */; };
 		0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */; };
 		0100D81224CE5F5600C9F9B5 /* LevelThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */; };
 		014D2A3424D3F2AD0038623E /* NVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014D2A3024D3F2A60038623E /* NVFoundation.framework */; };
 		014D2A3524D3F2AD0038623E /* NVFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 014D2A3024D3F2A60038623E /* NVFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		014D2A3824D3F39B0038623E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3724D3F39B0038623E /* Weather.swift */; };
 		014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3924D3F6090038623E /* LocationManager.swift */; };
 		014D2A3C24D3F64A0038623E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3B24D3F64A0038623E /* Location.swift */; };
 		014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */; };
@@ -81,19 +77,15 @@
 		0100D7E624CE1A8300C9F9B5 /* GeekWeather 3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GeekWeather 3Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0100D7EA24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekWeather_3Tests.swift; sourceTree = "<group>"; };
 		0100D7EC24CE1A8300C9F9B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0100D7F824CE1C0600C9F9B5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0100D7FB24CE301A00C9F9B5 /* LevelOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneView.swift; sourceTree = "<group>"; };
 		0100D7FD24CE302200C9F9B5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		0100D80124CE46A200C9F9B5 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
-		0100D80324CE4F2000C9F9B5 /* RequestURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestURL.swift; sourceTree = "<group>"; };
-		0100D80524CE4F3700C9F9B5 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		0100D80D24CE537E00C9F9B5 /* ControllerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerViewCell.swift; sourceTree = "<group>"; };
 		0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoView.swift; sourceTree = "<group>"; };
 		0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeView.swift; sourceTree = "<group>"; };
 		014D2A2A24D3F2A60038623E /* NVFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NVFoundation.xcodeproj; path = ../../../Xcode/NVFoundation/NVFoundation.xcodeproj; sourceTree = "<group>"; };
-		014D2A3724D3F39B0038623E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		014D2A3924D3F6090038623E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		014D2A3B24D3F64A0038623E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerAuthorizationStatus.swift; sourceTree = "<group>"; };
@@ -165,7 +157,6 @@
 		0100D80924CE52AF00C9F9B5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				0100D80B24CE52C100C9F9B5 /* Network Manager */,
 				0100D80A24CE52B600C9F9B5 /* Notification Manager */,
 				014D2A3D24D3F7550038623E /* Location Manager */,
 			);
@@ -179,17 +170,6 @@
 				0100D80124CE46A200C9F9B5 /* NotificationNames.swift */,
 			);
 			path = "Notification Manager";
-			sourceTree = "<group>";
-		};
-		0100D80B24CE52C100C9F9B5 /* Network Manager */ = {
-			isa = PBXGroup;
-			children = (
-				0100D7F824CE1C0600C9F9B5 /* NetworkManager.swift */,
-				0100D80324CE4F2000C9F9B5 /* RequestURL.swift */,
-				0100D80524CE4F3700C9F9B5 /* Unit.swift */,
-				014D2A3724D3F39B0038623E /* Weather.swift */,
-			);
-			path = "Network Manager";
 			sourceTree = "<group>";
 		};
 		0100D80C24CE52E400C9F9B5 /* Controllers */ = {
@@ -355,20 +335,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0100D7F924CE1C0600C9F9B5 /* NetworkManager.swift in Sources */,
 				0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */,
 				0100D80E24CE537E00C9F9B5 /* ControllerViewCell.swift in Sources */,
 				0100D7FC24CE301A00C9F9B5 /* LevelOneView.swift in Sources */,
 				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,
 				014D2A3C24D3F64A0038623E /* Location.swift in Sources */,
-				014D2A3824D3F39B0038623E /* Weather.swift in Sources */,
-				0100D80624CE4F3700C9F9B5 /* Unit.swift in Sources */,
 				014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */,
 				0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
 				0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */,
-				0100D80424CE4F2000C9F9B5 /* RequestURL.swift in Sources */,
 				0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */,
 				0100D7D624CE1A8200C9F9B5 /* SceneDelegate.swift in Sources */,
 				0100D81224CE5F5600C9F9B5 /* LevelThreeView.swift in Sources */,

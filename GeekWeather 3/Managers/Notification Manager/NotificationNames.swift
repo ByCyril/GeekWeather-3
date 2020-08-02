@@ -11,7 +11,6 @@ import UIKit
 final class Observe {
     static let data = Data()
     static let state = State()
-    static let error = Error()
 }
 
 class NotificationName {
@@ -27,13 +26,11 @@ final class State: NotificationName {
 //    MARK: Network
     let networkTimedOut = observerID("NetworkTimedOut")
     
+//    MARK: Error
+    let locationPermissionDenied = observerID("permission_denied")
 }
 
 final class Data: NotificationName {
     let response = observerID("weather_response")
     let location = observerID("location_response")
-}
-
-final class Error: NotificationName {
-    let locationPermissionDenied = observerID("permission_denied")
 }

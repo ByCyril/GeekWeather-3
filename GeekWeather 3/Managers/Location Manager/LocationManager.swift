@@ -53,7 +53,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     
     private func denied() {
         let data: [AnyHashable: Any] = ["error": "Permission Denied"]
-        notificationManager.post(data: data, to: Observe.error.locationPermissionDenied)
+        notificationManager.post(data: data, to: Observe.state.locationPermissionDenied)
     }
     
     private func notDetermined() {

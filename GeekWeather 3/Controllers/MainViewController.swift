@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import NVFoundation
+import GWFoundation
 import CoreLocation
 
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -24,18 +24,16 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupContainerViews()
-//        setupCollectionView()
-        networkCall()
+        setupContainerViews()
+        setupCollectionView()
+//        networkCall()
     }
     
     private func networkCall() {
         
         networkManager = NetworkManager(self)
-        
         let url = RequestURL(location: CLLocation(latitude: 37.3482, longitude: -121.8164), .imperial)
-        print(url.url.absoluteString)
-//        networkManager?.fetch(url)
+        networkManager?.fetch(url)
     }
     
     private func setupContainerViews() {
@@ -94,13 +92,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 }
 
 extension MainViewController: NetworkManagerDelegate {
+    func didFinishFetching(_ weatherModel: WeatherModel) {
+        
+    }
+    
     func didReceiveError(_ error: Error?) {
         print(error?.localizedDescription)
     }
-    
-    
-    func didFinishFetching(_ currently: Currently, _ hourly: [Hourly], _ daily: [Daily]) {
-        
-    }
+ 
 
 }

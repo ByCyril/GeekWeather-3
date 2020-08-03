@@ -20,6 +20,12 @@ class BaseView: UIView, NotificationManagerDelegate {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func applyAccessibility(to view: UIView, with label: String, trait: UIAccessibilityTraits) {
+        view.isAccessibilityElement = true
+        view.accessibilityLabel = label
+        view.accessibilityTraits = trait
+    }
 
     func update(from notification: NSNotification) {}
     func animate() {}

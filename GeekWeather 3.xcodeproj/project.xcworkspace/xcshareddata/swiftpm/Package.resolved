@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "GWFoundation",
+        "repositoryURL": "https://github.com/ByCyril/GWFoundation.git",
+        "state": {
+          "branch": null,
+          "revision": "e97e440da9b7faed46bfec81f957acd132dba930",
+          "version": "1.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

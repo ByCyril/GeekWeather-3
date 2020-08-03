@@ -26,6 +26,8 @@ final class LevelOneView: BaseView {
         
         label.backgroundColor = .red
         addSubview(label)
+        
+        applyAccessibility(to: label, with: "temp", trait: .none)
     }
     
     override func update(from notification: NSNotification) {}

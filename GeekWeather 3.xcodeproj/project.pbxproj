@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,11 +21,11 @@
 		0100D80E24CE537E00C9F9B5 /* ControllerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80D24CE537E00C9F9B5 /* ControllerViewCell.swift */; };
 		0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */; };
 		0100D81224CE5F5600C9F9B5 /* LevelThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */; };
-		014D2A3424D3F2AD0038623E /* NVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014D2A3024D3F2A60038623E /* NVFoundation.framework */; };
-		014D2A3524D3F2AD0038623E /* NVFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 014D2A3024D3F2A60038623E /* NVFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3924D3F6090038623E /* LocationManager.swift */; };
 		014D2A3C24D3F64A0038623E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3B24D3F64A0038623E /* Location.swift */; };
 		014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */; };
+		0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185665A24D767050035BF59 /* AccessibilityFactory.swift */; };
+		0185666124D774FE0035BF59 /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0185666024D774FE0035BF59 /* GWFoundation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,20 +36,6 @@
 			remoteGlobalIDString = 0100D7CF24CE1A8200C9F9B5;
 			remoteInfo = "GeekWeather 3";
 		};
-		014D2A2F24D3F2A60038623E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 014D2A2A24D3F2A60038623E /* NVFoundation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 010B54CB23B4B11900966E10;
-			remoteInfo = NVFoundation;
-		};
-		014D2A3124D3F2A60038623E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 014D2A2A24D3F2A60038623E /* NVFoundation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 010B54D423B4B11900966E10;
-			remoteInfo = NVFoundationTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,7 +45,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				014D2A3524D3F2AD0038623E /* NVFoundation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,10 +70,10 @@
 		0100D80D24CE537E00C9F9B5 /* ControllerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerViewCell.swift; sourceTree = "<group>"; };
 		0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoView.swift; sourceTree = "<group>"; };
 		0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeView.swift; sourceTree = "<group>"; };
-		014D2A2A24D3F2A60038623E /* NVFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NVFoundation.xcodeproj; path = ../../../Xcode/NVFoundation/NVFoundation.xcodeproj; sourceTree = "<group>"; };
 		014D2A3924D3F6090038623E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		014D2A3B24D3F64A0038623E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerAuthorizationStatus.swift; sourceTree = "<group>"; };
+		0185665A24D767050035BF59 /* AccessibilityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				014D2A3424D3F2AD0038623E /* NVFoundation.framework in Frameworks */,
+				0185666124D774FE0035BF59 /* GWFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,11 +98,9 @@
 		0100D7C724CE1A8100C9F9B5 = {
 			isa = PBXGroup;
 			children = (
-				014D2A2A24D3F2A60038623E /* NVFoundation.xcodeproj */,
 				0100D7D224CE1A8200C9F9B5 /* GeekWeather 3 */,
 				0100D7E924CE1A8300C9F9B5 /* GeekWeather 3Tests */,
 				0100D7D124CE1A8200C9F9B5 /* Products */,
-				014D2A3324D3F2AD0038623E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +119,7 @@
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
 				0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */,
+				0185665A24D767050035BF59 /* AccessibilityFactory.swift */,
 				0100D80924CE52AF00C9F9B5 /* Managers */,
 				0100D80C24CE52E400C9F9B5 /* Controllers */,
 				0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */,
@@ -185,22 +169,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		014D2A2B24D3F2A60038623E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				014D2A3024D3F2A60038623E /* NVFoundation.framework */,
-				014D2A3224D3F2A60038623E /* NVFoundationTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		014D2A3324D3F2AD0038623E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		014D2A3D24D3F7550038623E /* Location Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +196,9 @@
 			dependencies = (
 			);
 			name = "GeekWeather 3";
+			packageProductDependencies = (
+				0185666024D774FE0035BF59 /* GWFoundation */,
+			);
 			productName = "GeekWeather 3";
 			productReference = 0100D7D024CE1A8200C9F9B5 /* GeekWeather 3.app */;
 			productType = "com.apple.product-type.application";
@@ -278,14 +249,11 @@
 				Base,
 			);
 			mainGroup = 0100D7C724CE1A8100C9F9B5;
+			packageReferences = (
+				0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */,
+			);
 			productRefGroup = 0100D7D124CE1A8200C9F9B5 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 014D2A2B24D3F2A60038623E /* Products */;
-					ProjectRef = 014D2A2A24D3F2A60038623E /* NVFoundation.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				0100D7CF24CE1A8200C9F9B5 /* GeekWeather 3 */,
@@ -293,23 +261,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		014D2A3024D3F2A60038623E /* NVFoundation.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = NVFoundation.framework;
-			remoteRef = 014D2A2F24D3F2A60038623E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		014D2A3224D3F2A60038623E /* NVFoundationTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = NVFoundationTests.xctest;
-			remoteRef = 014D2A3124D3F2A60038623E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0100D7CE24CE1A8200C9F9B5 /* Resources */ = {
@@ -343,6 +294,7 @@
 				014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */,
 				0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
+				0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
 				0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */,
 				0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */,
@@ -609,6 +561,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ByCyril/GWFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0185666024D774FE0035BF59 /* GWFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */;
+			productName = GWFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0100D7C824CE1A8100C9F9B5 /* Project object */;
 }

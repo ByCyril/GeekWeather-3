@@ -24,6 +24,11 @@
 		014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3924D3F6090038623E /* LocationManager.swift */; };
 		014D2A3C24D3F64A0038623E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3B24D3F64A0038623E /* Location.swift */; };
 		014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */; };
+		0169433D24DA887B006A7FAA /* LocationManegerDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169433C24DA887B006A7FAA /* LocationManegerDelegateManager.swift */; };
+		016BB85D24DA847900206C23 /* CollectionViewDataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BB85C24DA847900206C23 /* CollectionViewDataSourceManager.swift */; };
+		016BB85F24DA855C00206C23 /* CollectionViewDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BB85E24DA855C00206C23 /* CollectionViewDelegateManager.swift */; };
+		016BB86224DA85FC00206C23 /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BB86124DA85FC00206C23 /* CollectionViewManager.swift */; };
+		016BB86424DA871700206C23 /* NetworkManagerDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BB86324DA871700206C23 /* NetworkManagerDelegateManager.swift */; };
 		0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185665A24D767050035BF59 /* AccessibilityFactory.swift */; };
 		0185666124D774FE0035BF59 /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0185666024D774FE0035BF59 /* GWFoundation */; };
 /* End PBXBuildFile section */
@@ -73,6 +78,11 @@
 		014D2A3924D3F6090038623E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		014D2A3B24D3F64A0038623E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerAuthorizationStatus.swift; sourceTree = "<group>"; };
+		0169433C24DA887B006A7FAA /* LocationManegerDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManegerDelegateManager.swift; sourceTree = "<group>"; };
+		016BB85C24DA847900206C23 /* CollectionViewDataSourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSourceManager.swift; sourceTree = "<group>"; };
+		016BB85E24DA855C00206C23 /* CollectionViewDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegateManager.swift; sourceTree = "<group>"; };
+		016BB86124DA85FC00206C23 /* CollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewManager.swift; sourceTree = "<group>"; };
+		016BB86324DA871700206C23 /* NetworkManagerDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerDelegateManager.swift; sourceTree = "<group>"; };
 		0185665A24D767050035BF59 /* AccessibilityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,8 +151,11 @@
 		0100D80924CE52AF00C9F9B5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				016BB86324DA871700206C23 /* NetworkManagerDelegateManager.swift */,
+				0169433C24DA887B006A7FAA /* LocationManegerDelegateManager.swift */,
 				0100D80A24CE52B600C9F9B5 /* Notification Manager */,
 				014D2A3D24D3F7550038623E /* Location Manager */,
+				016BB86024DA858000206C23 /* CollectionView Manager */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -177,6 +190,16 @@
 				014D2A3B24D3F64A0038623E /* Location.swift */,
 			);
 			path = "Location Manager";
+			sourceTree = "<group>";
+		};
+		016BB86024DA858000206C23 /* CollectionView Manager */ = {
+			isa = PBXGroup;
+			children = (
+				016BB86124DA85FC00206C23 /* CollectionViewManager.swift */,
+				016BB85C24DA847900206C23 /* CollectionViewDataSourceManager.swift */,
+				016BB85E24DA855C00206C23 /* CollectionViewDelegateManager.swift */,
+			);
+			path = "CollectionView Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,16 +312,21 @@
 				0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */,
 				0100D80E24CE537E00C9F9B5 /* ControllerViewCell.swift in Sources */,
 				0100D7FC24CE301A00C9F9B5 /* LevelOneView.swift in Sources */,
+				016BB86424DA871700206C23 /* NetworkManagerDelegateManager.swift in Sources */,
 				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,
 				014D2A3C24D3F64A0038623E /* Location.swift in Sources */,
 				014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */,
 				0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */,
+				016BB85D24DA847900206C23 /* CollectionViewDataSourceManager.swift in Sources */,
+				016BB86224DA85FC00206C23 /* CollectionViewManager.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
 				0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
+				016BB85F24DA855C00206C23 /* CollectionViewDelegateManager.swift in Sources */,
 				0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */,
 				0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */,
 				0100D7D624CE1A8200C9F9B5 /* SceneDelegate.swift in Sources */,
+				0169433D24DA887B006A7FAA /* LocationManegerDelegateManager.swift in Sources */,
 				0100D81224CE5F5600C9F9B5 /* LevelThreeView.swift in Sources */,
 				0100D7FE24CE302200C9F9B5 /* BaseView.swift in Sources */,
 			);

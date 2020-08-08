@@ -10,38 +10,50 @@ import UIKit
 import GWFoundation
 import CoreLocation
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-  
+class MainViewController: UIViewController {
+    
     private var collectionView: UICollectionView?
     private var views: [BaseView]?
     
-    private var levelOneView = LevelOneView()
-    private var levelTwoView = LevelTwoView()
-    private var levelThreeView = LevelThreeView()
+    private let levelOneView = LevelOneView()
+    private let levelTwoView = LevelTwoView()
+    private let levelThreeView = LevelThreeView()
     
     private var networkManager: NetworkManager?
     private var locationManager: LocationManager?
+    private var notificationManager: NotificationManager?
+    
+    private var collectionViewDataSourceManager: CollectionViewDataSourceManager?
+    private var collectionViewDelegateManager: CollectionViewDelegateManager?
+    
+    private let networkDelegateManager = NetworkManagerDelegateManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContainerViews()
+        setupLocationManager()
         setupCollectionView()
-//        networkCall()
+    }
+    
+    private func setupLocationManager() {
+        locationManager = LocationManager()
     }
     
     private func networkCall() {
         
-        networkManager = NetworkManager(self)
+        networkManager = NetworkManager(networkDelegateManager)
         let url = RequestURL(location: CLLocation(latitude: 37.3482, longitude: -121.8164), .imperial)
         networkManager?.fetch(url)
     }
     
     private func setupContainerViews() {
         views = [levelOneView, levelTwoView, levelThreeView]
-        collectionView?.reloadData()
     }
     
     private func setupCollectionView() {
+        collectionViewDataSourceManager = CollectionViewDataSourceManager(views!)
+        collectionViewDelegateManager = CollectionViewDelegateManager(views!)
+        
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.scrollDirection = .vertical
         collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -52,9 +64,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         collectionView?.register(ControllerViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
-        collectionView?.delegate = self
-        collectionView?.dataSource = self
+        collectionView?.delegate = collectionViewDelegateManager
+        collectionView?.dataSource = collectionViewDataSourceManager
         collectionView?.isPagingEnabled = true
+        collectionView?.reloadData()
+        
         guard let collectionView = collectionView else { return }
         
         view.addSubview(collectionView)
@@ -69,26 +83,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-        let levelView = views![indexPath.row]
-        levelView.animate()
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return views?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ControllerViewCell else { return ControllerViewCell() }
-        
-        guard let views = self.views else { return ControllerViewCell() }
-        
-        cell.initUI(views[indexPath.row])
-        
-        return cell
-    }
-    
 }
 
 extension MainViewController: NetworkManagerDelegate {
@@ -97,8 +91,17 @@ extension MainViewController: NetworkManagerDelegate {
     }
     
     func didReceiveError(_ error: Error?) {
-        print(error?.localizedDescription)
+        
     }
- 
+}
 
+extension MainViewController: LocationManagerDelegate {
+    func current(_ location: CLLocation) {
+        
+    }
+    
+    func location(_ errorMsg: String) {
+        
+    }
+    
 }

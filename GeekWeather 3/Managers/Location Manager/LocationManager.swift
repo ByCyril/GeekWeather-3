@@ -9,15 +9,31 @@
 import CoreLocation
 import UIKit
 
+protocol LocationManagerDelegate: AnyObject {
+    func current(_ location: CLLocation)
+    func location(_ errorMsg: String)
+}
+
 final class LocationManager: NSObject, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
     var notificationManager = NotificationManager()
     
+    weak var delegate: LocationManagerDelegate?
+    
     override init() {
         super.init()
         locationManager.delegate = self
         authorizationStatus()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        delegate?.location(error.localizedDescription)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+        delegate?.current(location)
     }
     
     func locationManager(_ manager: CLLocationManager,
@@ -29,9 +45,8 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
                              _ manager: CLLocationManager = CLLocationManager()) {
         
         switch status {
-        case .authorizedAlways:
-            authorizationEnabled(manager)
-        case .authorizedWhenInUse:
+        case .authorizedAlways,
+             .authorizedWhenInUse:
             authorizationEnabled(manager)
         case .denied:
             denied()
@@ -45,15 +60,15 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     private func authorizationEnabled(_ manager: CLLocationManager) {
-        guard let cllocation = manager.location else { return }
-        let location = Location(location: cllocation)
-        let data: [AnyHashable: Any] = [Observe.data.location: location]
-        notificationManager.post(data: data, to: Observe.data.location)
+        guard let location = manager.location else {
+//            unable to get location
+            return
+        }
+        delegate?.current(location)
     }
     
     private func denied() {
-        let data: [AnyHashable: Any] = ["error": "Permission Denied"]
-        notificationManager.post(data: data, to: Observe.state.locationPermissionDenied)
+        delegate?.location("Permission Denied")
     }
     
     private func notDetermined() {

@@ -18,9 +18,11 @@
 		0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */; };
 		0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80124CE46A200C9F9B5 /* NotificationNames.swift */; };
 		0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */; };
-		0100D80E24CE537E00C9F9B5 /* ControllerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80D24CE537E00C9F9B5 /* ControllerViewCell.swift */; };
+		0100D80E24CE537E00C9F9B5 /* MainControllerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80D24CE537E00C9F9B5 /* MainControllerViewCell.swift */; };
 		0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */; };
 		0100D81224CE5F5600C9F9B5 /* LevelThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */; };
+		01042C2A24EC8AB00090B349 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2924EC8AB00090B349 /* SettingsController.swift */; };
+		01042C2C24EC8FCF0090B349 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */; };
 		014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3924D3F6090038623E /* LocationManager.swift */; };
 		014D2A3C24D3F64A0038623E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3B24D3F64A0038623E /* Location.swift */; };
 		014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */; };
@@ -73,9 +75,11 @@
 		0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		0100D80124CE46A200C9F9B5 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		0100D80D24CE537E00C9F9B5 /* ControllerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerViewCell.swift; sourceTree = "<group>"; };
+		0100D80D24CE537E00C9F9B5 /* MainControllerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerViewCell.swift; sourceTree = "<group>"; };
 		0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoView.swift; sourceTree = "<group>"; };
 		0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeView.swift; sourceTree = "<group>"; };
+		01042C2924EC8AB00090B349 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		014D2A3924D3F6090038623E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		014D2A3B24D3F64A0038623E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerAuthorizationStatus.swift; sourceTree = "<group>"; };
@@ -176,15 +180,33 @@
 		0100D80C24CE52E400C9F9B5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
 				0169434024E244B2006A7FAA /* BaseViewController.swift */,
+				0100D7FD24CE302200C9F9B5 /* BaseView.swift */,
+				01042C2924EC8AB00090B349 /* SettingsController.swift */,
+				01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */,
+				01042C2724EC8A6A0090B349 /* Main Controller */,
+				01042C2824EC8A7F0090B349 /* Levels */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		01042C2724EC8A6A0090B349 /* Main Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0100D80D24CE537E00C9F9B5 /* MainControllerViewCell.swift */,
+				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
+			);
+			path = "Main Controller";
+			sourceTree = "<group>";
+		};
+		01042C2824EC8A7F0090B349 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
 				0100D7FB24CE301A00C9F9B5 /* LevelOneView.swift */,
 				0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */,
 				0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */,
-				0100D7FD24CE302200C9F9B5 /* BaseView.swift */,
-				0100D80D24CE537E00C9F9B5 /* ControllerViewCell.swift */,
 			);
-			path = Controllers;
+			path = Levels;
 			sourceTree = "<group>";
 		};
 		014D2A3D24D3F7550038623E /* Location Manager */ = {
@@ -314,8 +336,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01042C2C24EC8FCF0090B349 /* SettingsTableViewCell.swift in Sources */,
 				0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */,
-				0100D80E24CE537E00C9F9B5 /* ControllerViewCell.swift in Sources */,
+				0100D80E24CE537E00C9F9B5 /* MainControllerViewCell.swift in Sources */,
 				0100D7FC24CE301A00C9F9B5 /* LevelOneView.swift in Sources */,
 				016BB86424DA871700206C23 /* NetworkManagerDelegateManager.swift in Sources */,
 				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,
@@ -330,6 +353,7 @@
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
 				016BB85F24DA855C00206C23 /* CollectionViewDelegateManager.swift in Sources */,
 				0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */,
+				01042C2A24EC8AB00090B349 /* SettingsController.swift in Sources */,
 				0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */,
 				0100D7D624CE1A8200C9F9B5 /* SceneDelegate.swift in Sources */,
 				0169433D24DA887B006A7FAA /* LocationManegerDelegateManager.swift in Sources */,

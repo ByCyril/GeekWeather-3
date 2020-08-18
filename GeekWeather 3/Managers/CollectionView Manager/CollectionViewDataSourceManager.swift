@@ -15,7 +15,7 @@ final class CollectionViewDataSourceManager: CollectionViewManager, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ControllerViewCell else { return ControllerViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? MainControllerViewCell else { return MainControllerViewCell() }
                 
         cell.initUI(views[indexPath.row])
         

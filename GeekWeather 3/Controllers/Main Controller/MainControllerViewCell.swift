@@ -1,5 +1,5 @@
 //
-//  ControllerViewCell.swift
+//  MainControllerViewCell.swift
 //  GeekWeather 3
 //
 //  Created by Cyril Garcia on 7/26/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ControllerViewCell: UICollectionViewCell {
+final class MainControllerViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

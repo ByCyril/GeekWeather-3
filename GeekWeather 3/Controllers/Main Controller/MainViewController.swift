@@ -62,7 +62,7 @@ class MainViewController: BaseViewController {
         collectionViewLayout.minimumInteritemSpacing = 0
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-        collectionView?.register(ControllerViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView?.register(MainControllerViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         collectionView?.delegate = collectionViewDelegateManager
         collectionView?.dataSource = collectionViewDataSourceManager

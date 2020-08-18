@@ -25,6 +25,7 @@
 		014D2A3C24D3F64A0038623E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3B24D3F64A0038623E /* Location.swift */; };
 		014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */; };
 		0169433D24DA887B006A7FAA /* LocationManegerDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169433C24DA887B006A7FAA /* LocationManegerDelegateManager.swift */; };
+		0169434124E244B2006A7FAA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169434024E244B2006A7FAA /* BaseViewController.swift */; };
 		016BB85D24DA847900206C23 /* CollectionViewDataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BB85C24DA847900206C23 /* CollectionViewDataSourceManager.swift */; };
 		016BB85F24DA855C00206C23 /* CollectionViewDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BB85E24DA855C00206C23 /* CollectionViewDelegateManager.swift */; };
 		016BB86224DA85FC00206C23 /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BB86124DA85FC00206C23 /* CollectionViewManager.swift */; };
@@ -79,6 +80,8 @@
 		014D2A3B24D3F64A0038623E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerAuthorizationStatus.swift; sourceTree = "<group>"; };
 		0169433C24DA887B006A7FAA /* LocationManegerDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManegerDelegateManager.swift; sourceTree = "<group>"; };
+		0169434024E244B2006A7FAA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		0169434224E24974006A7FAA /* GeekWeather 3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GeekWeather 3.entitlements"; sourceTree = "<group>"; };
 		016BB85C24DA847900206C23 /* CollectionViewDataSourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSourceManager.swift; sourceTree = "<group>"; };
 		016BB85E24DA855C00206C23 /* CollectionViewDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegateManager.swift; sourceTree = "<group>"; };
 		016BB86124DA85FC00206C23 /* CollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewManager.swift; sourceTree = "<group>"; };
@@ -126,6 +129,7 @@
 		0100D7D224CE1A8200C9F9B5 /* GeekWeather 3 */ = {
 			isa = PBXGroup;
 			children = (
+				0169434224E24974006A7FAA /* GeekWeather 3.entitlements */,
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
 				0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */,
@@ -173,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
+				0169434024E244B2006A7FAA /* BaseViewController.swift */,
 				0100D7FB24CE301A00C9F9B5 /* LevelOneView.swift */,
 				0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */,
 				0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */,
@@ -314,6 +319,7 @@
 				0100D7FC24CE301A00C9F9B5 /* LevelOneView.swift in Sources */,
 				016BB86424DA871700206C23 /* NetworkManagerDelegateManager.swift in Sources */,
 				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,
+				0169434124E244B2006A7FAA /* BaseViewController.swift in Sources */,
 				014D2A3C24D3F64A0038623E /* Location.swift in Sources */,
 				014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */,
 				0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */,
@@ -480,6 +486,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "GeekWeather 3/GeekWeather 3.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R986STKYJ7;
 				INFOPLIST_FILE = "GeekWeather 3/Info.plist";
@@ -490,6 +497,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -499,6 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "GeekWeather 3/GeekWeather 3.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R986STKYJ7;
 				INFOPLIST_FILE = "GeekWeather 3/Info.plist";
@@ -509,6 +518,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

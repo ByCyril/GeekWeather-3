@@ -10,7 +10,7 @@ import UIKit
 import GWFoundation
 import CoreLocation
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
     
     private var collectionView: UICollectionView?
     private var views: [BaseView]?
@@ -96,12 +96,13 @@ extension MainViewController: NetworkManagerDelegate {
 }
 
 extension MainViewController: LocationManagerDelegate {
-    func current(_ location: CLLocation) {
+    func currentLocation(_ location: CLLocation) {
         
     }
     
-    func location(_ errorMsg: String) {
+    func locationError(_ errorMsg: String) {
         
     }
     
+        
 }

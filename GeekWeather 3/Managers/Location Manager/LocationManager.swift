@@ -10,8 +10,8 @@ import CoreLocation
 import UIKit
 
 protocol LocationManagerDelegate: AnyObject {
-    func current(_ location: CLLocation)
-    func location(_ errorMsg: String)
+    func currentLocation(_ location: CLLocation)
+    func locationError(_ errorMsg: String)
 }
 
 final class LocationManager: NSObject, CLLocationManagerDelegate {
@@ -28,12 +28,12 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        delegate?.location(error.localizedDescription)
+        delegate?.locationError(error.localizedDescription)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
-        delegate?.current(location)
+        delegate?.currentLocation(location)
     }
     
     func locationManager(_ manager: CLLocationManager,
@@ -64,11 +64,12 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
 //            unable to get location
             return
         }
-        delegate?.current(location)
+        delegate?.currentLocation(location)
     }
     
     private func denied() {
-        delegate?.location("Permission Denied")
+//        delegate?.location("Permission Denied")
+        delegate?.locationError("Permission Denied")
     }
     
     private func notDetermined() {

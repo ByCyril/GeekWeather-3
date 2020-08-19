@@ -35,8 +35,9 @@ final class SettingsController: BaseViewController, UITableViewDataSource, UITab
     
     override func initUI() {
         
-        cells.append(AboutSettingCell())
-        cells.append(AppIconSettingCell())
+        cells = [AboutSettingCell(),
+                 AppIconSettingCell(),
+                 DeveloperInfoCell()]
         
         view.addSubview(settingTableView)
         
@@ -67,4 +68,3 @@ final class SettingsController: BaseViewController, UITableViewDataSource, UITab
     }
     
 }
-

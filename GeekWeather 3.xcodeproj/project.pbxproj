@@ -37,6 +37,8 @@
 		016BB86424DA871700206C23 /* NetworkManagerDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BB86324DA871700206C23 /* NetworkManagerDelegateManager.swift */; };
 		0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185665A24D767050035BF59 /* AccessibilityFactory.swift */; };
 		0185666124D774FE0035BF59 /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0185666024D774FE0035BF59 /* GWFoundation */; };
+		01B1BEB424ED9B050081C90F /* DeveloperInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB324ED9B050081C90F /* DeveloperInfoCell.swift */; };
+		01B1BEB624ED9B640081C90F /* GenericWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB524ED9B640081C90F /* GenericWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,8 @@
 		016BB86124DA85FC00206C23 /* CollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewManager.swift; sourceTree = "<group>"; };
 		016BB86324DA871700206C23 /* NetworkManagerDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerDelegateManager.swift; sourceTree = "<group>"; };
 		0185665A24D767050035BF59 /* AccessibilityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityFactory.swift; sourceTree = "<group>"; };
+		01B1BEB324ED9B050081C90F /* DeveloperInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoCell.swift; sourceTree = "<group>"; };
+		01B1BEB524ED9B640081C90F /* GenericWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				01042C2924EC8AB00090B349 /* SettingsController.swift */,
+				01B1BEB524ED9B640081C90F /* GenericWebViewController.swift */,
 				01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */,
 				01042C3524ECDFB40090B349 /* SettingItems */,
 			);
@@ -229,6 +234,7 @@
 			children = (
 				01042C2E24ECDF510090B349 /* SettingCellFactory.swift */,
 				01042C3024ECDF660090B349 /* AboutSettingCell.swift */,
+				01B1BEB324ED9B050081C90F /* DeveloperInfoCell.swift */,
 				01042C3224ECDF850090B349 /* AppIconSettingCell.swift */,
 			);
 			path = SettingItems;
@@ -364,6 +370,7 @@
 				01042C2C24EC8FCF0090B349 /* SettingsTableViewCell.swift in Sources */,
 				0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */,
 				0100D80E24CE537E00C9F9B5 /* MainControllerViewCell.swift in Sources */,
+				01B1BEB624ED9B640081C90F /* GenericWebViewController.swift in Sources */,
 				0100D7FC24CE301A00C9F9B5 /* LevelOneView.swift in Sources */,
 				016BB86424DA871700206C23 /* NetworkManagerDelegateManager.swift in Sources */,
 				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,
@@ -375,6 +382,7 @@
 				0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */,
 				016BB85D24DA847900206C23 /* CollectionViewDataSourceManager.swift in Sources */,
 				016BB86224DA85FC00206C23 /* CollectionViewManager.swift in Sources */,
+				01B1BEB424ED9B050081C90F /* DeveloperInfoCell.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
 				0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,

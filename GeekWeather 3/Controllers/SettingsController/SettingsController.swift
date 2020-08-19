@@ -10,20 +10,6 @@ import UIKit
 
 final class SettingsController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
-        cell.iconImageView.image = UIImage(named: "geekweather")
-        cell.titleLabel.text = "\(Date().timeIntervalSince1970)"
-        return cell
-    }
-    
     private let settingTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +31,13 @@ final class SettingsController: BaseViewController, UITableViewDataSource, UITab
         settingTableView.dataSource = self
     }
     
+    var cells = [SettingCellFactory]()
+    
     override func initUI() {
+        
+        cells.append(AboutSettingCell())
+        cells.append(AppIconSettingCell())
+        
         view.addSubview(settingTableView)
         
         NSLayoutConstraint.activate([
@@ -58,5 +50,21 @@ final class SettingsController: BaseViewController, UITableViewDataSource, UITab
         view.layoutIfNeeded()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return  cells[indexPath.row].cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cells.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        cells[indexPath.row].performSelector(self)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return cells[indexPath.row].createCell(in: tableView, for: indexPath)
+    }
     
 }
+

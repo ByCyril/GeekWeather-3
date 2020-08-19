@@ -23,6 +23,9 @@
 		0100D81224CE5F5600C9F9B5 /* LevelThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */; };
 		01042C2A24EC8AB00090B349 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2924EC8AB00090B349 /* SettingsController.swift */; };
 		01042C2C24EC8FCF0090B349 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */; };
+		01042C2F24ECDF510090B349 /* SettingCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2E24ECDF510090B349 /* SettingCellFactory.swift */; };
+		01042C3124ECDF660090B349 /* AboutSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3024ECDF660090B349 /* AboutSettingCell.swift */; };
+		01042C3324ECDF850090B349 /* AppIconSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3224ECDF850090B349 /* AppIconSettingCell.swift */; };
 		014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3924D3F6090038623E /* LocationManager.swift */; };
 		014D2A3C24D3F64A0038623E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3B24D3F64A0038623E /* Location.swift */; };
 		014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */; };
@@ -80,6 +83,9 @@
 		0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeView.swift; sourceTree = "<group>"; };
 		01042C2924EC8AB00090B349 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		01042C2E24ECDF510090B349 /* SettingCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellFactory.swift; sourceTree = "<group>"; };
+		01042C3024ECDF660090B349 /* AboutSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingCell.swift; sourceTree = "<group>"; };
+		01042C3224ECDF850090B349 /* AppIconSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingCell.swift; sourceTree = "<group>"; };
 		014D2A3924D3F6090038623E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		014D2A3B24D3F64A0038623E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerAuthorizationStatus.swift; sourceTree = "<group>"; };
@@ -182,8 +188,7 @@
 			children = (
 				0169434024E244B2006A7FAA /* BaseViewController.swift */,
 				0100D7FD24CE302200C9F9B5 /* BaseView.swift */,
-				01042C2924EC8AB00090B349 /* SettingsController.swift */,
-				01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */,
+				01042C3424ECDFA50090B349 /* SettingsController */,
 				01042C2724EC8A6A0090B349 /* Main Controller */,
 				01042C2824EC8A7F0090B349 /* Levels */,
 			);
@@ -207,6 +212,26 @@
 				0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */,
 			);
 			path = Levels;
+			sourceTree = "<group>";
+		};
+		01042C3424ECDFA50090B349 /* SettingsController */ = {
+			isa = PBXGroup;
+			children = (
+				01042C2924EC8AB00090B349 /* SettingsController.swift */,
+				01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */,
+				01042C3524ECDFB40090B349 /* SettingItems */,
+			);
+			path = SettingsController;
+			sourceTree = "<group>";
+		};
+		01042C3524ECDFB40090B349 /* SettingItems */ = {
+			isa = PBXGroup;
+			children = (
+				01042C2E24ECDF510090B349 /* SettingCellFactory.swift */,
+				01042C3024ECDF660090B349 /* AboutSettingCell.swift */,
+				01042C3224ECDF850090B349 /* AppIconSettingCell.swift */,
+			);
+			path = SettingItems;
 			sourceTree = "<group>";
 		};
 		014D2A3D24D3F7550038623E /* Location Manager */ = {
@@ -344,7 +369,9 @@
 				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,
 				0169434124E244B2006A7FAA /* BaseViewController.swift in Sources */,
 				014D2A3C24D3F64A0038623E /* Location.swift in Sources */,
+				01042C3324ECDF850090B349 /* AppIconSettingCell.swift in Sources */,
 				014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */,
+				01042C2F24ECDF510090B349 /* SettingCellFactory.swift in Sources */,
 				0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */,
 				016BB85D24DA847900206C23 /* CollectionViewDataSourceManager.swift in Sources */,
 				016BB86224DA85FC00206C23 /* CollectionViewManager.swift in Sources */,
@@ -356,6 +383,7 @@
 				01042C2A24EC8AB00090B349 /* SettingsController.swift in Sources */,
 				0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */,
 				0100D7D624CE1A8200C9F9B5 /* SceneDelegate.swift in Sources */,
+				01042C3124ECDF660090B349 /* AboutSettingCell.swift in Sources */,
 				0169433D24DA887B006A7FAA /* LocationManegerDelegateManager.swift in Sources */,
 				0100D81224CE5F5600C9F9B5 /* LevelThreeView.swift in Sources */,
 				0100D7FE24CE302200C9F9B5 /* BaseView.swift in Sources */,

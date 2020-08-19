@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppIconSettingCell: SettingCellFactory {
+class AppIconSettingCell: SettingItem {
     
     var cellHeight: CGFloat = 100
     

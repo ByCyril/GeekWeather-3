@@ -1,5 +1,5 @@
 //
-//  SettingCellFactory.swift
+//  SettingItem.swift
 //  GeekWeather 3
 //
 //  Created by Cyril Garcia on 8/18/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SettingCellFactory {
+protocol SettingItem {
     var cellHeight: CGFloat { get }
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell
     func performSelector(_ vc: UIViewController)

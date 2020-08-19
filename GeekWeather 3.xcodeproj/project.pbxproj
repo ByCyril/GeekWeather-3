@@ -23,7 +23,7 @@
 		0100D81224CE5F5600C9F9B5 /* LevelThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */; };
 		01042C2A24EC8AB00090B349 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2924EC8AB00090B349 /* SettingsController.swift */; };
 		01042C2C24EC8FCF0090B349 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */; };
-		01042C2F24ECDF510090B349 /* SettingCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2E24ECDF510090B349 /* SettingCellFactory.swift */; };
+		01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2E24ECDF510090B349 /* SettingItem.swift */; };
 		01042C3124ECDF660090B349 /* AboutSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3024ECDF660090B349 /* AboutSettingCell.swift */; };
 		01042C3324ECDF850090B349 /* AppIconSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3224ECDF850090B349 /* AppIconSettingCell.swift */; };
 		014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3924D3F6090038623E /* LocationManager.swift */; };
@@ -39,6 +39,7 @@
 		0185666124D774FE0035BF59 /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0185666024D774FE0035BF59 /* GWFoundation */; };
 		01B1BEB424ED9B050081C90F /* DeveloperInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB324ED9B050081C90F /* DeveloperInfoCell.swift */; };
 		01B1BEB624ED9B640081C90F /* GenericWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB524ED9B640081C90F /* GenericWebViewController.swift */; };
+		01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB724EDBE520081C90F /* SettingManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +86,7 @@
 		0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeView.swift; sourceTree = "<group>"; };
 		01042C2924EC8AB00090B349 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
-		01042C2E24ECDF510090B349 /* SettingCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellFactory.swift; sourceTree = "<group>"; };
+		01042C2E24ECDF510090B349 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
 		01042C3024ECDF660090B349 /* AboutSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingCell.swift; sourceTree = "<group>"; };
 		01042C3224ECDF850090B349 /* AppIconSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingCell.swift; sourceTree = "<group>"; };
 		014D2A3924D3F6090038623E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 		0185665A24D767050035BF59 /* AccessibilityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityFactory.swift; sourceTree = "<group>"; };
 		01B1BEB324ED9B050081C90F /* DeveloperInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoCell.swift; sourceTree = "<group>"; };
 		01B1BEB524ED9B640081C90F /* GenericWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericWebViewController.swift; sourceTree = "<group>"; };
+		01B1BEB724EDBE520081C90F /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				01042C2924EC8AB00090B349 /* SettingsController.swift */,
+				01B1BEB724EDBE520081C90F /* SettingManager.swift */,
 				01B1BEB524ED9B640081C90F /* GenericWebViewController.swift */,
 				01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */,
 				01042C3524ECDFB40090B349 /* SettingItems */,
@@ -232,7 +235,7 @@
 		01042C3524ECDFB40090B349 /* SettingItems */ = {
 			isa = PBXGroup;
 			children = (
-				01042C2E24ECDF510090B349 /* SettingCellFactory.swift */,
+				01042C2E24ECDF510090B349 /* SettingItem.swift */,
 				01042C3024ECDF660090B349 /* AboutSettingCell.swift */,
 				01B1BEB324ED9B050081C90F /* DeveloperInfoCell.swift */,
 				01042C3224ECDF850090B349 /* AppIconSettingCell.swift */,
@@ -376,9 +379,10 @@
 				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,
 				0169434124E244B2006A7FAA /* BaseViewController.swift in Sources */,
 				014D2A3C24D3F64A0038623E /* Location.swift in Sources */,
+				01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */,
 				01042C3324ECDF850090B349 /* AppIconSettingCell.swift in Sources */,
 				014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */,
-				01042C2F24ECDF510090B349 /* SettingCellFactory.swift in Sources */,
+				01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */,
 				0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */,
 				016BB85D24DA847900206C23 /* CollectionViewDataSourceManager.swift in Sources */,
 				016BB86224DA85FC00206C23 /* CollectionViewManager.swift in Sources */,

@@ -31,13 +31,9 @@ final class SettingsController: BaseViewController, UITableViewDataSource, UITab
         settingTableView.dataSource = self
     }
     
-    var cells = [SettingCellFactory]()
+    var settingManager = SettingManager()
     
     override func initUI() {
-        
-        cells = [AboutSettingCell(),
-                 AppIconSettingCell(),
-                 DeveloperInfoCell()]
         
         view.addSubview(settingTableView)
         
@@ -51,20 +47,28 @@ final class SettingsController: BaseViewController, UITableViewDataSource, UITab
         view.layoutIfNeeded()
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return settingManager.sections[section].title
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return  cells[indexPath.row].cellHeight
+        return settingManager.sections[indexPath.section].cells[indexPath.row].cellHeight
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return settingManager.sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cells.count
+        return settingManager.sections[section].cells.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        cells[indexPath.row].performSelector(self)
+        settingManager.sections[indexPath.section].cells[indexPath.row].performSelector(self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return cells[indexPath.row].createCell(in: tableView, for: indexPath)
+        return settingManager.sections[indexPath.section].cells[indexPath.row].createCell(in: tableView, for: indexPath)
     }
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AboutSettingCell: SettingCellFactory {
+class AboutSettingCell: SettingItem {
     var cellHeight: CGFloat = 50
     
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {

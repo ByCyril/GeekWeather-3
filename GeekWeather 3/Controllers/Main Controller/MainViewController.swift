@@ -103,6 +103,4 @@ extension MainViewController: LocationManagerDelegate {
     func locationError(_ errorMsg: String) {
         
     }
-    
-        
 }

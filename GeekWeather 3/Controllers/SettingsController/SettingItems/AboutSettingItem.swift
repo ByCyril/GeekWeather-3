@@ -1,5 +1,5 @@
 //
-//  AboutSettingCell.swift
+//  AboutSettingItem.swift
 //  GeekWeather 3
 //
 //  Created by Cyril Garcia on 8/18/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AboutSettingCell: SettingItem {
+class AboutSettingItem: SettingItem {
     var cellHeight: CGFloat = 50
     
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
@@ -16,11 +16,12 @@ class AboutSettingCell: SettingItem {
 
         cell.iconImageView.image = UIImage(named: "geekweather")
         cell.titleLabel.text = "About"
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
     
     func performSelector(_ vc: UIViewController) {
-//        use this method to perform some actions or present new view controllers to the super view
+
     }
 }

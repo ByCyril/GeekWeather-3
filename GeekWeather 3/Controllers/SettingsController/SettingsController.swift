@@ -13,9 +13,10 @@ final class SettingsController: BaseViewController, UITableViewDataSource, UITab
     private let settingTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: "cell")
         return tableView
     }()
+    
+    private let settingManager = SettingManager()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -29,9 +30,9 @@ final class SettingsController: BaseViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         settingTableView.delegate = self
         settingTableView.dataSource = self
+        
+        settingManager.cellRegistration(to: settingTableView)
     }
-    
-    var settingManager = SettingManager()
     
     override func initUI() {
         

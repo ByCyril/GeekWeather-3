@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SettingsTableViewCell: UITableViewCell {
+class SettingsTableViewCell: UITableViewCell {
     
     let iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -33,7 +33,7 @@ final class SettingsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func initUI() {
+    func initUI() {
         
         let padding: CGFloat = 10
         

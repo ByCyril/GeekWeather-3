@@ -13,13 +13,30 @@ protocol SectionItem {
     var cells: [SettingItem] { get }
 }
 
+final class SettingManager {
+    
+    var sections = [SectionItem]()
+    var cells = [CellType]()
+    
+    init() {
+        sections = [AppInfoSection(), AppSettingSection()]
+        cells = [CellType(cell: SettingsTableViewCell.self, id: "cell")]
+    }
+    
+    func cellRegistration(to tableView: UITableView) {
+        for cell in cells {
+            tableView.register(cell.cell, forCellReuseIdentifier: cell.id)
+        }
+    }
+}
+
 final class AppSettingSection: SectionItem {
     var title: String = "App Setting"
     
     var cells: [SettingItem]
     
     init() {
-        cells = [AppIconSettingCell()]
+        cells = [AppIconSettingItem(), UnitSelectorItem()]
     }
 }
 
@@ -29,15 +46,14 @@ final class AppInfoSection: SectionItem {
     var cells: [SettingItem]
     
     init() {
-        cells = [AboutSettingCell(), DeveloperInfoCell()]
+        cells = [AboutSettingItem(),
+                 DeveloperInfoItem(),
+                 WeatherDataInfoItem(),
+                 PrivacyPolicyInfoItem()]
     }
 }
 
-final class SettingManager {
-    
-    var sections = [SectionItem]()
-    
-    init() {
-        sections = [AppSettingSection(), AppInfoSection()]
-    }
+struct CellType {
+    var cell: UITableViewCell.Type
+    var id: String
 }

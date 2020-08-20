@@ -1,5 +1,5 @@
 //
-//  AppIconSettingCell.swift
+//  AppIconSettingItem.swift
 //  GeekWeather 3
 //
 //  Created by Cyril Garcia on 8/18/20.
@@ -8,15 +8,16 @@
 
 import UIKit
 
-class AppIconSettingCell: SettingItem {
+class AppIconSettingItem: SettingItem {
     
-    var cellHeight: CGFloat = 100
+    var cellHeight: CGFloat = 50
     
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
 
         cell.iconImageView.image = UIImage(named: "geekweather")
         cell.titleLabel.text = "Change App Icon"
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }

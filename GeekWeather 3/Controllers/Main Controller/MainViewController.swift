@@ -37,6 +37,8 @@ class MainViewController: BaseViewController {
     
     private func setupLocationManager() {
         locationManager = LocationManager()
+        locationManager?.delegate = self
+        locationManager?.authorizationStatus()
     }
     
     private func networkCall() {

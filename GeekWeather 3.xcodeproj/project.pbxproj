@@ -47,6 +47,8 @@
 		01B1BEE624EF9B2B0081C90F /* FlipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEE524EF9B2B0081C90F /* FlipperView.swift */; };
 		01B1BEE824EF9BB90081C90F /* FlipperStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEE724EF9BB90081C90F /* FlipperStaticView.swift */; };
 		01B1BEEB24EF9F700081C90F /* FlipperAnimationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEEA24EF9F700081C90F /* FlipperAnimationLayer.swift */; };
+		01B1BEED24EFA0040081C90F /* LebelTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEEC24EFA0040081C90F /* LebelTwoViewController.swift */; };
+		01B1BEEF24EFA4920081C90F /* FlipperGestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEEE24EFA4920081C90F /* FlipperGestureManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,8 @@
 		01B1BEE524EF9B2B0081C90F /* FlipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipperView.swift; sourceTree = "<group>"; };
 		01B1BEE724EF9BB90081C90F /* FlipperStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipperStaticView.swift; sourceTree = "<group>"; };
 		01B1BEEA24EF9F700081C90F /* FlipperAnimationLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipperAnimationLayer.swift; sourceTree = "<group>"; };
+		01B1BEEC24EFA0040081C90F /* LebelTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LebelTwoViewController.swift; sourceTree = "<group>"; };
+		01B1BEEE24EFA4920081C90F /* FlipperGestureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipperGestureManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +224,7 @@
 				0100D80D24CE537E00C9F9B5 /* MainControllerViewCell.swift */,
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
 				01B1BEC324EF95920081C90F /* LevelOneViewController.swift */,
+				01B1BEEC24EFA0040081C90F /* LebelTwoViewController.swift */,
 				01B1BEE924EF9F1D0081C90F /* Flipper Aniamtion */,
 			);
 			path = "Main Controller";
@@ -295,6 +300,7 @@
 			children = (
 				01B1BEEA24EF9F700081C90F /* FlipperAnimationLayer.swift */,
 				01B1BEE524EF9B2B0081C90F /* FlipperView.swift */,
+				01B1BEEE24EFA4920081C90F /* FlipperGestureManager.swift */,
 				01B1BEE724EF9BB90081C90F /* FlipperStaticView.swift */,
 			);
 			path = "Flipper Aniamtion";
@@ -413,7 +419,9 @@
 				01B1BEC424EF95920081C90F /* LevelOneViewController.swift in Sources */,
 				0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */,
 				0100D80E24CE537E00C9F9B5 /* MainControllerViewCell.swift in Sources */,
+				01B1BEEF24EFA4920081C90F /* FlipperGestureManager.swift in Sources */,
 				0100D7FC24CE301A00C9F9B5 /* LevelOneView.swift in Sources */,
+				01B1BEED24EFA0040081C90F /* LebelTwoViewController.swift in Sources */,
 				016BB86424DA871700206C23 /* NetworkManagerDelegateManager.swift in Sources */,
 				01B1BEBB24EE319C0081C90F /* UnitSelectorCell.swift in Sources */,
 				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,

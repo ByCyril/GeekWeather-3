@@ -43,6 +43,10 @@
 		01B1BEBD24EE33320081C90F /* UnitSelectorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEBC24EE33320081C90F /* UnitSelectorItem.swift */; };
 		01B1BEBF24EE34740081C90F /* WeatherDataInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEBE24EE34740081C90F /* WeatherDataInfoItem.swift */; };
 		01B1BEC124EE36310081C90F /* PrivacyPolicyInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEC024EE36310081C90F /* PrivacyPolicyInfoItem.swift */; };
+		01B1BEC424EF95920081C90F /* LevelOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEC324EF95920081C90F /* LevelOneViewController.swift */; };
+		01B1BEE624EF9B2B0081C90F /* FlipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEE524EF9B2B0081C90F /* FlipperView.swift */; };
+		01B1BEE824EF9BB90081C90F /* FlipperStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEE724EF9BB90081C90F /* FlipperStaticView.swift */; };
+		01B1BEEB24EF9F700081C90F /* FlipperAnimationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEEA24EF9F700081C90F /* FlipperAnimationLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +113,10 @@
 		01B1BEBC24EE33320081C90F /* UnitSelectorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSelectorItem.swift; sourceTree = "<group>"; };
 		01B1BEBE24EE34740081C90F /* WeatherDataInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataInfoItem.swift; sourceTree = "<group>"; };
 		01B1BEC024EE36310081C90F /* PrivacyPolicyInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyInfoItem.swift; sourceTree = "<group>"; };
+		01B1BEC324EF95920081C90F /* LevelOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneViewController.swift; sourceTree = "<group>"; };
+		01B1BEE524EF9B2B0081C90F /* FlipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipperView.swift; sourceTree = "<group>"; };
+		01B1BEE724EF9BB90081C90F /* FlipperStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipperStaticView.swift; sourceTree = "<group>"; };
+		01B1BEEA24EF9F700081C90F /* FlipperAnimationLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipperAnimationLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				0169434024E244B2006A7FAA /* BaseViewController.swift */,
-				0100D7FD24CE302200C9F9B5 /* BaseView.swift */,
 				01042C3424ECDFA50090B349 /* SettingsController */,
 				01042C2724EC8A6A0090B349 /* Main Controller */,
 				01042C2824EC8A7F0090B349 /* Levels */,
@@ -212,6 +219,8 @@
 			children = (
 				0100D80D24CE537E00C9F9B5 /* MainControllerViewCell.swift */,
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
+				01B1BEC324EF95920081C90F /* LevelOneViewController.swift */,
+				01B1BEE924EF9F1D0081C90F /* Flipper Aniamtion */,
 			);
 			path = "Main Controller";
 			sourceTree = "<group>";
@@ -219,6 +228,7 @@
 		01042C2824EC8A7F0090B349 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				0100D7FD24CE302200C9F9B5 /* BaseView.swift */,
 				0100D7FB24CE301A00C9F9B5 /* LevelOneView.swift */,
 				0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */,
 				0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */,
@@ -278,6 +288,16 @@
 				01B1BEBA24EE319C0081C90F /* UnitSelectorCell.swift */,
 			);
 			path = SettingCells;
+			sourceTree = "<group>";
+		};
+		01B1BEE924EF9F1D0081C90F /* Flipper Aniamtion */ = {
+			isa = PBXGroup;
+			children = (
+				01B1BEEA24EF9F700081C90F /* FlipperAnimationLayer.swift */,
+				01B1BEE524EF9B2B0081C90F /* FlipperView.swift */,
+				01B1BEE724EF9BB90081C90F /* FlipperStaticView.swift */,
+			);
+			path = "Flipper Aniamtion";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,7 +408,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				01042C2C24EC8FCF0090B349 /* SettingsTableViewCell.swift in Sources */,
+				01B1BEEB24EF9F700081C90F /* FlipperAnimationLayer.swift in Sources */,
 				01B1BEBD24EE33320081C90F /* UnitSelectorItem.swift in Sources */,
+				01B1BEC424EF95920081C90F /* LevelOneViewController.swift in Sources */,
 				0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */,
 				0100D80E24CE537E00C9F9B5 /* MainControllerViewCell.swift in Sources */,
 				0100D7FC24CE301A00C9F9B5 /* LevelOneView.swift in Sources */,
@@ -398,7 +420,9 @@
 				0169434124E244B2006A7FAA /* BaseViewController.swift in Sources */,
 				014D2A3C24D3F64A0038623E /* Location.swift in Sources */,
 				01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */,
+				01B1BEE824EF9BB90081C90F /* FlipperStaticView.swift in Sources */,
 				01042C3324ECDF850090B349 /* AppIconSettingItem.swift in Sources */,
+				01B1BEE624EF9B2B0081C90F /* FlipperView.swift in Sources */,
 				014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */,
 				01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */,
 				0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */,

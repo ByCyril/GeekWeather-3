@@ -14,7 +14,7 @@ final class LevelThreeView: BaseView {
     init() {
         super.init(frame: .zero)
         //        notificationManager.listen(for: Observe.data.currentWeatherData, in: self)
-        backgroundColor = .white
+        backgroundColor = .blue
         initUI()
     }
     

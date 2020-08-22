@@ -10,6 +10,7 @@ import UIKit
 
 extension UIView {
     func takeSnapshot() -> UIImage {
+        self.setNeedsDisplay()
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale)
         self.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()

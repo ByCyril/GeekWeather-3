@@ -14,7 +14,7 @@ final class LevelTwoView: BaseView {
     init() {
         super.init(frame: .zero)
 //        notificationManager.listen(for: Observe.data.currentWeatherData, in: self)
-        backgroundColor = .white
+        backgroundColor = .green
         initUI()
     }
     

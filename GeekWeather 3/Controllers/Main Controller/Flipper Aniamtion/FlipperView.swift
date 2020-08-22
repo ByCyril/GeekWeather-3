@@ -35,7 +35,7 @@ final class FlipperView: UIView {
     
     let numberOfPages = 3
     
-    override init(frame: CGRect) {
+    init() {
         super.init(frame: .zero)
         initUI()
     }
@@ -74,11 +74,11 @@ final class FlipperView: UIView {
             }
         }
         
-        self.activeView = dataSource.viewForPage(self.currentPage, flipper: self)
-        self.addSubview(self.activeView!)
+        activeView = dataSource.viewForPage(currentPage, flipper: self)
+        addSubview(activeView!)
         
         //set up the constraints
-        self.activeView?.translatesAutoresizingMaskIntoConstraints = false
+        activeView?.translatesAutoresizingMaskIntoConstraints = false
         let viewDictionary = ["activeView":self.activeView!]
         
         let constraintTop = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[activeView]-0-|",
@@ -90,16 +90,51 @@ final class FlipperView: UIView {
                                                             metrics: nil,
                                                             views: viewDictionary)
         
-        self.addConstraints(constraintTop)
-        self.addConstraints(constraintLeft)
+        addConstraints(constraintTop)
+        addConstraints(constraintLeft)
         
     }
     
     @objc
-    private func clearAnimation() {}
+    private func clearAnimation() {
+        guard flipperState != .inactive else { return }
+        
+        //remove all animation layers and update the static view
+        updateTheActiveView()
+        
+        for animation in animatingLayers {
+            animation.flipAnimationStatus = .fail
+            animation.removeFromSuperlayer()
+        }
+        animatingLayers.removeAll(keepingCapacity: false)
+        
+        flipperStaticView.removeFromSuperlayer()
+        CATransaction.flush()
+        flipperStaticView.leftSide.contents = nil
+        flipperStaticView.rightSide.contents = nil
+        
+        flipperState = .inactive
+    }
     
     @objc
-    private func pan(_ gesture: UIGestureRecognizer) {}
+    private func pan(_ gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: gesture.view!).x
+        let progress = translation / gesture.view!.bounds.size.width
+        
+        switch gesture.state {
+        case .began:
+            panBegan(gesture)
+        case .changed:
+            panChanged(gesture, translation, progress)
+        case .ended:
+            panEnded(gesture, translation)
+        case .cancelled:
+            enableGesture(gesture, false)
+        default:
+            break
+        }
+        
+    }
     
     func panBegan(_ gesture: UIPanGestureRecognizer) {
         if animationsArePassedHalfway() {
@@ -121,23 +156,66 @@ final class FlipperView: UIView {
         }
     }
     
-    func panGesture(_ gesture: UIPanGestureRecognizer,_ translation: CGFloat,_ progress: CGFloat) {
+    func panChanged(_ gesture: UIPanGestureRecognizer,_ translation: CGFloat,_ progress: CGFloat) {
         
         guard let currentFlipperAnimationLayer = animatingLayers.first else { return }
         
         switch currentFlipperAnimationLayer.flipAnimationStatus {
         case .beginning:
-            //            something
-            print("something")
+            animationStatusBeginning(currentFlipperAnimationLayer,
+                                     translation: translation,
+                                     progress: progress,
+                                     gesture: gesture)
         case .active:
-            //            something
-            print("something")
+            animationStatusActive(currentFlipperAnimationLayer,
+                                  translation: translation,
+                                  progress: progress)
         case .completing:
-            print("something")
+            enableGesture(gesture, false)
+            animationStatusCompleting(currentFlipperAnimationLayer)
         default:
             break
         }
         
+    }
+    
+    func panEnded(_ gesture: UIPanGestureRecognizer,_ translation: CGFloat) {
+        
+        guard let currentFlipperAnimationLayer = animatingLayers.last else { return }
+        
+        currentFlipperAnimationLayer.flipAnimationStatus = .completing
+        
+        if didFlipToNewPage(currentFlipperAnimationLayer, gesture, translation) == true {
+            setUpForFlip(currentFlipperAnimationLayer, progress: 1.0, animated: true, clearFlip: true)
+        } else {
+            if currentFlipperAnimationLayer.isFirstOrLastPage == false {
+                handleDidNotFlipToNewPage(currentFlipperAnimationLayer)
+            }
+            setUpForFlip(currentFlipperAnimationLayer, progress: 0.0, animated: true, clearFlip: true)
+        }
+        
+    }
+    
+    func didFlipToNewPage(_ animationLayer: FlipperAnimationLayer,_ gesture: UIPanGestureRecognizer, _ translation: CGFloat) -> Bool {
+        
+        let releaseSpeed = getReleaseSpeed(translation, gesture: gesture)
+        
+        var didFlipToNewPage = false
+        if animationLayer.flipDirection == .left && abs(releaseSpeed) > 0.5 && !animationLayer.isFirstOrLastPage && releaseSpeed < 0 ||
+        animationLayer.flipDirection == .right && abs(releaseSpeed) > 0.5 && !animationLayer.isFirstOrLastPage && releaseSpeed > 0 {
+                didFlipToNewPage = true
+        }
+        return didFlipToNewPage
+    }
+    
+    func handleDidNotFlipToNewPage(_ animationLayer: FlipperAnimationLayer) {
+        if animationLayer.flipDirection == .left {
+            animationLayer.flipDirection = .right
+            currentPage -= 1
+        } else {
+            animationLayer.flipDirection = .left
+            currentPage += 1
+        }
     }
     
     func animationStatusBeginning(_ currentDJKAnimationLayer:FlipperAnimationLayer, translation:CGFloat, progress:CGFloat, gesture:UIPanGestureRecognizer) {
@@ -433,8 +511,14 @@ final class FlipperView: UIView {
                 viewControllerSnapshots[currentPage - 1] = dataSource?.viewForPage(currentPage - 1, flipper: self).takeSnapshot()
             }
         }
-        
-        
+    }
+    
+    func animationStatusCompleting(_ animationLayer: FlipperAnimationLayer) {
+        performCompleteAnimationToLayer(animationLayer)
+    }
+    
+    func performCompleteAnimationToLayer(_ animationLayer: FlipperAnimationLayer) {
+        setUpForFlip(animationLayer, progress: 1.0, animated: true, clearFlip: true)
     }
     
     func getAnimationDurationFromDJKAnimationLayer(_ animationLayer: FlipperAnimationLayer, newAngle:CGFloat) -> CGFloat {
@@ -477,6 +561,10 @@ final class FlipperView: UIView {
         }
     }
     
+    func getReleaseSpeed(_ translation:CGFloat, gesture:UIPanGestureRecognizer) -> CGFloat {
+        return (translation + gesture.velocity(in: self).x/4) / self.bounds.size.width
+    }
+    
     func enableGesture(_ gesture: UIPanGestureRecognizer,_ enabled: Bool) {
         gesture.isEnabled = enabled
     }
@@ -495,6 +583,16 @@ final class FlipperView: UIView {
         }
         
         return incrementalSwipe
+    }
+    
+    func reload() {
+        updateTheActiveView()
+
+        viewControllerSnapshots.removeAll(keepingCapacity: false)
+
+        for _ in 0..<numberOfPages {
+            viewControllerSnapshots.append(nil)
+        }
     }
     
 }

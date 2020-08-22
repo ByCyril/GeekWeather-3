@@ -10,14 +10,15 @@ import UIKit
 import GWFoundation
 import CoreLocation
 
-class MainViewController: BaseViewController {
+class MainViewController: BaseViewController, FlipperViewDataSource {
+
+    private let flipView = FlipperView()
     
-    private var collectionView: UICollectionView?
-    private var views: [BaseView]?
-    
-    private let levelOneView = LevelOneView()
-    private let levelTwoView = LevelTwoView()
-    private let levelThreeView = LevelThreeView()
+    var flipperViewArray: [BaseViewController] = [] {
+        didSet {
+            flipView.reload()
+        }
+    }
     
     private var networkManager: NetworkManager?
     private var locationManager: LocationManager?
@@ -28,61 +29,37 @@ class MainViewController: BaseViewController {
     
     private let networkDelegateManager = NetworkManagerDelegateManager()
     
+    let levelOneViewController = LevelOneViewController()
+    let levelTwoViewController = LevelTwoViewController()
+    let levelThreeViewController = LevelThreeViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupContainerViews()
-        setupLocationManager()
-        setupCollectionView()
+        
+        flipView.dataSource = self
+        view = flipView
+        
+        
     }
     
-    private func setupLocationManager() {
-        locationManager = LocationManager()
-        locationManager?.delegate = self
-        locationManager?.authorizationStatus()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let views = [levelOneViewController,
+                     levelTwoViewController,
+                     levelThreeViewController]
+        
+        for levelView in views {
+            levelView.view.frame = view.bounds
+            levelView.view.layoutSubviews()
+            
+            print(levelView.view.frame.size)
+        }
+        
+        flipperViewArray += views
     }
     
-    private func networkCall() {
-        
-        networkManager = NetworkManager(networkDelegateManager)
-        let url = RequestURL(location: CLLocation(latitude: 37.3482, longitude: -121.8164), .imperial)
-        networkManager?.fetch(url)
-    }
-    
-    private func setupContainerViews() {
-        views = [levelOneView, levelTwoView, levelThreeView]
-    }
-    
-    private func setupCollectionView() {
-        collectionViewDataSourceManager = CollectionViewDataSourceManager(views!)
-        collectionViewDelegateManager = CollectionViewDelegateManager(views!)
-        
-        let collectionViewLayout = UICollectionViewFlowLayout()
-        collectionViewLayout.scrollDirection = .vertical
-        collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        collectionViewLayout.itemSize = view.frame.size
-        collectionViewLayout.minimumLineSpacing = 0
-        collectionViewLayout.minimumInteritemSpacing = 0
-        
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-        collectionView?.register(MainControllerViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView?.translatesAutoresizingMaskIntoConstraints = false
-        collectionView?.delegate = collectionViewDelegateManager
-        collectionView?.dataSource = collectionViewDataSourceManager
-        collectionView?.isPagingEnabled = true
-        collectionView?.reloadData()
-        
-        guard let collectionView = collectionView else { return }
-        
-        view.addSubview(collectionView)
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-        
-        view.layoutIfNeeded()
-        
+    func viewForPage(_ page: Int, flipper: FlipperView) -> UIView {
+        return flipperViewArray[page].view
     }
     
 }

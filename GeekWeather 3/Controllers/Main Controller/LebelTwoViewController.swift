@@ -11,14 +11,14 @@ import UIKit
 final class LevelTwoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view = LevelTwoView()
     }
 }
 
 final class LevelThreeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view = LevelThreeView()
     }
 }
 

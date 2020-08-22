@@ -201,19 +201,19 @@ final class FlipperView: UIView {
         let releaseSpeed = getReleaseSpeed(translation, gesture: gesture)
         
         var didFlipToNewPage = false
-        if animationLayer.flipDirection == .left && abs(releaseSpeed) > 0.5 && !animationLayer.isFirstOrLastPage && releaseSpeed < 0 ||
-        animationLayer.flipDirection == .right && abs(releaseSpeed) > 0.5 && !animationLayer.isFirstOrLastPage && releaseSpeed > 0 {
+        if animationLayer.flipDirection == .top && abs(releaseSpeed) > 0.5 && !animationLayer.isFirstOrLastPage && releaseSpeed < 0 ||
+        animationLayer.flipDirection == .bottom && abs(releaseSpeed) > 0.5 && !animationLayer.isFirstOrLastPage && releaseSpeed > 0 {
                 didFlipToNewPage = true
         }
         return didFlipToNewPage
     }
     
     func handleDidNotFlipToNewPage(_ animationLayer: FlipperAnimationLayer) {
-        if animationLayer.flipDirection == .left {
-            animationLayer.flipDirection = .right
+        if animationLayer.flipDirection == .top {
+            animationLayer.flipDirection = .bottom
             currentPage -= 1
         } else {
-            animationLayer.flipDirection = .left
+            animationLayer.flipDirection = .top
             currentPage += 1
         }
     }
@@ -269,9 +269,9 @@ final class FlipperView: UIView {
                 
                 let rotationX = animationLayer.presentation()?.value(forKeyPath: "transform.rotation.x") as! CGFloat
                 
-                if animationLayer.flipDirection == .right && rotationX > 0 {
+                if animationLayer.flipDirection == .bottom && rotationX > 0 {
                     layerIsPassedHalfway = true
-                } else if animationLayer.flipDirection == .left && rotationX == 0 {
+                } else if animationLayer.flipDirection == .top && rotationX == 0 {
                     layerIsPassedHalfway = true
                 }
                 
@@ -342,13 +342,13 @@ final class FlipperView: UIView {
     func reverseAnimationForLayer(_ animationLayer: FlipperAnimationLayer) {
         animationLayer.flipAnimationStatus = .interrupt
         
-        if animationLayer.flipDirection == .left {
+        if animationLayer.flipDirection == .top {
             currentPage = currentPage - 1
-            animationLayer.updateFlipDirection(.right)
+            animationLayer.updateFlipDirection(.bottom)
             setUpForFlip(animationLayer, progress: 1.0, animated: true, clearFlip: true)
-        } else if animationLayer.flipDirection == .right {
+        } else if animationLayer.flipDirection == .bottom {
             currentPage = currentPage + 1
-            animationLayer.updateFlipDirection(.left)
+            animationLayer.updateFlipDirection(.top)
             setUpForFlip(animationLayer, progress: 1.0, animated: true, clearFlip: true)
         }
     }
@@ -392,7 +392,7 @@ final class FlipperView: UIView {
     }
     
     func setMaxAngleIfDJKAnimationLayerIsFirstOrLast(_ animationLayer: FlipperAnimationLayer, newAngle:CGFloat) {
-        if animationLayer.flipDirection == .right {
+        if animationLayer.flipDirection == .bottom {
             if newAngle < -1.4 {
                 animationLayer.flipProperties.currentAngle = -1.4
             }
@@ -416,7 +416,7 @@ final class FlipperView: UIView {
                     if animationLayer.isFirstOrLastPage == false {
                         CATransaction.begin()
                         CATransaction.setAnimationDuration(0)
-                        if animationLayer.flipDirection == .left {
+                        if animationLayer.flipDirection == .top {
                             self?.flipperStaticView.leftSide.contents = animationLayer.backLayer.contents
                         } else {
                             self?.flipperStaticView.rightSide.contents = animationLayer.frontLayer.contents
@@ -445,7 +445,7 @@ final class FlipperView: UIView {
     }
     
     func setUpDJKAnimationLayerFrontAndBack(_ animationLayer: FlipperAnimationLayer) {
-        if animationLayer.flipDirection == .left {
+        if animationLayer.flipDirection == .top {
             if self.currentPage + 1 > numberOfPages - 1 {
                 //we are at the end
                 animationLayer.flipProperties.endFlipAngle = -1.5
@@ -474,7 +474,7 @@ final class FlipperView: UIView {
     }
     
     func setUpStaticLayerForTheDJKAnimationLayer(_ animationLayer: FlipperAnimationLayer) {
-        if animationLayer.flipDirection == .left {
+        if animationLayer.flipDirection == .top {
             if animationLayer.isFirstOrLastPage == true && animatingLayers.count <= 1 {
                 flipperStaticView.setTheLeftSide(viewControllerSnapshots[currentPage]!)
             } else {
@@ -499,14 +499,14 @@ final class FlipperView: UIView {
         viewControllerSnapshots[currentPage] = dataSource?.viewForPage(currentPage, flipper: self).takeSnapshot()
         
         if currentPage + 1 <= numberOfPages - 1  {
-            //set the right page snapshot, if there already is a screen shot then dont update it
+            //set the bottom page snapshot, if there already is a screen shot then dont update it
             if viewControllerSnapshots[currentPage + 1] == nil {
                 viewControllerSnapshots[currentPage + 1] = dataSource?.viewForPage(currentPage + 1, flipper: self).takeSnapshot()
             }
         }
         
         if currentPage - 1 >= 0 {
-            //set the left page snapshot, if there already is a screen shot then dont update it
+            //set the top page snapshot, if there already is a screen shot then dont update it
             if viewControllerSnapshots[currentPage - 1] == nil {
                 viewControllerSnapshots[currentPage - 1] = dataSource?.viewForPage(currentPage - 1, flipper: self).takeSnapshot()
             }
@@ -555,9 +555,9 @@ final class FlipperView: UIView {
     
     func getFlipDirection(_ translation:CGFloat) -> FlipDirection {
         if translation > 0 {
-            return .right
+            return .bottom
         } else {
-            return .left
+            return .top
         }
     }
     

@@ -16,8 +16,8 @@ struct AnimationProperties {
 }
 
 enum FlipDirection {
-    case left
-    case right
+    case top
+    case bottom
     case notSet
 }
 
@@ -72,7 +72,7 @@ class FlipperAnimationLayer: CATransformLayer {
     
     func updateFlipDirection(_ direction:FlipDirection) {
         flipDirection = direction
-        if flipDirection == .left {
+        if flipDirection == .top {
             flipProperties.currentAngle = -CGFloat.pi
             flipProperties.startAngle = -CGFloat.pi
             flipProperties.endFlipAngle = 0

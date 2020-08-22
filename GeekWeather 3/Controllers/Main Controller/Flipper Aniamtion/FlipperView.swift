@@ -110,16 +110,16 @@ final class FlipperView: UIView {
         
         flipperStaticView.removeFromSuperlayer()
         CATransaction.flush()
-        flipperStaticView.leftSide.contents = nil
-        flipperStaticView.rightSide.contents = nil
+        flipperStaticView.topSide.contents = nil
+        flipperStaticView.bottomSide.contents = nil
         
         flipperState = .inactive
     }
     
     @objc
     private func pan(_ gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: gesture.view!).x
-        let progress = translation / gesture.view!.bounds.size.width
+        let translation = gesture.translation(in: gesture.view!).y
+        let progress = translation / gesture.view!.bounds.size.height
         
         switch gesture.state {
         case .began:
@@ -142,10 +142,10 @@ final class FlipperView: UIView {
                 flipperState = .began
             }
             
-            let animationLayer = FlipperAnimationLayer(frame: flipperStaticView.rightSide.bounds, isFirstOrLast: false)
+            let animationLayer = FlipperAnimationLayer(frame: flipperStaticView.bottomSide.bounds, isFirstOrLast: false)
             
             if let hiZanimLayer = getHighestZIndexFlipperAnimationLayer() {
-                animationLayer.zPosition = hiZanimLayer.zPosition + animationLayer.bounds.size.height
+                animationLayer.zPosition = hiZanimLayer.zPosition + animationLayer.bounds.size.width
             } else {
                 animationLayer.zPosition = 0
             }
@@ -417,9 +417,9 @@ final class FlipperView: UIView {
                         CATransaction.begin()
                         CATransaction.setAnimationDuration(0)
                         if animationLayer.flipDirection == .top {
-                            self?.flipperStaticView.leftSide.contents = animationLayer.backLayer.contents
+                            self?.flipperStaticView.topSide.contents = animationLayer.backLayer.contents
                         } else {
-                            self?.flipperStaticView.rightSide.contents = animationLayer.frontLayer.contents
+                            self?.flipperStaticView.bottomSide.contents = animationLayer.frontLayer.contents
                         }
                         CATransaction.commit()
                     }
@@ -433,8 +433,8 @@ final class FlipperView: UIView {
                         self?.updateTheActiveView()
                         self?.flipperStaticView.removeFromSuperlayer()
                         CATransaction.flush()
-                        self?.flipperStaticView.leftSide.contents = nil
-                        self?.flipperStaticView.rightSide.contents = nil
+                        self?.flipperStaticView.topSide.contents = nil
+                        self?.flipperStaticView.bottomSide.contents = nil
                     } else {
                         CATransaction.flush()
                     }

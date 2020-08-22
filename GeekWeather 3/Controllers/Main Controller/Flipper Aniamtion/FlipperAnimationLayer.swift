@@ -41,6 +41,8 @@ class FlipperAnimationLayer: CATransformLayer {
     lazy var frontLayer:CALayer = {
         var fLayer = CALayer(layer: self)
         fLayer.frame = self.bounds
+        fLayer.frame.size.height = self.bounds.size.height
+        fLayer.frame.origin.y = self.bounds.size.height
         fLayer.isDoubleSided = false
         fLayer.transform = CATransform3DMakeRotation(CGFloat.pi, 0, 1.0, 0);
         self.addSublayer(fLayer)
@@ -48,9 +50,9 @@ class FlipperAnimationLayer: CATransformLayer {
     }()
     
    lazy var backLayer:CALayer = {
-        
         var bLayer = CALayer(layer: self)
         bLayer.frame = self.bounds
+        bLayer.frame.size.height = self.bounds.size.height
         bLayer.isDoubleSided = false
         bLayer.transform = CATransform3DMakeRotation(0, 0, 1.0, 0);
         self.addSublayer(bLayer)
@@ -60,7 +62,7 @@ class FlipperAnimationLayer: CATransformLayer {
     convenience init(frame:CGRect, isFirstOrLast:Bool) {
         self.init()
         self.flipAnimationStatus = FlipAnimationStatus.beginning
-        self.anchorPoint = CGPoint(x: 1.0, y: 0.5)
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.frame = frame
         
         isFirstOrLastPage = isFirstOrLast
@@ -69,8 +71,8 @@ class FlipperAnimationLayer: CATransformLayer {
     func updateFlipDirection(_ direction:FlipDirection) {
         flipDirection = direction
         if flipDirection == .top {
-            flipProperties.currentAngle = -CGFloat.pi
-            flipProperties.startAngle = -CGFloat.pi
+            flipProperties.currentAngle = CGFloat.pi
+            flipProperties.startAngle = CGFloat.pi
             flipProperties.endFlipAngle = 0
             self.transform = CATransform3DMakeRotation(CGFloat.pi, 0, 1, 0);
         } else {
@@ -83,14 +85,20 @@ class FlipperAnimationLayer: CATransformLayer {
     
     func setTheFrontLayer(_ image:UIImage) {
         let tmpImageRef = image.cgImage
-        let rightImgRef = tmpImageRef?.cropping(to: CGRect(x: 0, y: image.size.height/2 * UIScreen.main.scale, width: image.size.width * UIScreen.main.scale, height: image.size.height/2 * UIScreen.main.scale))
+        let rightImgRef = tmpImageRef?.cropping(to: CGRect(x: 0,
+                                                           y: image.size.height/2 * UIScreen.main.scale,
+                                                           width: image.size.width * UIScreen.main.scale,
+                                                           height: image.size.height/2 * UIScreen.main.scale))
 
         frontLayer.contents = rightImgRef
     }
     
     func setTheBackLayer(_ image:UIImage) {
         let tmpImageRef = image.cgImage
-        let rightImgRef = tmpImageRef?.cropping(to: CGRect(x: 0, y: 0, width: image.size.width * UIScreen.main.scale, height: image.size.height/2 * UIScreen.main.scale))
+        let rightImgRef = tmpImageRef?.cropping(to: CGRect(x: 0,
+                                                           y: 0,
+                                                           width: image.size.width * UIScreen.main.scale,
+                                                           height: image.size.height/2 * UIScreen.main.scale))
         
         backLayer.contents = rightImgRef
     }

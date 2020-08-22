@@ -13,8 +13,8 @@ class FlipperStaticView: CATransformLayer {
     convenience init(frame: CGRect) {
         self.init()
         self.frame = frame
-        self.addSublayer(leftSide)
-        self.addSublayer(rightSide)
+        self.addSublayer(topSide)
+        self.addSublayer(bottomSide)
         
         self.zPosition = -1_000_000
     }
@@ -23,40 +23,43 @@ class FlipperStaticView: CATransformLayer {
         super.init()
     }
 
-    lazy var leftSide:CALayer = {
+    lazy var topSide:CALayer = {
         var lSide = CALayer(layer: self)
         
         var frame = self.bounds
-        frame.size.width = frame.size.width / 2
-        frame.origin.x = 0
         lSide.frame = frame
+        frame.size.height = frame.size.height
+        frame.origin.y = 0
+        
         lSide.contentsScale = UIScreen.main.scale
-        lSide.backgroundColor = UIColor.black.cgColor
+        lSide.backgroundColor = UIColor.yellow.cgColor
         
         return lSide
     }()
     
-    lazy var rightSide:CALayer = {
+    lazy var bottomSide:CALayer = {
         var rSide = CALayer(layer: self)
         var frame = self.bounds
-        frame.size.width = frame.size.width / 2
-        frame.origin.x = frame.size.width
+        print("bottom side",frame)
+//        frame.size.height = frame.size.width / 2
         rSide.frame = frame
+        frame.origin.y = frame.size.height / 2
+        
         rSide.contentsScale = UIScreen.main.scale
-        rSide.backgroundColor = UIColor.black.cgColor
+        rSide.backgroundColor = UIColor.green.cgColor
         return rSide
         }()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.addSublayer(leftSide)
-        self.addSublayer(rightSide)
+        self.addSublayer(topSide)
+        self.addSublayer(bottomSide)
     }
 
     override init(layer: Any) {
         super.init(layer: layer)
-        self.addSublayer(leftSide)
-        self.addSublayer(rightSide)
+        self.addSublayer(topSide)
+        self.addSublayer(bottomSide)
     }
     
     func updateFrame(_ newFrame:CGRect) {
@@ -67,32 +70,38 @@ class FlipperStaticView: CATransformLayer {
     fileprivate func updatePageLayerFrames(_ newFrame:CGRect) {
         var frame = newFrame
         
-        frame.size.width = frame.size.width / 2
-        leftSide.frame = frame
+        frame.size.height = frame.size.height / 2
+        topSide.frame = frame
         
-        frame.origin.x = frame.size.width
-        rightSide.frame = frame
+        frame.origin.y = frame.size.height
+        bottomSide.frame = frame
     }
     
     func setTheRightSide(_ image:UIImage) {
         
         let tmpImageRef = image.cgImage
-        let rightImgRef = tmpImageRef?.cropping(to: CGRect(x: image.size.width/2 * UIScreen.main.scale, y: 0, width: image.size.width/2 * UIScreen.main.scale, height: image.size.height * UIScreen.main.scale))
+        let rightImgRef = tmpImageRef?.cropping(to: CGRect(x: 0,
+                                                           y: image.size.height/2 * UIScreen.main.scale,
+                                                           width: image.size.width * UIScreen.main.scale,
+                                                           height: image.size.height/2 * UIScreen.main.scale))
         
         CATransaction.begin()
         CATransaction.setAnimationDuration(0)
-        rightSide.contents = rightImgRef
+        bottomSide.contents = rightImgRef
         CATransaction.commit()
     }
     
     func setTheLeftSide(_ image:UIImage) {
         let tmpImageRef = image.cgImage
         
-        let leftImgRef = tmpImageRef?.cropping(to: CGRect(x: 0, y: 0, width: image.size.width/2 * UIScreen.main.scale, height: image.size.height * UIScreen.main.scale))
+        let leftImgRef = tmpImageRef?.cropping(to: CGRect(x: 0,
+                                                          y: 0,
+                                                          width: image.size.width * UIScreen.main.scale,
+                                                          height: image.size.height/2 * UIScreen.main.scale))
         
         CATransaction.begin()
         CATransaction.setAnimationDuration(0)
-        leftSide.contents = leftImgRef
+        topSide.contents = leftImgRef
         CATransaction.commit()
     }
     

@@ -14,7 +14,7 @@ final class LevelTwoView: BaseView {
     init() {
         super.init(frame: .zero)
 //        notificationManager.listen(for: Observe.data.currentWeatherData, in: self)
-        backgroundColor = .white
+    
         initUI()
     }
     
@@ -23,9 +23,14 @@ final class LevelTwoView: BaseView {
     }
     
     private func initUI() {
-
-        label.backgroundColor = .blue
-        addSubview(label)
+imageView.image = UIImage(named: "AH")
+       addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            imageView.rightAnchor.constraint(equalTo: rightAnchor),
+            imageView.leftAnchor.constraint(equalTo: leftAnchor)
+        ])
     }
     
     override func update(from notification: NSNotification) {}

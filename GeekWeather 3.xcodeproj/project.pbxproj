@@ -43,6 +43,13 @@
 		01B1BEBD24EE33320081C90F /* UnitSelectorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEBC24EE33320081C90F /* UnitSelectorItem.swift */; };
 		01B1BEBF24EE34740081C90F /* WeatherDataInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEBE24EE34740081C90F /* WeatherDataInfoItem.swift */; };
 		01B1BEC124EE36310081C90F /* PrivacyPolicyInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEC024EE36310081C90F /* PrivacyPolicyInfoItem.swift */; };
+		01B1BEC424EF95920081C90F /* LevelOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEC324EF95920081C90F /* LevelOneViewController.swift */; };
+		01B1BEE624EF9B2B0081C90F /* FlipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEE524EF9B2B0081C90F /* FlipperView.swift */; };
+		01B1BEE824EF9BB90081C90F /* FlipperStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEE724EF9BB90081C90F /* FlipperStaticView.swift */; };
+		01B1BEEB24EF9F700081C90F /* FlipperAnimationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEEA24EF9F700081C90F /* FlipperAnimationLayer.swift */; };
+		01B1BEED24EFA0040081C90F /* LebelTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEEC24EFA0040081C90F /* LebelTwoViewController.swift */; };
+		01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF024EFA9A10081C90F /* Array+Extension.swift */; };
+		01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF224EFAD500081C90F /* View+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +76,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0100D7D024CE1A8200C9F9B5 /* GeekWeather 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekWeather 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0100D7D024CE1A8200C9F9B5 /* GeekWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeekWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +116,13 @@
 		01B1BEBC24EE33320081C90F /* UnitSelectorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSelectorItem.swift; sourceTree = "<group>"; };
 		01B1BEBE24EE34740081C90F /* WeatherDataInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataInfoItem.swift; sourceTree = "<group>"; };
 		01B1BEC024EE36310081C90F /* PrivacyPolicyInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyInfoItem.swift; sourceTree = "<group>"; };
+		01B1BEC324EF95920081C90F /* LevelOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneViewController.swift; sourceTree = "<group>"; };
+		01B1BEE524EF9B2B0081C90F /* FlipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipperView.swift; sourceTree = "<group>"; };
+		01B1BEE724EF9BB90081C90F /* FlipperStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipperStaticView.swift; sourceTree = "<group>"; };
+		01B1BEEA24EF9F700081C90F /* FlipperAnimationLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipperAnimationLayer.swift; sourceTree = "<group>"; };
+		01B1BEEC24EFA0040081C90F /* LebelTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LebelTwoViewController.swift; sourceTree = "<group>"; };
+		01B1BEF024EFA9A10081C90F /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		01B1BEF224EFAD500081C90F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +156,7 @@
 		0100D7D124CE1A8200C9F9B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0100D7D024CE1A8200C9F9B5 /* GeekWeather 3.app */,
+				0100D7D024CE1A8200C9F9B5 /* GeekWeather.app */,
 				0100D7E624CE1A8300C9F9B5 /* GeekWeather 3Tests.xctest */,
 			);
 			name = Products;
@@ -156,6 +170,8 @@
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
 				0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */,
 				0185665A24D767050035BF59 /* AccessibilityFactory.swift */,
+				01B1BEF024EFA9A10081C90F /* Array+Extension.swift */,
+				01B1BEF224EFAD500081C90F /* View+Extension.swift */,
 				0100D80924CE52AF00C9F9B5 /* Managers */,
 				0100D80C24CE52E400C9F9B5 /* Controllers */,
 				0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */,
@@ -199,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				0169434024E244B2006A7FAA /* BaseViewController.swift */,
-				0100D7FD24CE302200C9F9B5 /* BaseView.swift */,
 				01042C3424ECDFA50090B349 /* SettingsController */,
 				01042C2724EC8A6A0090B349 /* Main Controller */,
 				01042C2824EC8A7F0090B349 /* Levels */,
@@ -212,6 +227,9 @@
 			children = (
 				0100D80D24CE537E00C9F9B5 /* MainControllerViewCell.swift */,
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
+				01B1BEC324EF95920081C90F /* LevelOneViewController.swift */,
+				01B1BEEC24EFA0040081C90F /* LebelTwoViewController.swift */,
+				01B1BEE924EF9F1D0081C90F /* Flipper Aniamtion */,
 			);
 			path = "Main Controller";
 			sourceTree = "<group>";
@@ -219,6 +237,7 @@
 		01042C2824EC8A7F0090B349 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				0100D7FD24CE302200C9F9B5 /* BaseView.swift */,
 				0100D7FB24CE301A00C9F9B5 /* LevelOneView.swift */,
 				0100D80F24CE5F3F00C9F9B5 /* LevelTwoView.swift */,
 				0100D81124CE5F5600C9F9B5 /* LevelThreeView.swift */,
@@ -280,6 +299,16 @@
 			path = SettingCells;
 			sourceTree = "<group>";
 		};
+		01B1BEE924EF9F1D0081C90F /* Flipper Aniamtion */ = {
+			isa = PBXGroup;
+			children = (
+				01B1BEEA24EF9F700081C90F /* FlipperAnimationLayer.swift */,
+				01B1BEE524EF9B2B0081C90F /* FlipperView.swift */,
+				01B1BEE724EF9BB90081C90F /* FlipperStaticView.swift */,
+			);
+			path = "Flipper Aniamtion";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,7 +330,7 @@
 				0185666024D774FE0035BF59 /* GWFoundation */,
 			);
 			productName = "GeekWeather 3";
-			productReference = 0100D7D024CE1A8200C9F9B5 /* GeekWeather 3.app */;
+			productReference = 0100D7D024CE1A8200C9F9B5 /* GeekWeather.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0100D7E524CE1A8300C9F9B5 /* GeekWeather 3Tests */ = {
@@ -388,23 +417,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				01042C2C24EC8FCF0090B349 /* SettingsTableViewCell.swift in Sources */,
+				01B1BEEB24EF9F700081C90F /* FlipperAnimationLayer.swift in Sources */,
 				01B1BEBD24EE33320081C90F /* UnitSelectorItem.swift in Sources */,
+				01B1BEC424EF95920081C90F /* LevelOneViewController.swift in Sources */,
 				0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */,
 				0100D80E24CE537E00C9F9B5 /* MainControllerViewCell.swift in Sources */,
 				0100D7FC24CE301A00C9F9B5 /* LevelOneView.swift in Sources */,
+				01B1BEED24EFA0040081C90F /* LebelTwoViewController.swift in Sources */,
 				016BB86424DA871700206C23 /* NetworkManagerDelegateManager.swift in Sources */,
 				01B1BEBB24EE319C0081C90F /* UnitSelectorCell.swift in Sources */,
+				01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */,
 				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,
 				0169434124E244B2006A7FAA /* BaseViewController.swift in Sources */,
 				014D2A3C24D3F64A0038623E /* Location.swift in Sources */,
 				01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */,
+				01B1BEE824EF9BB90081C90F /* FlipperStaticView.swift in Sources */,
 				01042C3324ECDF850090B349 /* AppIconSettingItem.swift in Sources */,
+				01B1BEE624EF9B2B0081C90F /* FlipperView.swift in Sources */,
 				014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */,
 				01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */,
 				0100D81024CE5F3F00C9F9B5 /* LevelTwoView.swift in Sources */,
 				016BB85D24DA847900206C23 /* CollectionViewDataSourceManager.swift in Sources */,
 				016BB86224DA85FC00206C23 /* CollectionViewManager.swift in Sources */,
 				01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */,
+				01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
 				0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
@@ -580,7 +616,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GeekWeather;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -601,7 +637,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GeekWeather;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

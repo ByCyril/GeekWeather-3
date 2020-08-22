@@ -61,7 +61,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     
     private func authorizationEnabled(_ manager: CLLocationManager) {
         guard let location = manager.location else {
-//            unable to get location
+            
             return
         }
         delegate?.currentLocation(location)

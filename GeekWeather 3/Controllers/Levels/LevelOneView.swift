@@ -14,7 +14,6 @@ final class LevelOneView: BaseView {
     init() {
         super.init(frame: .zero)
         //        notificationManager.listen(for: Observe.data.currentWeatherData, in: self)
-        backgroundColor = .white
         initUI()
     }
     
@@ -23,11 +22,14 @@ final class LevelOneView: BaseView {
     }
     
     private func initUI() {
-        
-        label.backgroundColor = .red
-        addSubview(label)
-        
-        applyAccessibility(to: label, with: "temp", trait: .none)
+        imageView.image = UIImage(named: "AS")
+        addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            imageView.rightAnchor.constraint(equalTo: rightAnchor),
+            imageView.leftAnchor.constraint(equalTo: leftAnchor)
+        ])
     }
     
     override func update(from notification: NSNotification) {}

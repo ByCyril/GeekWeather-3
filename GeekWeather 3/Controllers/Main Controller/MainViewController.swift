@@ -48,11 +48,10 @@ class MainViewController: BaseViewController, FlipperViewDataSource {
                      levelTwoViewController,
                      levelThreeViewController]
         
+        
         for levelView in views {
             levelView.view.frame = view.bounds
             levelView.view.layoutSubviews()
-            
-            print(levelView.view.frame.size)
         }
         
         flipperViewArray += views

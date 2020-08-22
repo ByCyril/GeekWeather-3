@@ -43,8 +43,6 @@ class FlipperAnimationLayer: CATransformLayer {
         fLayer.frame = self.bounds
         fLayer.isDoubleSided = false
         fLayer.transform = CATransform3DMakeRotation(CGFloat.pi, 0, 1.0, 0);
-        fLayer.backgroundColor = UIColor.black.cgColor
-        
         self.addSublayer(fLayer)
         return fLayer
     }()
@@ -55,8 +53,6 @@ class FlipperAnimationLayer: CATransformLayer {
         bLayer.frame = self.bounds
         bLayer.isDoubleSided = false
         bLayer.transform = CATransform3DMakeRotation(0, 0, 1.0, 0);
-        bLayer.backgroundColor = UIColor.green.cgColor
-        
         self.addSublayer(bLayer)
         return bLayer
     }()
@@ -87,14 +83,14 @@ class FlipperAnimationLayer: CATransformLayer {
     
     func setTheFrontLayer(_ image:UIImage) {
         let tmpImageRef = image.cgImage
-        let rightImgRef = tmpImageRef?.cropping(to: CGRect(x: image.size.width/2 * UIScreen.main.scale, y: 0, width: image.size.width/2 * UIScreen.main.scale, height: image.size.height * UIScreen.main.scale))
+        let rightImgRef = tmpImageRef?.cropping(to: CGRect(x: 0, y: image.size.height/2 * UIScreen.main.scale, width: image.size.width * UIScreen.main.scale, height: image.size.height/2 * UIScreen.main.scale))
 
         frontLayer.contents = rightImgRef
     }
     
     func setTheBackLayer(_ image:UIImage) {
         let tmpImageRef = image.cgImage
-        let rightImgRef = tmpImageRef?.cropping(to: CGRect(x: 0, y: 0, width: image.size.width/2 * UIScreen.main.scale, height: image.size.height * UIScreen.main.scale))
+        let rightImgRef = tmpImageRef?.cropping(to: CGRect(x: 0, y: 0, width: image.size.width * UIScreen.main.scale, height: image.size.height/2 * UIScreen.main.scale))
         
         backLayer.contents = rightImgRef
     }

@@ -12,6 +12,12 @@ class BaseView: UIView, NotificationManagerDelegate {
  
     let notificationManager = NotificationManager()
     
+    var imageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         notificationManager.delegate = self

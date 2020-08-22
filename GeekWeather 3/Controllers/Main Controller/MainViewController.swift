@@ -38,8 +38,6 @@ class MainViewController: BaseViewController, FlipperViewDataSource {
         
         flipView.dataSource = self
         view = flipView
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {

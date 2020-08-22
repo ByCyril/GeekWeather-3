@@ -25,28 +25,21 @@ class FlipperStaticView: CATransformLayer {
 
     lazy var topSide:CALayer = {
         var lSide = CALayer(layer: self)
-        
         var frame = self.bounds
-        lSide.frame = frame
-        frame.size.height = frame.size.height
+        frame.size.height = frame.size.height / 2
         frame.origin.y = 0
-        
+        lSide.frame = frame
         lSide.contentsScale = UIScreen.main.scale
-        lSide.backgroundColor = UIColor.yellow.cgColor
-        
         return lSide
     }()
     
     lazy var bottomSide:CALayer = {
         var rSide = CALayer(layer: self)
         var frame = self.bounds
-        print("bottom side",frame)
-//        frame.size.height = frame.size.width / 2
-        rSide.frame = frame
+        frame.size.height = frame.size.height / 2
         frame.origin.y = frame.size.height / 2
-        
+        rSide.frame = frame
         rSide.contentsScale = UIScreen.main.scale
-        rSide.backgroundColor = UIColor.green.cgColor
         return rSide
         }()
     

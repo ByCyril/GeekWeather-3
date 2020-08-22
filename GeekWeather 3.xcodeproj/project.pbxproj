@@ -76,7 +76,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0100D7D024CE1A8200C9F9B5 /* GeekWeather 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekWeather 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0100D7D024CE1A8200C9F9B5 /* GeekWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeekWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 		0100D7D124CE1A8200C9F9B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0100D7D024CE1A8200C9F9B5 /* GeekWeather 3.app */,
+				0100D7D024CE1A8200C9F9B5 /* GeekWeather.app */,
 				0100D7E624CE1A8300C9F9B5 /* GeekWeather 3Tests.xctest */,
 			);
 			name = Products;
@@ -330,7 +330,7 @@
 				0185666024D774FE0035BF59 /* GWFoundation */,
 			);
 			productName = "GeekWeather 3";
-			productReference = 0100D7D024CE1A8200C9F9B5 /* GeekWeather 3.app */;
+			productReference = 0100D7D024CE1A8200C9F9B5 /* GeekWeather.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0100D7E524CE1A8300C9F9B5 /* GeekWeather 3Tests */ = {
@@ -616,7 +616,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GeekWeather;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -637,7 +637,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GeekWeather;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

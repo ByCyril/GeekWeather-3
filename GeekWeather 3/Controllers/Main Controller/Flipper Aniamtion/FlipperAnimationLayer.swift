@@ -35,51 +35,49 @@ class FlipperAnimationLayer: CATransformLayer {
     
     var flipDirection:FlipDirection = .notSet
     var flipAnimationStatus = FlipAnimationStatus.none
-    var flipProperties = AnimationProperties(currentAngle: 0, startAngle: 0, endFlipAngle: -CGFloat.pi)
+    var flipProperties = AnimationProperties(currentAngle: 0, startAngle: 0, endFlipAngle: CGFloat.pi)
     var isFirstOrLastPage:Bool = false
     
     lazy var frontLayer:CALayer = {
         var fLayer = CALayer(layer: self)
         fLayer.frame = self.bounds
-        fLayer.frame.size.height = self.bounds.size.height
-        fLayer.frame.origin.y = self.bounds.size.height
         fLayer.isDoubleSided = false
-        fLayer.transform = CATransform3DMakeRotation(CGFloat.pi, 0, 1.0, 0);
+        fLayer.transform = CATransform3DMakeRotation(CGFloat.pi, 1, 0, 0);
         self.addSublayer(fLayer)
         return fLayer
     }()
     
-   lazy var backLayer:CALayer = {
+    lazy var backLayer:CALayer = {
         var bLayer = CALayer(layer: self)
         bLayer.frame = self.bounds
-        bLayer.frame.size.height = self.bounds.size.height
         bLayer.isDoubleSided = false
-        bLayer.transform = CATransform3DMakeRotation(0, 0, 1.0, 0);
+        bLayer.transform = CATransform3DMakeRotation(0, 1, 0, 0);
         self.addSublayer(bLayer)
         return bLayer
     }()
-
+    
     convenience init(frame:CGRect, isFirstOrLast:Bool) {
         self.init()
         self.flipAnimationStatus = FlipAnimationStatus.beginning
-        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.anchorPoint = CGPoint(x: 0.5, y: 1)
         self.frame = frame
         
         isFirstOrLastPage = isFirstOrLast
     }
     
     func updateFlipDirection(_ direction:FlipDirection) {
+        
         flipDirection = direction
         if flipDirection == .top {
             flipProperties.currentAngle = CGFloat.pi
             flipProperties.startAngle = CGFloat.pi
             flipProperties.endFlipAngle = 0
-            self.transform = CATransform3DMakeRotation(CGFloat.pi, 0, 1, 0);
+            self.transform = CATransform3DMakeRotation(CGFloat.pi, 1, 0, 0);
         } else {
             flipProperties.currentAngle = 0
             flipProperties.startAngle = 0
-            flipProperties.endFlipAngle = -CGFloat.pi
-            self.transform = CATransform3DMakeRotation(CGFloat(0), 0, 1, 0);
+            flipProperties.endFlipAngle = CGFloat.pi
+            self.transform = CATransform3DMakeRotation(0, 1, 0, 0);
         }
     }
     

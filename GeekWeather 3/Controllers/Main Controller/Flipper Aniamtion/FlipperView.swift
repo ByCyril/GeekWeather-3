@@ -377,7 +377,7 @@ final class FlipperView: UIView {
     func performFlipWithDJKAnimationLayer(_ animationLayer: FlipperAnimationLayer, duration:CGFloat, clearFlip:Bool) {
         var t = CATransform3DIdentity
         t.m34 = 1.0/850
-        t = CATransform3DRotate(t, animationLayer.flipProperties.currentAngle, 0, 1, 0)
+        t = CATransform3DRotate(t, animationLayer.flipProperties.currentAngle, 1, 0, 0)
         
         CATransaction.begin()
         CATransaction.setAnimationDuration(CFTimeInterval(duration))
@@ -448,7 +448,7 @@ final class FlipperView: UIView {
         if animationLayer.flipDirection == .top {
             if self.currentPage + 1 > numberOfPages - 1 {
                 //we are at the end
-                animationLayer.flipProperties.endFlipAngle = -1.5
+                animationLayer.flipProperties.endFlipAngle = 1.5
                 animationLayer.isFirstOrLastPage = true
                 animationLayer.setTheFrontLayer(viewControllerSnapshots[currentPage]!)
             } else {
@@ -460,7 +460,7 @@ final class FlipperView: UIView {
         } else {
             if currentPage - 1 < 0 {
                 //we are at the end
-                animationLayer.flipProperties.endFlipAngle = -CGFloat.pi + 1.5
+                animationLayer.flipProperties.endFlipAngle = CGFloat.pi
                 animationLayer.isFirstOrLastPage = true
                 animationLayer.setTheBackLayer(viewControllerSnapshots[currentPage]!)
                 

@@ -10,11 +10,9 @@ import UIKit
 import GWFoundation
 import CoreLocation
 
-class MainViewController: BaseViewController, FlipperViewDataSource {
+class MainViewController: UIViewController, FlipperViewDataSource {
 
-    private let flipView = FlipperView()
-    
-    var flipperViewArray: [BaseViewController] = [] {
+    private var flipperViewArray: [BaseViewController] = [] {
         didSet {
             flipView.reload()
         }
@@ -24,14 +22,13 @@ class MainViewController: BaseViewController, FlipperViewDataSource {
     private var locationManager: LocationManager?
     private var notificationManager: NotificationManager?
     
-    private var collectionViewDataSourceManager: CollectionViewDataSourceManager?
-    private var collectionViewDelegateManager: CollectionViewDelegateManager?
-    
+    private let flipView = FlipperView()
+
     private let networkDelegateManager = NetworkManagerDelegateManager()
     
-    let levelOneViewController = LevelOneViewController()
-    let levelTwoViewController = LevelTwoViewController()
-    let levelThreeViewController = LevelThreeViewController()
+    private let levelOneViewController = LevelOneViewController()
+    private let levelTwoViewController = LevelTwoViewController()
+    private let levelThreeViewController = LevelThreeViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()

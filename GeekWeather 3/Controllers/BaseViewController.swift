@@ -8,14 +8,21 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, NotificationManagerDelegate {
+    
+    let notificationManager = NotificationManager()
+    
+    let gradientLayer = CAGradientLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        gradientLayer.frame = view.bounds
         initUI()
     }
     
     func initUI() {}
     func applyAccessibility() {}
+    func update(from notification: NSNotification) {}
+    
 }

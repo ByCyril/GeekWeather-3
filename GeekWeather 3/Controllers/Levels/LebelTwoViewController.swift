@@ -9,16 +9,18 @@
 import UIKit
 
 final class LevelTwoViewController: BaseViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = LevelTwoView()
+        gradientLayer.colors = [UIColor.blue.cgColor, UIColor.white.cgColor]
+        view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    override func initUI() {
+        
+    }
+    
+    override func update(from notification: NSNotification) {
+        
     }
 }
-
-final class LevelThreeViewController: BaseViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view = LevelThreeView()
-    }
-}
-

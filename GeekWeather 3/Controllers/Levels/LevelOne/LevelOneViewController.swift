@@ -9,7 +9,7 @@
 import UIKit
 import GWFoundation
 
-final class LevelOneViewController: UIViewController {
+final class LevelOneViewController: BaseViewController {
    
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
@@ -28,6 +28,40 @@ final class LevelOneViewController: UIViewController {
         tempLabel.adjustsFontForContentSizeCategory = true
         summaryLabel.adjustsFontForContentSizeCategory = true
         commentLabel.adjustsFontForContentSizeCategory = true
+        
+        notificationManager.listen(for: NotificationName.observerID("currentLocation"), in: self)
+    }
+    
+    override func update(from notification: NSNotification) {
+        if let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel {
+            DispatchQueue.main.async {
+                self.displayData(weatherModel.current)
+            }
+        }
+        
+        if let currentLocation = notification.userInfo?["currentLocation"] as? String {
+//            DispatchQueue.main.async { [weak self] in
+                
+                UIView.transition(with: locationLabel, duration: 1, options: [.curveEaseInOut, .transitionFlipFromBottom], animations: {
+                    self.locationLabel.text = currentLocation
+                })
+                
+//            }
+        }
+        
+    }
+    
+    func displayData(_ currentWeatherData: Currently) {
+                
+        tempLabel.text = currentWeatherData.temp.temp()
+        summaryLabel.text = currentWeatherData.weather.first?.description ?? "na"
+        commentLabel.text = "Feels like " + currentWeatherData.feels_like.temp()
+        
+        UIView.animate(withDuration: 1) { [weak self] in
+            self?.tempLabel.alpha = 1
+            self?.summaryLabel.alpha = 1
+            self?.commentLabel.alpha = 1
+        }
     }
     
 }

@@ -21,9 +21,9 @@ class MainViewController: UIViewController, FlipperViewDataSource {
     }
     
     private var networkManager: NetworkManager?
-    private var locationManager: LocationManager?
-    private var notificationManager = NotificationManager()
     
+    private let locationManager = LocationManager()
+    private let notificationManager = NotificationManager()
     private let networkDelegateManager = NetworkManagerDelegateManager()
     
     override func viewDidLoad() {
@@ -36,22 +36,22 @@ class MainViewController: UIViewController, FlipperViewDataSource {
         
         let views = [levelOneViewController, levelTwoViewController, levelThreeViewController]
         
-        
         for levelView in views {
             levelView.view.frame = view.bounds
             levelView.view.layoutSubviews()
         }
         
         flipperViewArray += views
+        
+        networkManager = NetworkManager(self)
+        
+        locationManager.delegate = self
+        locationManager.authorizationStatus()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        networkManager = NetworkManager(self)
-        let url = RequestURL(location: CLLocation(latitude: 37.3482, longitude: -121.8165), .imperial)
-        networkManager?.fetch(url)
-        
     }
     
     func viewForPage(_ page: Int, flipper: FlipperView) -> UIView {
@@ -62,7 +62,8 @@ class MainViewController: UIViewController, FlipperViewDataSource {
 
 extension MainViewController: NetworkManagerDelegate {
     func didFinishFetching(_ weatherModel: WeatherModel) {
-        notificationManager.post(data: ["weatherData": weatherModel], to: NotificationName.observerID("weatherData"))
+        notificationManager.post(data: ["weatherModel": weatherModel],
+                                 to: NotificationName.observerID("weatherModel"))
     }
     
     func didReceiveError(_ error: Error?) {
@@ -72,10 +73,11 @@ extension MainViewController: NetworkManagerDelegate {
 
 extension MainViewController: LocationManagerDelegate {
     func currentLocation(_ location: CLLocation) {
-        
+        locationManager.lookupCurrentLocation(location)
+//        networkManager?.fetch(RequestURL(location: location, .imperial))
     }
     
     func locationError(_ errorMsg: String) {
-        
+        print(errorMsg)
     }
 }

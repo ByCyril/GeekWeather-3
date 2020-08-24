@@ -17,7 +17,7 @@ class BaseViewController: UIViewController, NotificationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         notificationManager.delegate = self
-        notificationManager.listen(for: NotificationName.observerID("weatherData"), in: self)
+        notificationManager.listen(for: NotificationName.observerID("weatherModel"), in: self)
 
         view.backgroundColor = .white
         gradientLayer.frame = view.bounds

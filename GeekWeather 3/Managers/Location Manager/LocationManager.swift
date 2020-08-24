@@ -61,23 +61,47 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     
     private func authorizationEnabled(_ manager: CLLocationManager) {
         guard let location = manager.location else {
-            
             return
         }
         delegate?.currentLocation(location)
     }
     
     private func denied() {
-//        delegate?.location("Permission Denied")
         delegate?.locationError("Permission Denied")
     }
     
     private func notDetermined() {
-        locationManager.requestLocation()
+        locationManager.requestWhenInUseAuthorization()
     }
     
     private func restricted() {
         
+    }
+    
+    func lookupCurrentLocation(_ location: CLLocation) {
+        CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
+            
+            if let error = error {
+                self.notificationManager.post(data: ["currentLocation": error.localizedDescription],
+                                              to: NotificationName.observerID("currentLocation"))
+            } else {
+                guard let firstLocation = placemark?.first else { return }
+                
+                let city = firstLocation.locality ?? ""
+                
+                if firstLocation.country == "United States" {
+                    let state = firstLocation.administrativeArea ?? ""
+                    self.notificationManager.post(data: ["currentLocation": city + ", " + state],
+                                             to: NotificationName.observerID("currentLocation"))
+                    return
+                }
+                
+                self.notificationManager.post(data: ["currentLocation": city],
+                                         to: NotificationName.observerID("currentLocation"))
+                
+            }
+            
+        }
     }
     
 }

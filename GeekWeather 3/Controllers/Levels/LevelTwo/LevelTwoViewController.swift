@@ -55,7 +55,7 @@ final class LevelTwoViewController: BaseViewController {
     }
     
     override func update(from notification: NSNotification) {
-        guard let weatherModel = notification.userInfo?["weatherData"] as? WeatherModel else { return }
+        guard let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel else { return }
         createSnapshot(weatherModel)
     }
     

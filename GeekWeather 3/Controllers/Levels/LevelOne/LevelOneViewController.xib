@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LevelOneViewController" customModule="GeekWeather" customModuleProvider="target">
+            <connections>
+                <outlet property="commentLabel" destination="MUi-1j-gko" id="FdU-Ia-Jjc"/>
+                <outlet property="locationLabel" destination="Qta-oA-wNd" id="bfK-D2-x5n"/>
+                <outlet property="summaryLabel" destination="DLs-h4-y3f" id="3gl-aR-o8V"/>
+                <outlet property="tempLabel" destination="DLp-g2-mSQ" id="lCq-N5-vqd"/>
+                <outlet property="view" destination="iN0-l3-epB" id="6Ia-Ft-Vln"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Jose, CA" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qta-oA-wNd">
+                    <rect key="frame" x="20" y="341" width="374" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="vxj-AT-XkY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="81°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLp-g2-mSQ">
+                    <rect key="frame" x="20" y="394" width="374" height="118.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="100"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLs-h4-y3f">
+                    <rect key="frame" x="20" y="559" width="374" height="27"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feels like 75°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUi-1j-gko">
+                    <rect key="frame" x="20" y="589" width="374" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="DLp-g2-mSQ" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="1DN-tC-z1l"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DLs-h4-y3f" secondAttribute="trailing" constant="20" id="1dR-G2-IBF"/>
+                <constraint firstItem="DLs-h4-y3f" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="7yC-41-4Rc"/>
+                <constraint firstItem="DLp-g2-mSQ" firstAttribute="firstBaseline" secondItem="Qta-oA-wNd" secondAttribute="baseline" constant="104" symbolType="layoutAnchor" id="DTr-WS-NEo"/>
+                <constraint firstItem="MUi-1j-gko" firstAttribute="firstBaseline" secondItem="DLs-h4-y3f" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="F66-Ut-bEz"/>
+                <constraint firstItem="DLs-h4-y3f" firstAttribute="top" secondItem="DLp-g2-mSQ" secondAttribute="bottom" constant="46.5" id="HJA-gg-8oH"/>
+                <constraint firstItem="Qta-oA-wNd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Qwa-yb-crh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Qta-oA-wNd" secondAttribute="trailing" constant="20" id="UVK-Q3-bfs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MUi-1j-gko" secondAttribute="trailing" constant="20" id="Uhp-6z-GU7"/>
+                <constraint firstItem="MUi-1j-gko" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="YoR-bZ-l2X"/>
+                <constraint firstItem="DLp-g2-mSQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="fZS-T5-lur"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DLp-g2-mSQ" secondAttribute="trailing" constant="20" id="k6Y-HJ-rfx"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="140.57971014492756" y="153.34821428571428"/>
+        </view>
+    </objects>
+</document>

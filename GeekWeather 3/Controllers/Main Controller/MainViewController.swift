@@ -12,7 +12,9 @@ import CoreLocation
 
 class MainViewController: UIViewController, FlipperViewDataSource {
 
-    private var flipperViewArray: [BaseViewController] = [] {
+    @IBOutlet weak var flipView: FlipperView!
+    
+    private var flipperViewArray: [UIViewController] = [] {
         didSet {
             flipView.reload()
         }
@@ -20,28 +22,19 @@ class MainViewController: UIViewController, FlipperViewDataSource {
     
     private var networkManager: NetworkManager?
     private var locationManager: LocationManager?
-    private var notificationManager: NotificationManager?
+    private var notificationManager = NotificationManager()
     
-    private let flipView = FlipperView()
-
     private let networkDelegateManager = NetworkManagerDelegateManager()
-    
-    private let levelOneViewController = LevelOneViewController()
-    private let levelTwoViewController = LevelTwoViewController()
-    private let levelThreeViewController = LevelThreeViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         flipView.dataSource = self
-        view = flipView
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let views = [levelOneViewController,
-                     levelTwoViewController,
-                     levelThreeViewController]
+        let levelOneViewController = LevelOneViewController(nibName: "LevelOneViewController", bundle: nil)
+        let levelTwoViewController = LevelTwoViewController(nibName: "LevelTwoViewController", bundle: nil)
+        let levelThreeViewController = LevelThreeViewController(nibName: "LevelThreeViewController", bundle: nil)
+        
+        let views = [levelOneViewController, levelTwoViewController, levelThreeViewController]
         
         
         for levelView in views {
@@ -52,6 +45,15 @@ class MainViewController: UIViewController, FlipperViewDataSource {
         flipperViewArray += views
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        networkManager = NetworkManager(self)
+        let url = RequestURL(location: CLLocation(latitude: 37.3482, longitude: -121.8165), .imperial)
+        networkManager?.fetch(url)
+        
+    }
+    
     func viewForPage(_ page: Int, flipper: FlipperView) -> UIView {
         return flipperViewArray[page].view
     }
@@ -60,7 +62,7 @@ class MainViewController: UIViewController, FlipperViewDataSource {
 
 extension MainViewController: NetworkManagerDelegate {
     func didFinishFetching(_ weatherModel: WeatherModel) {
-        
+        notificationManager.post(data: ["weatherData": weatherModel], to: NotificationName.observerID("weatherData"))
     }
     
     func didReceiveError(_ error: Error?) {

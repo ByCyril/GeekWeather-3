@@ -30,7 +30,7 @@ final class State: NotificationName {
     let locationPermissionDenied = observerID("permission_denied")
 }
 
-final class Data: NotificationName {
+final class NData: NotificationName {
     let response = observerID("weather_response")
     let location = observerID("location_response")
 }

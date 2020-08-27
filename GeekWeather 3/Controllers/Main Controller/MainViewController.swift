@@ -37,16 +37,19 @@ class MainViewController: UIViewController, FlipperViewDataSource {
         let views = [levelOneViewController, levelTwoViewController, levelThreeViewController]
         
         for levelView in views {
-            levelView.view.frame = view.bounds
+            levelView.view.frame = view.frame
             levelView.view.layoutSubviews()
         }
         
         flipperViewArray += views
         
-        networkManager = NetworkManager(self)
+        if let data = FeatureFlag.mockedResponse() {
+            networkManager = NetworkManager(self, data)
+        } else {
+            networkManager = NetworkManager(self)
+        }
         
         locationManager.delegate = self
-        locationManager.authorizationStatus()
         
     }
     
@@ -62,18 +65,20 @@ class MainViewController: UIViewController, FlipperViewDataSource {
 
 extension MainViewController: NetworkManagerDelegate {
     func didFinishFetching(_ weatherModel: WeatherModel) {
+        locationManager.lookupCurrentLocation(CLLocation(latitude: weatherModel.lat, longitude: weatherModel.lon))
         notificationManager.post(data: ["weatherModel": weatherModel],
                                  to: NotificationName.observerID("weatherModel"))
     }
     
-    func didReceiveError(_ error: Error?) {
+    func networkError(_ error: Error?) {
         
     }
 }
 
 extension MainViewController: LocationManagerDelegate {
     func currentLocation(_ location: CLLocation) {
-        locationManager.lookupCurrentLocation(location)
+        let req = RequestURL(location: location, .imperial)
+        print(req.url)
 //        networkManager?.fetch(RequestURL(location: location, .imperial))
     }
     

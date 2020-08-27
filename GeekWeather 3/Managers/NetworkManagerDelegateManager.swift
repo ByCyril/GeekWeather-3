@@ -14,7 +14,7 @@ final class NetworkManagerDelegateManager: NetworkManagerDelegate {
 //        Send Info
     }
     
-    func didReceiveError(_ error: Error?) {
+    func networkError(_ error: Error?) {
     
     }
 }

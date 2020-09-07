@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LevelThreeViewController" customModule="GeekWeather" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="MBm-E2-Fk9" id="lH3-us-Sb2"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ovA-c3-bY4"/>
             </connections>
         </placeholder>
@@ -18,8 +21,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="MBm-E2-Fk9">
-                    <rect key="frame" x="20" y="44" width="374" height="793"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <rect key="frame" x="20" y="44" width="374" height="782"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="W7j-QN-eiM">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -27,25 +30,72 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4im-Bq-pGS">
+                    <rect key="frame" x="390" y="433" width="5" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemGray2Color"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <real key="value" value="2.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7hA-Be-D2a">
+                    <rect key="frame" x="390" y="393" width="5" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemGray2Color"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <real key="value" value="2.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qpq-Aj-X2N">
+                    <rect key="frame" x="390" y="473" width="5" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="separatorColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <real key="value" value="2.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed and Designed by Cyril @ 2017 - 2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSW-e7-gMs">
-                    <rect key="frame" x="20" y="845" width="374" height="17"/>
+                    <rect key="frame" x="20" y="834" width="374" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="KUp-Ld-LCh"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-            <constraints>
-                <constraint firstItem="MSW-e7-gMs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="BxF-Xl-YsP"/>
-                <constraint firstItem="MBm-E2-Fk9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Emq-8q-Jon"/>
-                <constraint firstItem="MSW-e7-gMs" firstAttribute="top" secondItem="MBm-E2-Fk9" secondAttribute="bottom" constant="8" id="UHr-S2-CZl"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="MSW-e7-gMs" secondAttribute="bottom" id="V9k-1F-ch5"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MSW-e7-gMs" secondAttribute="trailing" constant="20" id="VRS-6I-3j5"/>
-                <constraint firstItem="MBm-E2-Fk9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="VyW-Jq-QcM"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MBm-E2-Fk9" secondAttribute="trailing" constant="20" id="iIJ-hO-dRJ"/>
-            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MBm-E2-Fk9" secondAttribute="trailing" constant="20" id="6WB-7P-KBQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MSW-e7-gMs" secondAttribute="trailing" constant="20" id="Lcz-ga-6PW"/>
+                <constraint firstItem="MBm-E2-Fk9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Mwq-wi-4Lw"/>
+                <constraint firstItem="MSW-e7-gMs" firstAttribute="top" secondItem="MBm-E2-Fk9" secondAttribute="bottom" constant="8" symbolic="YES" id="PCr-gs-GVC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="MSW-e7-gMs" secondAttribute="bottom" constant="11" id="XVR-Rn-67p"/>
+                <constraint firstItem="MSW-e7-gMs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="a1F-Pb-blb"/>
+                <constraint firstItem="MBm-E2-Fk9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="xJ6-8h-29u"/>
+            </constraints>
             <point key="canvasLocation" x="140.57971014492756" y="153.34821428571428"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

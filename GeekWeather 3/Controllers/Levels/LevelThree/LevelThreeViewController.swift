@@ -81,12 +81,14 @@ final class SunsetSunriseCellItem: LevelThreeCellItem {
     }
 }
 
-final class LevelThreeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+final class LevelThreeViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        applyGradient()
+        collectionView.backgroundColor = .clear
 //        collectionView.delegate = self
 //        collectionView.dataSource = self
     }

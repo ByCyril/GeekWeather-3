@@ -11,7 +11,7 @@ import Foundation
 final class FeatureFlag {
     
     static func mockedResponse() -> Data? {
-        guard let file = Bundle.main.path(forResource: "test", ofType: "json") else { return nil }
+        guard let file = Bundle.main.path(forResource: "demo", ofType: "json") else { return nil }
         let url = URL(fileURLWithPath: file)
         let data = try? Data(contentsOf: url, options: .mappedIfSafe)
         return data

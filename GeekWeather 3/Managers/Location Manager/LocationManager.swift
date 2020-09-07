@@ -41,7 +41,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         authorizationStatus(status, manager)
     }
     
-    func authorizationStatus(_ status: CLAuthorizationStatus = CLLocationManager.authorizationStatus(),
+    private func authorizationStatus(_ status: CLAuthorizationStatus = CLLocationManager.authorizationStatus(),
                              _ manager: CLLocationManager = CLLocationManager()) {
         
         switch status {

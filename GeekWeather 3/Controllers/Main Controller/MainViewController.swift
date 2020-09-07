@@ -37,11 +37,11 @@ class MainViewController: UIViewController, FlipperViewDataSource {
         let views = [levelOneViewController, levelTwoViewController, levelThreeViewController]
         
         for levelView in views {
-            levelView.view.frame = view.frame
+            levelView.view.frame = view.bounds
             levelView.view.layoutSubviews()
         }
         
-        flipperViewArray += views
+        flipperViewArray = views
         
         if let data = FeatureFlag.mockedResponse() {
             networkManager = NetworkManager(self, data)
@@ -78,8 +78,7 @@ extension MainViewController: NetworkManagerDelegate {
 extension MainViewController: LocationManagerDelegate {
     func currentLocation(_ location: CLLocation) {
         let req = RequestURL(location: location, .imperial)
-        print(req.url)
-//        networkManager?.fetch(RequestURL(location: location, .imperial))
+        networkManager?.fetch(req)
     }
     
     func locationError(_ errorMsg: String) {

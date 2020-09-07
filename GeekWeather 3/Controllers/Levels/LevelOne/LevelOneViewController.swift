@@ -29,6 +29,7 @@ final class LevelOneViewController: BaseViewController {
         summaryLabel.adjustsFontForContentSizeCategory = true
         commentLabel.adjustsFontForContentSizeCategory = true
         
+        
         notificationManager.listen(for: NotificationName.observerID("currentLocation"), in: self)
     }
     
@@ -40,15 +41,19 @@ final class LevelOneViewController: BaseViewController {
         }
         
         if let currentLocation = notification.userInfo?["currentLocation"] as? String {
-//            DispatchQueue.main.async { [weak self] in
-                
-                UIView.transition(with: locationLabel, duration: 1, options: [.curveEaseInOut, .transitionFlipFromBottom], animations: {
-                    self.locationLabel.text = currentLocation
-                })
-                
-//            }
+            UIView.transition(with: locationLabel, duration: 1, options: [.curveEaseInOut, .transitionFlipFromBottom], animations: {
+                self.locationLabel.text = currentLocation
+            })
         }
         
+    }
+    
+    @IBAction func presentLocationSearch() {
+        let vc = SavedLocationViewController()
+        let nav = UINavigationController()
+        nav.viewControllers = [vc]
+        nav.navigationBar.prefersLargeTitles = true
+        present(nav, animated: true, completion: nil)
     }
     
     func displayData(_ currentWeatherData: Currently) {
@@ -56,6 +61,7 @@ final class LevelOneViewController: BaseViewController {
         tempLabel.text = currentWeatherData.temp.temp()
         summaryLabel.text = currentWeatherData.weather.first?.main ?? ""
         commentLabel.text = "Feels like " + currentWeatherData.feels_like.temp()
+//        applyGradient()
         
         UIView.animate(withDuration: 1) { [weak self] in
             self?.tempLabel.alpha = 1

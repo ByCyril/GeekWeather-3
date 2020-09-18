@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,7 +39,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLs-h4-y3f">
-                    <rect key="frame" x="20" y="499.5" width="374" height="0.0"/>
+                    <rect key="frame" x="20" y="494.5" width="374" height="0.0"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -94,6 +94,17 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnc-5u-ziM">
+                    <rect key="frame" x="359" y="120" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="ZVD-YR-Zmt"/>
+                        <constraint firstAttribute="width" constant="25" id="yGU-GZ-oOh"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="settings"/>
+                    <connections>
+                        <action selector="presentSettingController" destination="-1" eventType="touchUpInside" id="xdN-Xx-vNT"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -102,12 +113,14 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DLs-h4-y3f" secondAttribute="trailing" constant="20" id="1dR-G2-IBF"/>
                 <constraint firstItem="DLs-h4-y3f" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="7yC-41-4Rc"/>
                 <constraint firstItem="DLp-g2-mSQ" firstAttribute="firstBaseline" secondItem="Qta-oA-wNd" secondAttribute="baseline" constant="104" symbolType="layoutAnchor" id="DTr-WS-NEo"/>
-                <constraint firstItem="MUi-1j-gko" firstAttribute="firstBaseline" secondItem="DLs-h4-y3f" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="F66-Ut-bEz"/>
-                <constraint firstItem="DLs-h4-y3f" firstAttribute="top" secondItem="DLp-g2-mSQ" secondAttribute="bottom" constant="46.5" id="HJA-gg-8oH"/>
+                <constraint firstItem="MUi-1j-gko" firstAttribute="firstBaseline" secondItem="DLs-h4-y3f" secondAttribute="baseline" constant="29" id="F66-Ut-bEz"/>
+                <constraint firstItem="DLs-h4-y3f" firstAttribute="top" secondItem="DLp-g2-mSQ" secondAttribute="bottom" constant="41.5" id="HJA-gg-8oH"/>
                 <constraint firstItem="Qta-oA-wNd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Qwa-yb-crh"/>
+                <constraint firstItem="tnc-5u-ziM" firstAttribute="top" secondItem="oFp-KW-4cH" secondAttribute="bottom" constant="23" id="TGB-xs-UVU"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Qta-oA-wNd" secondAttribute="trailing" constant="20" id="UVK-Q3-bfs"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MUi-1j-gko" secondAttribute="trailing" constant="20" id="Uhp-6z-GU7"/>
                 <constraint firstItem="MUi-1j-gko" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="YoR-bZ-l2X"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="tnc-5u-ziM" secondAttribute="trailing" constant="30" id="b0C-x0-Ifq"/>
                 <constraint firstItem="DLp-g2-mSQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="fZS-T5-lur"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DLp-g2-mSQ" secondAttribute="trailing" constant="20" id="k6Y-HJ-rfx"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oFp-KW-4cH" secondAttribute="trailing" constant="30" id="nRn-KW-wFj"/>
@@ -118,6 +131,7 @@
     </objects>
     <resources>
         <image name="search" width="512" height="512"/>
+        <image name="settings" width="512" height="512"/>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

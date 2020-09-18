@@ -36,8 +36,6 @@
 		017801C72506059D009D86FC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 017801C62506059D009D86FC /* SwiftUI.framework */; };
 		017801CA2506059D009D86FC /* GeekWeather_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017801C92506059D009D86FC /* GeekWeather_Widget.swift */; };
 		017801CD2506059E009D86FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 017801CC2506059E009D86FC /* Assets.xcassets */; };
-		017801CF2506059E009D86FC /* GeekWeather_Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 017801CB2506059D009D86FC /* GeekWeather_Widget.intentdefinition */; };
-		017801D02506059E009D86FC /* GeekWeather_Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 017801CB2506059D009D86FC /* GeekWeather_Widget.intentdefinition */; };
 		017801D32506059E009D86FC /* GeekWeather-WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 017801C22506059D009D86FC /* GeekWeather-WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		017801D925060718009D86FC /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 0146C05E24F788E600967A37 /* demo.json */; };
 		017801DC2506099E009D86FC /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 017801DB2506099E009D86FC /* GWFoundation */; };
@@ -63,6 +61,8 @@
 		01D6C1E024F31A2800DF375C /* LevelTwoCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D6C1DF24F31A2800DF375C /* LevelTwoCellView.xib */; };
 		01D6C1E224F439F900DF375C /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01D6C1E124F439F900DF375C /* MyParticle.sks */; };
 		01D6C1E624F43AAE00DF375C /* SunRays.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01D6C1E524F43AAE00DF375C /* SunRays.sks */; };
+		01D6CD0C25075A8B00FF9225 /* GeekWeather_Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 01D6CD0B25075A8B00FF9225 /* GeekWeather_Widget.intentdefinition */; };
+		01D6CD0D25075A8B00FF9225 /* GeekWeather_Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 01D6CD0B25075A8B00FF9225 /* GeekWeather_Widget.intentdefinition */; };
 		01E65B2024F19D9400D8F76F /* BaseViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -142,7 +142,6 @@
 		017801C42506059D009D86FC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		017801C62506059D009D86FC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		017801C92506059D009D86FC /* GeekWeather_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekWeather_Widget.swift; sourceTree = "<group>"; };
-		017801CB2506059D009D86FC /* GeekWeather_Widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = GeekWeather_Widget.intentdefinition; sourceTree = "<group>"; };
 		017801CC2506059E009D86FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		017801CE2506059E009D86FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		017801D42506059E009D86FC /* GeekWeather-WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GeekWeather-WidgetExtension.entitlements"; sourceTree = "<group>"; };
@@ -167,6 +166,7 @@
 		01D6C1DF24F31A2800DF375C /* LevelTwoCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelTwoCellView.xib; sourceTree = "<group>"; };
 		01D6C1E124F439F900DF375C /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		01D6C1E524F43AAE00DF375C /* SunRays.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SunRays.sks; sourceTree = "<group>"; };
+		01D6CD0B25075A8B00FF9225 /* GeekWeather_Widget.intentdefinition */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.intentdefinition; path = GeekWeather_Widget.intentdefinition; sourceTree = "<group>"; };
 		01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -355,7 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				017801C92506059D009D86FC /* GeekWeather_Widget.swift */,
-				017801CB2506059D009D86FC /* GeekWeather_Widget.intentdefinition */,
+				01D6CD0B25075A8B00FF9225 /* GeekWeather_Widget.intentdefinition */,
 				017801CC2506059E009D86FC /* Assets.xcassets */,
 				017801CE2506059E009D86FC /* Info.plist */,
 			);
@@ -583,7 +583,7 @@
 				0158D0312505E3ED008692DC /* SavedLocationViewController.swift in Sources */,
 				01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */,
 				01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */,
-				017801D02506059E009D86FC /* GeekWeather_Widget.intentdefinition in Sources */,
+				01D6CD0C25075A8B00FF9225 /* GeekWeather_Widget.intentdefinition in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
 				0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
@@ -612,7 +612,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				017801CA2506059D009D86FC /* GeekWeather_Widget.swift in Sources */,
-				017801CF2506059E009D86FC /* GeekWeather_Widget.intentdefinition in Sources */,
+				01D6CD0D25075A8B00FF9225 /* GeekWeather_Widget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

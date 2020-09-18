@@ -120,11 +120,13 @@ final class FlipperView: UIView {
         flipperStaticView.bottomSide.contents = nil
         
         flipperState = .inactive
+        print(#function)
     }
     
     @objc
     private func pan(_ gesture: UIPanGestureRecognizer) {
-        let translation = gesture.translation(in: gesture.view!).y
+        guard let view = gesture.view else { return }
+        let translation = gesture.translation(in: view).y
         let progress = translation / gesture.view!.bounds.size.height
         
         switch gesture.state {
@@ -191,7 +193,7 @@ final class FlipperView: UIView {
         
         currentFlipperAnimationLayer.flipAnimationStatus = .completing
         
-        if didFlipToNewPage(currentFlipperAnimationLayer, gesture, translation) == true {
+        if didFlipToNewPage(currentFlipperAnimationLayer, gesture, translation) {
             setUpForFlip(currentFlipperAnimationLayer, progress: 1.0, animated: true, clearFlip: true)
         } else {
             if currentFlipperAnimationLayer.isFirstOrLastPage == false {
@@ -211,6 +213,7 @@ final class FlipperView: UIView {
         animationLayer.flipDirection == .bottom && abs(releaseSpeed) > 0.5 && !animationLayer.isFirstOrLastPage && releaseSpeed > 0 {
                 didFlipToNewPage = true
         }
+        print(#function, didFlipToNewPage)
         return didFlipToNewPage
     }
     
@@ -222,6 +225,7 @@ final class FlipperView: UIView {
             animationLayer.flipDirection = .top
             currentPage += 1
         }
+        print(#function, animationLayer.flipDirection == .top, currentPage)
     }
     
     func animationStatusBeginning(_ currentDJKAnimationLayer:FlipperAnimationLayer, translation:CGFloat, progress:CGFloat, gesture:UIPanGestureRecognizer) {
@@ -343,6 +347,7 @@ final class FlipperView: UIView {
         CATransaction.setAnimationDuration(0)
         animationLayer.zPosition = zPos
         CATransaction.commit()
+        print(#function, zPos)
     }
     
     func reverseAnimationForLayer(_ animationLayer: FlipperAnimationLayer) {
@@ -378,6 +383,8 @@ final class FlipperView: UIView {
         }
         
         performFlipWithDJKAnimationLayer(animationLayer, duration: duration, clearFlip: clearFlip)
+        
+        print(#function, progress)
     }
     
     func performFlipWithDJKAnimationLayer(_ animationLayer: FlipperAnimationLayer, duration:CGFloat, clearFlip:Bool) {
@@ -568,7 +575,7 @@ final class FlipperView: UIView {
     }
     
     func getReleaseSpeed(_ translation:CGFloat, gesture:UIPanGestureRecognizer) -> CGFloat {
-        return (translation + gesture.velocity(in: self).x/4) / self.bounds.size.width
+        return (translation + gesture.velocity(in: self).y/4) / self.bounds.size.height
     }
     
     func enableGesture(_ gesture: UIPanGestureRecognizer,_ enabled: Bool) {

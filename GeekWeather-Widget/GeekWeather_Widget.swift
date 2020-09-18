@@ -15,36 +15,42 @@ struct WeatherEntry: TimelineEntry {
     let currently: Currently
 }
 
-@available(iOS 14.0, *)
+
 struct Provider: TimelineProvider {
-    func snapshot(with context: Context, completion: @escaping (WeatherEntry) -> ()) {
+    func placeholder(in context: Context) -> WeatherEntry {
+        let data = parseSnapshot()!
+        let weatherData = try! JSONDecoder().decode(WeatherModel.self, from: data)
+        let entry = WeatherEntry(date: Date(), currently: weatherData.current)
+        return entry
+    }
+    
+    
+    func getSnapshot(in context: Context, completion: @escaping (WeatherEntry) -> Void) {
         guard let data = parseSnapshot() else { return }
         guard let weatherData = try? JSONDecoder().decode(WeatherModel.self, from: data) else { return }
         let entry = WeatherEntry(date: Date(), currently: weatherData.current)
         
         completion(entry)
     }
-    
-    func timeline(with context: Context, completion: @escaping (Timeline<WeatherEntry>) -> ()) {
+ 
+    func getTimeline(in context: Context, completion: @escaping (Timeline<WeatherEntry>) -> Void) {
         guard let data = parseSnapshot() else { return }
         guard let weatherData = try? JSONDecoder().decode(WeatherModel.self, from: data) else { return }
         let entry = WeatherEntry(date: Date(), currently: weatherData.current)
         
-        let timeline = Timeline(entries: [entry], policy: .never)
+        let x = Calendar.current.date(byAdding: .minute, value: 60, to: Date())!
+        let timeline = Timeline(entries: [entry], policy: .after(x))
+        
+        
+        print(timeline,"Timeline refresh")
         completion(timeline)
     }
-    
+  
     func parseSnapshot() -> Data? {
         guard let file = Bundle.main.path(forResource: "demo", ofType: "json") else { return nil }
         let url = URL(fileURLWithPath: file)
         let data = try? Data(contentsOf: url, options: .mappedIfSafe)
         return data
-    }
-}
-
-struct PlaceholderView: View {
-    var body: some View {
-        return Text("--")
     }
 }
 
@@ -61,7 +67,7 @@ struct WidgetEntryView: View {
             
             VStack {
                 Spacer()
-                Text("Cupertino, CA").padding(.bottom).font(Font.custom("HelveticaNeue-Bold", size: 17, relativeTo: .subheadline)).foregroundColor(.white)
+                Text("Cupertino").padding(.bottom).font(Font.custom("HelveticaNeue-Bold", size: 17, relativeTo: .subheadline)).foregroundColor(.white)
                 Text(entry.currently.temp.temp()).font(Font.custom("HelveticaNeue-CondensedBold", size: 45, relativeTo: .title)).foregroundColor(.white)
                 Text(entry.currently.weather.first!.main).padding(.top).font(Font.custom("HelveticaNeue-Bold", size: 15, relativeTo: .subheadline)).foregroundColor(.white)
                 Spacer()
@@ -77,7 +83,7 @@ struct MainWidget: Widget {
     private let kind = "GeekWeather-Widget"
     
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider(), placeholder: PlaceholderView()) { (entry) in
+        StaticConfiguration(kind: kind, provider: Provider()) { (entry) in
             WidgetEntryView(entry: entry)
         }
     }

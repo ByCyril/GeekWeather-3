@@ -25,7 +25,6 @@ final class SavedLocationViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        view.backgroundColor = UIColor.white.withAlphaComponent(0.75)
         
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)

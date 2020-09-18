@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SettingsController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+final class SettingsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private let settingTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
@@ -21,21 +21,27 @@ final class SettingsController: BaseViewController, UITableViewDataSource, UITab
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        navigationController?.navigationBar.tintColor
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initUI()
         settingTableView.delegate = self
         settingTableView.dataSource = self
         
         settingManager.cellRegistration(to: settingTableView)
     }
     
-    override func initUI() {
+    func initUI() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
         
+        settingTableView.backgroundColor = .clear
         view.addSubview(settingTableView)
         
         NSLayoutConstraint.activate([

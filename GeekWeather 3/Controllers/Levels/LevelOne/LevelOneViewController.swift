@@ -56,6 +56,14 @@ final class LevelOneViewController: BaseViewController {
         present(nav, animated: true, completion: nil)
     }
     
+    @IBAction func presentSettingController() {
+        let vc = SettingsController()
+        let nav = UINavigationController()
+        nav.viewControllers = [vc]
+        nav.navigationBar.prefersLargeTitles = true
+        present(nav, animated: true, completion: nil)
+    }
+    
     func displayData(_ currentWeatherData: Currently) {
                 
         tempLabel.text = currentWeatherData.temp.temp()

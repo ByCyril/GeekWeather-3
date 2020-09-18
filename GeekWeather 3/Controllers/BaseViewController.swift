@@ -30,6 +30,9 @@ class BaseViewController: UIViewController, NotificationManagerDelegate {
         view.setNeedsDisplay()
     }
     
+    func animate() {
+        
+    }
     func initUI() {}
     func applyAccessibility() {}
     func update(from notification: NSNotification) {}

@@ -21,6 +21,8 @@
 		01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2E24ECDF510090B349 /* SettingItem.swift */; };
 		01042C3124ECDF660090B349 /* AboutSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3024ECDF660090B349 /* AboutSettingItem.swift */; };
 		01042C3324ECDF850090B349 /* AppIconSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3224ECDF850090B349 /* AppIconSettingItem.swift */; };
+		0112878525147F3A00CEC05D /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0112878425147F3A00CEC05D /* MainViewCell.swift */; };
+		011287882514801500CEC05D /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011287872514801500CEC05D /* CollectionViewManager.swift */; };
 		0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */; };
 		0146C05A24F787D000967A37 /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* FeatureFlag.swift */; };
 		0146C05F24F788E600967A37 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 0146C05E24F788E600967A37 /* demo.json */; };
@@ -99,6 +101,8 @@
 		01042C2E24ECDF510090B349 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
 		01042C3024ECDF660090B349 /* AboutSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingItem.swift; sourceTree = "<group>"; };
 		01042C3224ECDF850090B349 /* AppIconSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingItem.swift; sourceTree = "<group>"; };
+		0112878425147F3A00CEC05D /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
+		011287872514801500CEC05D /* CollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewManager.swift; sourceTree = "<group>"; };
 		0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeViewController.swift; sourceTree = "<group>"; };
 		0146C05924F787D000967A37 /* FeatureFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlag.swift; sourceTree = "<group>"; };
 		0146C05E24F788E600967A37 /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
@@ -244,6 +248,8 @@
 			children = (
 				01844A1524F22113000B0D52 /* Main.storyboard */,
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
+				011287872514801500CEC05D /* CollectionViewManager.swift */,
+				0112878425147F3A00CEC05D /* MainViewCell.swift */,
 			);
 			path = "Main Controller";
 			sourceTree = "<group>";
@@ -473,6 +479,7 @@
 				01B1BEE824EF9BB90081C90F /* FlipperStaticView.swift in Sources */,
 				01042C3324ECDF850090B349 /* AppIconSettingItem.swift in Sources */,
 				01B1BEE624EF9B2B0081C90F /* FlipperView.swift in Sources */,
+				011287882514801500CEC05D /* CollectionViewManager.swift in Sources */,
 				014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */,
 				01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */,
 				01E65B2024F19D9400D8F76F /* BaseViewControllerFactory.swift in Sources */,
@@ -488,6 +495,7 @@
 				0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */,
 				0100D7D624CE1A8200C9F9B5 /* SceneDelegate.swift in Sources */,
 				01B1BEBF24EE34740081C90F /* WeatherDataInfoItem.swift in Sources */,
+				0112878525147F3A00CEC05D /* MainViewCell.swift in Sources */,
 				01042C3124ECDF660090B349 /* AboutSettingItem.swift in Sources */,
 				0169433D24DA887B006A7FAA /* LocationManegerDelegateManager.swift in Sources */,
 				01B1BEC124EE36310081C90F /* PrivacyPolicyInfoItem.swift in Sources */,

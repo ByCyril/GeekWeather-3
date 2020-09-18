@@ -33,6 +33,20 @@ final class LevelOneViewController: BaseViewController {
         notificationManager.listen(for: NotificationName.observerID("currentLocation"), in: self)
     }
     
+    override func animate() {
+        let views = [locationLabel, tempLabel, summaryLabel, commentLabel]
+            
+        views.forEach { (element) in
+            element?.alpha = 0
+        }
+        
+        UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseInOut) {
+            views.forEach { (element) in
+                element?.alpha = 1
+            }
+        }
+    }
+    
     override func update(from notification: NSNotification) {
         if let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel {
             DispatchQueue.main.async {

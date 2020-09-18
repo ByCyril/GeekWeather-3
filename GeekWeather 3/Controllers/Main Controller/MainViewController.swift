@@ -10,15 +10,7 @@ import UIKit
 import GWFoundation
 import CoreLocation
 
-class MainViewController: UIViewController, FlipperViewDataSource {
-
-    @IBOutlet weak var flipView: FlipperView!
-    
-    private var flipperViewArray: [UIViewController] = [] {
-        didSet {
-            flipView.reload()
-        }
-    }
+class MainViewController: UIViewController {
     
     private var networkManager: NetworkManager?
     
@@ -26,22 +18,16 @@ class MainViewController: UIViewController, FlipperViewDataSource {
     private let notificationManager = NotificationManager()
     private let networkDelegateManager = NetworkManagerDelegateManager()
     
+    private var levels = [BaseViewController]()
+    
+    private var collectionView: UICollectionView?
+    
+    private var collectionViewDataSourceManager: CollectionViewDataSourceManager?
+    private var collectionViewDelegateManager: CollectionViewDelegateManager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        flipView.dataSource = self
-        let levelOneViewController = LevelOneViewController(nibName: "LevelOneViewController", bundle: nil)
-        let levelTwoViewController = LevelTwoViewController(nibName: "LevelTwoViewController", bundle: nil)
-        let levelThreeViewController = LevelThreeViewController(nibName: "LevelThreeViewController", bundle: nil)
-        
-        let views = [levelOneViewController, levelTwoViewController, levelThreeViewController]
-        
-        for levelView in views {
-            levelView.view.frame = view.bounds
-            levelView.view.layoutSubviews()
-        }
-        
-        flipperViewArray = views
+        setupCollectionView()
         
         if let data = FeatureFlag.mockedResponse() {
             networkManager = NetworkManager(self, data)
@@ -51,14 +37,47 @@ class MainViewController: UIViewController, FlipperViewDataSource {
         
         locationManager.delegate = self
         
+        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
     
-    func viewForPage(_ page: Int, flipper: FlipperView) -> UIView {
-        return flipperViewArray[page].view
+    private func setupCollectionView() {
+        let levelOneViewController = LevelOneViewController(nibName: "LevelOneViewController", bundle: nil)
+        let levelTwoViewController = LevelTwoViewController(nibName: "LevelTwoViewController", bundle: nil)
+        let levelThreeViewController = LevelThreeViewController(nibName: "LevelThreeViewController", bundle: nil)
+        
+        levels = [levelOneViewController, levelTwoViewController, levelThreeViewController]
+        
+        collectionViewDataSourceManager = CollectionViewDataSourceManager(levels)
+        collectionViewDelegateManager = CollectionViewDelegateManager(levels)
+        
+        let collectionViewLayout = UICollectionViewFlowLayout()
+        collectionViewLayout.scrollDirection = .vertical
+        collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        collectionViewLayout.itemSize = view.frame.size
+        collectionViewLayout.minimumLineSpacing = 0
+        collectionViewLayout.minimumInteritemSpacing = 0
+        
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        collectionView?.register(MainViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView?.translatesAutoresizingMaskIntoConstraints = false
+        collectionView?.delegate = collectionViewDelegateManager
+        collectionView?.dataSource = collectionViewDataSourceManager
+        collectionView?.isPagingEnabled = true
+        collectionView?.reloadData()
+        
+        guard let collectionView = collectionView else { return }
+        
+        view.addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        
+        view.layoutIfNeeded()
+        
     }
     
 }

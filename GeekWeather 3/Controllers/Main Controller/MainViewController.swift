@@ -25,18 +25,25 @@ class MainViewController: UIViewController {
     private var collectionViewDataSourceManager: CollectionViewDataSourceManager?
     private var collectionViewDelegateManager: CollectionViewDelegateManager?
     
+    private let gradientLayer = CAGradientLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor.init(rgb: 0xF4B100).cgColor, UIColor.init(rgb: 0xFD6B00).cgColor]
+//        gradientLayer.colors = [UIColor.init(rgb: 0x307ECD).cgColor, UIColor.init(rgb: 0x3344A0).cgColor]
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        view.setNeedsDisplay()
         
         if let data = FeatureFlag.mockedResponse() {
             networkManager = NetworkManager(self, data)
         } else {
             networkManager = NetworkManager(self)
         }
-        
+
         locationManager.delegate = self
-        
         
     }
     
@@ -65,6 +72,7 @@ class MainViewController: UIViewController {
         collectionView?.dataSource = collectionViewDataSourceManager
         collectionView?.isPagingEnabled = true
         collectionView?.reloadData()
+        collectionView?.backgroundColor = .clear
         
         guard let collectionView = collectionView else { return }
         

@@ -20,10 +20,9 @@ class CollectionViewManager: NSObject {
 final class CollectionViewDelegateManager: CollectionViewManager, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let view = views[indexPath.row]
+        
         view.animate()
     }
-    
-    
 }
 
 
@@ -36,7 +35,14 @@ final class CollectionViewDataSourceManager: CollectionViewManager, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? MainViewCell else { return MainViewCell() }
                 
-        cell.initUI(views[indexPath.row].view)
+        let view = views[indexPath.row]
+        
+        if indexPath.row > 0 {
+            view.viewDidLoad()
+        }
+        
+        view.view.layoutSubviews()
+        cell.initUI(view.view)
         
         return cell
     }

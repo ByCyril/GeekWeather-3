@@ -26,11 +26,16 @@ final class LevelTwoViewController: BaseViewController {
     
     private var weatherData: WeatherModel?
     private var dataSource: UITableViewDiffableDataSource<Section, Daily>!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewSetup()
         configureDataSource()
+    }
+    
+    override func animate() {
+        dailyTableView.backgroundColor = .green
     }
     
     private func tableViewSetup() {
@@ -65,7 +70,6 @@ final class LevelTwoViewController: BaseViewController {
     
     override func update(from notification: NSNotification) {
         guard let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel else { return }
-//        applyGradient()
         createSnapshot(weatherModel)
     }
     

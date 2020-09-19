@@ -75,7 +75,6 @@ final class LevelOneViewController: BaseViewController {
         tempLabel.text = currentWeatherData.temp.temp()
         summaryLabel.text = currentWeatherData.weather.first?.main ?? ""
         commentLabel.text = "Feels like " + currentWeatherData.feels_like.temp()
-//        applyGradient()
         
         UIView.animate(withDuration: 1) { [weak self] in
             self?.tempLabel.alpha = 1

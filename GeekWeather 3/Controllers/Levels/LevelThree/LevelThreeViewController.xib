@@ -12,11 +12,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LevelThreeViewController" customModule="GeekWeather" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="MBm-E2-Fk9" id="lH3-us-Sb2"/>
-                <outlet property="view" destination="iN0-l3-epB" id="ovA-c3-bY4"/>
+                <outlet property="containerView" destination="iN0-l3-epB" id="K9T-R7-Vfl"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LevelThreeViewController" customModule="GeekWeather" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>

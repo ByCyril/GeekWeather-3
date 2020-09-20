@@ -81,17 +81,24 @@ final class SunsetSunriseCellItem: LevelThreeCellItem {
     }
 }
 
-final class LevelThreeViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+final class LevelThreeViewController: BaseView, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet weak var containerView: UIView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        applyGradient()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        let name = String(describing: type(of: self))
+        let nib = UINib(nibName: name, bundle: .main)
+        nib.instantiate(withOwner: self, options: nil)
         collectionView.backgroundColor = .clear
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
     }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 8

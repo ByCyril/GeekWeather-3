@@ -29,10 +29,11 @@
 		014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3924D3F6090038623E /* LocationManager.swift */; };
 		014D2A3C24D3F64A0038623E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3B24D3F64A0038623E /* Location.swift */; };
 		014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */; };
+		0153693425174D580044D108 /* GWTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153693325174D580044D108 /* GWTransition.swift */; };
 		0158D02A2505DF0C008692DC /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0158D0292505DF0C008692DC /* SearchLocationViewController.swift */; };
 		0158D0312505E3ED008692DC /* SavedLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0158D0302505E3ED008692DC /* SavedLocationViewController.swift */; };
 		0169433D24DA887B006A7FAA /* LocationManegerDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169433C24DA887B006A7FAA /* LocationManegerDelegateManager.swift */; };
-		0169434124E244B2006A7FAA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169434024E244B2006A7FAA /* BaseViewController.swift */; };
+		0169434124E244B2006A7FAA /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169434024E244B2006A7FAA /* BaseView.swift */; };
 		016BB86424DA871700206C23 /* NetworkManagerDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BB86324DA871700206C23 /* NetworkManagerDelegateManager.swift */; };
 		01844A1624F22113000B0D52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1524F22113000B0D52 /* Main.storyboard */; };
 		01844A1824F2219F000B0D52 /* LevelOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1724F2219F000B0D52 /* LevelOneViewController.xib */; };
@@ -109,10 +110,11 @@
 		014D2A3924D3F6090038623E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		014D2A3B24D3F64A0038623E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerAuthorizationStatus.swift; sourceTree = "<group>"; };
+		0153693325174D580044D108 /* GWTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWTransition.swift; sourceTree = "<group>"; };
 		0158D0292505DF0C008692DC /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		0158D0302505E3ED008692DC /* SavedLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationViewController.swift; sourceTree = "<group>"; };
 		0169433C24DA887B006A7FAA /* LocationManegerDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManegerDelegateManager.swift; sourceTree = "<group>"; };
-		0169434024E244B2006A7FAA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		0169434024E244B2006A7FAA /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		0169434224E24974006A7FAA /* GeekWeather 3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GeekWeather 3.entitlements"; sourceTree = "<group>"; };
 		016BB86324DA871700206C23 /* NetworkManagerDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerDelegateManager.swift; sourceTree = "<group>"; };
 		01844A1524F22113000B0D52 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				01D6C1E124F439F900DF375C /* MyParticle.sks */,
 				01D6C1E524F43AAE00DF375C /* SunRays.sks */,
 				01B1BEF024EFA9A10081C90F /* Array+Extension.swift */,
+				0153693325174D580044D108 /* GWTransition.swift */,
 				01B1BEF224EFAD500081C90F /* View+Extension.swift */,
 				01B1BEE924EF9F1D0081C90F /* Flipper Aniamtion */,
 				0100D80924CE52AF00C9F9B5 /* Managers */,
@@ -232,7 +235,7 @@
 		0100D80C24CE52E400C9F9B5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0169434024E244B2006A7FAA /* BaseViewController.swift */,
+				0169434024E244B2006A7FAA /* BaseView.swift */,
 				01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */,
 				0158D0292505DF0C008692DC /* SearchLocationViewController.swift */,
 				0158D0302505E3ED008692DC /* SavedLocationViewController.swift */,
@@ -473,7 +476,8 @@
 				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,
 				0146C05A24F787D000967A37 /* FeatureFlag.swift in Sources */,
 				0158D02A2505DF0C008692DC /* SearchLocationViewController.swift in Sources */,
-				0169434124E244B2006A7FAA /* BaseViewController.swift in Sources */,
+				0153693425174D580044D108 /* GWTransition.swift in Sources */,
+				0169434124E244B2006A7FAA /* BaseView.swift in Sources */,
 				014D2A3C24D3F64A0038623E /* Location.swift in Sources */,
 				01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */,
 				01B1BEE824EF9BB90081C90F /* FlipperStaticView.swift in Sources */,

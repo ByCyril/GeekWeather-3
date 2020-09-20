@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SettingsController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+final class SettingsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private let settingTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
@@ -34,7 +34,7 @@ final class SettingsController: BaseViewController, UITableViewDataSource, UITab
         settingManager.cellRegistration(to: settingTableView)
     }
     
-    override func initUI() {
+    func initUI() {
         
         view.addSubview(settingTableView)
         

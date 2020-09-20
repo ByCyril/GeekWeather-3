@@ -9,15 +9,18 @@
 import UIKit
 import GWFoundation
 
-final class LevelOneViewController: BaseViewController {
+final class LevelOneViewController: BaseView {
    
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var tempLabel: UILabel!
-    @IBOutlet weak var summaryLabel: UILabel!
-    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet var containerView: UIView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var tempLabel: UILabel!
+    @IBOutlet var summaryLabel: UILabel!
+    @IBOutlet var commentLabel: UILabel!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        loadXib()
         
         locationLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: locationLabel.font)
         tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
@@ -29,8 +32,11 @@ final class LevelOneViewController: BaseViewController {
         summaryLabel.adjustsFontForContentSizeCategory = true
         commentLabel.adjustsFontForContentSizeCategory = true
         
-        
         notificationManager.listen(for: NotificationName.observerID("currentLocation"), in: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
     override func animate() {
@@ -61,15 +67,7 @@ final class LevelOneViewController: BaseViewController {
         }
         
     }
-    
-    @IBAction func presentLocationSearch() {
-        let vc = SavedLocationViewController()
-        let nav = UINavigationController()
-        nav.viewControllers = [vc]
-        nav.navigationBar.prefersLargeTitles = true
-        present(nav, animated: true, completion: nil)
-    }
-    
+
     func displayData(_ currentWeatherData: Currently) {
                 
         tempLabel.text = currentWeatherData.temp.temp()
@@ -81,6 +79,14 @@ final class LevelOneViewController: BaseViewController {
             self?.summaryLabel.alpha = 1
             self?.commentLabel.alpha = 1
         }
+    }
+    
+    func loadXib() {
+        let view = Bundle.main.loadNibNamed("LevelOneViewController", owner: self)!.first as! LevelOneViewController
+        view.frame = bounds
+        view.backgroundColor = .clear
+        view.layoutIfNeeded()
+        addSubview(view)
     }
     
 }

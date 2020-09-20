@@ -1,5 +1,5 @@
 //
-//  BaseViewController.swift
+//  BaseView.swift
 //  GeekWeather 3
 //
 //  Created by Cyril Garcia on 8/10/20.
@@ -8,25 +8,32 @@
 
 import UIKit
 
-class BaseViewController: UIViewController, NotificationManagerDelegate {
+class BaseView: UIView, NotificationManagerDelegate {
     
     let notificationManager = NotificationManager()
     
     let gradientLayer = CAGradientLayer()
+    var viewControllerPresenter: UIViewController?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .clear
+    private var view: UIView!
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+//        xibSetup()
         notificationManager.delegate = self
         notificationManager.listen(for: NotificationName.observerID("weatherModel"), in: self)
         initUI()
     }
-
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+   
     func animate() {
         
     }
     func initUI() {}
     func applyAccessibility() {}
     func update(from notification: NSNotification) {}
+    
     
 }

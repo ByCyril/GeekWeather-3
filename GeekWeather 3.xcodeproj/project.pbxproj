@@ -55,8 +55,6 @@
 		01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF024EFA9A10081C90F /* Array+Extension.swift */; };
 		01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF224EFAD500081C90F /* View+Extension.swift */; };
 		01D6C1E024F31A2800DF375C /* LevelTwoCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D6C1DF24F31A2800DF375C /* LevelTwoCellView.xib */; };
-		01D6C1E224F439F900DF375C /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01D6C1E124F439F900DF375C /* MyParticle.sks */; };
-		01D6C1E624F43AAE00DF375C /* SunRays.sks in Resources */ = {isa = PBXBuildFile; fileRef = 01D6C1E524F43AAE00DF375C /* SunRays.sks */; };
 		01E65B2024F19D9400D8F76F /* BaseViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -136,8 +134,6 @@
 		01B1BEF024EFA9A10081C90F /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		01B1BEF224EFAD500081C90F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		01D6C1DF24F31A2800DF375C /* LevelTwoCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelTwoCellView.xib; sourceTree = "<group>"; };
-		01D6C1E124F439F900DF375C /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
-		01D6C1E524F43AAE00DF375C /* SunRays.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SunRays.sks; sourceTree = "<group>"; };
 		01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,8 +184,6 @@
 				0146C05924F787D000967A37 /* FeatureFlag.swift */,
 				0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */,
 				0185665A24D767050035BF59 /* AccessibilityFactory.swift */,
-				01D6C1E124F439F900DF375C /* MyParticle.sks */,
-				01D6C1E524F43AAE00DF375C /* SunRays.sks */,
 				01B1BEF024EFA9A10081C90F /* Array+Extension.swift */,
 				0153693325174D580044D108 /* GWTransition.swift */,
 				01B1BEF224EFAD500081C90F /* View+Extension.swift */,
@@ -437,7 +431,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01D6C1E624F43AAE00DF375C /* SunRays.sks in Resources */,
 				01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */,
 				01844A1C24F22646000B0D52 /* LevelTwoViewController.xib in Resources */,
 				01D6C1E024F31A2800DF375C /* LevelTwoCellView.xib in Resources */,
@@ -446,7 +439,6 @@
 				01844A1624F22113000B0D52 /* Main.storyboard in Resources */,
 				0100D7DD24CE1A8300C9F9B5 /* Assets.xcassets in Resources */,
 				0146C05F24F788E600967A37 /* demo.json in Resources */,
-				01D6C1E224F439F900DF375C /* MyParticle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

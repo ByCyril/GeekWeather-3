@@ -20,7 +20,8 @@ final class LevelOneViewController: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        loadXib()
+        let view = Bundle.main.loadNibNamed("LevelOneViewController", owner: self)!.first as! LevelOneViewController
+        loadXib(view, self)
         
         locationLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: locationLabel.font)
         tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
@@ -80,13 +81,4 @@ final class LevelOneViewController: BaseView {
             self?.commentLabel.alpha = 1
         }
     }
-    
-    func loadXib() {
-        let view = Bundle.main.loadNibNamed("LevelOneViewController", owner: self)!.first as! LevelOneViewController
-        view.frame = bounds
-        view.backgroundColor = .clear
-        view.layoutIfNeeded()
-        addSubview(view)
-    }
-    
 }

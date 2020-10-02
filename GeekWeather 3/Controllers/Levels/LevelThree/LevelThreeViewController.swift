@@ -88,9 +88,10 @@ final class LevelThreeViewController: BaseView, UICollectionViewDelegate, UIColl
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let name = String(describing: type(of: self))
-        let nib = UINib(nibName: name, bundle: .main)
-        nib.instantiate(withOwner: self, options: nil)
+
+        let view = Bundle.main.loadNibNamed("LevelThreeViewController", owner: self, options: nil)?.first as! LevelThreeViewController
+        
+        loadXib(view, self)
         collectionView.backgroundColor = .clear
     }
     

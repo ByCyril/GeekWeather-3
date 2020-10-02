@@ -32,10 +32,10 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        loadXib()
+        let view = Bundle.main.loadNibNamed("LevelTwoViewController", owner: self)!.first as! LevelTwoViewController
+        loadXib(view, self)
         
         tableViewSetup()
-//        configureDataSource()
     }
     
     required init?(coder: NSCoder) {
@@ -96,12 +96,16 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
         dailyTableView.reloadData()
     }
     
-    func loadXib() {
-        let view = Bundle.main.loadNibNamed("LevelTwoViewController", owner: self)!.first as! LevelTwoViewController
-        view.frame = bounds
-        view.backgroundColor = .clear
-        view.layoutIfNeeded()
-        addSubview(view)
+    func testLoad(_ name: String) {
+        
     }
+    
+//    func loadXib() {
+//        let view = Bundle.main.loadNibNamed("LevelTwoViewController", owner: self)!.first as! LevelTwoViewController
+//        view.frame = bounds
+//        view.backgroundColor = .clear
+//        view.layoutIfNeeded()
+//        addSubview(view)
+//    }
     
 }

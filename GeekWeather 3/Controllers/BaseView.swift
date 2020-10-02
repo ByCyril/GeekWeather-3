@@ -28,9 +28,15 @@ class BaseView: UIView, NotificationManagerDelegate {
         super.init(coder: coder)
     }
    
-    func animate() {
-        
+    func animate() {}
+    
+    func loadXib(_ view: UIView,_ main: UIView) {
+        view.frame = bounds
+        view.backgroundColor = .clear
+        view.layoutIfNeeded()
+        main.addSubview(view)
     }
+    
     func initUI() {}
     func applyAccessibility() {}
     func update(from notification: NSNotification) {}

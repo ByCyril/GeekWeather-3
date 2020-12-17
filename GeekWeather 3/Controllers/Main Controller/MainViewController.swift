@@ -46,7 +46,9 @@ class MainViewController: UIViewController {
         collectionView?.backgroundColor = .clear
         
         gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor.init(rgb: 0xF4B100).cgColor, UIColor.init(rgb: 0xFD6B00).cgColor]
+        gradientLayer.colors = [UIColor.init(rgb: 0x4F86C6).cgColor,
+                                UIColor.init(rgb: 0x0C1234).cgColor]
+        
         view.layer.insertSublayer(gradientLayer, at: 0)
         view.setNeedsDisplay()
         

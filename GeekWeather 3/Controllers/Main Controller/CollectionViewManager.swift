@@ -26,6 +26,10 @@ class CollectionViewManager: NSObject {
 }
 
 final class CollectionViewDelegateManager: CollectionViewManager, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        views.first?.getContentOffset(scrollView.contentOffset)
+    }
       
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return cellSize ?? CGSize.zero

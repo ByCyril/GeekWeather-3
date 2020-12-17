@@ -40,6 +40,10 @@ final class LevelOneViewController: BaseView {
         super.init(coder: coder)
     }
     
+    override func getContentOffset(_ offset: CGPoint) {
+        print("From LevelOneView",offset)
+    }
+    
     override func animate() {
         let views = [locationLabel, tempLabel, summaryLabel, commentLabel]
             

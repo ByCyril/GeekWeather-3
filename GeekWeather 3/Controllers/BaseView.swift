@@ -40,6 +40,6 @@ class BaseView: UIView, NotificationManagerDelegate {
     func initUI() {}
     func applyAccessibility() {}
     func update(from notification: NSNotification) {}
-    
+    func getContentOffset(_ offset: CGPoint) {}
     
 }

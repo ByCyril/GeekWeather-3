@@ -44,11 +44,12 @@ class MainViewController: UIViewController {
         
         collectionView?.isPagingEnabled = true
         collectionView?.backgroundColor = .clear
+        collectionView?.showsVerticalScrollIndicator = false
         
         gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor.init(rgb: 0x4F86C6).cgColor,
-                                UIColor.init(rgb: 0x0C1234).cgColor]
-        
+        gradientLayer.colors = [UIColor(named: "GradientTopColor")!.cgColor,
+                                UIColor(named: "GradientBottomColor")!.cgColor]
+
         view.layer.insertSublayer(gradientLayer, at: 0)
         view.setNeedsDisplay()
         
@@ -70,13 +71,27 @@ class MainViewController: UIViewController {
         GWTransition.present(SettingsController(), from: self)
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else {
+            return
+        }
+
+        gradientLayer.colors = [UIColor(named: "GradientTopColor")!.cgColor,
+                                UIColor(named: "GradientBottomColor")!.cgColor]
+    }
+    
 }
 
 extension MainViewController: NetworkManagerDelegate {
     func didFinishFetching(_ weatherModel: WeatherModel) {
-        locationManager.lookupCurrentLocation(CLLocation(latitude: weatherModel.lat, longitude: weatherModel.lon))
-        notificationManager.post(data: ["weatherModel": weatherModel],
-                                 to: NotificationName.observerID("weatherModel"))
+        let location = CLLocation(latitude: weatherModel.lat, longitude: weatherModel.lon)
+        locationManager.lookupCurrentLocation(location)
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.notificationManager.post(data: ["weatherModel": weatherModel],
+                                           to: NotificationName.observerID("weatherModel"))
+        }
+        
     }
     
     func networkError(_ error: Error?) {

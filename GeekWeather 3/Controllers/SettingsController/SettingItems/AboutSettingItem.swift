@@ -15,9 +15,9 @@ class AboutSettingItem: SettingItem {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
 
         cell.iconImageView.image = UIImage(named: "geekweather")
-        cell.titleLabel.text = "About"
-        cell.accessoryType = .disclosureIndicator
-        
+        cell.titleLabel.text = "App Version"
+        cell.detailLabel.text = "3.0"
+        cell.selectionStyle = .none
         return cell
     }
     

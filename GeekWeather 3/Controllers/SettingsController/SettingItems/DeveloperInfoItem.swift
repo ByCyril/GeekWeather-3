@@ -15,8 +15,8 @@ final class DeveloperInfoItem: SettingItem {
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
         
-        cell.titleLabel.text = "Developed by Cyril"
-        cell.iconImageView.image = UIImage(named: "geekweather")
+        cell.titleLabel.text = "Developer"
+        cell.iconImageView.image = UIImage(named: "boy")
         cell.accessoryType = .disclosureIndicator
         
         return cell

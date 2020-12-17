@@ -15,6 +15,7 @@ final class PrivacyPolicyInfoItem: SettingItem {
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
         cell.titleLabel.text = "Privacy Policy"
+        cell.iconImageView.image = UIImage(named: "privacy-policy")
         cell.accessoryType = .disclosureIndicator
         return cell
     }

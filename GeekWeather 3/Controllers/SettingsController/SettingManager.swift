@@ -19,7 +19,7 @@ final class SettingManager {
     var cells = [CellType]()
     
     init() {
-        sections = [AppInfoSection(), AppSettingSection()]
+        sections = [AppSettingSection(),AppInfoSection()]
         cells = [CellType(cell: SettingsTableViewCell.self, id: "cell")]
     }
     

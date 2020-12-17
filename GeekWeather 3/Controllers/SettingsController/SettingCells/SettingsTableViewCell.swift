@@ -24,6 +24,12 @@ class SettingsTableViewCell: UITableViewCell {
         return label
     }()
     
+    let detailLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: "cell")
         initUI()
@@ -37,8 +43,10 @@ class SettingsTableViewCell: UITableViewCell {
         
         let padding: CGFloat = 10
         
+        backgroundColor = UIColor.white.withAlphaComponent(0.25)
         addSubview(iconImageView)
         addSubview(titleLabel)
+        addSubview(detailLabel)
         
         NSLayoutConstraint.activate([
             iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
@@ -48,8 +56,12 @@ class SettingsTableViewCell: UITableViewCell {
             
             titleLabel.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: padding),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
-            titleLabel.heightAnchor.constraint(equalTo: iconImageView.heightAnchor)
+            titleLabel.heightAnchor.constraint(equalTo: iconImageView.heightAnchor),
+            
+            detailLabel.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor),
+            detailLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: padding),
+            detailLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding * 2.5),
+            detailLabel.heightAnchor.constraint(equalTo: iconImageView.heightAnchor)
         ])
         
         layoutIfNeeded()

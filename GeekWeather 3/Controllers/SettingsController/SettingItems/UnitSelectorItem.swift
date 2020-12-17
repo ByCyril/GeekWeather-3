@@ -14,6 +14,7 @@ final class UnitSelectorItem: SettingItem {
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
         cell.titleLabel.text = "Change Units"
+        cell.iconImageView.image = UIImage(named: "change-units-f")
         cell.accessoryType = .disclosureIndicator
         return cell
     }

@@ -28,10 +28,15 @@ final class LevelOneViewController: BaseView {
         summaryLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: summaryLabel.font)
         commentLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: commentLabel.font)
         
-        locationLabel.adjustsFontForContentSizeCategory = true
-        tempLabel.adjustsFontForContentSizeCategory = true
-        summaryLabel.adjustsFontForContentSizeCategory = true
-        commentLabel.adjustsFontForContentSizeCategory = true
+        
+        [locationLabel, tempLabel, summaryLabel, commentLabel].forEach { (element) in
+            element?.adjustsFontSizeToFitWidth = true
+            
+//            element?.layer.shadowOffset = CGSize(width: 0, height: 5)
+//            element?.layer.shadowOpacity = 0.25
+//            element?.layer.shadowColor = UIColor.black.cgColor
+//            element?.layer.shadowRadius = 5
+        }
         
         notificationManager.listen(for: NotificationName.observerID("currentLocation"), in: self)
     }
@@ -41,7 +46,9 @@ final class LevelOneViewController: BaseView {
     }
     
     override func getContentOffset(_ offset: CGPoint) {
-        print("From LevelOneView",offset)
+        guard offset.y < 0 else { return }
+//        locationLabel.frame.origin.y -= offset.y
+//        locationLabel.transform = .init(translationX: 0, y: offset.y)
     }
     
     override func animate() {

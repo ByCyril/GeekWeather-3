@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="width" constant="30" id="1Oo-cr-Ogx"/>
                                     <constraint firstAttribute="height" constant="30" id="Qcp-le-D8r"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="setting"/>
+                                <state key="normal" title="Button" image="settings"/>
                                 <connections>
                                     <action selector="presentSettingsController" destination="jJS-OJ-nXl" eventType="touchUpInside" id="n72-kV-ohO"/>
                                 </connections>
@@ -85,7 +85,7 @@
     </scenes>
     <resources>
         <image name="search" width="512" height="512"/>
-        <image name="setting" width="512" height="512"/>
+        <image name="settings" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

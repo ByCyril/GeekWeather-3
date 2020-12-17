@@ -15,7 +15,7 @@ class AppIconSettingItem: SettingItem {
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
 
-        cell.iconImageView.image = UIImage(named: "geekweather")
+        cell.iconImageView.image = UIImage(named: "change-app-icon")
         cell.titleLabel.text = "Change App Icon"
         cell.accessoryType = .disclosureIndicator
         

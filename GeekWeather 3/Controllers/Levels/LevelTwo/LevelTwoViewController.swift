@@ -84,7 +84,7 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
             cell?.dayLabel.text = Double(daily.dt).date(.day)
         }
         
-        cell?.iconView.image = UIImage(named: "012-rainy")
+        cell?.iconView.image = UIImage(named: daily.weather.first!.icon)
         cell?.highTempLabel.text = daily.temp.max.temp()
         cell?.lowTempLabel.text = daily.temp.min.temp()
         return cell!
@@ -93,19 +93,8 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
     override func update(from notification: NSNotification) {
         guard let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel else { return }
         self.weatherModel = weatherModel
+        
         dailyTableView.reloadData()
     }
-    
-    func testLoad(_ name: String) {
-        
-    }
-    
-//    func loadXib() {
-//        let view = Bundle.main.loadNibNamed("LevelTwoViewController", owner: self)!.first as! LevelTwoViewController
-//        view.frame = bounds
-//        view.backgroundColor = .clear
-//        view.layoutIfNeeded()
-//        addSubview(view)
-//    }
     
 }

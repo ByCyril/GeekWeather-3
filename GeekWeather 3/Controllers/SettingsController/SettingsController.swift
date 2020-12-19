@@ -19,7 +19,6 @@ final class SettingsController: UIViewController, UITableViewDataSource, UITable
     private let settingManager = SettingManager()
     
     init() {
-//        super.init(style: .insetGrouped)
         super.init(nibName: nil, bundle: nil)
     }
     

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jJS-OJ-nXl">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zMA-QQ-faI">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -10,18 +10,33 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Initial View Controller-->
+        <scene sceneID="R4g-kJ-99c">
+            <objects>
+                <viewController id="zMA-QQ-faI" customClass="InitialViewController" customModule="GeekWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="41P-8N-4FA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="lNz-5y-V8r"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0OS-Dz-dM1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1514" y="-13"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="gLe-gn-lFy">
             <objects>
-                <viewController id="jJS-OJ-nXl" customClass="MainViewController" customModule="GeekWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="jJS-OJ-nXl" customClass="MainViewController" customModule="GeekWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aeX-s0-w3a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="G7D-sT-z62">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="119" width="414" height="777"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jKd-D7-S7t">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="jKd-D7-S7t">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -38,49 +53,93 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVO-mD-FVU">
-                                <rect key="frame" x="364" y="74" width="30" height="30"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPR-xt-J3y" customClass="NavigationView" customModule="GeekWeather" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="75"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VO3-sv-S78" customClass="RollableTitleView" customModule="GeekWeather" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="0.0" width="305" height="75"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shd-eo-sw5">
+                                        <rect key="frame" x="368" y="31" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="YKh-t8-Jel"/>
+                                            <constraint firstAttribute="width" constant="25" id="hM6-fX-QIe"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="settings"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imr-JJ-jCn">
+                                        <rect key="frame" x="321" y="31" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="GBS-sV-Xt3"/>
+                                            <constraint firstAttribute="width" constant="25" id="xku-4I-9gf"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="search"/>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Xj8-Fv-zgR"/>
-                                    <constraint firstAttribute="width" constant="30" id="iao-na-2Uy"/>
+                                    <constraint firstAttribute="bottom" secondItem="VO3-sv-S78" secondAttribute="bottom" id="Byf-Hu-RsZ"/>
+                                    <constraint firstItem="Shd-eo-sw5" firstAttribute="leading" secondItem="Imr-JJ-jCn" secondAttribute="trailing" constant="22" id="MGF-FE-pwL"/>
+                                    <constraint firstAttribute="bottom" secondItem="Shd-eo-sw5" secondAttribute="bottom" constant="19" id="P7X-z9-bKb"/>
+                                    <constraint firstItem="Imr-JJ-jCn" firstAttribute="centerY" secondItem="Shd-eo-sw5" secondAttribute="centerY" id="R2D-Hl-r0I"/>
+                                    <constraint firstItem="Imr-JJ-jCn" firstAttribute="leading" secondItem="VO3-sv-S78" secondAttribute="trailing" constant="8" symbolic="YES" id="TCW-fs-nR9"/>
+                                    <constraint firstAttribute="height" constant="75" id="Wpx-NA-Hw9"/>
+                                    <constraint firstAttribute="trailing" secondItem="Shd-eo-sw5" secondAttribute="trailing" constant="21" id="XNI-Ob-Ev9"/>
+                                    <constraint firstItem="VO3-sv-S78" firstAttribute="leading" secondItem="MPR-xt-J3y" secondAttribute="leading" constant="8" id="ZN6-mP-6PT"/>
+                                    <constraint firstItem="VO3-sv-S78" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="top" id="cLb-WN-5lF"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="search"/>
                                 <connections>
-                                    <action selector="presentSavedLocationController" destination="jJS-OJ-nXl" eventType="touchUpInside" id="VIc-ul-nH7"/>
+                                    <outlet property="rollableTitleView" destination="VO3-sv-S78" id="1kT-cC-Wl8"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4s1-Ni-lPT">
-                                <rect key="frame" x="364" y="124" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="1Oo-cr-Ogx"/>
-                                    <constraint firstAttribute="height" constant="30" id="Qcp-le-D8r"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="settings"/>
-                                <connections>
-                                    <action selector="presentSettingsController" destination="jJS-OJ-nXl" eventType="touchUpInside" id="n72-kV-ohO"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1MB-rF-5oV"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1MB-rF-5oV" firstAttribute="trailing" secondItem="RVO-mD-FVU" secondAttribute="trailing" constant="20" id="2Ci-D8-CoS"/>
-                            <constraint firstItem="RVO-mD-FVU" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" constant="30" id="6xd-WJ-DbV"/>
-                            <constraint firstItem="G7D-sT-z62" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="IbV-uw-s8a"/>
-                            <constraint firstAttribute="bottom" secondItem="G7D-sT-z62" secondAttribute="bottom" id="TEO-HI-qwN"/>
-                            <constraint firstItem="1MB-rF-5oV" firstAttribute="trailing" secondItem="4s1-Ni-lPT" secondAttribute="trailing" constant="20" id="beq-n8-dJz"/>
-                            <constraint firstItem="G7D-sT-z62" firstAttribute="trailing" secondItem="1MB-rF-5oV" secondAttribute="trailing" id="fDP-zJ-dQa"/>
-                            <constraint firstItem="4s1-Ni-lPT" firstAttribute="top" secondItem="RVO-mD-FVU" secondAttribute="bottom" constant="20" id="hut-A2-Fsv"/>
-                            <constraint firstItem="G7D-sT-z62" firstAttribute="top" secondItem="aeX-s0-w3a" secondAttribute="top" id="qjI-Da-CaH"/>
+                            <constraint firstItem="G7D-sT-z62" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="GMo-sb-nHL"/>
+                            <constraint firstItem="G7D-sT-z62" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="bottom" id="OMk-Cg-kut"/>
+                            <constraint firstItem="MPR-xt-J3y" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" id="lbM-lf-XnN"/>
+                            <constraint firstItem="1MB-rF-5oV" firstAttribute="bottom" secondItem="G7D-sT-z62" secondAttribute="bottom" constant="-34" id="q8Z-Zx-lY9"/>
+                            <constraint firstItem="G7D-sT-z62" firstAttribute="trailing" secondItem="1MB-rF-5oV" secondAttribute="trailing" id="rCW-mW-VQn"/>
+                            <constraint firstItem="MPR-xt-J3y" firstAttribute="trailing" secondItem="1MB-rF-5oV" secondAttribute="trailing" id="wI8-yz-mZe"/>
+                            <constraint firstItem="MPR-xt-J3y" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="zY5-zf-F16"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Nf1-GG-9gM"/>
                     <connections>
                         <outlet property="collectionView" destination="G7D-sT-z62" id="nNZ-Jc-WxJ"/>
+                        <outlet property="customNavView" destination="MPR-xt-J3y" id="TJh-QZ-Lh7"/>
+                        <outlet property="navView" destination="MPR-xt-J3y" id="pYZ-sx-jfG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n64-EW-qbO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-836.23188405797111" y="-13.392857142857142"/>
+            <point key="canvasLocation" x="-775.20000000000005" y="-13.043478260869566"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zen-kn-2oq">
+            <objects>
+                <viewController id="DWR-00-s0v" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JCJ-fG-9Qd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="TFo-mj-II3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PHp-HX-hhg">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="xqH-4c-Gbt">
+                            <view key="customView" userInteractionEnabled="NO" contentMode="scaleToFill" id="xdf-i3-T0h" customClass="RollableTitleView" customModule="GeekWeather" customModuleProvider="target">
+                                <rect key="frame" x="20" y="0.0" width="200" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="11g-8Q-0u4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749" y="-13"/>
         </scene>
     </scenes>
     <resources>
@@ -88,6 +147,9 @@
         <image name="settings" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

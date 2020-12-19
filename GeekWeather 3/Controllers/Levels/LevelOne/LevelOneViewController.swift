@@ -31,11 +31,6 @@ final class LevelOneViewController: BaseView {
         
         [locationLabel, tempLabel, summaryLabel, commentLabel].forEach { (element) in
             element?.adjustsFontSizeToFitWidth = true
-            
-//            element?.layer.shadowOffset = CGSize(width: 0, height: 5)
-//            element?.layer.shadowOpacity = 0.25
-//            element?.layer.shadowColor = UIColor.black.cgColor
-//            element?.layer.shadowRadius = 5
         }
         
         notificationManager.listen(for: NotificationName.observerID("currentLocation"), in: self)
@@ -52,17 +47,17 @@ final class LevelOneViewController: BaseView {
     }
     
     override func animate() {
-        let views = [locationLabel, tempLabel, summaryLabel, commentLabel]
-            
-        views.forEach { (element) in
-            element?.alpha = 0
-        }
-        
-        UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseInOut) {
-            views.forEach { (element) in
-                element?.alpha = 1
-            }
-        }
+//        let views = [locationLabel, tempLabel, summaryLabel, commentLabel]
+//            
+//        views.forEach { (element) in
+//            element?.alpha = 0
+//        }
+//        
+//        UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseInOut) {
+//            views.forEach { (element) in
+//                element?.alpha = 1
+//            }
+//        }
     }
     
     override func update(from notification: NSNotification) {

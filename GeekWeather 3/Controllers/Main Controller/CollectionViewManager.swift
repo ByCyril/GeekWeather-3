@@ -11,6 +11,7 @@ import UIKit
 class CollectionViewManager: NSObject {
     var views = [BaseView]()
     var cellSize: CGSize?
+    var vc: MainViewController?
     
     init(_ views: [BaseView]) {
         super.init()
@@ -28,16 +29,36 @@ class CollectionViewManager: NSObject {
 final class CollectionViewDelegateManager: CollectionViewManager, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        views.first?.getContentOffset(scrollView.contentOffset)
+        guard let vc = vc else { return }
+
+        let scrollPercentage = (scrollView.contentOffset.y / scrollView.contentSize.height) * 2
+        let navScrollViewHeight = (vc.navView.rollableTitleView.frame.height * scrollPercentage)
+        
+        vc.navView.rollableTitleView.animateWithOffset(navScrollViewHeight)
+        print(navScrollViewHeight,scrollPercentage)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        if scrollView.contentOffset.y < 0 {
+            let position = CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
+            scrollView.scrollRectToVisible(position, animated: true)
+        } else if scrollView.contentOffset.y > cellSize!.height * 3 {
+            let position = CGRect(x: 0, y: cellSize!.height * 3, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
+            scrollView.scrollRectToVisible(position, animated: true)
+        }
     }
       
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return cellSize ?? CGSize.zero
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let view = views[indexPath.row]
-        
         view.animate()
     }
 }

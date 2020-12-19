@@ -20,7 +20,9 @@ class MainViewController: UIViewController {
     
     private var levels = [BaseView]()
     
+    @IBOutlet var navView: NavigationView!
     @IBOutlet var collectionView: UICollectionView?
+    @IBOutlet var customNavView: UIView!
     
     private var collectionViewDataSourceManager: CollectionViewDataSourceManager?
     private var collectionViewDelegateManager: CollectionViewDelegateManager?
@@ -30,14 +32,23 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let levelOneViewController = LevelOneViewController(frame: view.bounds)
-        let levelTwoViewController = LevelTwoViewController(frame: view.bounds)
-        let levelThreeViewController = LevelThreeViewController(frame: view.bounds)
+        let window = UIApplication.shared.windows[0]
+        let topPadding = window.safeAreaInsets.top
+        
+        let height: CGFloat = view.bounds.size.height - (100 - topPadding)
+        print(height, view.bounds)
+        let size = CGRect(x: 0, y: 0, width: view.bounds.size.width, height: height)
+        
+        let levelOneViewController = LevelOneViewController(frame: size)
+        let levelTwoViewController = LevelTwoViewController(frame: size)
+        let levelThreeViewController = LevelThreeViewController(frame: size)
         
         levels = [levelOneViewController, levelTwoViewController, levelThreeViewController]
         
         collectionViewDataSourceManager = CollectionViewDataSourceManager(levels)
-        collectionViewDelegateManager = CollectionViewDelegateManager(levels, view.bounds.size)
+        collectionViewDelegateManager = CollectionViewDelegateManager(levels, CGSize(width: view.bounds.size.width, height: height))
+        collectionViewDelegateManager?.vc = self
+        navView.rollableTitleView.itemHeight = 75
         
         collectionView?.delegate = collectionViewDelegateManager
         collectionView?.dataSource = collectionViewDataSourceManager
@@ -53,14 +64,13 @@ class MainViewController: UIViewController {
         view.layer.insertSublayer(gradientLayer, at: 0)
         view.setNeedsDisplay()
         
-        if let data = FeatureFlag.mockedResponse() {
-            networkManager = NetworkManager(self, data)
-        } else {
-            networkManager = NetworkManager(self)
+    }
+    
+    func prepareToDeliverData(_ weatherModel: WeatherModel) {
+        DispatchQueue.main.async { [weak self] in
+            self?.notificationManager.post(data: ["weatherModel": weatherModel],
+                                           to: NotificationName.observerID("weatherModel"))
         }
-        
-        locationManager.delegate = self
-        
     }
     
     @IBAction func presentSavedLocationController() {

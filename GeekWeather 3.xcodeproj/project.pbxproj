@@ -35,12 +35,18 @@
 		0169433D24DA887B006A7FAA /* LocationManegerDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169433C24DA887B006A7FAA /* LocationManegerDelegateManager.swift */; };
 		0169434124E244B2006A7FAA /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169434024E244B2006A7FAA /* BaseView.swift */; };
 		016BB86424DA871700206C23 /* NetworkManagerDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016BB86324DA871700206C23 /* NetworkManagerDelegateManager.swift */; };
+		018079CA258DB3B200C88E0E /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018079C9258DB3B200C88E0E /* NavigationView.swift */; };
+		018079CF258DBE5A00C88E0E /* RollableTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018079CE258DBE5A00C88E0E /* RollableTitleView.swift */; };
 		01844A1624F22113000B0D52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1524F22113000B0D52 /* Main.storyboard */; };
 		01844A1824F2219F000B0D52 /* LevelOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1724F2219F000B0D52 /* LevelOneViewController.xib */; };
 		01844A1C24F22646000B0D52 /* LevelTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1B24F22646000B0D52 /* LevelTwoViewController.xib */; };
 		01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1E24F226B5000B0D52 /* LevelThreeViewController.xib */; };
 		0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185665A24D767050035BF59 /* AccessibilityFactory.swift */; };
 		0185666124D774FE0035BF59 /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0185666024D774FE0035BF59 /* GWFoundation */; };
+		018840D9258C35C300CED4F1 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840D8258C35C300CED4F1 /* InitialViewController.swift */; };
+		018840DD258C391C00CED4F1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 018840DC258C391C00CED4F1 /* Lottie */; };
+		018840E1258C39D600CED4F1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840E0258C39D600CED4F1 /* LoadingView.swift */; };
+		018840E8258C3DE400CED4F1 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 018840E7258C3DE400CED4F1 /* loader.json */; };
 		01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */; };
 		01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB724EDBE520081C90F /* SettingManager.swift */; };
 		01B1BEBB24EE319C0081C90F /* UnitSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEBA24EE319C0081C90F /* UnitSelectorCell.swift */; };
@@ -117,11 +123,16 @@
 		0169434024E244B2006A7FAA /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		0169434224E24974006A7FAA /* GeekWeather 3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GeekWeather 3.entitlements"; sourceTree = "<group>"; };
 		016BB86324DA871700206C23 /* NetworkManagerDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerDelegateManager.swift; sourceTree = "<group>"; };
+		018079C9258DB3B200C88E0E /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		018079CE258DBE5A00C88E0E /* RollableTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollableTitleView.swift; sourceTree = "<group>"; };
 		01844A1524F22113000B0D52 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		01844A1724F2219F000B0D52 /* LevelOneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelOneViewController.xib; sourceTree = "<group>"; };
 		01844A1B24F22646000B0D52 /* LevelTwoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelTwoViewController.xib; sourceTree = "<group>"; };
 		01844A1E24F226B5000B0D52 /* LevelThreeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelThreeViewController.xib; sourceTree = "<group>"; };
 		0185665A24D767050035BF59 /* AccessibilityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityFactory.swift; sourceTree = "<group>"; };
+		018840D8258C35C300CED4F1 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		018840E0258C39D600CED4F1 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		018840E7258C3DE400CED4F1 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoItem.swift; sourceTree = "<group>"; };
 		01B1BEB724EDBE520081C90F /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 		01B1BEBA24EE319C0081C90F /* UnitSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSelectorCell.swift; sourceTree = "<group>"; };
@@ -147,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0185666124D774FE0035BF59 /* GWFoundation in Frameworks */,
+				018840DD258C391C00CED4F1 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +175,7 @@
 		0100D7C724CE1A8100C9F9B5 = {
 			isa = PBXGroup;
 			children = (
+				018079CE258DBE5A00C88E0E /* RollableTitleView.swift */,
 				0100D7D224CE1A8200C9F9B5 /* GeekWeather 3 */,
 				0100D7E924CE1A8300C9F9B5 /* GeekWeather 3Tests */,
 				0100D7D124CE1A8200C9F9B5 /* Products */,
@@ -184,6 +197,7 @@
 				0169434224E24974006A7FAA /* GeekWeather 3.entitlements */,
 				0146C05E24F788E600967A37 /* demo1.json */,
 				01FCE337258B21E200C841C8 /* demo.json */,
+				018840E7258C3DE400CED4F1 /* loader.json */,
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
 				0146C05924F787D000967A37 /* FeatureFlag.swift */,
@@ -250,6 +264,9 @@
 			children = (
 				01844A1524F22113000B0D52 /* Main.storyboard */,
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
+				018079C9258DB3B200C88E0E /* NavigationView.swift */,
+				018840D8258C35C300CED4F1 /* InitialViewController.swift */,
+				018840E0258C39D600CED4F1 /* LoadingView.swift */,
 				011287872514801500CEC05D /* CollectionViewManager.swift */,
 				0112878425147F3A00CEC05D /* MainViewCell.swift */,
 			);
@@ -368,6 +385,7 @@
 			name = "GeekWeather 3";
 			packageProductDependencies = (
 				0185666024D774FE0035BF59 /* GWFoundation */,
+				018840DC258C391C00CED4F1 /* Lottie */,
 			);
 			productName = "GeekWeather 3";
 			productReference = 0100D7D024CE1A8200C9F9B5 /* GeekWeather.app */;
@@ -421,6 +439,7 @@
 			mainGroup = 0100D7C724CE1A8100C9F9B5;
 			packageReferences = (
 				0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */,
+				018840DB258C391C00CED4F1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 0100D7D124CE1A8200C9F9B5 /* Products */;
 			projectDirPath = "";
@@ -439,6 +458,7 @@
 			files = (
 				01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */,
 				01844A1C24F22646000B0D52 /* LevelTwoViewController.xib in Resources */,
+				018840E8258C3DE400CED4F1 /* loader.json in Resources */,
 				01D6C1E024F31A2800DF375C /* LevelTwoCellView.xib in Resources */,
 				01844A1824F2219F000B0D52 /* LevelOneViewController.xib in Resources */,
 				0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */,
@@ -479,17 +499,21 @@
 				0153693425174D580044D108 /* GWTransition.swift in Sources */,
 				0169434124E244B2006A7FAA /* BaseView.swift in Sources */,
 				014D2A3C24D3F64A0038623E /* Location.swift in Sources */,
+				018840D9258C35C300CED4F1 /* InitialViewController.swift in Sources */,
 				01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */,
 				01B1BEE824EF9BB90081C90F /* FlipperStaticView.swift in Sources */,
 				01042C3324ECDF850090B349 /* AppIconSettingItem.swift in Sources */,
 				01B1BEE624EF9B2B0081C90F /* FlipperView.swift in Sources */,
+				018079CF258DBE5A00C88E0E /* RollableTitleView.swift in Sources */,
 				011287882514801500CEC05D /* CollectionViewManager.swift in Sources */,
 				014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */,
 				01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */,
 				01E65B2024F19D9400D8F76F /* BaseViewControllerFactory.swift in Sources */,
 				0158D0312505E3ED008692DC /* SavedLocationViewController.swift in Sources */,
 				01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */,
+				018840E1258C39D600CED4F1 /* LoadingView.swift in Sources */,
 				01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */,
+				018079CA258DB3B200C88E0E /* NavigationView.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
 				0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
@@ -777,6 +801,14 @@
 				minimumVersion = 1.0.1;
 			};
 		};
+		018840DB258C391C00CED4F1 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.9;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -784,6 +816,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */;
 			productName = GWFoundation;
+		};
+		018840DC258C391C00CED4F1 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 018840DB258C391C00CED4F1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

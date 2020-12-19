@@ -13,6 +13,8 @@ final class RollableTitleView: UIView {
     var todayLabel: UILabel = {
         let label = UILabel()
         label.text = "Today"
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 35)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -20,13 +22,17 @@ final class RollableTitleView: UIView {
     var forecastLabel: UILabel = {
         let label = UILabel()
         label.text = "Forecast"
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 35)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     var geekLabel: UILabel = {
         let label = UILabel()
-        label.text = "GeekWeather Data"
+        label.text = "Geeky Data"
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 35)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -44,7 +50,7 @@ final class RollableTitleView: UIView {
     var topAnimationConstraint: NSLayoutConstraint?
     
     var bottomPadding: CGFloat = 0
-    var itemHeight: CGFloat = 0
+    var itemHeight: CGFloat = 75
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
@@ -58,13 +64,6 @@ final class RollableTitleView: UIView {
         addSubview(labelContainer)
         labelContainer.backgroundColor = .clear
         backgroundColor = .clear
-        todayLabel.backgroundColor = .green
-        forecastLabel.backgroundColor = .red
-        geekLabel.backgroundColor = .blue
-        
-        todayLabel.frame.size.width = frame.size.width
-        forecastLabel.frame.size.width = frame.size.width
-        geekLabel.frame.size.width = frame.size.width
         
         labelContainer.addArrangedSubview(todayLabel)
         labelContainer.addArrangedSubview(forecastLabel)
@@ -84,7 +83,6 @@ final class RollableTitleView: UIView {
     }
     
     func animateWithOffset(_ offsetY: CGFloat) {
-        print(offsetY)
         bottomAnimatorConstraint?.constant = bottomPadding - offsetY
         topAnimationConstraint?.constant = -offsetY
     }

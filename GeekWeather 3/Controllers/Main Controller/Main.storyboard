@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,31 +32,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="G7D-sT-z62">
-                                <rect key="frame" x="0.0" y="119" width="414" height="777"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="jKd-D7-S7t">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="9pF-AR-bUN" customClass="MainViewCell" customModule="GeekWeather" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Gmy-nU-2FJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPR-xt-J3y" customClass="NavigationView" customModule="GeekWeather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="75"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VO3-sv-S78" customClass="RollableTitleView" customModule="GeekWeather" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="0.0" width="305" height="75"/>
+                                        <rect key="frame" x="13" y="0.0" width="300" height="75"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shd-eo-sw5">
@@ -85,7 +64,7 @@
                                     <constraint firstItem="Imr-JJ-jCn" firstAttribute="leading" secondItem="VO3-sv-S78" secondAttribute="trailing" constant="8" symbolic="YES" id="TCW-fs-nR9"/>
                                     <constraint firstAttribute="height" constant="75" id="Wpx-NA-Hw9"/>
                                     <constraint firstAttribute="trailing" secondItem="Shd-eo-sw5" secondAttribute="trailing" constant="21" id="XNI-Ob-Ev9"/>
-                                    <constraint firstItem="VO3-sv-S78" firstAttribute="leading" secondItem="MPR-xt-J3y" secondAttribute="leading" constant="8" id="ZN6-mP-6PT"/>
+                                    <constraint firstItem="VO3-sv-S78" firstAttribute="leading" secondItem="MPR-xt-J3y" secondAttribute="leading" constant="13" id="ZN6-mP-6PT"/>
                                     <constraint firstItem="VO3-sv-S78" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="top" id="cLb-WN-5lF"/>
                                 </constraints>
                                 <connections>
@@ -96,25 +75,20 @@
                         <viewLayoutGuide key="safeArea" id="1MB-rF-5oV"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="G7D-sT-z62" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="GMo-sb-nHL"/>
-                            <constraint firstItem="G7D-sT-z62" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="bottom" id="OMk-Cg-kut"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" id="lbM-lf-XnN"/>
-                            <constraint firstItem="1MB-rF-5oV" firstAttribute="bottom" secondItem="G7D-sT-z62" secondAttribute="bottom" constant="-34" id="q8Z-Zx-lY9"/>
-                            <constraint firstItem="G7D-sT-z62" firstAttribute="trailing" secondItem="1MB-rF-5oV" secondAttribute="trailing" id="rCW-mW-VQn"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="trailing" secondItem="1MB-rF-5oV" secondAttribute="trailing" id="wI8-yz-mZe"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="zY5-zf-F16"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nf1-GG-9gM"/>
                     <connections>
-                        <outlet property="collectionView" destination="G7D-sT-z62" id="nNZ-Jc-WxJ"/>
                         <outlet property="customNavView" destination="MPR-xt-J3y" id="TJh-QZ-Lh7"/>
                         <outlet property="navView" destination="MPR-xt-J3y" id="pYZ-sx-jfG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n64-EW-qbO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-775.20000000000005" y="-13.043478260869566"/>
+            <point key="canvasLocation" x="-775.36231884057975" y="-13.392857142857142"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="zen-kn-2oq">

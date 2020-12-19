@@ -69,8 +69,8 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
         dailyTableView.delegate = self
         dailyTableView.register(UINib(nibName: "LevelTwoCellView", bundle: .main), forCellReuseIdentifier: "cell")
         
-//        hourlyCollectionView.backgroundView?.backgroundColor = .clear
-//        hourlyCollectionView.backgroundColor = .clear
+        hourlyCollectionView.backgroundView?.backgroundColor = .clear
+        hourlyCollectionView.backgroundColor = .clear
         hourlyCollectionView.dataSource = self
         hourlyCollectionView.delegate = self
         hourlyCollectionView.register(UINib(nibName: "LevelTwoCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")

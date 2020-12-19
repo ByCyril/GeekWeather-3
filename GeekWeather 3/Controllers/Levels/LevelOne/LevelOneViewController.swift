@@ -28,7 +28,6 @@ final class LevelOneViewController: BaseView {
         summaryLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: summaryLabel.font)
         commentLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: commentLabel.font)
         
-        
         [locationLabel, tempLabel, summaryLabel, commentLabel].forEach { (element) in
             element?.adjustsFontSizeToFitWidth = true
         }
@@ -42,8 +41,6 @@ final class LevelOneViewController: BaseView {
     
     override func getContentOffset(_ offset: CGPoint) {
         guard offset.y < 0 else { return }
-//        locationLabel.frame.origin.y -= offset.y
-//        locationLabel.transform = .init(translationX: 0, y: offset.y)
     }
     
     override func animate() {

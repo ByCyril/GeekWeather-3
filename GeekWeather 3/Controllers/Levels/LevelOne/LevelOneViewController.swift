@@ -9,6 +9,16 @@
 import UIKit
 import GWFoundation
 
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
+}
+
 final class LevelOneViewController: BaseView {
    
     @IBOutlet var containerView: UIView!
@@ -69,7 +79,7 @@ final class LevelOneViewController: BaseView {
     func displayData(_ currentWeatherData: Currently) {
                 
         tempLabel.text = currentWeatherData.temp.temp()
-        summaryLabel.text = currentWeatherData.weather.first?.main ?? ""
+        summaryLabel.text = currentWeatherData.weather.first?.description.capitalizingFirstLetter() ?? ""
         commentLabel.text = "Feels like " + currentWeatherData.feels_like.temp()
         
         UIView.animate(withDuration: 1) { [weak self] in

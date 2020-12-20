@@ -177,7 +177,6 @@
 		0100D7C724CE1A8100C9F9B5 = {
 			isa = PBXGroup;
 			children = (
-				018079CE258DBE5A00C88E0E /* RollableTitleView.swift */,
 				0100D7D224CE1A8200C9F9B5 /* GeekWeather 3 */,
 				0100D7E924CE1A8300C9F9B5 /* GeekWeather 3Tests */,
 				0100D7D124CE1A8200C9F9B5 /* Products */,
@@ -266,6 +265,7 @@
 			children = (
 				01844A1524F22113000B0D52 /* Main.storyboard */,
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
+				018079CE258DBE5A00C88E0E /* RollableTitleView.swift */,
 				018079C9258DB3B200C88E0E /* NavigationView.swift */,
 				018840D8258C35C300CED4F1 /* InitialViewController.swift */,
 				018840E0258C39D600CED4F1 /* LoadingView.swift */,

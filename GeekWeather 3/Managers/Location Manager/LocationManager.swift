@@ -64,6 +64,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
             return
         }
         delegate?.currentLocation(location)
+        lookupCurrentLocation(location)
     }
     
     private func denied() {

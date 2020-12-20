@@ -88,16 +88,12 @@ final class InitialViewController: UIViewController, NetworkManagerDelegate, Loc
     }
     
     func didFinishFetching(_ weatherModel: WeatherModel) {
-        let location = CLLocation(latitude: weatherModel.lat, longitude: weatherModel.lon)
-        locationManager.lookupCurrentLocation(location)
         
         DispatchQueue.main.async { [weak self] in
             guard let vc = self?.storyboard?.instantiateViewController(identifier: "MainViewController") as? MainViewController else { return }
-            
             vc.prepareToDeliverData(weatherModel)
-            vc.modalPresentationStyle = .fullScreen
-            vc.modalTransitionStyle = .crossDissolve
-            self?.present(vc, animated: true, completion: nil)
+            self?.view.window?.rootViewController = vc
+            self?.view.window?.makeKeyAndVisible()
         }
     }
     

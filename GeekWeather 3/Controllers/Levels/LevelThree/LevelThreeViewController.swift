@@ -62,11 +62,11 @@ final class LevelThreeViewController: BaseView, UICollectionViewDelegate, UIColl
         let current = weatherModel.current
         let cloudCover = GeekyData(title: "Cloud Cover",
                                 image: "04d",
-                                info: current.clouds.stringRound() + "%")
+                                info: current.clouds.percentage(chop: true))
         
         let humidity = GeekyData(title: "Humidity",
                                 image: "humidity",
-                                info: current.humidity.stringRound() + "%")
+                                info: current.humidity.percentage(chop: true))
         
 //        needs formatting
         let windSpeed = GeekyData(title: "Wind Speed", image: "50n", info: current.wind_speed.stringRound())
@@ -75,15 +75,15 @@ final class LevelThreeViewController: BaseView, UICollectionViewDelegate, UIColl
         var uviLevel = uvi.stringRound()
         
         if (0...2) ~= uvi {
-            uviLevel += " Low"
+            uviLevel += "\nLow"
         } else if (3...5) ~= uvi {
-            uviLevel += " Moderate"
+            uviLevel += "\nModerate"
         } else if (6...7) ~= uvi {
-            uviLevel += " High"
+            uviLevel += "\nHigh"
         } else if (8...9) ~= uvi {
-            uviLevel += " VERY HIGH"
+            uviLevel += "\nVERY HIGH"
         } else if uvi >= 11 {
-            uviLevel += " Extreme"
+            uviLevel += "\nExtreme"
         }
         
         let uvIndex = GeekyData(title: "UV Index", image: "uvi", info: uviLevel)
@@ -92,7 +92,7 @@ final class LevelThreeViewController: BaseView, UICollectionViewDelegate, UIColl
         
         let sunset = GeekyData(title: "Sunset", image: "01n", info: current.sunset.date(.time))
         
-        let percipPer = weatherModel.daily.first!.pop.stringRound() + "%"
+        let percipPer = weatherModel.daily.first!.pop.percentage(chop: true)
         let chanceOfRain = GeekyData(title: "Chance of Rain", image: "rain", info: percipPer)
         
         let max = weatherModel.daily.first!.temp.max.temp()

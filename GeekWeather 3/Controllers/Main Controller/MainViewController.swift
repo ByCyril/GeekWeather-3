@@ -86,6 +86,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(levelTwoViewController!)
         scrollView.addSubview(levelThreeViewController!)
         
+        notificationManager.listen(for: NotificationName.observerID("currentLocation"), in: self)
         notificationManager.post(data: ["weatherModel": weatherModel!], to: NotificationName.observerID("weatherModel"))
     }
         

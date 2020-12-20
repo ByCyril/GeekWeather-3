@@ -48,7 +48,21 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
         super.init(coder: coder)
     }
     
-    override func animate() {}
+    override func getContentOffset(_ offset: CGPoint) {
+        
+        let height = frame.size.height
+        var alpha: CGFloat = 0
+        
+        if offset.y <= height {
+            alpha = (1 - ((offset.y + height) / height)) * -1
+        } else {
+            alpha = 1 - ((offset.y - height) / height)
+        }
+        
+        dailyTableView.alpha = alpha
+        hourlyCollectionView.alpha = alpha
+        
+    }
     
     private func tableViewSetup() {
         

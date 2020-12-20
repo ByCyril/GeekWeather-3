@@ -42,13 +42,14 @@ final class LevelOneViewController: BaseView {
     }
     
     override func getContentOffset(_ offset: CGPoint) {
-        guard offset.y < 0 else { return }
+        let alpha = 1 - (offset.y / frame.size.height)
+        
+        locationLabel.alpha = alpha
+        tempLabel.alpha = alpha
+        summaryLabel.alpha = alpha
+        commentLabel.alpha = alpha
     }
-    
-    override func animate() {
-
-    }
-    
+        
     override func update(from notification: NSNotification) {
         if let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel {
             DispatchQueue.main.async { [weak self] in

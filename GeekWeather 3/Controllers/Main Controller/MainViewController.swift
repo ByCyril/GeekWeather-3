@@ -22,6 +22,10 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
     
     private let gradientLayer = CAGradientLayer()
     
+    private var levelOneViewController: LevelOneViewController?
+    private var levelTwoViewController: LevelTwoViewController?
+    private var levelThreeViewController: LevelThreeViewController?
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.isPagingEnabled = true
@@ -62,6 +66,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         let scrollPercentage = (scrollView.contentOffset.y / scrollView.contentSize.height)        
         let navScrollViewHeight = (225 * scrollPercentage)
         navView.rollableTitleView.animateWithOffset(navScrollViewHeight)
+        
+        levelOneViewController?.getContentOffset(scrollView.contentOffset)
+        levelTwoViewController?.getContentOffset(scrollView.contentOffset)
     }
 
     func initUI() {
@@ -71,13 +78,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.contentSize = CGSize(width: view.frame.size.width, height: trueHeight*3)
 
-        let levelOneViewController = LevelOneViewController(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: trueHeight))
-        let levelTwoViewController = LevelTwoViewController(frame: CGRect(x: 0, y: trueHeight, width: view.bounds.size.width, height: trueHeight))
-        let levelThreeViewController = LevelThreeViewController(frame: CGRect(x: 0, y: trueHeight * 2, width: view.bounds.size.width, height: trueHeight))
+        levelOneViewController = LevelOneViewController(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: trueHeight))
+        levelTwoViewController = LevelTwoViewController(frame: CGRect(x: 0, y: trueHeight, width: view.bounds.size.width, height: trueHeight))
+        levelThreeViewController = LevelThreeViewController(frame: CGRect(x: 0, y: trueHeight * 2, width: view.bounds.size.width, height: trueHeight))
 
-        scrollView.addSubview(levelOneViewController)
-        scrollView.addSubview(levelTwoViewController)
-        scrollView.addSubview(levelThreeViewController)
+        scrollView.addSubview(levelOneViewController!)
+        scrollView.addSubview(levelTwoViewController!)
+        scrollView.addSubview(levelThreeViewController!)
         
         notificationManager.post(data: ["weatherModel": weatherModel!], to: NotificationName.observerID("weatherModel"))
     }

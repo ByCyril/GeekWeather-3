@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "1settings-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +11,6 @@
           "value" : "light"
         }
       ],
-      "filename" : "1settings.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -23,11 +21,11 @@
           "value" : "dark"
         }
       ],
-      "filename" : "2settings.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "56b.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -38,6 +36,7 @@
           "value" : "light"
         }
       ],
+      "filename" : "56b-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -48,10 +47,12 @@
           "value" : "dark"
         }
       ],
+      "filename" : "56w.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "84b-1.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -62,6 +63,7 @@
           "value" : "light"
         }
       ],
+      "filename" : "84b.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -72,6 +74,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "84w.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

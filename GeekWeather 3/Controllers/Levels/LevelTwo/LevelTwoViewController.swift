@@ -48,18 +48,7 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
         super.init(coder: coder)
     }
     
-    override func animate() {
-//        dailyTableView.visibleCells.forEach { (cell) in
-//            cell.alpha = 0
-//            let transform = CATransform3DTranslate(CATransform3DIdentity, 0, 150, 0)
-//            cell.layer.transform = transform
-//
-//            UIView.animate(withDuration: 0.5) {
-//                cell.alpha = 1.0
-//                cell.layer.transform = CATransform3DIdentity
-//            }
-//        }
-    }
+    override func animate() {}
     
     private func tableViewSetup() {
         

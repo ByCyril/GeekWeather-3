@@ -26,6 +26,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         let scrollView = UIScrollView()
         scrollView.isPagingEnabled = true
         scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
@@ -52,7 +53,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.frame = CGRect(x: 0, y: scrollViewYOffset, width: view.frame.size.width, height: trueHeight)
 
-        initUI()
+        if scrollView.subviews.count == 0 {
+            initUI()
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

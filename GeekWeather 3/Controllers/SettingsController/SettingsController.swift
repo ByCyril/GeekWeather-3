@@ -41,6 +41,12 @@ final class SettingsController: UIViewController, UITableViewDataSource, UITable
         
         title = "Settings"
         
+        let backButton = UIButton()
+        backButton.setImage(UIImage(named: "back"), for: .normal)
+        backButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
+        let barButton = UIBarButtonItem(customView: backButton)
+        navigationItem.setRightBarButton(barButton, animated: true)
+        
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
@@ -61,8 +67,12 @@ final class SettingsController: UIViewController, UITableViewDataSource, UITable
         view.layoutIfNeeded()
     }
     
+    @objc
+    func dismissController() {
+        dismiss(animated: true, completion: nil)
+    }
     
-     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let headerView = view as? UITableViewHeaderFooterView else { return }
         headerView.textLabel?.textColor = .label
     }

@@ -28,7 +28,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="vxj-AT-XkY"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>

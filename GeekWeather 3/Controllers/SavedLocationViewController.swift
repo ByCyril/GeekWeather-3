@@ -40,6 +40,20 @@ final class SavedLocationViewController: UICollectionViewController {
         title = "New Location"
         
         setupSearchController()
+        initUI()
+    }
+    
+    private func initUI() {
+        let backButton = UIButton()
+        backButton.setImage(UIImage(named: "back"), for: .normal)
+        backButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
+        let barButton = UIBarButtonItem(customView: backButton)
+        navigationItem.setRightBarButton(barButton, animated: true)
+    }
+    
+    @objc
+    func dismissController() {
+        dismiss(animated: true, completion: nil)
     }
     
     private func setupSearchController() {
@@ -57,6 +71,22 @@ final class SavedLocationViewController: UICollectionViewController {
         navigationItem.titleView = locationSearchController?.searchBar
         navigationItem.searchController = locationSearchController
         definesPresentationContext = true
+    }
+    
+    deinit {
+        reclaimedMemory()
+    }
+    
+    func reclaimedMemory(_ fileName: String = #file,
+                         _ funcName: String = #function,
+                         _ lineNumber: Int = #line) {
+        
+        Swift.print("")
+        Swift.print("##########")
+        Swift.print("Reclaimed memory")
+        Swift.print("CLASS:",String(describing: type(of: self)))
+        Swift.print("##########")
+        Swift.print("")
     }
     
 }

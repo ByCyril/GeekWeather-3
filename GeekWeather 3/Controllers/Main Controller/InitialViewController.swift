@@ -38,12 +38,14 @@ final class InitialViewController: UIViewController, NetworkManagerDelegate, Loc
 
         locationManager.delegate = self
         
-        perform(#selector(displayLoadingView), with: nil, afterDelay: 5.0)
+        perform(#selector(displayLoadingView), with: nil, afterDelay: 2.5)
     }
     
     @objc
     func displayLoadingView() {
+        loadingView.alpha = 0
         view.addSubview(loadingView)
+        
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         
         let size: CGFloat = 250
@@ -56,6 +58,10 @@ final class InitialViewController: UIViewController, NetworkManagerDelegate, Loc
         ])
         
         view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.4) { [weak self] in
+            self?.loadingView.alpha = 1
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {

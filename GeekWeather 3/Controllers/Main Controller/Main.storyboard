@@ -46,6 +46,9 @@
                                             <constraint firstAttribute="width" constant="25" id="hM6-fX-QIe"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="settings"/>
+                                        <connections>
+                                            <action selector="presentSettingsController" destination="jJS-OJ-nXl" eventType="touchUpInside" id="TZT-qd-c0N"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imr-JJ-jCn">
                                         <rect key="frame" x="321" y="31" width="25" height="25"/>
@@ -54,6 +57,9 @@
                                             <constraint firstAttribute="width" constant="25" id="xku-4I-9gf"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="search"/>
+                                        <connections>
+                                            <action selector="presentSavedLocationController" destination="jJS-OJ-nXl" eventType="touchUpInside" id="EsI-85-LcW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -90,40 +96,12 @@
             </objects>
             <point key="canvasLocation" x="-775.36231884057975" y="-13.392857142857142"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="zen-kn-2oq">
-            <objects>
-                <viewController id="DWR-00-s0v" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JCJ-fG-9Qd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="TFo-mj-II3"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="PHp-HX-hhg">
-                        <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="xqH-4c-Gbt">
-                            <view key="customView" userInteractionEnabled="NO" contentMode="scaleToFill" id="xdf-i3-T0h" customClass="RollableTitleView" customModule="GeekWeather" customModuleProvider="target">
-                                <rect key="frame" x="20" y="0.0" width="200" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                            </view>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="11g-8Q-0u4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="749" y="-13"/>
-        </scene>
     </scenes>
     <resources>
         <image name="search" width="512" height="512"/>
         <image name="settings" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

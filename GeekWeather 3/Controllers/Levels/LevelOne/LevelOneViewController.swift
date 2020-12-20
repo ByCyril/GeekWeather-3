@@ -28,6 +28,8 @@ final class LevelOneViewController: BaseView {
         summaryLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: summaryLabel.font)
         commentLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: commentLabel.font)
         
+        locationLabel.alpha = 0
+        
         [locationLabel, tempLabel, summaryLabel, commentLabel].forEach { (element) in
             element?.adjustsFontSizeToFitWidth = true
         }
@@ -44,32 +46,23 @@ final class LevelOneViewController: BaseView {
     }
     
     override func animate() {
-//        let views = [locationLabel, tempLabel, summaryLabel, commentLabel]
-//            
-//        views.forEach { (element) in
-//            element?.alpha = 0
-//        }
-//        
-//        UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseInOut) {
-//            views.forEach { (element) in
-//                element?.alpha = 1
-//            }
-//        }
+
     }
     
     override func update(from notification: NSNotification) {
         if let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel {
-            DispatchQueue.main.async {
-                self.displayData(weatherModel.current)
+            DispatchQueue.main.async { [weak self] in
+                self?.displayData(weatherModel.current)
             }
         }
         
         if let currentLocation = notification.userInfo?["currentLocation"] as? String {
-            UIView.transition(with: locationLabel, duration: 1, options: [.curveEaseInOut, .transitionFlipFromBottom], animations: {
-                self.locationLabel.text = currentLocation
-            })
+            locationLabel.text = currentLocation
+            
+            UIView.animate(withDuration: 0.4) { [weak self] in
+                self?.locationLabel.alpha = 1
+            }
         }
-        
     }
 
     func displayData(_ currentWeatherData: Currently) {

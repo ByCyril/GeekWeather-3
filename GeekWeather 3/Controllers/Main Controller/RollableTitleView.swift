@@ -30,7 +30,7 @@ final class RollableTitleView: UIView {
     
     var geekLabel: UILabel = {
         let label = UILabel()
-        label.text = "Geeky Data"
+        label.text = "Details"
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 35)
         label.translatesAutoresizingMaskIntoConstraints = false

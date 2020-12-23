@@ -13,6 +13,7 @@ final class RollableTitleView: UIView {
     var todayLabel: UILabel = {
         let label = UILabel()
         label.text = "Today"
+        label.notAccessibilityElement()
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 35)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -22,6 +23,7 @@ final class RollableTitleView: UIView {
     var forecastLabel: UILabel = {
         let label = UILabel()
         label.text = "Forecast"
+        label.notAccessibilityElement()
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 35)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,6 +33,7 @@ final class RollableTitleView: UIView {
     var geekLabel: UILabel = {
         let label = UILabel()
         label.text = "Details"
+        label.notAccessibilityElement()
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 35)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -83,6 +86,8 @@ final class RollableTitleView: UIView {
     }
     
     func animateWithOffset(_ offsetY: CGFloat) {
+        if offsetY < 0 { return }
+        if offsetY > itemHeight * 2 { return }
         bottomAnimatorConstraint?.constant = bottomPadding - offsetY
         topAnimationConstraint?.constant = -offsetY
     }

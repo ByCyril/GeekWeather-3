@@ -104,8 +104,14 @@ final class LevelThreeViewController: BaseView, UICollectionViewDelegate, UIColl
         geekyData = [sunrise, sunset, chanceOfRain,
                      highTemp, lowTemp, cloudCover,
                      humidity, uvIndex, windSpeed]
+        collectionView.reloadData()
     }
         
+    override func getContentOffset(_ offset: CGPoint) {
+        let height = frame.size.height
+        collectionView.alpha = (1 - ((offset.y) / height)) * -1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return geekyData.count
     }

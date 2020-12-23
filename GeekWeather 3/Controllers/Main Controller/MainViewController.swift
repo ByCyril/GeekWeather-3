@@ -10,14 +10,17 @@ import UIKit
 import GWFoundation
 import CoreLocation
 
-class MainViewController: UIViewController, UIScrollViewDelegate {
-    
+class MainViewController: UIViewController, UIScrollViewDelegate, LocationManagerDelegate, NetworkManagerDelegate, UIScrollViewAccessibilityDelegate {
+ 
     private let notificationManager = NotificationManager()
     
     private var levels = [BaseView]()
+    
     private var weatherModel: WeatherModel?
-
-    @IBOutlet var navView: NavigationView!
+    private var networkManager: NetworkManager?
+    private var locationManager: LocationManager?
+    
+    @IBOutlet var navView: NavigationView?
     @IBOutlet var customNavView: UIView!
     
     private let gradientLayer = CAGradientLayer()
@@ -32,6 +35,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.isAccessibilityElement = false
         return scrollView
     }()
     
@@ -46,33 +50,59 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
 
         view.layer.insertSublayer(gradientLayer, at: 0)
         view.setNeedsDisplay()
-
+        
+        initMethod()
+    }
+    
+    func initMethod() {
+        locationManager = LocationManager(self)
+        
+        if let error = FeatureFlag.mockError() {
+            networkManager = NetworkManager(self, error)
+            return
+        }
+        
+        if let data = FeatureFlag.mockedResponse() {
+            networkManager = NetworkManager(self, data)
+        } else {
+            networkManager = NetworkManager(self)
+        }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+        guard let navView = self.navView else { return }
         let scrollViewYOffset = navView.frame.size.height + UIApplication.shared.windows[0].safeAreaInsets.top
         let trueHeight = view.bounds.size.height - scrollViewYOffset
         
         scrollView.frame = CGRect(x: 0, y: scrollViewYOffset, width: view.frame.size.width, height: trueHeight)
-
+        scrollView.transform = .init(translationX: 0, y: view.frame.size.height)
+        
         if scrollView.subviews.count == 0 {
             initUI()
         }
     }
     
+    
+    func accessibilityScrollStatus(for scrollView: UIScrollView) -> String? {
+        let offsetY = scrollView.contentOffset.y
+        let page = offsetY / scrollView.frame.size.height
+    
+        return ["Today View", "Forecast View", "Details View"][Int(page)]
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollPercentage = (scrollView.contentOffset.y / scrollView.contentSize.height)        
         let navScrollViewHeight = (225 * scrollPercentage)
-        navView.rollableTitleView.animateWithOffset(navScrollViewHeight)
+        navView?.rollableTitleView.animateWithOffset(navScrollViewHeight)
         
         levelOneViewController?.getContentOffset(scrollView.contentOffset)
         levelTwoViewController?.getContentOffset(scrollView.contentOffset)
+        levelThreeViewController?.getContentOffset(scrollView.contentOffset)
     }
 
     func initUI() {
-        
+        guard let navView = self.navView else { return }
         let scrollViewYOffset = navView.frame.size.height + UIApplication.shared.windows[0].safeAreaInsets.top
         let trueHeight = view.bounds.size.height - scrollViewYOffset
         
@@ -86,12 +116,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(levelTwoViewController!)
         scrollView.addSubview(levelThreeViewController!)
         
-        notificationManager.listen(for: NotificationName.observerID("currentLocation"), in: self)
-        notificationManager.post(data: ["weatherModel": weatherModel!], to: NotificationName.observerID("weatherModel"))
-    }
-        
-    func prepareToDeliverData(_ weatherModel: WeatherModel) {
-        self.weatherModel = weatherModel
     }
     
     @IBAction func presentSavedLocationController() {
@@ -109,6 +133,48 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
 
         gradientLayer.colors = [UIColor(named: "GradientTopColor")!.cgColor,
                                 UIColor(named: "GradientBottomColor")!.cgColor]
+    }
+    
+    func currentLocation(_ location: CLLocation) {
+        let req = RequestURL(location: location, .imperial)
+        networkManager?.fetch(req)
+    }
+    
+    func didFinishFetching(_ weatherModel: WeatherModel) {
+        let location = CLLocation(latitude: weatherModel.lat, longitude: weatherModel.lon)
+        locationManager?.lookupCurrentLocation(location)
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.animateMainScrollView()
+            self?.notificationManager.post(data: ["weatherModel": weatherModel], to: NotificationName.observerID("weatherModel"))
+        }
+    }
+    
+    func animateMainScrollView() {
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut) { [weak self] in
+            self?.scrollView.transform = .identity
+        }
+    }
+    
+    func locationError(_ errorMsg: String,_ status: CLAuthorizationStatus?) {
+        presentError(errorMsg)
+    }
+    
+    func networkError(_ error: Error?) {
+        guard let error = error else { return }
+        presentError(error.localizedDescription)
+    }
+    
+    func presentError(_ errorMsg: String) {
+        guard let vc = storyboard?.instantiateViewController(identifier: "ErrorViewController") as? ErrorViewController else { return }
+        
+        let animation = AnimationType(name: "denied", speed: 0.5, size: CGSize(width: 250, height: 250), message: errorMsg)
+        vc.displayAnimation(with: animation)
+        
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        
+        present(vc, animated: true, completion: nil)
     }
     
 }

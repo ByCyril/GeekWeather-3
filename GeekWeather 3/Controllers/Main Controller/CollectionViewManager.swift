@@ -29,13 +29,12 @@ class CollectionViewManager: NSObject {
 final class CollectionViewDelegateManager: CollectionViewManager, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let vc = vc else { return }
-
-        let scrollPercentage = (scrollView.contentOffset.y / scrollView.contentSize.height) * 2
-        let navScrollViewHeight = (vc.navView.rollableTitleView.frame.height * scrollPercentage)
+        guard let navView = vc?.navView else { return }
         
-        vc.navView.rollableTitleView.animateWithOffset(navScrollViewHeight)
-        print(navScrollViewHeight,scrollPercentage)
+        let scrollPercentage = (scrollView.contentOffset.y / scrollView.contentSize.height) * 2
+        let navScrollViewHeight = (navView.rollableTitleView.frame.height * scrollPercentage)
+        
+        navView.rollableTitleView.animateWithOffset(navScrollViewHeight)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

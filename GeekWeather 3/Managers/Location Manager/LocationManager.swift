@@ -11,7 +11,7 @@ import UIKit
 
 protocol LocationManagerDelegate: AnyObject {
     func currentLocation(_ location: CLLocation)
-    func locationError(_ errorMsg: String)
+    func locationError(_ errorMsg: String,_ status: CLAuthorizationStatus?)
 }
 
 final class LocationManager: NSObject, CLLocationManagerDelegate {
@@ -21,14 +21,15 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     
     weak var delegate: LocationManagerDelegate?
     
-    override init() {
+    init(_ delegate: LocationManagerDelegate) {
         super.init()
         locationManager.delegate = self
+        self.delegate = delegate
         authorizationStatus()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        delegate?.locationError(error.localizedDescription)
+        delegate?.locationError(error.localizedDescription, nil)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -45,15 +46,12 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
                              _ manager: CLLocationManager = CLLocationManager()) {
         
         switch status {
-        case .authorizedAlways,
-             .authorizedWhenInUse:
+        case .authorizedAlways, .authorizedWhenInUse:
             authorizationEnabled(manager)
-        case .denied:
-            denied()
+        case .denied, .restricted:
+            delegate?.locationError("Location access either denied or restricted", status)
         case .notDetermined:
-            notDetermined()
-        case .restricted:
-            restricted()
+             notDetermined()
         @unknown default:
             notDetermined()
         }
@@ -64,19 +62,10 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
             return
         }
         delegate?.currentLocation(location)
-        lookupCurrentLocation(location)
-    }
-    
-    private func denied() {
-        delegate?.locationError("Permission Denied")
     }
     
     private func notDetermined() {
         locationManager.requestWhenInUseAuthorization()
-    }
-    
-    private func restricted() {
-        
     }
     
     func lookupCurrentLocation(_ location: CLLocation) {

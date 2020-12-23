@@ -8,13 +8,18 @@
 
 import UIKit
 
-final class AccessibilityFactory {
-   
-    func applyAccessibility(to view: UIView, with label: String, trait: UIAccessibilityTraits) {
-        view.isAccessibilityElement = true
-        view.accessibilityLabel = label
-        view.accessibilityTraits = trait
+extension UIView {
+    func applyAccessibility(with label: String, and value: String?, trait: UIAccessibilityTraits) {
+        isAccessibilityElement = true
+        accessibilityLabel = label
+        accessibilityTraits = trait
+
+        if let value = value {            
+            accessibilityValue = value
+        }
     }
     
-    /* populate with your own custom methods that fit your needs! */
+    func notAccessibilityElement() {
+        isAccessibilityElement = false
+    }
 }

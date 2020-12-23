@@ -28,6 +28,8 @@ final class LevelOneViewController: BaseView {
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var commentLabel: UILabel!
     
+    var currentWeatherData: Currently?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         let view = Bundle.main.loadNibNamed("LevelOneViewController", owner: self)!.first as! LevelOneViewController
@@ -41,6 +43,7 @@ final class LevelOneViewController: BaseView {
         locationLabel.alpha = 0
         
         [locationLabel, tempLabel, summaryLabel, commentLabel].forEach { (element) in
+            element?.adjustsFontForContentSizeCategory = true
             element?.adjustsFontSizeToFitWidth = true
         }
         
@@ -63,6 +66,7 @@ final class LevelOneViewController: BaseView {
     override func update(from notification: NSNotification) {
         if let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel {
             DispatchQueue.main.async { [weak self] in
+                self?.currentWeatherData = weatherModel.current
                 self?.displayData(weatherModel.current)
             }
         }
@@ -87,5 +91,11 @@ final class LevelOneViewController: BaseView {
             self?.summaryLabel.alpha = 1
             self?.commentLabel.alpha = 1
         }
+        
+        accessibilityElements()
+    }
+    
+    func accessibilityElements() {
+        tempLabel.applyAccessibility(with: "Current Temperature", and: tempLabel.text, trait: .staticText)
     }
 }

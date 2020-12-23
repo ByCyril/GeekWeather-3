@@ -21,8 +21,6 @@
 		01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2E24ECDF510090B349 /* SettingItem.swift */; };
 		01042C3124ECDF660090B349 /* AboutSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3024ECDF660090B349 /* AboutSettingItem.swift */; };
 		01042C3324ECDF850090B349 /* AppIconSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3224ECDF850090B349 /* AppIconSettingItem.swift */; };
-		0112878525147F3A00CEC05D /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0112878425147F3A00CEC05D /* MainViewCell.swift */; };
-		011287882514801500CEC05D /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011287872514801500CEC05D /* CollectionViewManager.swift */; };
 		0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */; };
 		0146C05A24F787D000967A37 /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* FeatureFlag.swift */; };
 		0146C05F24F788E600967A37 /* demo1.json in Resources */ = {isa = PBXBuildFile; fileRef = 0146C05E24F788E600967A37 /* demo1.json */; };
@@ -30,6 +28,9 @@
 		014D2A3C24D3F64A0038623E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3B24D3F64A0038623E /* Location.swift */; };
 		014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */; };
 		0153693425174D580044D108 /* GWTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153693325174D580044D108 /* GWTransition.swift */; };
+		0157E8E3259144270026706D /* denied.json in Resources */ = {isa = PBXBuildFile; fileRef = 0157E8E0259144270026706D /* denied.json */; };
+		0157E8E4259144270026706D /* error.json in Resources */ = {isa = PBXBuildFile; fileRef = 0157E8E1259144270026706D /* error.json */; };
+		0157E8E5259144270026706D /* missing.json in Resources */ = {isa = PBXBuildFile; fileRef = 0157E8E2259144270026706D /* missing.json */; };
 		0158D02A2505DF0C008692DC /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0158D0292505DF0C008692DC /* SearchLocationViewController.swift */; };
 		0158D0312505E3ED008692DC /* SavedLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0158D0302505E3ED008692DC /* SavedLocationViewController.swift */; };
 		0169433D24DA887B006A7FAA /* LocationManegerDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169433C24DA887B006A7FAA /* LocationManegerDelegateManager.swift */; };
@@ -44,10 +45,10 @@
 		0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185665A24D767050035BF59 /* AccessibilityFactory.swift */; };
 		0185666124D774FE0035BF59 /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0185666024D774FE0035BF59 /* GWFoundation */; };
 		018818CB258F23FB009EE9EE /* LevelThreeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018818CA258F23FB009EE9EE /* LevelThreeCollectionViewCell.xib */; };
-		018840D9258C35C300CED4F1 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840D8258C35C300CED4F1 /* InitialViewController.swift */; };
 		018840DD258C391C00CED4F1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 018840DC258C391C00CED4F1 /* Lottie */; };
-		018840E1258C39D600CED4F1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840E0258C39D600CED4F1 /* LoadingView.swift */; };
+		018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840E0258C39D600CED4F1 /* GWAnimationView.swift */; };
 		018840E8258C3DE400CED4F1 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 018840E7258C3DE400CED4F1 /* loader.json */; };
+		0197FB5325913AA6000C4640 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197FB5225913AA6000C4640 /* ErrorViewController.swift */; };
 		01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */; };
 		01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB724EDBE520081C90F /* SettingManager.swift */; };
 		01B1BEBB24EE319C0081C90F /* UnitSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEBA24EE319C0081C90F /* UnitSelectorCell.swift */; };
@@ -109,8 +110,6 @@
 		01042C2E24ECDF510090B349 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
 		01042C3024ECDF660090B349 /* AboutSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingItem.swift; sourceTree = "<group>"; };
 		01042C3224ECDF850090B349 /* AppIconSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingItem.swift; sourceTree = "<group>"; };
-		0112878425147F3A00CEC05D /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
-		011287872514801500CEC05D /* CollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewManager.swift; sourceTree = "<group>"; };
 		0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeViewController.swift; sourceTree = "<group>"; };
 		0146C05924F787D000967A37 /* FeatureFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlag.swift; sourceTree = "<group>"; };
 		0146C05E24F788E600967A37 /* demo1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo1.json; sourceTree = "<group>"; };
@@ -118,6 +117,9 @@
 		014D2A3B24D3F64A0038623E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerAuthorizationStatus.swift; sourceTree = "<group>"; };
 		0153693325174D580044D108 /* GWTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWTransition.swift; sourceTree = "<group>"; };
+		0157E8E0259144270026706D /* denied.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = denied.json; sourceTree = "<group>"; };
+		0157E8E1259144270026706D /* error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = error.json; path = "../../GeekWeather 2/GeekWeather 2/animations/error.json"; sourceTree = "<group>"; };
+		0157E8E2259144270026706D /* missing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missing.json; sourceTree = "<group>"; };
 		0158D0292505DF0C008692DC /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		0158D0302505E3ED008692DC /* SavedLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationViewController.swift; sourceTree = "<group>"; };
 		0169433C24DA887B006A7FAA /* LocationManegerDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManegerDelegateManager.swift; sourceTree = "<group>"; };
@@ -132,9 +134,9 @@
 		01844A1E24F226B5000B0D52 /* LevelThreeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelThreeViewController.xib; sourceTree = "<group>"; };
 		0185665A24D767050035BF59 /* AccessibilityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityFactory.swift; sourceTree = "<group>"; };
 		018818CA258F23FB009EE9EE /* LevelThreeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelThreeCollectionViewCell.xib; sourceTree = "<group>"; };
-		018840D8258C35C300CED4F1 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
-		018840E0258C39D600CED4F1 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		018840E0258C39D600CED4F1 /* GWAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWAnimationView.swift; sourceTree = "<group>"; };
 		018840E7258C3DE400CED4F1 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		0197FB5225913AA6000C4640 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoItem.swift; sourceTree = "<group>"; };
 		01B1BEB724EDBE520081C90F /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 		01B1BEBA24EE319C0081C90F /* UnitSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSelectorCell.swift; sourceTree = "<group>"; };
@@ -199,6 +201,9 @@
 				0146C05E24F788E600967A37 /* demo1.json */,
 				01FCE337258B21E200C841C8 /* demo.json */,
 				018840E7258C3DE400CED4F1 /* loader.json */,
+				0157E8E0259144270026706D /* denied.json */,
+				0157E8E1259144270026706D /* error.json */,
+				0157E8E2259144270026706D /* missing.json */,
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
 				0146C05924F787D000967A37 /* FeatureFlag.swift */,
@@ -267,10 +272,8 @@
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
 				018079CE258DBE5A00C88E0E /* RollableTitleView.swift */,
 				018079C9258DB3B200C88E0E /* NavigationView.swift */,
-				018840D8258C35C300CED4F1 /* InitialViewController.swift */,
-				018840E0258C39D600CED4F1 /* LoadingView.swift */,
-				011287872514801500CEC05D /* CollectionViewManager.swift */,
-				0112878425147F3A00CEC05D /* MainViewCell.swift */,
+				018840E0258C39D600CED4F1 /* GWAnimationView.swift */,
+				0197FB5225913AA6000C4640 /* ErrorViewController.swift */,
 			);
 			path = "Main Controller";
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0157E8E4259144270026706D /* error.json in Resources */,
 				018818CB258F23FB009EE9EE /* LevelThreeCollectionViewCell.xib in Resources */,
 				01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */,
 				01844A1C24F22646000B0D52 /* LevelTwoViewController.xib in Resources */,
@@ -468,8 +472,10 @@
 				0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */,
 				01844A1624F22113000B0D52 /* Main.storyboard in Resources */,
 				01FCE33B258B272B00C841C8 /* LevelTwoCollectionViewCell.xib in Resources */,
+				0157E8E3259144270026706D /* denied.json in Resources */,
 				0100D7DD24CE1A8300C9F9B5 /* Assets.xcassets in Resources */,
 				01FCE338258B21E200C841C8 /* demo.json in Resources */,
+				0157E8E5259144270026706D /* missing.json in Resources */,
 				0146C05F24F788E600967A37 /* demo1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +499,7 @@
 				01B1BEBD24EE33320081C90F /* UnitSelectorItem.swift in Sources */,
 				01B1BEC424EF95920081C90F /* LevelOneViewController.swift in Sources */,
 				0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */,
+				0197FB5325913AA6000C4640 /* ErrorViewController.swift in Sources */,
 				01B1BEED24EFA0040081C90F /* LevelTwoViewController.swift in Sources */,
 				016BB86424DA871700206C23 /* NetworkManagerDelegateManager.swift in Sources */,
 				01B1BEBB24EE319C0081C90F /* UnitSelectorCell.swift in Sources */,
@@ -503,19 +510,17 @@
 				0153693425174D580044D108 /* GWTransition.swift in Sources */,
 				0169434124E244B2006A7FAA /* BaseView.swift in Sources */,
 				014D2A3C24D3F64A0038623E /* Location.swift in Sources */,
-				018840D9258C35C300CED4F1 /* InitialViewController.swift in Sources */,
 				01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */,
 				01B1BEE824EF9BB90081C90F /* FlipperStaticView.swift in Sources */,
 				01042C3324ECDF850090B349 /* AppIconSettingItem.swift in Sources */,
 				01B1BEE624EF9B2B0081C90F /* FlipperView.swift in Sources */,
 				018079CF258DBE5A00C88E0E /* RollableTitleView.swift in Sources */,
-				011287882514801500CEC05D /* CollectionViewManager.swift in Sources */,
 				014D2A4324D3F94C0038623E /* LocationManagerAuthorizationStatus.swift in Sources */,
 				01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */,
 				01E65B2024F19D9400D8F76F /* BaseViewControllerFactory.swift in Sources */,
 				0158D0312505E3ED008692DC /* SavedLocationViewController.swift in Sources */,
 				01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */,
-				018840E1258C39D600CED4F1 /* LoadingView.swift in Sources */,
+				018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */,
 				01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */,
 				018079CA258DB3B200C88E0E /* NavigationView.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
@@ -527,7 +532,6 @@
 				0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */,
 				0100D7D624CE1A8200C9F9B5 /* SceneDelegate.swift in Sources */,
 				01B1BEBF24EE34740081C90F /* WeatherDataInfoItem.swift in Sources */,
-				0112878525147F3A00CEC05D /* MainViewCell.swift in Sources */,
 				01042C3124ECDF660090B349 /* AboutSettingItem.swift in Sources */,
 				0169433D24DA887B006A7FAA /* LocationManegerDelegateManager.swift in Sources */,
 				01B1BEC124EE36310081C90F /* PrivacyPolicyInfoItem.swift in Sources */,

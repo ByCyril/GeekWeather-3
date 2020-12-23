@@ -8,6 +8,28 @@
 
 import Foundation
 
+protocol MockErrorProtocol: LocalizedError {
+
+    var title: String? { get }
+    var code: Int { get }
+}
+
+struct MockError: MockErrorProtocol {
+
+    var title: String?
+    var code: Int
+    var errorDescription: String? { return _description }
+    var failureReason: String? { return _description }
+
+    private var _description: String
+
+    init(title: String?, description: String, code: Int) {
+        self.title = title ?? "Error"
+        self._description = description
+        self.code = code
+    }
+}
+
 final class FeatureFlag {
     
     static func mockedResponse() -> Data? {
@@ -15,5 +37,11 @@ final class FeatureFlag {
         let url = URL(fileURLWithPath: file)
         let data = try? Data(contentsOf: url, options: .mappedIfSafe)
         return data
+    }
+    
+    static func mockError() -> Error? {
+        let error = MockError(title: "Error", description: "Could not connect to network", code: 101)
+        
+        return nil
     }
 }

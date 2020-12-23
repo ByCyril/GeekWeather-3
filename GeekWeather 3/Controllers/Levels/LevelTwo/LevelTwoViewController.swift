@@ -15,7 +15,9 @@ final class LevelTwoCellView: UITableViewCell {
     @IBOutlet var highTempLabel: UILabel!
     @IBOutlet var lowTempLabel: UILabel!
     @IBOutlet var iconView: UIImageView!
-
+    @IBOutlet var precipView: UIStackView!
+    @IBOutlet var percLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         dayLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: dayLabel.font)
@@ -61,12 +63,11 @@ enum Section {
     case main
 }
 
-final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
+final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDataSource {
    
     @IBOutlet var containerView: UIView!
-    @IBOutlet var dailyTableView: UITableView!
-    @IBOutlet var hourlyCollectionView: UICollectionView!
-    @IBOutlet var scrollView: UIScrollView!
+    var dailyTableView: UITableView!
+    var scrollView: UIScrollView!
     
     @IBOutlet weak var segmentController: UISegmentedControl!
     
@@ -81,6 +82,7 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
         let view = Bundle.main.loadNibNamed("LevelTwoViewController", owner: self)!.first as! LevelTwoViewController
         loadXib(view, self)
         
+        scrollViewSetup()
         tableViewSetup()
     }
     
@@ -100,62 +102,45 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
         }
         
         dailyTableView.alpha = alpha
-//        hourlyCollectionView.alpha = alpha
+        scrollView.alpha = alpha
         
     }
     
-    private func tableViewSetup() {
-        scrollView.frame.size = CGSize(width: frame.size.width,
-                                       height: frame.size.height - segmentController.frame.size.height)
-        scrollView.contentSize = CGSize(width: frame.size.width * 2,
-                                        height: scrollView.frame.size.height)
+    private func scrollViewSetup() {
+        scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: frame.width, height: 100))
+        scrollView.contentSize = CGSize(width: frame.width * 7.5, height: 100)
         scrollView.isScrollEnabled = true
+        addSubview(scrollView)
         
+        lineChart.frame = CGRect(x: 25, y: 0,
+                                 width: scrollView.contentSize.width - 25,
+                                 height: scrollView.frame.size.height)
+        lineChart.xAxis.drawGridLinesEnabled = false
+        lineChart.xAxis.drawAxisLineEnabled = false
+        lineChart.leftAxis.drawLabelsEnabled = false
+        lineChart.leftAxis.drawGridLinesEnabled = false
+        lineChart.legend.enabled = false
+        lineChart.xAxis.labelPosition = .bottom
+        lineChart.pinchZoomEnabled = false
+        lineChart.dragEnabled = false
+        lineChart.dragDecelerationEnabled = false
+        lineChart.rightAxis.drawLabelsEnabled = false
+        scrollView.addSubview(lineChart)
+    }
+    
+    private func tableViewSetup() {
+        let bottomPadding = UIApplication.shared.windows[0].safeAreaInsets.bottom + 125
+        
+        dailyTableView = UITableView(frame: CGRect(x: 0, y: 100, width: frame.width, height: frame.height - bottomPadding))
         dailyTableView.backgroundView?.backgroundColor = .clear
         dailyTableView.backgroundColor = .clear
         dailyTableView.estimatedRowHeight = 70
         dailyTableView.rowHeight = UITableView.automaticDimension
         dailyTableView.dataSource = self
         dailyTableView.delegate = self
+        dailyTableView.separatorStyle = .none
         dailyTableView.register(UINib(nibName: "LevelTwoCellView", bundle: .main), forCellReuseIdentifier: "cell")
-        
-        lineChart.frame = CGRect(x: frame.size.width, y: 0, width: frame.size.width, height: scrollView.frame.size.height / 2)
-        scrollView.addSubview(lineChart)
-        
-//        hourlyCollectionView.backgroundView?.backgroundColor = .clear
-        hourlyCollectionView.backgroundColor = .clear
-//        hourlyCollectionView.dataSource = self
-//        hourlyCollectionView.delegate = self
-//        hourlyCollectionView.register(UINib(nibName: "LevelTwoCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
-    }
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (weatherModel?.hourly.count ?? 0) / 2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? LevelTwoCollectionViewCell
-        
-        let hourly = weatherModel!.hourly[indexPath.row]
-        let summary = hourly.weather.first!.description
-        
-        if indexPath.row == 0 {
-            cell?.timestampLabel.text = "Now"
-            cell?.applyAccessibility(with: "Today's forecast by the hour", and: "Right now. It is \(hourly.temp.temp()) and \(summary).", trait: .staticText)
-        } else {
-            let time = Double(hourly.dt).date(.hour)
-            cell?.timestampLabel.text = time
-            cell?.applyAccessibility(with: time, and: "It is \(hourly.temp.temp()) and \(summary).", trait: .staticText)
-        }
-        
-        cell?.tempLabel.text = hourly.temp.temp()
-        cell?.iconView.image = UIImage(named: hourly.weather.first!.icon)
-   
-        return cell!
+        addSubview(dailyTableView)
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -190,9 +175,17 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
             cell?.applyAccessibility(with: "On \(day)", and: "\(summary), and a high of \(daily.temp.max.temp()) and a low of \(daily.temp.min.temp())", trait: .staticText)
         }
         
+        if daily.pop > 0.25 {
+            cell?.percLabel.text = "Chance of Rain " + daily.pop.percentage(chop: false)
+            cell?.percLabel.isHidden = false
+        } else {
+            cell?.percLabel.isHidden = true
+        }
+        
         cell?.iconView.image = UIImage(named: daily.weather.first!.icon)
         cell?.highTempLabel.text = daily.temp.max.temp()
         cell?.lowTempLabel.text = daily.temp.min.temp()
+        cell?.selectionStyle = .none
         
         return cell!
     }
@@ -200,7 +193,6 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
     override func update(from notification: NSNotification) {
         guard let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel else { return }
         self.weatherModel = weatherModel
-//        hourlyCollectionView.reloadData()
         dailyTableView.reloadData()
         
         var entries = [ChartDataEntry]()
@@ -209,20 +201,19 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
         let hourlyData = weatherModel.hourly[0..<weatherModel.hourly.count]
         
         for (i,data) in hourlyData.enumerated() {
-            print("🙏🏻",data.temp)
             let entry = ChartDataEntry(x: Double(i), y: data.temp)
             timestamps.append(data.dt.date(.hour))
             entries.append(entry)
         }
         
-        
         let set = LineChartDataSet(entries: entries)
-        set.colors = ChartColorTemplates.material()
+        set.colors = ChartColorTemplates.liberty()
         
         let data = LineChartData(dataSet: set)
+        
         lineChart.data = data
-        lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: timestamps)
-        lineChart.xAxis.granularity = 1
+        lineChart.rightAxis.removeAllLimitLines()
+
     }
     
 }

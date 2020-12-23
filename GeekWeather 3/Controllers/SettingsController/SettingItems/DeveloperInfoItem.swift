@@ -23,9 +23,8 @@ final class DeveloperInfoItem: SettingItem {
     }
     
     func performSelector(_ vc: UIViewController) {
-        let url = URL(string: "https://bycyril.com")!
-        let sf = SFSafariViewController(url: url)
-        vc.present(sf, animated: true, completion: nil)
+        let dc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "DeveloperController")
+        vc.show(dc, sender: vc)
     }
     
 }

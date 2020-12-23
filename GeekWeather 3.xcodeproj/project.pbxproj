@@ -43,9 +43,9 @@
 		01844A1C24F22646000B0D52 /* LevelTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1B24F22646000B0D52 /* LevelTwoViewController.xib */; };
 		01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1E24F226B5000B0D52 /* LevelThreeViewController.xib */; };
 		0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185665A24D767050035BF59 /* AccessibilityFactory.swift */; };
-		0185666124D774FE0035BF59 /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0185666024D774FE0035BF59 /* GWFoundation */; };
+		0185666124D774FE0035BF59 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0185666024D774FE0035BF59 /* SwiftPackageProductDependency */; };
 		018818CB258F23FB009EE9EE /* LevelThreeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018818CA258F23FB009EE9EE /* LevelThreeCollectionViewCell.xib */; };
-		018840DD258C391C00CED4F1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 018840DC258C391C00CED4F1 /* Lottie */; };
+		018840DD258C391C00CED4F1 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 018840DC258C391C00CED4F1 /* SwiftPackageProductDependency */; };
 		018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840E0258C39D600CED4F1 /* GWAnimationView.swift */; };
 		018840E8258C3DE400CED4F1 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 018840E7258C3DE400CED4F1 /* loader.json */; };
 		0197FB5325913AA6000C4640 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197FB5225913AA6000C4640 /* ErrorViewController.swift */; };
@@ -66,6 +66,8 @@
 		01E65B2024F19D9400D8F76F /* BaseViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */; };
 		01FCE338258B21E200C841C8 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 01FCE337258B21E200C841C8 /* demo.json */; };
 		01FCE33B258B272B00C841C8 /* LevelTwoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FCE33A258B272B00C841C8 /* LevelTwoCollectionViewCell.xib */; };
+		CFBD38EB0C18677448B8E58B /* Pods_GeekWeather_3Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6603F886DADE4EC37E1E3758 /* Pods_GeekWeather_3Tests.framework */; };
+		E3302AE93113182ABB9234F7 /* Pods_GeekWeather_3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 826CCA41E772C9C5286D7281 /* Pods_GeekWeather_3.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +156,12 @@
 		01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerFactory.swift; sourceTree = "<group>"; };
 		01FCE337258B21E200C841C8 /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
 		01FCE33A258B272B00C841C8 /* LevelTwoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelTwoCollectionViewCell.xib; sourceTree = "<group>"; };
+		3AB4EFED94A002C1413075CC /* Pods-GeekWeather 3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeekWeather 3.debug.xcconfig"; path = "Target Support Files/Pods-GeekWeather 3/Pods-GeekWeather 3.debug.xcconfig"; sourceTree = "<group>"; };
+		6603F886DADE4EC37E1E3758 /* Pods_GeekWeather_3Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeekWeather_3Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D5DA3120A0022E84E9CA32 /* Pods-GeekWeather 3Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeekWeather 3Tests.release.xcconfig"; path = "Target Support Files/Pods-GeekWeather 3Tests/Pods-GeekWeather 3Tests.release.xcconfig"; sourceTree = "<group>"; };
+		826CCA41E772C9C5286D7281 /* Pods_GeekWeather_3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeekWeather_3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3E0561BA95848315A5F5847 /* Pods-GeekWeather 3Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeekWeather 3Tests.debug.xcconfig"; path = "Target Support Files/Pods-GeekWeather 3Tests/Pods-GeekWeather 3Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		CEB94E7BB260E6D55B75D0D8 /* Pods-GeekWeather 3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeekWeather 3.release.xcconfig"; path = "Target Support Files/Pods-GeekWeather 3/Pods-GeekWeather 3.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +169,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0185666124D774FE0035BF59 /* GWFoundation in Frameworks */,
-				018840DD258C391C00CED4F1 /* Lottie in Frameworks */,
+				0185666124D774FE0035BF59 /* BuildFile in Frameworks */,
+				018840DD258C391C00CED4F1 /* BuildFile in Frameworks */,
+				E3302AE93113182ABB9234F7 /* Pods_GeekWeather_3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFBD38EB0C18677448B8E58B /* Pods_GeekWeather_3Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +192,8 @@
 				0100D7D224CE1A8200C9F9B5 /* GeekWeather 3 */,
 				0100D7E924CE1A8300C9F9B5 /* GeekWeather 3Tests */,
 				0100D7D124CE1A8200C9F9B5 /* Products */,
+				5D48823778C80F07D94904C9 /* Pods */,
+				9F2614160C5247F22647BA7C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -372,6 +384,27 @@
 			path = "Flipper Aniamtion";
 			sourceTree = "<group>";
 		};
+		5D48823778C80F07D94904C9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3AB4EFED94A002C1413075CC /* Pods-GeekWeather 3.debug.xcconfig */,
+				CEB94E7BB260E6D55B75D0D8 /* Pods-GeekWeather 3.release.xcconfig */,
+				C3E0561BA95848315A5F5847 /* Pods-GeekWeather 3Tests.debug.xcconfig */,
+				74D5DA3120A0022E84E9CA32 /* Pods-GeekWeather 3Tests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9F2614160C5247F22647BA7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				826CCA41E772C9C5286D7281 /* Pods_GeekWeather_3.framework */,
+				6603F886DADE4EC37E1E3758 /* Pods_GeekWeather_3Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -379,10 +412,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0100D7EF24CE1A8300C9F9B5 /* Build configuration list for PBXNativeTarget "GeekWeather 3" */;
 			buildPhases = (
+				7E1E3A51246DA1A34EDC2131 /* [CP] Check Pods Manifest.lock */,
 				0100D7CC24CE1A8200C9F9B5 /* Sources */,
 				0100D7CD24CE1A8200C9F9B5 /* Frameworks */,
 				0100D7CE24CE1A8200C9F9B5 /* Resources */,
 				014D2A3624D3F2AE0038623E /* Embed Frameworks */,
+				FD914D74E6072331EA6E81A4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -390,8 +425,8 @@
 			);
 			name = "GeekWeather 3";
 			packageProductDependencies = (
-				0185666024D774FE0035BF59 /* GWFoundation */,
-				018840DC258C391C00CED4F1 /* Lottie */,
+				0185666024D774FE0035BF59 /* SwiftPackageProductDependency */,
+				018840DC258C391C00CED4F1 /* SwiftPackageProductDependency */,
 			);
 			productName = "GeekWeather 3";
 			productReference = 0100D7D024CE1A8200C9F9B5 /* GeekWeather.app */;
@@ -401,6 +436,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0100D7F224CE1A8300C9F9B5 /* Build configuration list for PBXNativeTarget "GeekWeather 3Tests" */;
 			buildPhases = (
+				8BBACA28F4DF2C0709DE6D09 /* [CP] Check Pods Manifest.lock */,
 				0100D7E224CE1A8300C9F9B5 /* Sources */,
 				0100D7E324CE1A8300C9F9B5 /* Frameworks */,
 				0100D7E424CE1A8300C9F9B5 /* Resources */,
@@ -444,8 +480,8 @@
 			);
 			mainGroup = 0100D7C724CE1A8100C9F9B5;
 			packageReferences = (
-				0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */,
-				018840DB258C391C00CED4F1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				0185665F24D774FE0035BF59 /* RemoteSwiftPackageReference */,
+				018840DB258C391C00CED4F1 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 0100D7D124CE1A8200C9F9B5 /* Products */;
 			projectDirPath = "";
@@ -488,6 +524,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E1E3A51246DA1A34EDC2131 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GeekWeather 3-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BBACA28F4DF2C0709DE6D09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GeekWeather 3Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD914D74E6072331EA6E81A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeekWeather 3/Pods-GeekWeather 3-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeekWeather 3/Pods-GeekWeather 3-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeekWeather 3/Pods-GeekWeather 3-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0100D7CC24CE1A8200C9F9B5 /* Sources */ = {
@@ -684,6 +784,7 @@
 		};
 		0100D7F024CE1A8300C9F9B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AB4EFED94A002C1413075CC /* Pods-GeekWeather 3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "GeekWeather 3/GeekWeather 3.entitlements";
@@ -707,6 +808,7 @@
 		};
 		0100D7F124CE1A8300C9F9B5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEB94E7BB260E6D55B75D0D8 /* Pods-GeekWeather 3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "GeekWeather 3/GeekWeather 3.entitlements";
@@ -730,6 +832,7 @@
 		};
 		0100D7F324CE1A8300C9F9B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3E0561BA95848315A5F5847 /* Pods-GeekWeather 3Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -752,6 +855,7 @@
 		};
 		0100D7F424CE1A8300C9F9B5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74D5DA3120A0022E84E9CA32 /* Pods-GeekWeather 3Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -805,7 +909,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */ = {
+		0185665F24D774FE0035BF59 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ByCyril/GWFoundation.git";
 			requirement = {
@@ -813,7 +917,7 @@
 				minimumVersion = 1.0.1;
 			};
 		};
-		018840DB258C391C00CED4F1 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		018840DB258C391C00CED4F1 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
@@ -824,14 +928,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0185666024D774FE0035BF59 /* GWFoundation */ = {
+		0185666024D774FE0035BF59 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */;
+			package = 0185665F24D774FE0035BF59 /* RemoteSwiftPackageReference */;
 			productName = GWFoundation;
 		};
-		018840DC258C391C00CED4F1 /* Lottie */ = {
+		018840DC258C391C00CED4F1 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 018840DB258C391C00CED4F1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			package = 018840DB258C391C00CED4F1 /* RemoteSwiftPackageReference */;
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */

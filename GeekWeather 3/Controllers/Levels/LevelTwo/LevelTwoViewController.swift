@@ -8,6 +8,7 @@
 
 import UIKit
 import GWFoundation
+import Charts
 
 final class LevelTwoCellView: UITableViewCell {
     @IBOutlet var dayLabel: UILabel!
@@ -65,6 +66,11 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
     @IBOutlet var containerView: UIView!
     @IBOutlet var dailyTableView: UITableView!
     @IBOutlet var hourlyCollectionView: UICollectionView!
+    @IBOutlet var scrollView: UIScrollView!
+    
+    @IBOutlet weak var segmentController: UISegmentedControl!
+    
+    private var lineChart = LineChartView()
     
     private var weatherModel: WeatherModel?
     private var dataSource: UITableViewDiffableDataSource<Section, Daily>!
@@ -94,11 +100,16 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
         }
         
         dailyTableView.alpha = alpha
-        hourlyCollectionView.alpha = alpha
+//        hourlyCollectionView.alpha = alpha
         
     }
     
     private func tableViewSetup() {
+        scrollView.frame.size = CGSize(width: frame.size.width,
+                                       height: frame.size.height - segmentController.frame.size.height)
+        scrollView.contentSize = CGSize(width: frame.size.width * 2,
+                                        height: scrollView.frame.size.height)
+        scrollView.isScrollEnabled = true
         
         dailyTableView.backgroundView?.backgroundColor = .clear
         dailyTableView.backgroundColor = .clear
@@ -108,11 +119,14 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
         dailyTableView.delegate = self
         dailyTableView.register(UINib(nibName: "LevelTwoCellView", bundle: .main), forCellReuseIdentifier: "cell")
         
-        hourlyCollectionView.backgroundView?.backgroundColor = .clear
+        lineChart.frame = CGRect(x: frame.size.width, y: 0, width: frame.size.width, height: scrollView.frame.size.height / 2)
+        scrollView.addSubview(lineChart)
+        
+//        hourlyCollectionView.backgroundView?.backgroundColor = .clear
         hourlyCollectionView.backgroundColor = .clear
-        hourlyCollectionView.dataSource = self
-        hourlyCollectionView.delegate = self
-        hourlyCollectionView.register(UINib(nibName: "LevelTwoCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
+//        hourlyCollectionView.dataSource = self
+//        hourlyCollectionView.delegate = self
+//        hourlyCollectionView.register(UINib(nibName: "LevelTwoCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -186,8 +200,29 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
     override func update(from notification: NSNotification) {
         guard let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel else { return }
         self.weatherModel = weatherModel
-        hourlyCollectionView.reloadData()
+//        hourlyCollectionView.reloadData()
         dailyTableView.reloadData()
+        
+        var entries = [ChartDataEntry]()
+        var timestamps = [String]()
+        
+        let hourlyData = weatherModel.hourly[0..<weatherModel.hourly.count]
+        
+        for (i,data) in hourlyData.enumerated() {
+            print("🙏🏻",data.temp)
+            let entry = ChartDataEntry(x: Double(i), y: data.temp)
+            timestamps.append(data.dt.date(.hour))
+            entries.append(entry)
+        }
+        
+        
+        let set = LineChartDataSet(entries: entries)
+        set.colors = ChartColorTemplates.material()
+        
+        let data = LineChartData(dataSet: set)
+        lineChart.data = data
+        lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: timestamps)
+        lineChart.xAxis.granularity = 1
     }
     
 }

@@ -31,7 +31,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.isPagingEnabled = true
+        scrollView.isPagingEnabled = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false

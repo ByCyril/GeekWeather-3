@@ -175,7 +175,7 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
             cell?.applyAccessibility(with: "On \(day)", and: "\(summary), and a high of \(daily.temp.max.temp()) and a low of \(daily.temp.min.temp())", trait: .staticText)
         }
         
-        if daily.pop > 0.25 {
+        if daily.pop > 0.15 {
             cell?.percLabel.text = "Chance of Rain " + daily.pop.percentage(chop: false)
             cell?.percLabel.isHidden = false
         } else {

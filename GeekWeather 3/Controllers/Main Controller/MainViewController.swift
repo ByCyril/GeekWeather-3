@@ -31,7 +31,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.isPagingEnabled = false
+        scrollView.isPagingEnabled = true
+        scrollView.isScrollEnabled = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -151,6 +152,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }
     
     func animateMainScrollView() {
+        scrollView.isScrollEnabled = true
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut) { [weak self] in
             self?.scrollView.transform = .identity
         }

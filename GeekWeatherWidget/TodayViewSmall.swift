@@ -25,8 +25,9 @@ struct TodayViewSmall: View {
                     Image(entry.weatherModel.icon).resizable().frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     Text(entry.weatherModel.temp).font(Font.custom("HelveticaNeue", size: 45))
                 }
-                
+                                
                 Text(entry.weatherModel.lastUpdated).font(Font.custom("HelveticaNeue-light", size: 10)).padding()
+                
                 
             }
         }
@@ -38,7 +39,7 @@ struct TodayViewSmall: View {
 @available(iOS 14.0, *)
 struct TodayViewSmall_Previews: PreviewProvider {
     static var previews: some View {
-        TodayViewSmall(entry: .placeholder).previewContext(WidgetPreviewContext(family: .systemSmall)).environment(\.colorScheme, .dark)
+        TodayViewSmall(entry: .stub).previewContext(WidgetPreviewContext(family: .systemSmall)).environment(\.colorScheme, .dark)
     }
 }
 

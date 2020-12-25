@@ -11,8 +11,8 @@ import WidgetKit
 import GWFoundation
 import CoreLocation
 
-struct TodayViewTimelineProvider: TimelineProvider {
-        
+class TodayViewTimelineProvider: TimelineProvider {
+
     func placeholder(in context: Context) -> TodayViewEntry {
         return TodayViewEntry.placeholder
     }
@@ -33,24 +33,22 @@ struct TodayViewTimelineProvider: TimelineProvider {
     }
     
     private func fetchWeatherData(completion: @escaping (Result<TodayViewEntry, Error>) -> ()) {
-        let loc = CLLocation(latitude: 37.348340, longitude: -121.816530)
-        let url = RequestURL(location: loc, .imperial)
-        print("URL", url)
         
-        
-        NetworkManager().fetch(url, { (data, error) in
-            if let data = data {
-                let widgetModel = WidgetWeatherModel(location: "San Jose, CA", temp: data.current.temp.temp(), icon: data.current.weather[0].icon, lastUpdated: "Relevant as of " + Date().timeIntervalSince1970.date(.time))
-                let entry = TodayViewEntry(date: Date(), weatherModel: widgetModel)
-                print(data)
+        WidgetNetworkManager().fetch { (model, error, city) in
+            if let data = model, let city = city {
+                let model = WidgetWeatherModel(location: city,
+                                                     temp: data.current.temp.temp(),
+                                                     icon: data.current.weather[0].icon,
+                                                     lastUpdated: "Relevant as of " + Date().timeIntervalSince1970.date(.time))
+                let entry = TodayViewEntry(date: Date(), weatherModel: model)
                 completion(.success(entry))
             } else {
-                print("no data")
                 if let error = error {
                     completion(.failure(error))
                 }
             }
-        })
+        }
+        
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<TodayViewEntry>) -> Void) {

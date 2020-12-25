@@ -28,6 +28,12 @@
 		0103B87825952D48008577FD /* LocationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B871259526EC008577FD /* LocationHeaderView.swift */; };
 		0103B87F25952D51008577FD /* TodayViewSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B86D259526AE008577FD /* TodayViewSmall.swift */; };
 		0103B8872595311D008577FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
+		0103B88A259551CB008577FD /* LocationManagerAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */; };
+		0103B88C259551CB008577FD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3B24D3F64A0038623E /* Location.swift */; };
+		0103B88F2595522D008577FD /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* FeatureFlag.swift */; };
+		0103B8922595524C008577FD /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80124CE46A200C9F9B5 /* NotificationNames.swift */; };
+		0103B8932595524C008577FD /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */; };
+		0103B89A25955EA5008577FD /* WidgetNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B89625955B25008577FD /* WidgetNetworkManager.swift */; };
 		01042C2A24EC8AB00090B349 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2924EC8AB00090B349 /* SettingsController.swift */; };
 		01042C2C24EC8FCF0090B349 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */; };
 		01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2E24ECDF510090B349 /* SettingItem.swift */; };
@@ -150,6 +156,7 @@
 		0103B86425944F03008577FD /* TodayViewTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewTimelineProvider.swift; sourceTree = "<group>"; };
 		0103B86D259526AE008577FD /* TodayViewSmall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewSmall.swift; sourceTree = "<group>"; };
 		0103B871259526EC008577FD /* LocationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHeaderView.swift; sourceTree = "<group>"; };
+		0103B89625955B25008577FD /* WidgetNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetNetworkManager.swift; sourceTree = "<group>"; };
 		01042C2924EC8AB00090B349 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		01042C2E24ECDF510090B349 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
@@ -338,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				0103B844259449E7008577FD /* GeekWeatherWidget.swift */,
+				0103B89625955B25008577FD /* WidgetNetworkManager.swift */,
 				0103B86D259526AE008577FD /* TodayViewSmall.swift */,
 				0103B871259526EC008577FD /* LocationHeaderView.swift */,
 				0103B85725944B59008577FD /* TodayViewEntry.swift */,
@@ -763,7 +771,13 @@
 			files = (
 				0103B87825952D48008577FD /* LocationHeaderView.swift in Sources */,
 				0103B86825944F07008577FD /* TodayViewTimelineProvider.swift in Sources */,
+				0103B89A25955EA5008577FD /* WidgetNetworkManager.swift in Sources */,
+				0103B88C259551CB008577FD /* Location.swift in Sources */,
+				0103B88A259551CB008577FD /* LocationManagerAuthorizationStatus.swift in Sources */,
+				0103B8932595524C008577FD /* NotificationManager.swift in Sources */,
+				0103B88F2595522D008577FD /* FeatureFlag.swift in Sources */,
 				0103B85D25944B6F008577FD /* TodayViewEntry.swift in Sources */,
+				0103B8922595524C008577FD /* NotificationNames.swift in Sources */,
 				0103B87F25952D51008577FD /* TodayViewSmall.swift in Sources */,
 				0103B845259449E7008577FD /* GeekWeatherWidget.swift in Sources */,
 			);

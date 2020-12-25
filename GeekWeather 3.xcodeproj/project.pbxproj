@@ -23,9 +23,8 @@
 		0103B847259449E9008577FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0103B846259449E9008577FD /* Assets.xcassets */; };
 		0103B84B259449E9008577FD /* GeekWeatherWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0103B83E259449E7008577FD /* GeekWeatherWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0103B85425944A2A008577FD /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0103B85325944A2A008577FD /* GWFoundation */; };
-		0103B85D25944B6F008577FD /* TodayViewEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B85725944B59008577FD /* TodayViewEntry.swift */; };
+		0103B85D25944B6F008577FD /* WeatherEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B85725944B59008577FD /* WeatherEntry.swift */; };
 		0103B86825944F07008577FD /* TodayViewTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B86425944F03008577FD /* TodayViewTimelineProvider.swift */; };
-		0103B87825952D48008577FD /* LocationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B871259526EC008577FD /* LocationHeaderView.swift */; };
 		0103B87F25952D51008577FD /* TodayViewSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B86D259526AE008577FD /* TodayViewSmall.swift */; };
 		0103B8872595311D008577FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
 		0103B88A259551CB008577FD /* LocationManagerAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */; };
@@ -39,6 +38,8 @@
 		01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2E24ECDF510090B349 /* SettingItem.swift */; };
 		01042C3124ECDF660090B349 /* AboutSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3024ECDF660090B349 /* AboutSettingItem.swift */; };
 		01042C3324ECDF850090B349 /* AppIconSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3224ECDF850090B349 /* AppIconSettingItem.swift */; };
+		0127D10F2595735C00298ABD /* GeekWeatherWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B8A425957249008577FD /* GeekWeatherWidgetEntryView.swift */; };
+		0127D118259573CF00298ABD /* TodayViewMedium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D1142595736F00298ABD /* TodayViewMedium.swift */; };
 		0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */; };
 		0146C05A24F787D000967A37 /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* FeatureFlag.swift */; };
 		0146C05F24F788E600967A37 /* demo1.json in Resources */ = {isa = PBXBuildFile; fileRef = 0146C05E24F788E600967A37 /* demo1.json */; };
@@ -152,16 +153,17 @@
 		0103B846259449E9008577FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0103B848259449E9008577FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0103B84C259449E9008577FD /* GeekWeatherWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GeekWeatherWidgetExtension.entitlements; sourceTree = "<group>"; };
-		0103B85725944B59008577FD /* TodayViewEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewEntry.swift; sourceTree = "<group>"; };
+		0103B85725944B59008577FD /* WeatherEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherEntry.swift; sourceTree = "<group>"; };
 		0103B86425944F03008577FD /* TodayViewTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewTimelineProvider.swift; sourceTree = "<group>"; };
 		0103B86D259526AE008577FD /* TodayViewSmall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewSmall.swift; sourceTree = "<group>"; };
-		0103B871259526EC008577FD /* LocationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHeaderView.swift; sourceTree = "<group>"; };
 		0103B89625955B25008577FD /* WidgetNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetNetworkManager.swift; sourceTree = "<group>"; };
+		0103B8A425957249008577FD /* GeekWeatherWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekWeatherWidgetEntryView.swift; sourceTree = "<group>"; };
 		01042C2924EC8AB00090B349 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		01042C2E24ECDF510090B349 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
 		01042C3024ECDF660090B349 /* AboutSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingItem.swift; sourceTree = "<group>"; };
 		01042C3224ECDF850090B349 /* AppIconSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingItem.swift; sourceTree = "<group>"; };
+		0127D1142595736F00298ABD /* TodayViewMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewMedium.swift; sourceTree = "<group>"; };
 		0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeViewController.swift; sourceTree = "<group>"; };
 		0146C05924F787D000967A37 /* FeatureFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlag.swift; sourceTree = "<group>"; };
 		0146C05E24F788E600967A37 /* demo1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo1.json; sourceTree = "<group>"; };
@@ -345,10 +347,11 @@
 			isa = PBXGroup;
 			children = (
 				0103B844259449E7008577FD /* GeekWeatherWidget.swift */,
+				0103B8A425957249008577FD /* GeekWeatherWidgetEntryView.swift */,
 				0103B89625955B25008577FD /* WidgetNetworkManager.swift */,
 				0103B86D259526AE008577FD /* TodayViewSmall.swift */,
-				0103B871259526EC008577FD /* LocationHeaderView.swift */,
-				0103B85725944B59008577FD /* TodayViewEntry.swift */,
+				0127D1142595736F00298ABD /* TodayViewMedium.swift */,
+				0103B85725944B59008577FD /* WeatherEntry.swift */,
 				0103B86425944F03008577FD /* TodayViewTimelineProvider.swift */,
 				0103B846259449E9008577FD /* Assets.xcassets */,
 				0103B848259449E9008577FD /* Info.plist */,
@@ -769,16 +772,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0103B87825952D48008577FD /* LocationHeaderView.swift in Sources */,
 				0103B86825944F07008577FD /* TodayViewTimelineProvider.swift in Sources */,
 				0103B89A25955EA5008577FD /* WidgetNetworkManager.swift in Sources */,
 				0103B88C259551CB008577FD /* Location.swift in Sources */,
 				0103B88A259551CB008577FD /* LocationManagerAuthorizationStatus.swift in Sources */,
 				0103B8932595524C008577FD /* NotificationManager.swift in Sources */,
 				0103B88F2595522D008577FD /* FeatureFlag.swift in Sources */,
-				0103B85D25944B6F008577FD /* TodayViewEntry.swift in Sources */,
+				0103B85D25944B6F008577FD /* WeatherEntry.swift in Sources */,
+				0127D10F2595735C00298ABD /* GeekWeatherWidgetEntryView.swift in Sources */,
 				0103B8922595524C008577FD /* NotificationNames.swift in Sources */,
 				0103B87F25952D51008577FD /* TodayViewSmall.swift in Sources */,
+				0127D118259573CF00298ABD /* TodayViewMedium.swift in Sources */,
 				0103B845259449E7008577FD /* GeekWeatherWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

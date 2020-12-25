@@ -13,34 +13,38 @@ import CoreLocation
 
 class TodayViewTimelineProvider: TimelineProvider {
 
-    func placeholder(in context: Context) -> TodayViewEntry {
-        return TodayViewEntry.placeholder
+    typealias Entry = WeatherEntry
+    
+    func placeholder(in context: Context) -> WeatherEntry {
+        return WeatherEntry.placeholder
     }
     
-    func getSnapshot(in context: Context, completion: @escaping (TodayViewEntry) -> Void) {
+    func getSnapshot(in context: Context, completion: @escaping (WeatherEntry) -> Void) {
         if context.isPreview {
-            completion(TodayViewEntry.placeholder)
+            completion(WeatherEntry.stub)
         } else {
             fetchWeatherData { (results) in
                 switch results {
                 case .success(let entry):
                     completion(entry)
                 case .failure(_):
-                    completion(TodayViewEntry.placeholder)
+                    completion(WeatherEntry.placeholder)
                 }
             }
         }
     }
     
-    private func fetchWeatherData(completion: @escaping (Result<TodayViewEntry, Error>) -> ()) {
+    private func fetchWeatherData(completion: @escaping (Result<WeatherEntry, Error>) -> ()) {
         
         WidgetNetworkManager().fetch { (model, error, city) in
             if let data = model, let city = city {
                 let model = WidgetWeatherModel(location: city,
                                                      temp: data.current.temp.temp(),
                                                      icon: data.current.weather[0].icon,
-                                                     lastUpdated: "Relevant as of " + Date().timeIntervalSince1970.date(.time))
-                let entry = TodayViewEntry(date: Date(), weatherModel: model)
+                                                     lastUpdated: "Relevant as of " + Date().timeIntervalSince1970.date(.time),
+                                                     feelsLike: "Feels like " + data.current.feels_like.temp(),
+                                                     summary: data.current.weather[0].description.capitalized)
+                let entry = WeatherEntry(date: Date(), weatherModel: model)
                 completion(.success(entry))
             } else {
                 if let error = error {
@@ -51,20 +55,18 @@ class TodayViewTimelineProvider: TimelineProvider {
         
     }
     
-    func getTimeline(in context: Context, completion: @escaping (Timeline<TodayViewEntry>) -> Void) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<WeatherEntry>) -> Void) {
         fetchWeatherData { (result) in
             switch result {
             case .success(let entry):
                 let timeline = Timeline(entries: [entry], policy: .after(Date().addingTimeInterval(60 * 15)))
                 completion(timeline)
             case .failure(_):
-                let timeline = Timeline(entries: [TodayViewEntry.placeholder], policy: .after(Date().addingTimeInterval(60 * 2)))
+                let timeline = Timeline(entries: [WeatherEntry.placeholder], policy: .after(Date().addingTimeInterval(60 * 2)))
                 completion(timeline)
             }
             
         }
     }
     
-    typealias Entry = TodayViewEntry
 }
-

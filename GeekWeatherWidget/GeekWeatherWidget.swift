@@ -15,14 +15,16 @@ struct GeekWeatherWidget: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
-            TodayViewSmall(entry: entry)
-        }
+            GeekWeatherWidgetEntryView(entry: entry)
+        }.supportedFamilies([.systemSmall,.systemMedium])
+        .configurationDisplayName("GeekWeather Widget")
+        .description("Developed and designed by Cyril")
     }
 }
 
 struct GeekWeatherWidget_Previews: PreviewProvider {
     static var previews: some View {
-        TodayViewSmall(entry: TodayViewEntry.stub)
+        GeekWeatherWidgetEntryView(entry: .stub)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

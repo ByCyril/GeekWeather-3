@@ -11,7 +11,7 @@ import WidgetKit
 
 struct TodayViewSmall: View {
     
-    let entry: TodayViewEntry
+    let entry: WeatherEntry
     
     var body: some View {
         ZStack {
@@ -22,7 +22,7 @@ struct TodayViewSmall: View {
                 Text(entry.weatherModel.location).font(Font.custom("HelveticaNeue-light", size: 15))
                     
                 HStack {
-                    Image(entry.weatherModel.icon).resizable().frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    Image(entry.weatherModel.icon).resizable().frame(width: 50, height: 50, alignment: .center)
                     Text(entry.weatherModel.temp).font(Font.custom("HelveticaNeue", size: 45))
                 }
                                 
@@ -39,7 +39,8 @@ struct TodayViewSmall: View {
 @available(iOS 14.0, *)
 struct TodayViewSmall_Previews: PreviewProvider {
     static var previews: some View {
-        TodayViewSmall(entry: .stub).previewContext(WidgetPreviewContext(family: .systemSmall)).environment(\.colorScheme, .dark)
+        TodayViewSmall(entry: .stub)
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .environment(\.colorScheme, .dark)
     }
 }
-

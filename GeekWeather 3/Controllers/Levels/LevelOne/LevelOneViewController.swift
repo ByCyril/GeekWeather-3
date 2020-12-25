@@ -83,7 +83,7 @@ final class LevelOneViewController: BaseView {
     func displayData(_ currentWeatherData: Currently) {
                 
         tempLabel.text = currentWeatherData.temp.temp()
-        summaryLabel.text = currentWeatherData.weather.first?.description.capitalizingFirstLetter() ?? ""
+        summaryLabel.text = currentWeatherData.weather.first?.description.capitalized ?? ""
         commentLabel.text = "Feels like " + currentWeatherData.feels_like.temp()
         
         UIView.animate(withDuration: 1) { [weak self] in

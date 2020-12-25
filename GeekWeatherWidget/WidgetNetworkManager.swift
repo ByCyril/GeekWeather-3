@@ -29,10 +29,6 @@ final class WidgetNetworkManager: NSObject, CLLocationManagerDelegate {
     
     public func fetch(_ completion: @escaping (WeatherModel?, Error?, String?) -> Void) {
         guard let location = location?.location else { return }
-        fetch(with: location, completion)
-    }
-    
-    private func fetch(with location: CLLocation,_ completion: @escaping (WeatherModel?, Error?, String?) -> Void) {
         
         let url = RequestURL(location: location, .imperial)
         session?.dataTaskWithUrl(url, completion: { (data, response, error) in
@@ -59,6 +55,7 @@ final class WidgetNetworkManager: NSObject, CLLocationManagerDelegate {
             }
             
         }).resume()
+        
     }
- 
+    
 }

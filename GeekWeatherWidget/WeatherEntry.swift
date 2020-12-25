@@ -22,7 +22,6 @@ struct WidgetWeatherModel {
 struct WeatherEntry: TimelineEntry {
     var date: Date
     var weatherModel: WidgetWeatherModel
-
     var isPlaceholder = false
 }
 

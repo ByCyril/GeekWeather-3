@@ -46,6 +46,13 @@ final class WidgetNetworkManager: NSObject, CLLocationManagerDelegate {
                     
                     CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
                         guard let firstLocation = placemark?.first else { return }
+
+                        if firstLocation.country == "United States" {
+                            let state = firstLocation.administrativeArea ?? ""
+                            completion(weatherModel,nil, "\(firstLocation.locality!), \(state)")
+                            return
+                        }
+
                         completion(weatherModel,nil,firstLocation.locality!)
                     }
                     

@@ -18,7 +18,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     private var weatherModel: WeatherModel?
     private var networkManager: NetworkManager?
-    private var locationManager: LocationManager?
+    var locationManager: LocationManager?
     
     @IBOutlet var navView: NavigationView?
     @IBOutlet var customNavView: UIView!
@@ -57,6 +57,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     func initMethod() {
         locationManager = LocationManager(self)
+        locationManager?.beginFetchingLocation()
         
         if let error = FeatureFlag.mockError() {
             networkManager = NetworkManager(self, error)
@@ -144,6 +145,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     func didFinishFetching(_ weatherModel: WeatherModel) {
         let location = CLLocation(latitude: weatherModel.lat, longitude: weatherModel.lon)
         locationManager?.lookupCurrentLocation(location)
+        
+        UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")
         
         DispatchQueue.main.async { [weak self] in
             self?.animateMainScrollView()

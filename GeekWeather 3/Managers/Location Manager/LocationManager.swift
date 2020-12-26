@@ -25,7 +25,6 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         super.init()
         locationManager.delegate = self
         self.delegate = delegate
-        authorizationStatus()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -42,7 +41,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         authorizationStatus(status, manager)
     }
     
-    private func authorizationStatus(_ status: CLAuthorizationStatus = CLLocationManager.authorizationStatus(),
+    func beginFetchingLocation(_ status: CLAuthorizationStatus = CLLocationManager.authorizationStatus(),
                              _ manager: CLLocationManager = CLLocationManager()) {
         
         switch status {

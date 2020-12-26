@@ -72,7 +72,7 @@ final class RollableTitleView: UIView {
         labelContainer.addArrangedSubview(forecastLabel)
         labelContainer.addArrangedSubview(geekLabel)
         
-        topAnimationConstraint = labelContainer.topAnchor.constraint(equalTo: topAnchor)
+        topAnimationConstraint = labelContainer.topAnchor.constraint(equalTo: topAnchor, constant: itemHeight)
         topAnimationConstraint?.isActive = true
         
         labelContainer.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
@@ -92,4 +92,11 @@ final class RollableTitleView: UIView {
         topAnimationConstraint?.constant = -offsetY
     }
     
+    func showTitles() {
+        topAnimationConstraint?.constant = 0
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut) { [weak self] in
+            self?.layoutIfNeeded()
+        }
+        
+    }
 }

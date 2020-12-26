@@ -152,6 +152,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }
     
     func animateMainScrollView() {
+        navView?.rollableTitleView.showTitles()
         scrollView.isScrollEnabled = true
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut) { [weak self] in
             self?.scrollView.transform = .identity

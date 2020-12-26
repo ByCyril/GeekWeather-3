@@ -40,6 +40,7 @@
 		01042C3324ECDF850090B349 /* AppIconSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3224ECDF850090B349 /* AppIconSettingItem.swift */; };
 		0127D10F2595735C00298ABD /* GeekWeatherWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B8A425957249008577FD /* GeekWeatherWidgetEntryView.swift */; };
 		0127D118259573CF00298ABD /* TodayViewMedium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D1142595736F00298ABD /* TodayViewMedium.swift */; };
+		0127D14E2597D72200298ABD /* GWFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D14D2597D72200298ABD /* GWFont.swift */; };
 		0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */; };
 		0146C05A24F787D000967A37 /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* FeatureFlag.swift */; };
 		0146C05F24F788E600967A37 /* demo1.json in Resources */ = {isa = PBXBuildFile; fileRef = 0146C05E24F788E600967A37 /* demo1.json */; };
@@ -164,6 +165,7 @@
 		01042C3024ECDF660090B349 /* AboutSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingItem.swift; sourceTree = "<group>"; };
 		01042C3224ECDF850090B349 /* AppIconSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingItem.swift; sourceTree = "<group>"; };
 		0127D1142595736F00298ABD /* TodayViewMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewMedium.swift; sourceTree = "<group>"; };
+		0127D14D2597D72200298ABD /* GWFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWFont.swift; sourceTree = "<group>"; };
 		0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeViewController.swift; sourceTree = "<group>"; };
 		0146C05924F787D000967A37 /* FeatureFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlag.swift; sourceTree = "<group>"; };
 		0146C05E24F788E600967A37 /* demo1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo1.json; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				0157E8E1259144270026706D /* error.json */,
 				0157E8E2259144270026706D /* missing.json */,
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
+				0127D14D2597D72200298ABD /* GWFont.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
 				0146C05924F787D000967A37 /* FeatureFlag.swift */,
 				0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */,
@@ -742,6 +745,7 @@
 				0158D0312505E3ED008692DC /* SavedLocationViewController.swift in Sources */,
 				01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */,
 				018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */,
+				0127D14E2597D72200298ABD /* GWFont.swift in Sources */,
 				01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */,
 				018079CA258DB3B200C88E0E /* NavigationView.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,

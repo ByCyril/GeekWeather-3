@@ -25,7 +25,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shd-eo-sw5">
-                                        <rect key="frame" x="368" y="31" width="25" height="25"/>
+                                        <rect key="frame" x="368" y="26" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="YKh-t8-Jel"/>
                                             <constraint firstAttribute="width" constant="25" id="hM6-fX-QIe"/>
@@ -36,7 +36,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imr-JJ-jCn">
-                                        <rect key="frame" x="321" y="31" width="25" height="25"/>
+                                        <rect key="frame" x="321" y="26" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="GBS-sV-Xt3"/>
                                             <constraint firstAttribute="width" constant="25" id="xku-4I-9gf"/>
@@ -50,7 +50,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="VO3-sv-S78" secondAttribute="bottom" id="Byf-Hu-RsZ"/>
                                     <constraint firstItem="Shd-eo-sw5" firstAttribute="leading" secondItem="Imr-JJ-jCn" secondAttribute="trailing" constant="22" id="MGF-FE-pwL"/>
-                                    <constraint firstAttribute="bottom" secondItem="Shd-eo-sw5" secondAttribute="bottom" constant="19" id="P7X-z9-bKb"/>
+                                    <constraint firstAttribute="bottom" secondItem="Shd-eo-sw5" secondAttribute="bottom" constant="24" id="P7X-z9-bKb"/>
                                     <constraint firstItem="Imr-JJ-jCn" firstAttribute="centerY" secondItem="Shd-eo-sw5" secondAttribute="centerY" id="R2D-Hl-r0I"/>
                                     <constraint firstItem="Imr-JJ-jCn" firstAttribute="leading" secondItem="VO3-sv-S78" secondAttribute="trailing" constant="8" symbolic="YES" id="TCW-fs-nR9"/>
                                     <constraint firstAttribute="height" constant="75" id="Wpx-NA-Hw9"/>

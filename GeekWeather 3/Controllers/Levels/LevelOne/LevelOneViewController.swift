@@ -13,7 +13,6 @@ final class LevelOneViewController: BaseView {
    
     @IBOutlet var containerView: UIView!
     
-    @IBOutlet var locationLabel: UILabel!
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var commentLabel: UILabel!
@@ -26,19 +25,19 @@ final class LevelOneViewController: BaseView {
         let view = Bundle.main.loadNibNamed("LevelOneViewController", owner: self)!.first as! LevelOneViewController
         loadXib(view, self)
         
-        locationLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: locationLabel.font)
         tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
-        summaryLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: summaryLabel.font)
-        commentLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: commentLabel.font)
-        
-        locationLabel.alpha = 0
-        
-        [locationLabel, tempLabel, summaryLabel, commentLabel].forEach { (element) in
+        summaryLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: summaryLabel.font)
+        commentLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: commentLabel.font)
+                
+        [tempLabel, summaryLabel, commentLabel].forEach { (element) in
             element?.adjustsFontForContentSizeCategory = true
             element?.adjustsFontSizeToFitWidth = true
+            element?.layer.shadowColor = UIColor.black.cgColor
+            element?.layer.shadowRadius = 5
+            element?.layer.shadowOpacity = 0.35
+            element?.layer.shadowOffset = CGSize(width: 0, height: 5)
         }
         
-        notificationManager.listen(for: NotificationName.observerID("currentLocation"), in: self)
     }
     
     required init?(coder: NSCoder) {
@@ -47,8 +46,6 @@ final class LevelOneViewController: BaseView {
     
     override func getContentOffset(_ offset: CGPoint) {
         let alpha = 1 - (offset.y / frame.size.height)
-        
-        locationLabel.alpha = alpha
         tempLabel.alpha = alpha
         summaryLabel.alpha = alpha
         commentLabel.alpha = alpha
@@ -61,19 +58,11 @@ final class LevelOneViewController: BaseView {
                 self?.displayData(weatherModel.current)
             }
         }
-        
-        if let currentLocation = notification.userInfo?["currentLocation"] as? String {
-//            locationLabel.text = currentLocation
-//            
-//            UIView.animate(withDuration: 0.4) { [weak self] in
-//                self?.locationLabel.alpha = 1
-//            }
-        }
     }
 
     func displayData(_ currentWeatherData: Currently) {
                 
-        tempLabel.text = currentWeatherData.temp.temp()
+        tempLabel.text = " " + currentWeatherData.temp.temp()
         summaryLabel.text = currentWeatherData.weather.first?.description.capitalized ?? ""
         commentLabel.text = "Feels like " + currentWeatherData.feels_like.temp()
         iconView.image = UIImage(named: currentWeatherData.weather.first!.icon)

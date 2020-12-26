@@ -29,14 +29,19 @@ final class RollableTitleView: UIView {
     var bottomPadding: CGFloat = 0
     var itemHeight: CGFloat = 75
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        NotificationCenter.default.addObserver(self, selector: #selector(update(_:)), name: NotificationName.observerID("currentLocation"), object: nil)
+    }
+    
     override func didMoveToWindow() {
         super.didMoveToWindow()
         initUI()
     }
-    
-    func initUI() {
         
-        todayLabel.text = "Today"
+    func initUI() {
+
+        todayLabel.text = "--"
         geekLabel.text = "Details"
         forecastLabel.text = "Forecast"
         
@@ -70,11 +75,25 @@ final class RollableTitleView: UIView {
         layoutIfNeeded()
     }
     
+    @objc
+    func update(_ notification: NSNotification) {
+        if let currentLocation = notification.userInfo?["currentLocation"] as? String {
+            todayLabel.text = currentLocation
+        }
+    }
+    
     func animateWithOffset(_ offsetY: CGFloat) {
         if offsetY < 0 { return }
         if offsetY > itemHeight * 2 { return }
         bottomAnimatorConstraint?.constant = bottomPadding - offsetY
         topAnimationConstraint?.constant = -offsetY
+    }
+    
+    func hideTitles() {
+        topAnimationConstraint?.constant = itemHeight
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut) { [weak self] in
+            self?.layoutIfNeeded()
+        }
     }
     
     func showTitles() {

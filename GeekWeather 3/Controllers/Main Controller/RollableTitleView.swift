@@ -9,36 +9,10 @@
 import UIKit
 
 final class RollableTitleView: UIView {
-    
-    var todayLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Today"
-        label.notAccessibilityElement()
-        label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont(name: "AvenirNext-Bold", size: 35)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    var forecastLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Forecast"
-        label.notAccessibilityElement()
-        label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont(name: "AvenirNext-Bold", size: 35)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    var geekLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Details"
-        label.notAccessibilityElement()
-        label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont(name: "AvenirNext-Bold", size: 35)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+
+    var forecastLabel = UILabel()
+    var geekLabel = UILabel()
+    var todayLabel = UILabel()
     
     var labelContainer: UIStackView = {
         let stack = UIStackView()
@@ -61,6 +35,17 @@ final class RollableTitleView: UIView {
     }
     
     func initUI() {
+        
+        todayLabel.text = "Today"
+        geekLabel.text = "Details"
+        forecastLabel.text = "Forecast"
+        
+        [forecastLabel, geekLabel, todayLabel].forEach { (label) in
+            label.notAccessibilityElement()
+            label.adjustsFontSizeToFitWidth = true
+            label.font = GWFont.AvenirNext(style: .Bold, size: 35)
+            label.translatesAutoresizingMaskIntoConstraints = false
+        }
         
         bottomPadding = itemHeight * 2
         

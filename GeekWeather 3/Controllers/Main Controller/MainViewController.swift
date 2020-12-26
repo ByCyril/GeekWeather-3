@@ -62,12 +62,12 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         locationManager = LocationManager(self)
         locationManager?.beginFetchingLocation()
         
-        if let error = FeatureFlag.mockError() {
+        if let error = Mocks.mockError() {
             networkManager = NetworkManager(self, error)
             return
         }
         
-        if let data = FeatureFlag.mockedResponse() {
+        if let data = Mocks.mockedResponse() {
             networkManager = NetworkManager(self, data)
         } else {
             networkManager = NetworkManager(self)

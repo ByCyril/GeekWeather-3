@@ -29,7 +29,7 @@
 		0103B8872595311D008577FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
 		0103B88A259551CB008577FD /* LocationManagerAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A4224D3F94C0038623E /* LocationManagerAuthorizationStatus.swift */; };
 		0103B88C259551CB008577FD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3B24D3F64A0038623E /* Location.swift */; };
-		0103B88F2595522D008577FD /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* FeatureFlag.swift */; };
+		0103B88F2595522D008577FD /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* Mocks.swift */; };
 		0103B8922595524C008577FD /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80124CE46A200C9F9B5 /* NotificationNames.swift */; };
 		0103B8932595524C008577FD /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */; };
 		0103B89A25955EA5008577FD /* WidgetNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B89625955B25008577FD /* WidgetNetworkManager.swift */; };
@@ -41,8 +41,9 @@
 		0127D10F2595735C00298ABD /* GeekWeatherWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B8A425957249008577FD /* GeekWeatherWidgetEntryView.swift */; };
 		0127D118259573CF00298ABD /* TodayViewMedium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D1142595736F00298ABD /* TodayViewMedium.swift */; };
 		0127D14E2597D72200298ABD /* GWFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D14D2597D72200298ABD /* GWFont.swift */; };
+		0127D15C2597F55D00298ABD /* AppIconSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D15B2597F55D00298ABD /* AppIconSelectionController.swift */; };
 		0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */; };
-		0146C05A24F787D000967A37 /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* FeatureFlag.swift */; };
+		0146C05A24F787D000967A37 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* Mocks.swift */; };
 		0146C05F24F788E600967A37 /* demo1.json in Resources */ = {isa = PBXBuildFile; fileRef = 0146C05E24F788E600967A37 /* demo1.json */; };
 		014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3924D3F6090038623E /* LocationManager.swift */; };
 		014D2A3C24D3F64A0038623E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3B24D3F64A0038623E /* Location.swift */; };
@@ -166,8 +167,9 @@
 		01042C3224ECDF850090B349 /* AppIconSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingItem.swift; sourceTree = "<group>"; };
 		0127D1142595736F00298ABD /* TodayViewMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewMedium.swift; sourceTree = "<group>"; };
 		0127D14D2597D72200298ABD /* GWFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWFont.swift; sourceTree = "<group>"; };
+		0127D15B2597F55D00298ABD /* AppIconSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSelectionController.swift; sourceTree = "<group>"; };
 		0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeViewController.swift; sourceTree = "<group>"; };
-		0146C05924F787D000967A37 /* FeatureFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlag.swift; sourceTree = "<group>"; };
+		0146C05924F787D000967A37 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		0146C05E24F788E600967A37 /* demo1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo1.json; sourceTree = "<group>"; };
 		014D2A3924D3F6090038623E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		014D2A3B24D3F64A0038623E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -287,7 +289,7 @@
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0127D14D2597D72200298ABD /* GWFont.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
-				0146C05924F787D000967A37 /* FeatureFlag.swift */,
+				0146C05924F787D000967A37 /* Mocks.swift */,
 				0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */,
 				0185665A24D767050035BF59 /* AccessibilityFactory.swift */,
 				01B1BEF024EFA9A10081C90F /* Array+Extension.swift */,
@@ -371,6 +373,7 @@
 				018079C9258DB3B200C88E0E /* NavigationView.swift */,
 				018840E0258C39D600CED4F1 /* GWAnimationView.swift */,
 				0197FB5225913AA6000C4640 /* ErrorViewController.swift */,
+				0127D15B2597F55D00298ABD /* AppIconSelectionController.swift */,
 			);
 			path = "Main Controller";
 			sourceTree = "<group>";
@@ -728,7 +731,7 @@
 				01B1BEBB24EE319C0081C90F /* UnitSelectorCell.swift in Sources */,
 				01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */,
 				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,
-				0146C05A24F787D000967A37 /* FeatureFlag.swift in Sources */,
+				0146C05A24F787D000967A37 /* Mocks.swift in Sources */,
 				0158D02A2505DF0C008692DC /* SearchLocationViewController.swift in Sources */,
 				0153693425174D580044D108 /* GWTransition.swift in Sources */,
 				0169434124E244B2006A7FAA /* BaseView.swift in Sources */,
@@ -749,6 +752,7 @@
 				01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */,
 				018079CA258DB3B200C88E0E /* NavigationView.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
+				0127D15C2597F55D00298ABD /* AppIconSelectionController.swift in Sources */,
 				0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
 				0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */,
@@ -781,7 +785,7 @@
 				0103B88C259551CB008577FD /* Location.swift in Sources */,
 				0103B88A259551CB008577FD /* LocationManagerAuthorizationStatus.swift in Sources */,
 				0103B8932595524C008577FD /* NotificationManager.swift in Sources */,
-				0103B88F2595522D008577FD /* FeatureFlag.swift in Sources */,
+				0103B88F2595522D008577FD /* Mocks.swift in Sources */,
 				0103B85D25944B6F008577FD /* WeatherEntry.swift in Sources */,
 				0127D10F2595735C00298ABD /* GeekWeatherWidgetEntryView.swift in Sources */,
 				0103B8922595524C008577FD /* NotificationNames.swift in Sources */,

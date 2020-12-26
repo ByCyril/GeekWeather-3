@@ -146,6 +146,7 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

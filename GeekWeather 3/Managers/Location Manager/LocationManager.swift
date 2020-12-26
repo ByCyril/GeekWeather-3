@@ -38,7 +38,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager,
                          didChangeAuthorization status: CLAuthorizationStatus) {
-        authorizationStatus(status, manager)
+        beginFetchingLocation(status, manager)
     }
     
     func beginFetchingLocation(_ status: CLAuthorizationStatus = CLLocationManager.authorizationStatus(),

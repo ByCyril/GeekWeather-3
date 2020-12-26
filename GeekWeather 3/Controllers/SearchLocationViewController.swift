@@ -16,6 +16,8 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
     
     private var dataSource: UITableViewDiffableDataSource<Section, MKLocalSearchCompletion>?
     
+    weak var delegate: LocationManagerDelegate?
+    
     init() {
         super.init(style: .plain)
         tableView.backgroundColor = .clear
@@ -63,9 +65,25 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        if let selectedItem = dataSource?.itemIdentifier(for: indexPath) {
+            lookupLocation(selectedItem)
+        }
     }
     
+    private func lookupLocation(_ obj: MKLocalSearchCompletion) {
+        
+        let searchRequest = MKLocalSearch.Request(completion: obj)
+        searchRequest.resultTypes = .address
+        
+        MKLocalSearch(request: searchRequest).start { [weak self] (response, error) in
+            if let location = response?.mapItems.first?.placemark.location {
+                NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: location)
+                self?.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            } else {
+                
+            }
+        }
+    }
     
 }
 

@@ -56,6 +56,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }
     
     func initMethod() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(newLocation(_:)), name: Notification.Name("NewLocationLookup"), object: nil)
+        
         locationManager = LocationManager(self)
         locationManager?.beginFetchingLocation()
         
@@ -68,6 +71,17 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
             networkManager = NetworkManager(self, data)
         } else {
             networkManager = NetworkManager(self)
+        }
+    }
+    
+    @objc
+    func newLocation(_ notification: NSNotification) {
+        guard let location = notification.object as? CLLocation else { return }
+        
+        UIView.animate(withDuration: 0.25, delay: 0.25, options: .curveEaseInOut) {
+            self.scrollView.transform = .init(translationX: 0, y: self.view.frame.size.height * 2)
+        } completion: { (_) in
+            self.currentLocation(location)
         }
     }
     

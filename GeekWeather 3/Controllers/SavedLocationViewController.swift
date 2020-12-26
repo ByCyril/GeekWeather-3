@@ -43,6 +43,7 @@ final class SavedLocationViewController: UICollectionViewController {
         backButton.setImage(UIImage(named: "back"), for: .normal)
         backButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
         let barButton = UIBarButtonItem(customView: backButton)
+        barButton.tintColor = UIColor.tertiarySystemFill
         navigationItem.setRightBarButton(barButton, animated: true)
     }
     

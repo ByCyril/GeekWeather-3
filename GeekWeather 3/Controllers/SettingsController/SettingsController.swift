@@ -8,18 +8,12 @@
 
 import UIKit
 
-final class SettingsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    private let settingTableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        return tableView
-    }()
-    
+final class SettingsController: UITableViewController {
+  
     private let settingManager = SettingManager()
     
     init() {
-        super.init(nibName: nil, bundle: nil)
+        super.init(style: .insetGrouped)
     }
     
     required init?(coder: NSCoder) {
@@ -28,15 +22,10 @@ final class SettingsController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initUI()
-        
-        settingTableView.delegate = self
-        settingTableView.dataSource = self
-        
-        settingManager.cellRegistration(to: settingTableView)
+        settingManager.cellRegistration(to: tableView)
     }
- 
+    
     func initUI() {
         
         title = "Settings"
@@ -50,24 +39,8 @@ final class SettingsController: UIViewController, UITableViewDataSource, UITable
         let barButton = UIBarButtonItem(customView: backButton)
         navigationItem.setRightBarButton(barButton, animated: true)
         
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.addSubview(blurEffectView)
+        navigationController?.navigationBar.tintColor = .white
         
-        settingTableView.backgroundColor = .clear
-        
-        view.addSubview(settingTableView)
-        
-        NSLayoutConstraint.activate([
-            settingTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            settingTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            settingTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            settingTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
-        view.layoutIfNeeded()
     }
     
     @objc
@@ -75,32 +48,33 @@ final class SettingsController: UIViewController, UITableViewDataSource, UITable
         dismiss(animated: true, completion: nil)
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let headerView = view as? UITableViewHeaderFooterView else { return }
         headerView.textLabel?.textColor = .label
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return settingManager.sections[section].title
     }
     
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return settingManager.sections[indexPath.section].cells[indexPath.row].cellHeight
     }
     
-     func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return settingManager.sections.count
     }
     
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingManager.sections[section].cells.count
     }
     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         settingManager.sections[indexPath.section].cells[indexPath.row].performSelector(self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return settingManager.sections[indexPath.section].cells[indexPath.row].createCell(in: tableView, for: indexPath)
     }
     

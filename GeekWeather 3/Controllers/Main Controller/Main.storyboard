@@ -123,28 +123,10 @@
             </objects>
             <point key="canvasLocation" x="86.956521739130437" y="-13.392857142857142"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="a1O-zH-FGH">
-            <objects>
-                <navigationController storyboardIdentifier="DeveloperController" automaticallyAdjustsScrollViewInsets="NO" id="9CU-LV-ZzQ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="qX0-hp-XhJ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="cWa-nk-Ys2" kind="relationship" relationship="rootViewController" id="2t7-l0-c4B"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1mg-86-zId" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="918.84057971014499" y="-13.392857142857142"/>
-        </scene>
         <!--Developer Controller-->
         <scene sceneID="Gg8-1l-DvX">
             <objects>
-                <tableViewController id="cWa-nk-Ys2" customClass="DeveloperController" customModule="GeekWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DeveloperController" id="cWa-nk-Ys2" customClass="DeveloperController" customModule="GeekWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="LXt-Ov-lNd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -264,13 +246,7 @@ developing and publishing iOS Apps to the App Store. GeekWeather 3 is a passion 
                             <outlet property="delegate" destination="cWa-nk-Ys2" id="Utd-tD-GXJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="q1r-KS-MLF">
-                        <barButtonItem key="rightBarButtonItem" image="back" id="seo-rY-frr">
-                            <connections>
-                                <action selector="dismissController:" destination="cWa-nk-Ys2" id="DSm-pj-dxI"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="q1r-KS-MLF"/>
                     <connections>
                         <outlet property="bioTextView" destination="qqa-pU-gp1" id="4Iy-t1-Tez"/>
                         <outlet property="profileImageView" destination="EIQ-ef-RMd" id="Wte-qf-g19"/>
@@ -282,7 +258,6 @@ developing and publishing iOS Apps to the App Store. GeekWeather 3 is a passion 
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="28" height="28"/>
         <image name="developer" width="1335" height="1335"/>
         <image name="search" width="512" height="512"/>
         <image name="settings" width="512" height="512"/>

@@ -43,7 +43,6 @@ class SettingsTableViewCell: UITableViewCell {
         
         let padding: CGFloat = 10
         
-        backgroundColor = UIColor.white.withAlphaComponent(0.25)
         addSubview(iconImageView)
         addSubview(titleLabel)
         addSubview(detailLabel)

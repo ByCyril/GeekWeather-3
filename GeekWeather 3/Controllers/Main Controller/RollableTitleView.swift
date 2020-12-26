@@ -15,7 +15,7 @@ final class RollableTitleView: UIView {
         label.text = "Today"
         label.notAccessibilityElement()
         label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 35)
+        label.font = UIFont(name: "AvenirNext-Bold", size: 35)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -25,7 +25,7 @@ final class RollableTitleView: UIView {
         label.text = "Forecast"
         label.notAccessibilityElement()
         label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 35)
+        label.font = UIFont(name: "AvenirNext-Bold", size: 35)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -35,7 +35,7 @@ final class RollableTitleView: UIView {
         label.text = "Details"
         label.notAccessibilityElement()
         label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 35)
+        label.font = UIFont(name: "AvenirNext-Bold", size: 35)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

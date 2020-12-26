@@ -78,7 +78,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     func newLocation(_ notification: NSNotification) {
         guard let location = notification.object as? CLLocation else { return }
         
-        UIView.animate(withDuration: 0.25, delay: 0.25, options: .curveEaseInOut) {
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut) {
             self.scrollView.transform = .init(translationX: 0, y: self.view.frame.size.height * 2)
         } completion: { (_) in
             self.currentLocation(location)

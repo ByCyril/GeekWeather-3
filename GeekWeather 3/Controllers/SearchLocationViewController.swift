@@ -77,8 +77,9 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
         
         MKLocalSearch(request: searchRequest).start { [weak self] (response, error) in
             if let location = response?.mapItems.first?.placemark.location {
-                NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: location)
-                self?.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                self?.view.window?.rootViewController?.dismiss(animated: true, completion: {
+                    NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: location)
+                })
             } else {
                 
             }

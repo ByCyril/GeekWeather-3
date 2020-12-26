@@ -9,16 +9,6 @@
 import UIKit
 import GWFoundation
 
-extension String {
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).capitalized + dropFirst()
-    }
-
-    mutating func capitalizeFirstLetter() {
-        self = self.capitalizingFirstLetter()
-    }
-}
-
 final class LevelOneViewController: BaseView {
    
     @IBOutlet var containerView: UIView!
@@ -27,6 +17,7 @@ final class LevelOneViewController: BaseView {
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var commentLabel: UILabel!
+    @IBOutlet var iconView: UIImageView!
     
     var currentWeatherData: Currently?
     
@@ -72,11 +63,11 @@ final class LevelOneViewController: BaseView {
         }
         
         if let currentLocation = notification.userInfo?["currentLocation"] as? String {
-            locationLabel.text = currentLocation
-            
-            UIView.animate(withDuration: 0.4) { [weak self] in
-                self?.locationLabel.alpha = 1
-            }
+//            locationLabel.text = currentLocation
+//            
+//            UIView.animate(withDuration: 0.4) { [weak self] in
+//                self?.locationLabel.alpha = 1
+//            }
         }
     }
 
@@ -85,7 +76,7 @@ final class LevelOneViewController: BaseView {
         tempLabel.text = currentWeatherData.temp.temp()
         summaryLabel.text = currentWeatherData.weather.first?.description.capitalized ?? ""
         commentLabel.text = "Feels like " + currentWeatherData.feels_like.temp()
-        
+        iconView.image = UIImage(named: currentWeatherData.weather.first!.icon)
         UIView.animate(withDuration: 1) { [weak self] in
             self?.tempLabel.alpha = 1
             self?.summaryLabel.alpha = 1

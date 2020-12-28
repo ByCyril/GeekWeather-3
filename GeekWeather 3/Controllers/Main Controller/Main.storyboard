@@ -72,9 +72,9 @@
                         <viewLayoutGuide key="safeArea" id="1MB-rF-5oV"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="pXi-pg-nEr" firstAttribute="height" secondItem="MPR-xt-J3y" secondAttribute="height" id="34D-a4-kA2"/>
+                            <constraint firstItem="pXi-pg-nEr" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="top" id="0IH-Ko-jdP"/>
+                            <constraint firstItem="pXi-pg-nEr" firstAttribute="height" secondItem="MPR-xt-J3y" secondAttribute="height" id="P78-Vl-fO0"/>
                             <constraint firstItem="1MB-rF-5oV" firstAttribute="trailing" secondItem="pXi-pg-nEr" secondAttribute="trailing" id="T54-Vk-sTn"/>
-                            <constraint firstItem="pXi-pg-nEr" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="top" id="Vkp-fg-588"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" id="lbM-lf-XnN"/>
                             <constraint firstItem="pXi-pg-nEr" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="qIz-Wd-Iho"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="trailing" secondItem="1MB-rF-5oV" secondAttribute="trailing" id="wI8-yz-mZe"/>

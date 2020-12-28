@@ -42,22 +42,24 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         return scrollView
     }()
     
+    let shadowOpacity: CGFloat = 0.75
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.delegate = self
-        view.addSubview(scrollView)
-        
-        shadowView.layer.zPosition = -1
-        shadowView.layer.shadowColor = UIColor.black.cgColor
-        shadowView.layer.shadowRadius = 5
-        shadowView.layer.shadowOpacity = 0.35
-        shadowView.layer.shadowOffset = CGSize(width: 0, height: 10)
-        shadowView.frame = navView!.frame
-        shadowView.backgroundColor = UIColor(named: "GradientBottomColor")
-        view.addSubview(shadowView)
         
         view.backgroundColor = UIColor(named: "GradientBottomColor")
         initMethod()
+        
+        shadowView.layer.shadowColor = UIColor.black.cgColor
+        shadowView.layer.shadowRadius = 5
+        shadowView.layer.shadowOpacity = Float(shadowOpacity)
+        shadowView.alpha = 0
+        shadowView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        shadowView.backgroundColor = UIColor(named: "GradientBottomColor")
+        
+        scrollView.delegate = self
+        view.insertSubview(scrollView, at: 0)
+        
     }
     
     func createGradient() {
@@ -120,15 +122,24 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
         return ["Today View", "Forecast View", "Details View"][Int(page)]
     }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        UIView.animate(withDuration: 0.1) {
+            self.shadowView.alpha = 0
+        }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        shadowView.isHidden = false
+        UIView.animate(withDuration: 0.1) {
+            self.shadowView.alpha = self.shadowOpacity
+        }
+    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollPercentage = (scrollView.contentOffset.y / scrollView.contentSize.height)        
         let navScrollViewHeight = (225 * scrollPercentage)
         navView?.rollableTitleView.animateWithOffset(navScrollViewHeight)
-        
-        levelOneViewController?.getContentOffset(scrollView.contentOffset)
-        levelTwoViewController?.getContentOffset(scrollView.contentOffset)
-        levelThreeViewController?.getContentOffset(scrollView.contentOffset)
     }
 
     func initUI() {

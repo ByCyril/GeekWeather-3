@@ -115,15 +115,14 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         }
     }
     
-    
     func accessibilityScrollStatus(for scrollView: UIScrollView) -> String? {
         let offsetY = scrollView.contentOffset.y
         let page = offsetY / scrollView.frame.size.height
     
         return ["Today View", "Forecast View", "Details View"][Int(page)]
     }
-
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         UIView.animate(withDuration: 0.1) {
             self.shadowView.alpha = 0
         }

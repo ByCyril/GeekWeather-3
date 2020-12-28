@@ -17,6 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXi-pg-nEr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="75"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPR-xt-J3y" customClass="NavigationView" customModule="GeekWeather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="75"/>
                                 <subviews>
@@ -68,7 +72,11 @@
                         <viewLayoutGuide key="safeArea" id="1MB-rF-5oV"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="pXi-pg-nEr" firstAttribute="height" secondItem="MPR-xt-J3y" secondAttribute="height" id="34D-a4-kA2"/>
+                            <constraint firstItem="1MB-rF-5oV" firstAttribute="trailing" secondItem="pXi-pg-nEr" secondAttribute="trailing" id="T54-Vk-sTn"/>
+                            <constraint firstItem="pXi-pg-nEr" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="top" id="Vkp-fg-588"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" id="lbM-lf-XnN"/>
+                            <constraint firstItem="pXi-pg-nEr" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="qIz-Wd-Iho"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="trailing" secondItem="1MB-rF-5oV" secondAttribute="trailing" id="wI8-yz-mZe"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="zY5-zf-F16"/>
                         </constraints>
@@ -77,6 +85,7 @@
                     <connections>
                         <outlet property="customNavView" destination="MPR-xt-J3y" id="TJh-QZ-Lh7"/>
                         <outlet property="navView" destination="MPR-xt-J3y" id="pYZ-sx-jfG"/>
+                        <outlet property="shadowView" destination="pXi-pg-nEr" id="Wtp-aB-DkR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n64-EW-qbO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

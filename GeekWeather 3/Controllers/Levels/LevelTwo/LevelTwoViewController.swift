@@ -10,6 +10,16 @@ import UIKit
 import GWFoundation
 import Charts
 
+extension UIFont {
+    static func preferredFont(withTextStyle textStyle: UIFont.TextStyle, maxSize: CGFloat) -> UIFont {
+       // Get the descriptor
+       let fontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: textStyle)
+
+       // Return a font with the minimum size
+       return UIFont(descriptor: fontDescriptor, size: min(fontDescriptor.pointSize, maxSize))
+     }
+}
+
 final class LevelTwoCellView: UITableViewCell {
     @IBOutlet var dayLabel: UILabel!
     @IBOutlet var highTempLabel: UILabel!
@@ -21,6 +31,7 @@ final class LevelTwoCellView: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         dayLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: dayLabel.font)
+        
         highTempLabel.font = UIFontMetrics(forTextStyle: .callout).scaledFont(for: highTempLabel.font)
         lowTempLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: lowTempLabel.font)
         
@@ -176,7 +187,7 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate, UITableViewDa
             cell?.applyAccessibility(with: "On \(day)", and: "\(summary), and a high of \(daily.temp.max.temp()) and a low of \(daily.temp.min.temp())", trait: .staticText)
         }
         
-        if daily.pop > 0.15 {
+        if daily.pop >= 0.15 {
             cell?.percLabel.text = "Chance of Rain " + daily.pop.percentage(chop: false)
             cell?.percLabel.isHidden = false
         } else {

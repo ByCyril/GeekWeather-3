@@ -66,7 +66,7 @@
 		01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1E24F226B5000B0D52 /* LevelThreeViewController.xib */; };
 		0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185665A24D767050035BF59 /* AccessibilityFactory.swift */; };
 		0185666124D774FE0035BF59 /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0185666024D774FE0035BF59 /* GWFoundation */; };
-		018818CB258F23FB009EE9EE /* LevelThreeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018818CA258F23FB009EE9EE /* LevelThreeCollectionViewCell.xib */; };
+		018818CB258F23FB009EE9EE /* LevelThreeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018818CA258F23FB009EE9EE /* LevelThreeTableViewCell.xib */; };
 		018840DD258C391C00CED4F1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 018840DC258C391C00CED4F1 /* Lottie */; };
 		018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840E0258C39D600CED4F1 /* GWAnimationView.swift */; };
 		018840E8258C3DE400CED4F1 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 018840E7258C3DE400CED4F1 /* loader.json */; };
@@ -192,7 +192,7 @@
 		01844A1B24F22646000B0D52 /* LevelTwoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelTwoViewController.xib; sourceTree = "<group>"; };
 		01844A1E24F226B5000B0D52 /* LevelThreeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelThreeViewController.xib; sourceTree = "<group>"; };
 		0185665A24D767050035BF59 /* AccessibilityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityFactory.swift; sourceTree = "<group>"; };
-		018818CA258F23FB009EE9EE /* LevelThreeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelThreeCollectionViewCell.xib; sourceTree = "<group>"; };
+		018818CA258F23FB009EE9EE /* LevelThreeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelThreeTableViewCell.xib; sourceTree = "<group>"; };
 		018840E0258C39D600CED4F1 /* GWAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWAnimationView.swift; sourceTree = "<group>"; };
 		018840E7258C3DE400CED4F1 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		0197FB5225913AA6000C4640 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
@@ -450,7 +450,7 @@
 			children = (
 				0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */,
 				01844A1E24F226B5000B0D52 /* LevelThreeViewController.xib */,
-				018818CA258F23FB009EE9EE /* LevelThreeCollectionViewCell.xib */,
+				018818CA258F23FB009EE9EE /* LevelThreeTableViewCell.xib */,
 			);
 			path = LevelThree;
 			sourceTree = "<group>";
@@ -616,7 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0157E8E4259144270026706D /* error.json in Resources */,
-				018818CB258F23FB009EE9EE /* LevelThreeCollectionViewCell.xib in Resources */,
+				018818CB258F23FB009EE9EE /* LevelThreeTableViewCell.xib in Resources */,
 				01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */,
 				01844A1C24F22646000B0D52 /* LevelTwoViewController.xib in Resources */,
 				018840E8258C3DE400CED4F1 /* loader.json in Resources */,
@@ -1051,9 +1051,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3.GeekWeatherWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1076,9 +1076,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3.GeekWeatherWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

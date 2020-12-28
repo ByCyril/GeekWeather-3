@@ -23,6 +23,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     @IBOutlet var navView: NavigationView?
     @IBOutlet var customNavView: UIView!
     
+    @IBOutlet var shadowView: UIView!
+    
     private let gradientLayer = CAGradientLayer()
     
     private var levelOneViewController: LevelOneViewController?
@@ -45,14 +47,26 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         scrollView.delegate = self
         view.addSubview(scrollView)
         
+        shadowView.layer.zPosition = -1
+        shadowView.layer.shadowColor = UIColor.black.cgColor
+        shadowView.layer.shadowRadius = 5
+        shadowView.layer.shadowOpacity = 0.35
+        shadowView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        shadowView.frame = navView!.frame
+        shadowView.backgroundColor = UIColor(named: "GradientBottomColor")
+        view.addSubview(shadowView)
+        
+        view.backgroundColor = UIColor(named: "GradientBottomColor")
+        initMethod()
+    }
+    
+    func createGradient() {
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor(named: "GradientTopColor")!.cgColor,
                                 UIColor(named: "GradientBottomColor")!.cgColor]
-
+        
         view.layer.insertSublayer(gradientLayer, at: 0)
         view.setNeedsDisplay()
-        
-        initMethod()
     }
     
     func initMethod() {

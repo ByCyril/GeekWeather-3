@@ -36,7 +36,7 @@ final class Mocks {
         guard let file = Bundle.main.path(forResource: "demo", ofType: "json") else { return nil }
         let url = URL(fileURLWithPath: file)
         let data = try? Data(contentsOf: url, options: .mappedIfSafe)
-        return nil
+        return data
     }
     
     static func mockError() -> Error? {

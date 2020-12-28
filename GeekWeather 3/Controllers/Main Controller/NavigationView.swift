@@ -20,9 +20,13 @@ final class NavigationView: UIView {
         settingsButton.applyAccessibility(with: "Settings", and: nil, trait: .button)
         searchButton.applyAccessibility(with: "Search", and: nil, trait: .button)
         
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowRadius = 5
-        layer.shadowOpacity = 0.35
-        layer.shadowOffset = CGSize(width: 0, height: 5)
+//        backgroundColor = UIColor(named: "GradientBottomColor")
+        
+//        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowRadius = 5
+//        layer.shadowOpacity = 0.35
+//        layer.shadowOffset = CGSize(width: 0, height: 10)
+        
+//        layer.masksToBounds = false
     }
 }

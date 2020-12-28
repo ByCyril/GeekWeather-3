@@ -32,10 +32,6 @@ final class LevelOneViewController: BaseView {
         [tempLabel, summaryLabel, commentLabel].forEach { (element) in
             element?.adjustsFontForContentSizeCategory = true
             element?.adjustsFontSizeToFitWidth = true
-            element?.layer.shadowColor = UIColor.black.cgColor
-            element?.layer.shadowRadius = 5
-            element?.layer.shadowOpacity = 0.35
-            element?.layer.shadowOffset = CGSize(width: 0, height: 5)
         }
         
     }

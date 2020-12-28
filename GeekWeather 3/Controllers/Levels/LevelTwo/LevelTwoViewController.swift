@@ -29,7 +29,9 @@ final class LevelTwoViewController: BaseView {
     }()
     
     lazy var dailyView: UICollectionView = {
-        let layout = UICollectionLayoutListConfiguration(appearance: .plain)
+        var layout = UICollectionLayoutListConfiguration(appearance: .grouped)
+        layout.backgroundColor = .clear
+        layout.showsSeparators = false
         let configuration = UICollectionViewCompositionalLayout.list(using: layout)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configuration)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -81,7 +83,7 @@ final class LevelTwoViewController: BaseView {
     private func dailyViewSetup() {
         
         addSubview(dailyView)
-        
+
         NSLayoutConstraint.activate([
             dailyView.topAnchor.constraint(equalTo: hourlyView.bottomAnchor),
             dailyView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -104,12 +106,12 @@ final class LevelTwoViewController: BaseView {
                 cell.applyAccessibility(with: "On \(day)", and: "\(summary), and a high of \(daily.temp.max.temp()) and a low of \(daily.temp.min.temp())", trait: .staticText)
             }
             
-            if daily.pop >= 0.15 {
-                cell.percLabel.text = "Chance of Rain " + daily.pop.percentage(chop: false)
-                cell.percLabel.isHidden = false
-            } else {
-                cell.percLabel.isHidden = true
-            }
+//            if daily.pop >= 0.15 {
+//                cell.percLabel.text = "Chance of Rain " + daily.pop.percentage(chop: false)
+//                cell.percLabel.isHidden = false
+//            } else {
+//                cell.percLabel.isHidden = true
+//            }
             
             cell.iconView.image = UIImage(named: daily.weather.first!.icon)
             cell.highTempLabel.text = daily.temp.max.temp()
@@ -132,7 +134,7 @@ final class LevelTwoViewController: BaseView {
     private func populateHourlyView(with data: [Hourly]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Hourly>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(Array(data[..<12]))
+        snapshot.appendItems(Array(data[..<20]))
         hourlyDataSource?.apply(snapshot)
     }
     

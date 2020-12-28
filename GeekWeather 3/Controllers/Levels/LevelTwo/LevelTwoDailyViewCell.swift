@@ -9,16 +9,27 @@
 import UIKit
 
 final class LevelTwoDailyViewCell: UICollectionViewCell {
+
     var dayLabel = UILabel()
     var highTempLabel = UILabel()
     var lowTempLabel = UILabel()
+    
     var iconView = UIImageView()
-    var percLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        [dayLabel, highTempLabel, lowTempLabel, iconView, percLabel].forEach { (element) in
+        backgroundColor = .clear
+        
+        dayLabel.font = GWFont.AvenirNext(style: .Medium, size: 21)
+        highTempLabel.font = GWFont.AvenirNext(style: .Bold, size: 25)
+        lowTempLabel.font = GWFont.AvenirNext(style: .Medium, size: 20)
+
+        dayLabel.textColor = .white
+        highTempLabel.textColor = .white
+        lowTempLabel.textColor = .white
+        
+        [dayLabel, highTempLabel, lowTempLabel, iconView].forEach { (element) in
             element.translatesAutoresizingMaskIntoConstraints = false
             addSubview(element)
         }
@@ -27,10 +38,27 @@ final class LevelTwoDailyViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             iconView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
-            iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            iconView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)
+            iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding + 5),
+            iconView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
+            iconView.heightAnchor.constraint(equalToConstant: 45),
+            iconView.widthAnchor.constraint(equalToConstant: 45),
+            
+            dayLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            dayLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
+            dayLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: padding),
+            
+            highTempLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            highTempLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
+            highTempLabel.trailingAnchor.constraint(equalTo: lowTempLabel.leadingAnchor, constant: -padding / 2),
+            
+            lowTempLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            lowTempLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
+            lowTempLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: (-padding * 2) - 5)
         ])
         
+        layoutIfNeeded()
+        
+        setupAccessibilityElements()
     }
     
     func setupAccessibilityElements() {

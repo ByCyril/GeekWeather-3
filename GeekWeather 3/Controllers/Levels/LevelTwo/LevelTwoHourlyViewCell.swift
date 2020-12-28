@@ -26,7 +26,12 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
     func initUI() {
         
         timestampLabel.textAlignment = .center
+        timestampLabel.textColor = .white
+        
         tempLabel.textAlignment = .center
+        tempLabel.textColor = .white
+        
+        iconView.contentMode = .scaleAspectFit
         
         [timestampLabel, tempLabel, iconView].forEach { (element) in
             element.translatesAutoresizingMaskIntoConstraints = false

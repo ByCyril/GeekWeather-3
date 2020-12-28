@@ -32,6 +32,7 @@ final class LevelOneViewController: BaseView {
         [tempLabel, summaryLabel, commentLabel].forEach { (element) in
             element?.adjustsFontForContentSizeCategory = true
             element?.adjustsFontSizeToFitWidth = true
+            element?.textColor = .white
         }
     }
     

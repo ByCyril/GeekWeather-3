@@ -86,10 +86,8 @@
 		01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF224EFAD500081C90F /* View+Extension.swift */; };
 		01B9487C259A654400884150 /* LevelTwoHourlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */; };
 		01B94880259A687200884150 /* LevelTwoDailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */; };
-		01D6C1E024F31A2800DF375C /* LevelTwoCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D6C1DF24F31A2800DF375C /* LevelTwoCellView.xib */; };
 		01E65B2024F19D9400D8F76F /* BaseViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */; };
 		01FCE338258B21E200C841C8 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 01FCE337258B21E200C841C8 /* demo.json */; };
-		01FCE33B258B272B00C841C8 /* LevelTwoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FCE33A258B272B00C841C8 /* LevelTwoCollectionViewCell.xib */; };
 		CFBD38EB0C18677448B8E58B /* Pods_GeekWeather_3Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6603F886DADE4EC37E1E3758 /* Pods_GeekWeather_3Tests.framework */; };
 		E3302AE93113182ABB9234F7 /* Pods_GeekWeather_3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 826CCA41E772C9C5286D7281 /* Pods_GeekWeather_3.framework */; };
 /* End PBXBuildFile section */
@@ -213,10 +211,8 @@
 		01B1BEF224EFAD500081C90F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoHourlyViewCell.swift; sourceTree = "<group>"; };
 		01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoDailyViewCell.swift; sourceTree = "<group>"; };
-		01D6C1DF24F31A2800DF375C /* LevelTwoCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelTwoCellView.xib; sourceTree = "<group>"; };
 		01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerFactory.swift; sourceTree = "<group>"; };
 		01FCE337258B21E200C841C8 /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
-		01FCE33A258B272B00C841C8 /* LevelTwoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelTwoCollectionViewCell.xib; sourceTree = "<group>"; };
 		3AB4EFED94A002C1413075CC /* Pods-GeekWeather 3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeekWeather 3.debug.xcconfig"; path = "Target Support Files/Pods-GeekWeather 3/Pods-GeekWeather 3.debug.xcconfig"; sourceTree = "<group>"; };
 		6603F886DADE4EC37E1E3758 /* Pods_GeekWeather_3Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeekWeather_3Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D5DA3120A0022E84E9CA32 /* Pods-GeekWeather 3Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeekWeather 3Tests.release.xcconfig"; path = "Target Support Files/Pods-GeekWeather 3Tests/Pods-GeekWeather 3Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -445,8 +441,6 @@
 				01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */,
 				0103B82B259311A2008577FD /* DetailsView.swift */,
 				01844A1B24F22646000B0D52 /* LevelTwoViewController.xib */,
-				01D6C1DF24F31A2800DF375C /* LevelTwoCellView.xib */,
-				01FCE33A258B272B00C841C8 /* LevelTwoCollectionViewCell.xib */,
 			);
 			path = LevelTwo;
 			sourceTree = "<group>";
@@ -626,11 +620,9 @@
 				01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */,
 				01844A1C24F22646000B0D52 /* LevelTwoViewController.xib in Resources */,
 				018840E8258C3DE400CED4F1 /* loader.json in Resources */,
-				01D6C1E024F31A2800DF375C /* LevelTwoCellView.xib in Resources */,
 				01844A1824F2219F000B0D52 /* LevelOneViewController.xib in Resources */,
 				0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */,
 				01844A1624F22113000B0D52 /* Main.storyboard in Resources */,
-				01FCE33B258B272B00C841C8 /* LevelTwoCollectionViewCell.xib in Resources */,
 				0157E8E3259144270026706D /* denied.json in Resources */,
 				0100D7DD24CE1A8300C9F9B5 /* Assets.xcassets in Resources */,
 				01FCE338258B21E200C841C8 /* demo.json in Resources */,

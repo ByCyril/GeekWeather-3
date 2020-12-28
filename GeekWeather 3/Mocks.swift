@@ -9,7 +9,6 @@
 import Foundation
 
 protocol MockErrorProtocol: LocalizedError {
-
     var title: String? { get }
     var code: Int { get }
 }
@@ -36,7 +35,7 @@ final class Mocks {
         guard let file = Bundle.main.path(forResource: "demo", ofType: "json") else { return nil }
         let url = URL(fileURLWithPath: file)
         let data = try? Data(contentsOf: url, options: .mappedIfSafe)
-        return data
+        return nil
     }
     
     static func mockError() -> Error? {

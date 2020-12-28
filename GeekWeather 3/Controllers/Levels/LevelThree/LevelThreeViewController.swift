@@ -56,6 +56,7 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
         
         tableView.backgroundColor = .clear
         tableView.register(UINib(nibName: "LevelThreeTableViewCell", bundle: .main), forCellReuseIdentifier: "cell")
+        tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -75,8 +76,7 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
         let high = weatherModel.daily.first!.temp.max.temp()
         let low = weatherModel.daily.first!.temp.min.temp()
         let description = weatherModel.current.weather.first!.description.capitalizingFirstLetter()
-        let location = "San Jose, CA"
-        let summary = "\(description) in \(location) with a high of \(high) and a low of \(low)"
+        let summary = "\(description) with a high of \(high) and a low of \(low)"
         
         summaryLabel.text = summary
         iconView.image = UIImage(named: weatherModel.current.weather.first!.icon)
@@ -144,37 +144,5 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
         
         return cell
     }
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return geekyData.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? LevelThreeCollectionViewCell
-//
-//        let data = geekyData[indexPath.row]
-//
-//        cell?.titleLabel.text = data.title
-//        cell?.iconView.image = UIImage(named: data.image)
-//        cell?.infoLabel.text = data.info
-//        cell?.layer.cornerRadius = 10
-//
-//        return cell!
-//    }
-//    let spacing: CGFloat = 10
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        let numberOfItemsPerRow: CGFloat = 3
-//        let spacingBetweenCells: CGFloat = 10
-//
-//        let totalSpacing = (2 * spacing) + ((numberOfItemsPerRow - 1) * spacingBetweenCells)
-//
-//        let width = (collectionView.bounds.width - totalSpacing) / numberOfItemsPerRow
-//        return CGSize(width: width, height: width)
-//
-//    }
-    
-    
-    
+
 }

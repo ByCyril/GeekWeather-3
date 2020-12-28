@@ -153,8 +153,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         
         let scale: CGFloat = 0.925
         
-        UIView.animate(withDuration: 0.1) {
-            UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+        UIView.animate(withDuration: 0.2) {
             self.levelOneViewController?.transform = .init(scaleX: scale, y: scale)
             self.levelTwoViewController?.transform = .init(scaleX: scale, y: scale)
             self.levelThreeViewController?.transform = .init(scaleX: scale, y: scale)
@@ -162,6 +161,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
             self.leftShadowview.alpha = self.shadowOpacity
             self.rightShadowView.alpha = self.shadowOpacity
             self.bottomShadowView.alpha = self.shadowOpacity
+            UIImpactFeedbackGenerator(style: .soft).impactOccurred()
         }
     }
     

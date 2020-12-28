@@ -84,6 +84,8 @@
 		01B1BEED24EFA0040081C90F /* LevelTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEEC24EFA0040081C90F /* LevelTwoViewController.swift */; };
 		01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF024EFA9A10081C90F /* Array+Extension.swift */; };
 		01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF224EFAD500081C90F /* View+Extension.swift */; };
+		01B9487C259A654400884150 /* LevelTwoHourlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */; };
+		01B94880259A687200884150 /* LevelTwoDailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */; };
 		01D6C1E024F31A2800DF375C /* LevelTwoCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D6C1DF24F31A2800DF375C /* LevelTwoCellView.xib */; };
 		01E65B2024F19D9400D8F76F /* BaseViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */; };
 		01FCE338258B21E200C841C8 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 01FCE337258B21E200C841C8 /* demo.json */; };
@@ -209,6 +211,8 @@
 		01B1BEEC24EFA0040081C90F /* LevelTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoViewController.swift; sourceTree = "<group>"; };
 		01B1BEF024EFA9A10081C90F /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		01B1BEF224EFAD500081C90F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoHourlyViewCell.swift; sourceTree = "<group>"; };
+		01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoDailyViewCell.swift; sourceTree = "<group>"; };
 		01D6C1DF24F31A2800DF375C /* LevelTwoCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelTwoCellView.xib; sourceTree = "<group>"; };
 		01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerFactory.swift; sourceTree = "<group>"; };
 		01FCE337258B21E200C841C8 /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
@@ -437,6 +441,8 @@
 			isa = PBXGroup;
 			children = (
 				01B1BEEC24EFA0040081C90F /* LevelTwoViewController.swift */,
+				01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */,
+				01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */,
 				0103B82B259311A2008577FD /* DetailsView.swift */,
 				01844A1B24F22646000B0D52 /* LevelTwoViewController.xib */,
 				01D6C1DF24F31A2800DF375C /* LevelTwoCellView.xib */,
@@ -722,6 +728,7 @@
 			files = (
 				01042C2C24EC8FCF0090B349 /* SettingsTableViewCell.swift in Sources */,
 				01B1BEEB24EF9F700081C90F /* FlipperAnimationLayer.swift in Sources */,
+				01B94880259A687200884150 /* LevelTwoDailyViewCell.swift in Sources */,
 				01B1BEBD24EE33320081C90F /* UnitSelectorItem.swift in Sources */,
 				01B1BEC424EF95920081C90F /* LevelOneViewController.swift in Sources */,
 				0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */,
@@ -764,6 +771,7 @@
 				01B1BEBF24EE34740081C90F /* WeatherDataInfoItem.swift in Sources */,
 				01042C3124ECDF660090B349 /* AboutSettingItem.swift in Sources */,
 				0169433D24DA887B006A7FAA /* LocationManegerDelegateManager.swift in Sources */,
+				01B9487C259A654400884150 /* LevelTwoHourlyViewCell.swift in Sources */,
 				01B1BEC124EE36310081C90F /* PrivacyPolicyInfoItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -946,18 +954,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R986STKYJ7;
 				INFOPLIST_FILE = "GeekWeather 3/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3";
 				PRODUCT_NAME = GeekWeather;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -971,18 +978,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R986STKYJ7;
 				INFOPLIST_FILE = "GeekWeather 3/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3";
 				PRODUCT_NAME = GeekWeather;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

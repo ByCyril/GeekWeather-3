@@ -33,20 +33,12 @@ final class LevelOneViewController: BaseView {
             element?.adjustsFontForContentSizeCategory = true
             element?.adjustsFontSizeToFitWidth = true
         }
-        
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
-    override func getContentOffset(_ offset: CGPoint) {
-        let alpha = 1 - (offset.y / frame.size.height)
-        tempLabel.alpha = alpha
-        summaryLabel.alpha = alpha
-        commentLabel.alpha = alpha
-    }
-        
+   
     override func update(from notification: NSNotification) {
         if let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel {
             DispatchQueue.main.async { [weak self] in

@@ -68,23 +68,54 @@
                                     <outlet property="settingsButton" destination="Shd-eo-sw5" id="3sF-F3-A5A"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JlI-sK-J5R">
+                                <rect key="frame" x="-35" y="119" width="30" height="800"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="lfu-c8-P4b"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5sW-73-GVa">
+                                <rect key="frame" x="419" y="119" width="30" height="800"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="HWq-hg-87H"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfs-qy-3yQ">
+                                <rect key="frame" x="0.0" y="896" width="414" height="30"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1MB-rF-5oV"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pXi-pg-nEr" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="top" id="0IH-Ko-jdP"/>
+                            <constraint firstItem="hfs-qy-3yQ" firstAttribute="bottom" secondItem="aeX-s0-w3a" secondAttribute="bottom" constant="30" id="9Ca-Q8-fn8"/>
+                            <constraint firstItem="1MB-rF-5oV" firstAttribute="leading" secondItem="JlI-sK-J5R" secondAttribute="leading" constant="35" id="El6-tj-Ejq"/>
+                            <constraint firstItem="JlI-sK-J5R" firstAttribute="bottom" secondItem="aeX-s0-w3a" secondAttribute="bottom" constant="23" id="Ldf-Nj-m9b"/>
+                            <constraint firstItem="5sW-73-GVa" firstAttribute="bottom" secondItem="aeX-s0-w3a" secondAttribute="bottom" constant="23" id="M4j-VH-3bU"/>
                             <constraint firstItem="pXi-pg-nEr" firstAttribute="height" secondItem="MPR-xt-J3y" secondAttribute="height" id="P78-Vl-fO0"/>
                             <constraint firstItem="1MB-rF-5oV" firstAttribute="trailing" secondItem="pXi-pg-nEr" secondAttribute="trailing" constant="-30" id="T54-Vk-sTn"/>
+                            <constraint firstItem="hfs-qy-3yQ" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="cao-NJ-je0"/>
+                            <constraint firstItem="5sW-73-GVa" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="bottom" id="eUB-nf-dGI"/>
+                            <constraint firstItem="5sW-73-GVa" firstAttribute="trailing" secondItem="1MB-rF-5oV" secondAttribute="trailing" constant="35" id="fUq-kl-YHL"/>
+                            <constraint firstItem="1MB-rF-5oV" firstAttribute="trailing" secondItem="hfs-qy-3yQ" secondAttribute="trailing" id="gCk-Mz-COH"/>
+                            <constraint firstItem="hfs-qy-3yQ" firstAttribute="height" secondItem="aeX-s0-w3a" secondAttribute="height" multiplier="0.0334821" id="jw6-Gi-49Z"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" id="lbM-lf-XnN"/>
                             <constraint firstItem="pXi-pg-nEr" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" constant="-46" id="qIz-Wd-Iho"/>
+                            <constraint firstItem="JlI-sK-J5R" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="bottom" id="u3W-wY-t2I"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="trailing" secondItem="1MB-rF-5oV" secondAttribute="trailing" id="wI8-yz-mZe"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="zY5-zf-F16"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nf1-GG-9gM"/>
                     <connections>
+                        <outlet property="bottomShadowView" destination="hfs-qy-3yQ" id="VB7-nD-bmr"/>
                         <outlet property="customNavView" destination="MPR-xt-J3y" id="TJh-QZ-Lh7"/>
+                        <outlet property="leftShadowview" destination="JlI-sK-J5R" id="SGX-9g-RSr"/>
                         <outlet property="navView" destination="MPR-xt-J3y" id="pYZ-sx-jfG"/>
+                        <outlet property="rightShadowView" destination="5sW-73-GVa" id="S5P-rw-9Jc"/>
                         <outlet property="shadowView" destination="pXi-pg-nEr" id="Wtp-aB-DkR"/>
                     </connections>
                 </viewController>

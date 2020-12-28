@@ -24,6 +24,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     @IBOutlet var customNavView: UIView!
     
     @IBOutlet var shadowView: UIView!
+    @IBOutlet var leftShadowview: UIView!
+    @IBOutlet var rightShadowView: UIView!
+    @IBOutlet var bottomShadowView: UIView!
     
     private let gradientLayer = CAGradientLayer()
     
@@ -43,24 +46,35 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }()
     
     let shadowOpacity: CGFloat = 0.75
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(named: "GradientBottomColor")
         initMethod()
         
-        shadowView.layer.shadowColor = UIColor.black.cgColor
-        shadowView.layer.shadowRadius = 5
-        shadowView.layer.shadowOpacity = Float(shadowOpacity)
-        shadowView.alpha = 0
-        shadowView.layer.shadowOffset = CGSize(width: 0, height: 10)
-        shadowView.backgroundColor = UIColor(named: "GradientBottomColor")
+        createShadows()
         
         scrollView.delegate = self
         view.insertSubview(scrollView, at: 0)
         
     }
+
+    func createShadows() {
+        [shadowView, leftShadowview, rightShadowView, bottomShadowView].forEach { (element) in
+            element?.layer.shadowColor = UIColor.black.cgColor
+            element?.layer.shadowRadius = 5
+            element?.layer.shadowOpacity = Float(shadowOpacity)
+            element?.alpha = 0
+            element?.backgroundColor = UIColor(named: "GradientBottomColor")
+        }
+        
+        shadowView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        leftShadowview.layer.shadowOffset = CGSize(width: 10, height: 0)
+        rightShadowView.layer.shadowOffset = CGSize(width: -10, height: 0)
+        bottomShadowView.layer.shadowOffset = CGSize(width: 0, height: -10)
+    }
+    
     
     func createGradient() {
         gradientLayer.frame = view.bounds
@@ -118,20 +132,36 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     func accessibilityScrollStatus(for scrollView: UIScrollView) -> String? {
         let offsetY = scrollView.contentOffset.y
         let page = offsetY / scrollView.frame.size.height
-    
         return ["Today View", "Forecast View", "Details View"][Int(page)]
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        UIView.animate(withDuration: 0.1) {
+        
+        UIView.animate(withDuration: 0.3) {
+            UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+            self.levelOneViewController?.transform = .identity
+            self.levelTwoViewController?.transform = .identity
+            self.levelThreeViewController?.transform = .identity
             self.shadowView.alpha = 0
+            self.leftShadowview.alpha = 0
+            self.rightShadowView.alpha = 0
+            self.bottomShadowView.alpha = 0
         }
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        shadowView.isHidden = false
+        
+        let scale: CGFloat = 0.925
+        
         UIView.animate(withDuration: 0.1) {
+            UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+            self.levelOneViewController?.transform = .init(scaleX: scale, y: scale)
+            self.levelTwoViewController?.transform = .init(scaleX: scale, y: scale)
+            self.levelThreeViewController?.transform = .init(scaleX: scale, y: scale)
             self.shadowView.alpha = self.shadowOpacity
+            self.leftShadowview.alpha = self.shadowOpacity
+            self.rightShadowView.alpha = self.shadowOpacity
+            self.bottomShadowView.alpha = self.shadowOpacity
         }
     }
     

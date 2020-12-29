@@ -159,6 +159,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         
         UIView.animate(withDuration: 0.3) {
             UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+            self.levelOneViewController?.blurredEffectView.alpha = 0
+            self.levelTwoViewController?.blurredEffectView.alpha = 0
+            self.levelThreeViewController?.blurredEffectView.alpha = 0
             self.levelOneViewController?.transform = .identity
             self.levelTwoViewController?.transform = .identity
             self.levelThreeViewController?.transform = .identity
@@ -174,6 +177,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         let scale: CGFloat = 0.925
         
         UIView.animate(withDuration: 0.2) {
+            self.levelOneViewController?.blurredEffectView.alpha = 0.35
+            self.levelTwoViewController?.blurredEffectView.alpha = 0.35
+            self.levelThreeViewController?.blurredEffectView.alpha = 0.35
             self.levelOneViewController?.transform = .init(scaleX: scale, y: scale)
             self.levelTwoViewController?.transform = .init(scaleX: scale, y: scale)
             self.levelThreeViewController?.transform = .init(scaleX: scale, y: scale)

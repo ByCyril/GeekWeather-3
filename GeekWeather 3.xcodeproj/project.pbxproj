@@ -86,6 +86,10 @@
 		01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF224EFAD500081C90F /* View+Extension.swift */; };
 		01B9487C259A654400884150 /* LevelTwoHourlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */; };
 		01B94880259A687200884150 /* LevelTwoDailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */; };
+		01BE6C85259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */; };
+		01BE6C9F259AD6DC000016CA /* OnboardingViewControllerLevelTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6C9E259AD6DC000016CA /* OnboardingViewControllerLevelTwo.swift */; };
+		01BE6CA8259ADE2E000016CA /* OnboardingViewControllerLevelThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6CA7259ADE2E000016CA /* OnboardingViewControllerLevelThree.swift */; };
+		01BE6CAC259AE99D000016CA /* OnboardingViewControllerLevelFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6CAB259AE99D000016CA /* OnboardingViewControllerLevelFour.swift */; };
 		01E65B2024F19D9400D8F76F /* BaseViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */; };
 		01FCE338258B21E200C841C8 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 01FCE337258B21E200C841C8 /* demo.json */; };
 		CFBD38EB0C18677448B8E58B /* Pods_GeekWeather_3Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6603F886DADE4EC37E1E3758 /* Pods_GeekWeather_3Tests.framework */; };
@@ -211,6 +215,10 @@
 		01B1BEF224EFAD500081C90F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoHourlyViewCell.swift; sourceTree = "<group>"; };
 		01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoDailyViewCell.swift; sourceTree = "<group>"; };
+		01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerLevelOne.swift; sourceTree = "<group>"; };
+		01BE6C9E259AD6DC000016CA /* OnboardingViewControllerLevelTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerLevelTwo.swift; sourceTree = "<group>"; };
+		01BE6CA7259ADE2E000016CA /* OnboardingViewControllerLevelThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerLevelThree.swift; sourceTree = "<group>"; };
+		01BE6CAB259AE99D000016CA /* OnboardingViewControllerLevelFour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerLevelFour.swift; sourceTree = "<group>"; };
 		01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerFactory.swift; sourceTree = "<group>"; };
 		01FCE337258B21E200C841C8 /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
 		3AB4EFED94A002C1413075CC /* Pods-GeekWeather 3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeekWeather 3.debug.xcconfig"; path = "Target Support Files/Pods-GeekWeather 3/Pods-GeekWeather 3.debug.xcconfig"; sourceTree = "<group>"; };
@@ -341,6 +349,7 @@
 				01E65B1F24F19D9400D8F76F /* BaseViewControllerFactory.swift */,
 				0158D0292505DF0C008692DC /* SearchLocationViewController.swift */,
 				0158D0302505E3ED008692DC /* SavedLocationViewController.swift */,
+				01BE6CAF259AEBA6000016CA /* OnboardingController */,
 				01042C3424ECDFA50090B349 /* SettingsController */,
 				01042C2724EC8A6A0090B349 /* Main Controller */,
 				01042C2824EC8A7F0090B349 /* Levels */,
@@ -472,6 +481,17 @@
 				01B1BEE724EF9BB90081C90F /* FlipperStaticView.swift */,
 			);
 			path = "Flipper Aniamtion";
+			sourceTree = "<group>";
+		};
+		01BE6CAF259AEBA6000016CA /* OnboardingController */ = {
+			isa = PBXGroup;
+			children = (
+				01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */,
+				01BE6C9E259AD6DC000016CA /* OnboardingViewControllerLevelTwo.swift */,
+				01BE6CA7259ADE2E000016CA /* OnboardingViewControllerLevelThree.swift */,
+				01BE6CAB259AE99D000016CA /* OnboardingViewControllerLevelFour.swift */,
+			);
+			path = OnboardingController;
 			sourceTree = "<group>";
 		};
 		5D48823778C80F07D94904C9 /* Pods */ = {
@@ -718,6 +738,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01BE6C85259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift in Sources */,
 				01042C2C24EC8FCF0090B349 /* SettingsTableViewCell.swift in Sources */,
 				01B1BEEB24EF9F700081C90F /* FlipperAnimationLayer.swift in Sources */,
 				01B94880259A687200884150 /* LevelTwoDailyViewCell.swift in Sources */,
@@ -725,6 +746,7 @@
 				01B1BEC424EF95920081C90F /* LevelOneViewController.swift in Sources */,
 				0100D80024CE464200C9F9B5 /* LocalizedStrings.swift in Sources */,
 				0197FB5325913AA6000C4640 /* ErrorViewController.swift in Sources */,
+				01BE6CAC259AE99D000016CA /* OnboardingViewControllerLevelFour.swift in Sources */,
 				01B1BEED24EFA0040081C90F /* LevelTwoViewController.swift in Sources */,
 				016BB86424DA871700206C23 /* NetworkManagerDelegateManager.swift in Sources */,
 				01B1BEBB24EE319C0081C90F /* UnitSelectorCell.swift in Sources */,
@@ -737,6 +759,7 @@
 				014D2A3C24D3F64A0038623E /* Location.swift in Sources */,
 				01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */,
 				01B1BEE824EF9BB90081C90F /* FlipperStaticView.swift in Sources */,
+				01BE6C9F259AD6DC000016CA /* OnboardingViewControllerLevelTwo.swift in Sources */,
 				01042C3324ECDF850090B349 /* AppIconSettingItem.swift in Sources */,
 				01B1BEE624EF9B2B0081C90F /* FlipperView.swift in Sources */,
 				018079CF258DBE5A00C88E0E /* RollableTitleView.swift in Sources */,
@@ -763,6 +786,7 @@
 				01B1BEBF24EE34740081C90F /* WeatherDataInfoItem.swift in Sources */,
 				01042C3124ECDF660090B349 /* AboutSettingItem.swift in Sources */,
 				0169433D24DA887B006A7FAA /* LocationManegerDelegateManager.swift in Sources */,
+				01BE6CA8259ADE2E000016CA /* OnboardingViewControllerLevelThree.swift in Sources */,
 				01B9487C259A654400884150 /* LevelTwoHourlyViewCell.swift in Sources */,
 				01B1BEC124EE36310081C90F /* PrivacyPolicyInfoItem.swift in Sources */,
 			);

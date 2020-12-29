@@ -15,7 +15,7 @@ final class WeatherDataInfoItem: SettingItem {
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
         
-        cell.titleLabel.text = "OpenWeather"
+        cell.titleLabel.text = "Weather API"
         cell.iconImageView.image = UIImage(named: "openweather")
         cell.accessoryType = .disclosureIndicator
         return cell

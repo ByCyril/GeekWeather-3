@@ -13,7 +13,7 @@ enum Section {
     case main
 }
 
-final class LevelTwoViewController: BaseView {
+final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout {
    
     @IBOutlet var containerView: UIView!
     
@@ -33,9 +33,11 @@ final class LevelTwoViewController: BaseView {
         layout.backgroundColor = .clear
         layout.showsSeparators = false
         let configuration = UICollectionViewCompositionalLayout.list(using: layout)
+
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configuration)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
+        
         return collectionView
     }()
         
@@ -48,6 +50,7 @@ final class LevelTwoViewController: BaseView {
         let view = Bundle.main.loadNibNamed("LevelTwoViewController", owner: self)!.first as! LevelTwoViewController
         loadXib(view, self)
         
+        createBlurView()
         hourlyViewSetup()
         dailyViewSetup()
     }
@@ -60,7 +63,7 @@ final class LevelTwoViewController: BaseView {
         addSubview(hourlyView)
         
         NSLayoutConstraint.activate([
-            hourlyView.topAnchor.constraint(equalTo: topAnchor),
+            hourlyView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
             hourlyView.leadingAnchor.constraint(equalTo: leadingAnchor),
             hourlyView.trailingAnchor.constraint(equalTo: trailingAnchor),
             hourlyView.heightAnchor.constraint(equalToConstant: 100)
@@ -81,14 +84,14 @@ final class LevelTwoViewController: BaseView {
     }
  
     private func dailyViewSetup() {
-        
+        dailyView.delegate = self
         addSubview(dailyView)
 
         NSLayoutConstraint.activate([
             dailyView.topAnchor.constraint(equalTo: hourlyView.bottomAnchor),
             dailyView.leadingAnchor.constraint(equalTo: leadingAnchor),
             dailyView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            dailyView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            dailyView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
         layoutIfNeeded()
@@ -145,4 +148,10 @@ final class LevelTwoViewController: BaseView {
         dailyDataSource?.apply(snapshot)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height = dailyView.frame.height
+        print(height)
+        return CGSize(width: dailyView.frame.width, height: height / 8)
+    }
+
 }

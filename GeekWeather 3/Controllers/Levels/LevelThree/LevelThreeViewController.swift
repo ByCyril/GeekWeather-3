@@ -51,8 +51,9 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
         super.init(frame: frame)
 
         let view = Bundle.main.loadNibNamed("LevelThreeViewController", owner: self, options: nil)?.first as! LevelThreeViewController
-        
         loadXib(view, self)
+        
+        createBlurView()
         
         tableView.backgroundColor = .clear
         tableView.register(UINib(nibName: "LevelThreeTableViewCell", bundle: .main), forCellReuseIdentifier: "cell")

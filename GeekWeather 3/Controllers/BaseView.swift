@@ -37,6 +37,25 @@ class BaseView: UIView, NotificationManagerDelegate {
         main.addSubview(view)
     }
     
+    func removeBlurView() {
+        let element = viewWithTag(14324)
+        element?.removeFromSuperview()
+    }
+    
+    var blurredEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        return blurredEffectView
+    }()
+ 
+    func createBlurView() {
+        blurredEffectView.layer.cornerRadius = 35
+        blurredEffectView.alpha = 0
+        blurredEffectView.frame = bounds
+        blurredEffectView.clipsToBounds = true
+        insertSubview(blurredEffectView, at: 0)
+    }
+    
     func initUI() {}
     func applyAccessibility() {}
     func update(from notification: NSNotification) {}

@@ -62,7 +62,13 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     private func notDetermined() {
-        locationManager.requestWhenInUseAuthorization()
+        
+        guard let lat = UserDefaults.standard.value(forKey: "ManualSearchedLocation-lat") as? Double,
+              let lon = UserDefaults.standard.value(forKey: "ManualSearchedLocation-lon") as? Double else { return }
+        
+        let location = CLLocation(latitude: lat, longitude: lon)
+        delegate?.currentLocation(location)
+        
     }
 
     func lookupCurrentLocation(_ location: CLLocation) {

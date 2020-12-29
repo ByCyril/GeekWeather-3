@@ -25,6 +25,8 @@ final class LevelOneViewController: BaseView {
         let view = Bundle.main.loadNibNamed("LevelOneViewController", owner: self)!.first as! LevelOneViewController
         loadXib(view, self)
         
+        createBlurView()
+        
         tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
         summaryLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: summaryLabel.font)
         commentLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: commentLabel.font)
@@ -67,4 +69,5 @@ final class LevelOneViewController: BaseView {
     func accessibilityElements() {
         tempLabel.applyAccessibility(with: "Current Temperature", and: tempLabel.text, trait: .staticText)
     }
+ 
 }

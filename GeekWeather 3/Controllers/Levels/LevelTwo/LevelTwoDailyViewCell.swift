@@ -21,9 +21,9 @@ final class LevelTwoDailyViewCell: UICollectionViewCell {
         
         backgroundColor = .clear
         
-        dayLabel.font = GWFont.AvenirNext(style: .Medium, size: 21)
+        dayLabel.font = GWFont.AvenirNext(style: .Medium, size: 23)
         highTempLabel.font = GWFont.AvenirNext(style: .Bold, size: 25)
-        lowTempLabel.font = GWFont.AvenirNext(style: .Medium, size: 20)
+        lowTempLabel.font = GWFont.AvenirNext(style: .Medium, size: 21)
 
         dayLabel.textColor = .white
         highTempLabel.textColor = .white

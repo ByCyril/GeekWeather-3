@@ -27,19 +27,12 @@ class BaseView: UIView, NotificationManagerDelegate {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-   
-    func animate() {}
-    
+       
     func loadXib(_ view: UIView,_ main: UIView) {
         view.frame = bounds
         view.backgroundColor = .clear
         view.layoutIfNeeded()
         main.addSubview(view)
-    }
-    
-    func removeBlurView() {
-        let element = viewWithTag(14324)
-        element?.removeFromSuperview()
     }
     
     var blurredEffectView: UIVisualEffectView = {

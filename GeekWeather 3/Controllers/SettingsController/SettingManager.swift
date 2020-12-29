@@ -19,7 +19,7 @@ final class SettingManager {
     var cells = [CellType]()
     
     init() {
-        sections = [AppSettingSection(),AppInfoSection()]
+        sections = [AppSettingSection(),AppInfoSection(), DeveloperToolsSection()]
         cells = [CellType(cell: SettingsTableViewCell.self, id: "cell")]
     }
     
@@ -27,6 +27,16 @@ final class SettingManager {
         for cell in cells {
             tableView.register(cell.cell, forCellReuseIdentifier: cell.id)
         }
+    }
+}
+
+final class DeveloperToolsSection: SectionItem {
+    var title: String = "Developer Tools"
+    
+    var cells: [SettingItem]
+    
+    init() {
+        cells = [ToggleMockedResponse(), ToggleOnboarding()]
     }
 }
 

@@ -32,6 +32,7 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
     override func viewDidLoad() {
         super.viewDidLoad()
         searchCompleter.delegate = self
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -80,8 +81,6 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
                 self?.view.window?.rootViewController?.dismiss(animated: true, completion: {
                     NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: location)
                 })
-            } else {
-                
             }
         }
     }

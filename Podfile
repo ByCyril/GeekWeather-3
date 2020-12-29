@@ -6,7 +6,6 @@ target 'GeekWeather 3' do
   use_frameworks!
 
   # Pods for GeekWeather 3
-pod 'Charts'
 
   target 'GeekWeather 3Tests' do
     inherit! :search_paths

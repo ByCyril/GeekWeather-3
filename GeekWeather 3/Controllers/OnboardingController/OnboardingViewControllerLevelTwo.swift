@@ -25,10 +25,6 @@ final class OnboardingViewControllerLevelTwo: UIViewController, CLLocationManage
         
         locationManager.delegate = self
         
-        denyButton.layer.borderWidth = 2
-        denyButton.layer.borderColor = denyButton.titleLabel?.textColor.cgColor
-        denyButton.layer.cornerRadius = 10
-        
         allowButton.layer.borderWidth = 2
         allowButton.layer.borderColor = allowButton.titleLabel?.textColor.cgColor
         allowButton.layer.cornerRadius = 10

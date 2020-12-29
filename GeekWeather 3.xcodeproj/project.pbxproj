@@ -287,8 +287,8 @@
 				0157E8E1259144270026706D /* error.json */,
 				0157E8E2259144270026706D /* missing.json */,
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
-				0127D14D2597D72200298ABD /* GWFont.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
+				0127D14D2597D72200298ABD /* GWFont.swift */,
 				0146C05924F787D000967A37 /* Mocks.swift */,
 				0100D7FF24CE464200C9F9B5 /* LocalizedStrings.swift */,
 				0185665A24D767050035BF59 /* AccessibilityFactory.swift */,
@@ -951,7 +951,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3";
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2";
 				PRODUCT_NAME = GeekWeather;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -975,7 +976,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3";
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2";
 				PRODUCT_NAME = GeekWeather;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1046,7 +1048,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3.GeekWeatherWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2.GeekWeatherWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1071,7 +1073,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3.GeekWeatherWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2.GeekWeatherWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;

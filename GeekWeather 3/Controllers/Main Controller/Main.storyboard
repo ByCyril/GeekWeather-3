@@ -2,8 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,8 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXi-pg-nEr">
-                                <rect key="frame" x="-46" y="44" width="490" height="75"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="-46" y="0.0" width="490" height="119"/>
+                                <color key="backgroundColor" name="01d-Top"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPR-xt-J3y" customClass="NavigationView" customModule="GeekWeather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="75"/>
@@ -90,17 +90,17 @@
                         <viewLayoutGuide key="safeArea" id="1MB-rF-5oV"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="pXi-pg-nEr" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="top" id="0IH-Ko-jdP"/>
                             <constraint firstItem="hfs-qy-3yQ" firstAttribute="bottom" secondItem="aeX-s0-w3a" secondAttribute="bottom" constant="30" id="9Ca-Q8-fn8"/>
                             <constraint firstItem="1MB-rF-5oV" firstAttribute="leading" secondItem="JlI-sK-J5R" secondAttribute="leading" constant="35" id="El6-tj-Ejq"/>
                             <constraint firstItem="JlI-sK-J5R" firstAttribute="bottom" secondItem="aeX-s0-w3a" secondAttribute="bottom" constant="23" id="Ldf-Nj-m9b"/>
                             <constraint firstItem="5sW-73-GVa" firstAttribute="bottom" secondItem="aeX-s0-w3a" secondAttribute="bottom" constant="23" id="M4j-VH-3bU"/>
-                            <constraint firstItem="pXi-pg-nEr" firstAttribute="height" secondItem="MPR-xt-J3y" secondAttribute="height" id="P78-Vl-fO0"/>
+                            <constraint firstItem="pXi-pg-nEr" firstAttribute="height" secondItem="MPR-xt-J3y" secondAttribute="height" constant="44" id="P78-Vl-fO0"/>
                             <constraint firstItem="1MB-rF-5oV" firstAttribute="trailing" secondItem="pXi-pg-nEr" secondAttribute="trailing" constant="-30" id="T54-Vk-sTn"/>
                             <constraint firstItem="hfs-qy-3yQ" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="cao-NJ-je0"/>
                             <constraint firstItem="5sW-73-GVa" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="bottom" id="eUB-nf-dGI"/>
                             <constraint firstItem="5sW-73-GVa" firstAttribute="trailing" secondItem="1MB-rF-5oV" secondAttribute="trailing" constant="35" id="fUq-kl-YHL"/>
                             <constraint firstItem="1MB-rF-5oV" firstAttribute="trailing" secondItem="hfs-qy-3yQ" secondAttribute="trailing" id="gCk-Mz-COH"/>
+                            <constraint firstAttribute="top" secondItem="pXi-pg-nEr" secondAttribute="top" id="iyA-Mf-Rg5"/>
                             <constraint firstItem="hfs-qy-3yQ" firstAttribute="height" secondItem="aeX-s0-w3a" secondAttribute="height" multiplier="0.0334821" id="jw6-Gi-49Z"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" id="lbM-lf-XnN"/>
                             <constraint firstItem="pXi-pg-nEr" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" constant="-46" id="qIz-Wd-Iho"/>
@@ -132,9 +132,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GeekWeather 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xv2-Na-6zc">
-                                <rect key="frame" x="20" y="59" width="374" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="20" y="59" width="374" height="41"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed and Designed by Cyril @ 2017 - 2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1l-bR-VBe">
@@ -142,8 +142,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="Jep-s4-OjQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -299,8 +299,11 @@ developing and publishing iOS Apps to the App Store. GeekWeather 3 is a passion 
     </scenes>
     <resources>
         <image name="developer" width="1335" height="1335"/>
-        <image name="search" width="512" height="512"/>
-        <image name="settings" width="512" height="512"/>
+        <image name="search" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="settings" width="170.66667175292969" height="170.66667175292969"/>
+        <namedColor name="01d-Top">
+            <color red="0.99199998378753662" green="0.41999998688697815" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

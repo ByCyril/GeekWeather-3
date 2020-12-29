@@ -47,17 +47,20 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     let shadowOpacity: CGFloat = 0.75
  
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(named: "GradientBottomColor")
         initMethod()
-        
         createShadows()
         
         scrollView.delegate = self
         view.insertSubview(scrollView, at: 0)
         
+        createGradient()
     }
 
     func createShadows() {
@@ -66,7 +69,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
             element?.layer.shadowRadius = 5
             element?.layer.shadowOpacity = Float(shadowOpacity)
             element?.alpha = 0
-            element?.backgroundColor = UIColor(named: "GradientBottomColor")
+            element?.backgroundColor = UIColor(named: "GradientTopColor")
         }
         
         shadowView.layer.shadowOffset = CGSize(width: 0, height: 10)
@@ -128,6 +131,23 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
             initUI()
         }
     }
+
+    func initUI() {
+        guard let navView = self.navView else { return }
+        let scrollViewYOffset = navView.frame.size.height + UIApplication.shared.windows[0].safeAreaInsets.top
+        let trueHeight = view.bounds.size.height - scrollViewYOffset
+        
+        scrollView.contentSize = CGSize(width: view.frame.size.width, height: trueHeight*3)
+
+        levelOneViewController = LevelOneViewController(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: trueHeight))
+        levelTwoViewController = LevelTwoViewController(frame: CGRect(x: 0, y: trueHeight, width: view.bounds.size.width, height: trueHeight))
+        levelThreeViewController = LevelThreeViewController(frame: CGRect(x: 0, y: trueHeight * 2, width: view.bounds.size.width, height: trueHeight))
+
+        scrollView.addSubview(levelOneViewController!)
+        scrollView.addSubview(levelTwoViewController!)
+        scrollView.addSubview(levelThreeViewController!)
+        
+    }
     
     func accessibilityScrollStatus(for scrollView: UIScrollView) -> String? {
         let offsetY = scrollView.contentOffset.y
@@ -166,26 +186,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scrollPercentage = (scrollView.contentOffset.y / scrollView.contentSize.height)        
+        let scrollPercentage = (scrollView.contentOffset.y / scrollView.contentSize.height)
         let navScrollViewHeight = (225 * scrollPercentage)
         navView?.rollableTitleView.animateWithOffset(navScrollViewHeight)
-    }
-
-    func initUI() {
-        guard let navView = self.navView else { return }
-        let scrollViewYOffset = navView.frame.size.height + UIApplication.shared.windows[0].safeAreaInsets.top
-        let trueHeight = view.bounds.size.height - scrollViewYOffset
-        
-        scrollView.contentSize = CGSize(width: view.frame.size.width, height: trueHeight*3)
-
-        levelOneViewController = LevelOneViewController(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: trueHeight))
-        levelTwoViewController = LevelTwoViewController(frame: CGRect(x: 0, y: trueHeight, width: view.bounds.size.width, height: trueHeight))
-        levelThreeViewController = LevelThreeViewController(frame: CGRect(x: 0, y: trueHeight * 2, width: view.bounds.size.width, height: trueHeight))
-
-        scrollView.addSubview(levelOneViewController!)
-        scrollView.addSubview(levelTwoViewController!)
-        scrollView.addSubview(levelThreeViewController!)
-        
     }
     
     @IBAction func presentSavedLocationController() {
@@ -242,7 +245,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     func presentError(_ errorMsg: String) {
         guard let vc = storyboard?.instantiateViewController(identifier: "ErrorViewController") as? ErrorViewController else { return }
         
-        let animation = AnimationType(name: "denied", speed: 0.5, size: CGSize(width: 250, height: 250), message: errorMsg)
+        let animation = AnimationType(name: "denied", speed: 0.35, size: CGSize(width: 250, height: 250), message: errorMsg)
         vc.displayAnimation(with: animation)
         
         vc.modalTransitionStyle = .crossDissolve

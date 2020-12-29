@@ -64,11 +64,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     private func notDetermined() {
         locationManager.requestWhenInUseAuthorization()
     }
-    
-    func coordinates() -> CLLocation {
-        return locationManager.location ?? CLLocation(latitude: 37.3230, longitude: -122.0322)
-    }
-    
+
     func lookupCurrentLocation(_ location: CLLocation) {
         CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
             

@@ -36,7 +36,7 @@ final class AppSettingSection: SectionItem {
     var cells: [SettingItem]
     
     init() {
-        cells = [AppIconSettingItem(), UnitSelectorItem()]
+        cells = [UnitSelectorItem()]
     }
 }
 

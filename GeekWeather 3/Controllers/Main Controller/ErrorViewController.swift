@@ -32,6 +32,10 @@ final class ErrorViewController: UIViewController {
         view.setNeedsDisplay()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else {
             return
@@ -56,8 +60,9 @@ final class ErrorViewController: UIViewController {
         errorMessageView = UITextView()
         errorMessageView?.text = animation.message
         errorMessageView?.backgroundColor = .clear
-        errorMessageView?.font = UIFont(name: "HelveticaNeue", size: 30)
+        errorMessageView?.font = GWFont.AvenirNext(style: .Regular, size: 25)
         errorMessageView?.textAlignment = .center
+        errorMessageView?.textColor = .white
         errorMessageView?.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(errorMessageView!)
         

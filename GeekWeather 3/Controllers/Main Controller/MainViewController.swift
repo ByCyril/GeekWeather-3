@@ -22,7 +22,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     @IBOutlet var navView: NavigationView?
     @IBOutlet var customNavView: UIView!
-    
     @IBOutlet var shadowView: UIView!
     @IBOutlet var leftShadowview: UIView!
     @IBOutlet var rightShadowView: UIView!
@@ -192,7 +191,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
         UIView.animate(withDuration: 0.3) {
-            UIImpactFeedbackGenerator(style: .soft).impactOccurred()
             self.levelOneViewController?.blurredEffectView.alpha = 0
             self.levelTwoViewController?.blurredEffectView.alpha = 0
             self.levelThreeViewController?.blurredEffectView.alpha = 0
@@ -221,7 +219,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
             self.leftShadowview.alpha = self.shadowOpacity
             self.rightShadowView.alpha = self.shadowOpacity
             self.bottomShadowView.alpha = self.shadowOpacity
-            UIImpactFeedbackGenerator(style: .soft).impactOccurred()
         }
     }
     

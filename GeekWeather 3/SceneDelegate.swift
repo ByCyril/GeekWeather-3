@@ -20,24 +20,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        if UserDefaults.standard.bool(forKey: "ExistingUser") {
+        if let vc = GWTest.forceViewController() {
+            setWindow(with: windowScene, vc: vc)
+            return
+        }
         
+        if UserDefaults.standard.bool(forKey: "ExistingUser") {
             guard let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { return }
-
             mainViewController = vc
-            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-            window?.rootViewController = mainViewController
-            window?.windowScene = windowScene
-            window?.makeKeyAndVisible()
-            
+            setWindow(with: windowScene, vc: mainViewController!)
         } else {
             let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "OnboardingViewControllerLevelOne")
-
-            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-            window?.rootViewController = vc
-            window?.windowScene = windowScene
-            window?.makeKeyAndVisible()
+            setWindow(with: windowScene, vc: vc)
         }
+    }
+    
+    func setWindow(with windowScene: UIWindowScene, vc: UIViewController) {
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.rootViewController = vc
+        window?.windowScene = windowScene
+        window?.makeKeyAndVisible()
     }
     
     func sceneWillEnterForeground(_ scene: UIScene) {
@@ -52,10 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")
-    }
-    
+    func sceneDidEnterBackground(_ scene: UIScene) { }
     func sceneDidDisconnect(_ scene: UIScene) { }
     func sceneDidBecomeActive(_ scene: UIScene) { }
     func sceneWillResignActive(_ scene: UIScene) { }
@@ -71,8 +70,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             UserDefaults.standard.setValue(day, forKey: "APILimitCountStart")
         }
-        
-        
         
     }
 }

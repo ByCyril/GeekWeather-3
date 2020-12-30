@@ -24,6 +24,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     init(_ delegate: LocationManagerDelegate) {
         super.init()
         locationManager.delegate = self
+        
         self.delegate = delegate
     }
     
@@ -48,7 +49,14 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         case .authorizedAlways, .authorizedWhenInUse:
             authorizationEnabled(manager)
         case .denied, .restricted:
-            delegate?.locationError("Location access either denied or restricted", status)
+            guard let lat = UserDefaults.standard.value(forKey: "ManualSearchedLocation-lat") as? Double,
+                  let lon = UserDefaults.standard.value(forKey: "ManualSearchedLocation-lon") as? Double else {
+                delegate?.locationError("Location access either denied or restricted", status)
+                return
+            }
+            let location = CLLocation(latitude: lat, longitude: lon)
+            delegate?.currentLocation(location)
+            
         case .notDetermined:
              notDetermined()
         @unknown default:

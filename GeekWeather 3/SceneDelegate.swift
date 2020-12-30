@@ -16,6 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+        resetLimit()
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         if UserDefaults.standard.bool(forKey: "ExistingUser") {
@@ -58,4 +60,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) { }
     func sceneWillResignActive(_ scene: UIScene) { }
     
+    func resetLimit() {
+        let day = Date().timeIntervalSince1970.date(.day)
+        
+        if let savedDay = UserDefaults.standard.string(forKey: "APILimitCountStart") {
+            if savedDay != day {
+                UserDefaults.standard.setValue(0, forKey: "NumberOfCalls")
+                UserDefaults.standard.setValue(day, forKey: "APILimitCountStart")
+            }
+        } else {
+            UserDefaults.standard.setValue(day, forKey: "APILimitCountStart")
+        }
+        
+        
+        
+    }
 }

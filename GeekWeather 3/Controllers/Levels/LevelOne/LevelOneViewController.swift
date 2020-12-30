@@ -54,7 +54,9 @@ final class LevelOneViewController: BaseView {
     func displayData(_ currentWeatherData: Currently) {
                 
         tempLabel.text = " " + currentWeatherData.temp.temp()
-        summaryLabel.text = currentWeatherData.weather.first?.description.capitalized ?? ""
+        
+        summaryLabel.text = instructions(currentWeatherData.weather.first?.description.capitalized ?? "")
+        summaryLabel.numberOfLines = 0
         commentLabel.text = "Feels like " + currentWeatherData.feels_like.temp()
         iconView.image = UIImage(named: currentWeatherData.weather.first!.icon)
         UIView.animate(withDuration: 1) { [weak self] in
@@ -68,6 +70,13 @@ final class LevelOneViewController: BaseView {
     
     func accessibilityElements() {
         tempLabel.applyAccessibility(with: "Current Temperature", and: tempLabel.text, trait: .staticText)
+    }
+    
+    func instructions(_ text: String) -> String {
+        if text == "Mock Data 👋🏼" {
+            return "You've exceeded the number of API calls for the beta program. Your limit will reset on the next day."
+        }
+        return text
     }
  
 }

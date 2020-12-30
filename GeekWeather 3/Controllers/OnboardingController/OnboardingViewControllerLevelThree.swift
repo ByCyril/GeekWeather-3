@@ -42,7 +42,8 @@ final class OnboardingViewControllerLevelThree: UIViewController {
     }
     
     @IBAction func searchLocation(_ sender: Any) {
-        GWTransition.present(SavedLocationViewController(), from: self)
+        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "SavedLocationViewController")
+        present(vc, animated: true, completion: nil)
     }
     
 }

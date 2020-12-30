@@ -14,6 +14,8 @@ final class SavedLocationViewController: UITableViewController {
     private let coreDataManager = PersistenceManager.shared
     private var savedLocation = [SavedLocation]()
     
+    var hideCurrentLocationOption = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Search Location"
@@ -74,6 +76,11 @@ final class SavedLocationViewController: UITableViewController {
                 NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: obj.location)
             })
         } else {
+            if !UserDefaults.standard.bool(forKey: "ExistingUser") {
+                UINotificationFeedbackGenerator().notificationOccurred(.error)
+                tableView.deselectRow(at: indexPath, animated: true)
+                return
+            }
             view.window?.rootViewController?.dismiss(animated: true, completion: {
                 NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: nil)
             })
@@ -110,7 +117,12 @@ final class SavedLocationViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         if indexPath.row == 0 {
-            cell.textLabel?.text = "Current Location"
+            if UserDefaults.standard.bool(forKey: "ExistingUser") {
+                cell.textLabel?.text = "Current Location"
+            } else {
+                cell.textLabel?.text = "Unavailable"
+            }
+            
             cell.imageView?.image = UIImage(named: "current")
         } else {
             cell.textLabel?.text = savedLocation[indexPath.row - 1].address

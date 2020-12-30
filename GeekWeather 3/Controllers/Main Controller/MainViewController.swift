@@ -172,10 +172,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         ])
         view.layoutIfNeeded()
         
-//        guard let navView = self.navView else { return }
-//        let scrollViewYOffset = navView.frame.size.height + UIApplication.shared.windows[0].safeAreaInsets.top
-//        let trueHeight = view.bounds.size.height - scrollViewYOffset
-        
         scrollView.contentSize = CGSize(width: view.frame.size.width, height: trueHeight*3)
 
         levelOneViewController = LevelOneViewController(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: trueHeight))
@@ -256,10 +252,10 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     func currentLocation(_ location: CLLocation) {
         locationManager?.lookupCurrentLocation(location)
         var req: RequestURL
-        if UserDefaults.standard.string(forKey: "Unit") == "imperial" {
-            req = RequestURL(location: location, .imperial)
-        } else {
+        if UserDefaults.standard.string(forKey: "Unit") == "metric" {
             req = RequestURL(location: location, .metric)
+        } else {
+            req = RequestURL(location: location, .imperial)
         }
         networkManager?.fetch(req)
     }

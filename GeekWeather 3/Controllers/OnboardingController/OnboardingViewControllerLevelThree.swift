@@ -23,11 +23,7 @@ final class OnboardingViewControllerLevelThree: UIViewController {
         searchButton.layer.borderWidth = 2
         searchButton.layer.borderColor = searchButton.titleLabel?.textColor.cgColor
         searchButton.layer.cornerRadius = 10
-        
-        skipButton.layer.borderWidth = 2
-        skipButton.layer.borderColor = skipButton.titleLabel?.textColor.cgColor
-        skipButton.layer.cornerRadius = 10
-        
+   
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(searchedResults),
                                                name: Notification.Name("NewLocationLookup"),

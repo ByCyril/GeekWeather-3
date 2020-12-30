@@ -18,7 +18,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     private var weatherModel: WeatherModel?
     private var networkManager: NetworkManager?
-    var locationManager: LocationManager?
+    private var locationManager: LocationManager?
     
     @IBOutlet var navView: NavigationView?
     @IBOutlet var customNavView: UIView!
@@ -94,7 +94,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         
         locationManager = LocationManager(self)
         locationManager?.beginFetchingLocation()
-        
         if let error = Mocks.mockError() {
             networkManager = NetworkManager(self, error)
             return
@@ -109,12 +108,20 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     @objc
     func newLocation(_ notification: NSNotification) {
-        guard let location = notification.object as? CLLocation else { return }
         navView?.rollableTitleView.hideTitles()
-        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut) {
-            self.scrollView.transform = .init(translationX: 0, y: self.view.frame.size.height * 2)
-        } completion: { (_) in
-            self.currentLocation(location)
+        
+        if let location = notification.object as? CLLocation {
+            UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut) {
+                self.scrollView.transform = .init(translationX: 0, y: self.view.frame.size.height * 2)
+            } completion: { [weak self] (_) in
+                self?.currentLocation(location)
+            }
+        } else {
+            UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut) {
+                self.scrollView.transform = .init(translationX: 0, y: self.view.frame.size.height * 2)
+            } completion: { [weak self] (_) in
+                self?.locationManager?.beginFetchingLocation()
+            }
         }
     }
     
@@ -216,6 +223,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     func currentLocation(_ location: CLLocation) {
         let req = RequestURL(location: location, .imperial)
+        locationManager?.lookupCurrentLocation(location)
         networkManager?.fetch(req)
     }
     

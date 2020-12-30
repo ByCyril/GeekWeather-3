@@ -15,13 +15,12 @@ class ToggleOnboarding: SettingItem {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
 
         cell.titleLabel.text = "Show Onboarding"
-        cell.selectionStyle = .none
         
         return cell
     }
     
     func performSelector(_ vc: UIViewController) {
-        let alert = UIAlertController(title: "Onboarding", message: "Replay Onboarding?", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Warning!", message: "Please use with caution. Some things might break when triggering this command. Feel free to ask the developer for more info about developer tools", preferredStyle: .actionSheet)
         
         let yes = UIAlertAction(title: "Yes", style: .default) { (_) in
             UserDefaults.standard.setValue(false, forKey: "ExistingUser")

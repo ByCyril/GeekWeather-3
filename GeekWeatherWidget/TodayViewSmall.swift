@@ -19,14 +19,14 @@ struct TodayViewSmall: View {
 
             VStack {
                 Spacer()
-                Text(entry.weatherModel.location).font(Font.custom("HelveticaNeue-light", size: 15))
+                Text(entry.weatherModel.location).font(Font.custom("AvenirNext", size: 15))
                     
                 HStack {
                     Image(entry.weatherModel.icon).resizable().frame(width: 50, height: 50, alignment: .center)
-                    Text(entry.weatherModel.temp).font(Font.custom("HelveticaNeue", size: 45))
+                    Text(entry.weatherModel.temp).font(Font.custom("AvenirNext-Medium", size: 45))
                 }
                                 
-                Text(entry.weatherModel.lastUpdated).font(Font.custom("HelveticaNeue-light", size: 10)).padding()
+                Text(entry.weatherModel.lastUpdated).font(Font.custom("AvenirNext", size: 10)).padding()
                 
                 
             }

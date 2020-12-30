@@ -68,7 +68,6 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         
         let location = CLLocation(latitude: lat, longitude: lon)
         delegate?.currentLocation(location)
-        
     }
 
     func lookupCurrentLocation(_ location: CLLocation) {
@@ -81,14 +80,14 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
                 guard let firstLocation = placemark?.first else { return }
                 
                 let city = firstLocation.locality ?? ""
+                let country = firstLocation.country ?? ""
                 
-                if firstLocation.country == "United States" {
+                if country == "United States" {
                     let state = firstLocation.administrativeArea ?? ""
                     self.notificationManager.post(data: ["currentLocation": city + ", " + state],
                                              to: NotificationName.observerID("currentLocation"))
                     return
                 }
-                
                 self.notificationManager.post(data: ["currentLocation": city],
                                          to: NotificationName.observerID("currentLocation"))
                 

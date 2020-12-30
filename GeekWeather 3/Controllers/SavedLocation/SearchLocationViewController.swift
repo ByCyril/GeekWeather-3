@@ -8,6 +8,20 @@
 
 import UIKit
 import MapKit
+import CoreData
+
+final class ActivityManager {
+    let persistenceManager: PersistenceManager
+    
+    init(_ persistenceManager: PersistenceManager) {
+        self.persistenceManager = persistenceManager
+    }
+    
+    func saveResults(savedLocation: SavedLocation) {
+        persistenceManager.save()
+    }
+    
+}
 
 final class SearchLocationViewController: UITableViewController, UISearchControllerDelegate, UISearchBarDelegate {
     
@@ -15,12 +29,10 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
     private var searchCompleter = MKLocalSearchCompleter()
     
     private var dataSource: UITableViewDiffableDataSource<Section, MKLocalSearchCompletion>?
-    
-    weak var delegate: LocationManagerDelegate?
-    
+    private var coreDataManager = PersistenceManager.shared
+        
     init() {
         super.init(style: .plain)
-        tableView.backgroundColor = .clear
         configureDataSource()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
@@ -32,7 +44,6 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
     override func viewDidLoad() {
         super.viewDidLoad()
         searchCompleter.delegate = self
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -72,14 +83,21 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
     }
     
     private func lookupLocation(_ obj: MKLocalSearchCompletion) {
+        let activityManager = ActivityManager(coreDataManager)
+        let savedLocation = SavedLocation(context: coreDataManager.context)
         
         let searchRequest = MKLocalSearch.Request(completion: obj)
         searchRequest.resultTypes = .address
         
         MKLocalSearch(request: searchRequest).start { [weak self] (response, error) in
-            if let location = response?.mapItems.first?.placemark.location {
+            if let location = response?.mapItems.first?.placemark {
+                
+                savedLocation.address = location.title
+                savedLocation.location = location.location!
+                activityManager.saveResults(savedLocation: savedLocation)
+                
                 self?.view.window?.rootViewController?.dismiss(animated: true, completion: {
-                    NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: location)
+                    NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: location.location!)
                 })
             }
         }

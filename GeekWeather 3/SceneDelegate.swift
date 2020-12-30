@@ -43,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             guard let minutesPassed = Calendar.current.dateComponents([.minute], from: lastUpdate, to: Date()).minute else { return }
 
             if minutesPassed >= 15 {
-                mainViewController?.locationManager?.beginFetchingLocation()
+//                mainViewController?.locationManager?.beginFetchingLocation()
             }
         }
     }

@@ -36,7 +36,7 @@ final class DeveloperToolsSection: SectionItem {
     var cells: [SettingItem]
     
     init() {
-        cells = [ToggleMockedResponse(), ToggleOnboarding()]
+        cells = [ToggleMockedResponse(), ToggleOnboarding(), DeleteAllSearchItems()]
     }
 }
 

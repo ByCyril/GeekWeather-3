@@ -13,15 +13,13 @@ class ToggleMockedResponse: SettingItem {
     
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
-
         cell.titleLabel.text = "Show Dummy Data"
-        cell.selectionStyle = .none
-        
         return cell
     }
     
     func performSelector(_ vc: UIViewController) {
-        let alert = UIAlertController(title: "Mocked Response", message: "Turn on Mocked Response", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Warning!", message: "Please use with caution. Some things might break when triggering this command. Feel free to ask the developer for more info about developer tools", preferredStyle: .actionSheet)
+        
         let mockedReponse = UserDefaults.standard.bool(forKey: "ToggleMockedResponse")
         
         let enable = UIAlertAction(title: "Turn On", style: .default) { (_) in

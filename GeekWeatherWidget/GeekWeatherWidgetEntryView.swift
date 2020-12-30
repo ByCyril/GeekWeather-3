@@ -17,14 +17,12 @@ struct GeekWeatherWidgetEntryView: View {
     @Environment(\.widgetFamily) var family
     
     var body: some View {
-        switch family {
-        case .systemSmall:
+//        switch family {
+//        case .systemSmall:
             TodayViewSmall(entry: entry)
-        case .systemMedium:
-            TodayViewMedium(entry: entry)
-        default:
-            Text("")
-        }
+//        default:
+//            Text("")
+//        }
     }
 }
 

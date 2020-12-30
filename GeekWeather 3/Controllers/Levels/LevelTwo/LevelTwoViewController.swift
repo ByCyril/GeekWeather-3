@@ -10,6 +10,7 @@ import UIKit
 import GWFoundation
 
 enum Section {
+    case `static`
     case main
 }
 

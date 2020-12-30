@@ -18,7 +18,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     private var weatherModel: WeatherModel?
     private var networkManager: NetworkManager?
-    private var locationManager: LocationManager?
+    var locationManager: LocationManager?
     
     @IBOutlet var navView: NavigationView?
     @IBOutlet var customNavView: UIView!
@@ -33,6 +33,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     private var levelOneViewController: LevelOneViewController?
     private var levelTwoViewController: LevelTwoViewController?
     private var levelThreeViewController: LevelThreeViewController?
+    private var topConstraint: NSLayoutConstraint?
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -53,14 +54,39 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initUI()
         initMethod()
         createShadows()
-        
-        scrollView.delegate = self
-        view.insertSubview(scrollView, at: 0)
-        
         createGradient()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(newLocation(_:)), name: Notification.Name("NewLocationLookup"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(unitDidChange(_:)), name: Notification.Name("UnitChange"), object: nil)
+    }
+    
+    @objc
+    func unitDidChange(_ notification: NSNotification) {
+        let count = UserDefaults.standard.integer(forKey: "NumberOfCalls")
+        
+        if count >= 5 {
+            let mock = Mocks.mockedResponse()
+            networkManager = NetworkManager(self, mock!)
+            return
+        }
+        
+        guard let unit = notification.object as? String else { return }
+        
+        if let location = locationManager?.locationManager.location {
+            
+            hideScrollView()
+            
+            var req: RequestURL
+            if unit == "imperial" {
+                req = RequestURL(location: location, .imperial)
+            } else {
+                req = RequestURL(location: location, .metric)
+            }
+            networkManager?.fetch(req)
+        }
     }
 
     func createShadows() {
@@ -90,8 +116,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     func initMethod() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(newLocation(_:)), name: Notification.Name("NewLocationLookup"), object: nil)
-        
         locationManager = LocationManager(self)
         locationManager?.beginFetchingLocation()
         if let error = Mocks.mockError() {
@@ -109,40 +133,48 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     @objc
     func newLocation(_ notification: NSNotification) {
         navView?.rollableTitleView.hideTitles()
+        hideScrollView()
+        let count = UserDefaults.standard.integer(forKey: "NumberOfCalls")
+        
+        if count >= 5 {
+            let mock = Mocks.mockedResponse()
+            networkManager = NetworkManager(self, mock!)
+            return
+        }
         
         if let location = notification.object as? CLLocation {
-            UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut) {
-                self.scrollView.transform = .init(translationX: 0, y: self.view.frame.size.height * 2)
-            } completion: { [weak self] (_) in
+            hideScrollView { [weak self] (_) in
                 self?.currentLocation(location)
             }
         } else {
-            UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut) {
-                self.scrollView.transform = .init(translationX: 0, y: self.view.frame.size.height * 2)
-            } completion: { [weak self] (_) in
+            hideScrollView { [weak self] (_) in
                 self?.locationManager?.beginFetchingLocation()
             }
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        guard let navView = self.navView else { return }
-        let scrollViewYOffset = navView.frame.size.height + UIApplication.shared.windows[0].safeAreaInsets.top
-        let trueHeight = view.bounds.size.height - scrollViewYOffset
-        
-        scrollView.frame = CGRect(x: 0, y: scrollViewYOffset, width: view.frame.size.width, height: trueHeight)
-        scrollView.transform = .init(translationX: 0, y: view.frame.size.height)
-        
-        if scrollView.subviews.count == 0 {
-            initUI()
-        }
-    }
-
     func initUI() {
+        
+        scrollView.delegate = self
+        view.insertSubview(scrollView, at: 0)
+        
         guard let navView = self.navView else { return }
         let scrollViewYOffset = navView.frame.size.height + UIApplication.shared.windows[0].safeAreaInsets.top
         let trueHeight = view.bounds.size.height - scrollViewYOffset
+        
+        topConstraint = scrollView.topAnchor.constraint(equalTo: navView.bottomAnchor, constant: trueHeight)
+        topConstraint?.isActive = true
+        
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        view.layoutIfNeeded()
+        
+//        guard let navView = self.navView else { return }
+//        let scrollViewYOffset = navView.frame.size.height + UIApplication.shared.windows[0].safeAreaInsets.top
+//        let trueHeight = view.bounds.size.height - scrollViewYOffset
         
         scrollView.contentSize = CGSize(width: view.frame.size.width, height: trueHeight*3)
 
@@ -153,7 +185,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         scrollView.addSubview(levelOneViewController!)
         scrollView.addSubview(levelTwoViewController!)
         scrollView.addSubview(levelThreeViewController!)
-        
     }
     
     func accessibilityScrollStatus(for scrollView: UIScrollView) -> String? {
@@ -205,7 +236,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }
     
     @IBAction func presentSavedLocationController() {
-        GWTransition.present(SavedLocationViewController(), from: self)
+        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "SavedLocationViewController")
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func presentSettingsController() {
@@ -222,8 +254,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }
     
     func currentLocation(_ location: CLLocation) {
-        let req = RequestURL(location: location, .imperial)
         locationManager?.lookupCurrentLocation(location)
+        var req: RequestURL
+        if UserDefaults.standard.string(forKey: "Unit") == "imperial" {
+            req = RequestURL(location: location, .imperial)
+        } else {
+            req = RequestURL(location: location, .metric)
+        }
         networkManager?.fetch(req)
     }
     
@@ -231,6 +268,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         let location = CLLocation(latitude: weatherModel.lat, longitude: weatherModel.lon)
         locationManager?.lookupCurrentLocation(location)
         
+        let count = UserDefaults.standard.integer(forKey: "NumberOfCalls") + 1
+        UserDefaults.standard.setValue(count, forKey: "NumberOfCalls")
         UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")
         
         DispatchQueue.main.async { [weak self] in
@@ -242,9 +281,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     func animateMainScrollView() {
         navView?.rollableTitleView.showTitles()
         scrollView.isScrollEnabled = true
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut) { [weak self] in
-            self?.scrollView.transform = .identity
-        }
+        showScrollView()
     }
     
     func locationError(_ errorMsg: String,_ status: CLAuthorizationStatus?) {
@@ -266,6 +303,22 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         vc.modalPresentationStyle = .fullScreen
         
         present(vc, animated: true, completion: nil)
+    }
+    
+    func hideScrollView(_ completion: ((Bool) -> Void)? = nil) {
+        let scrollViewYOffset = navView!.frame.size.height + UIApplication.shared.windows[0].safeAreaInsets.top
+        let trueHeight = view.bounds.size.height - scrollViewYOffset
+        topConstraint?.constant = trueHeight
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+        }, completion: completion)
+    }
+    
+    func showScrollView(_ completion: ((Bool) -> Void)? = nil) {
+        topConstraint?.constant = 0
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+        }, completion: completion)
     }
     
 }

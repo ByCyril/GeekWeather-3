@@ -18,15 +18,6 @@ final class DeveloperController: UITableViewController {
         title = "Developer"
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableView.automaticDimension
-        
-        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
-        let exclusivePathFrame = view.convert(profileImageView.frame, to: bioTextView)
-        
-        let imageFrame = UIBezierPath(rect: CGRect(x: 0, y: 0, width: exclusivePathFrame.width , height: exclusivePathFrame.height))
-
-        bioTextView.textContainer.exclusionPaths = [imageFrame]
-        bioTextView.isScrollEnabled = false
-        
         tableView.reloadData()
     }
     
@@ -46,6 +37,14 @@ final class DeveloperController: UITableViewController {
             open("https://www.linkedin.com/in/bycyril/")
         }
         
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return UITableView.automaticDimension
+        } else {
+            return 50
+        }
     }
 
     private func open(_ urlStr: String) {

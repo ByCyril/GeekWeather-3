@@ -30,17 +30,10 @@ final class SettingsController: UITableViewController {
         
         title = "Settings"
         navigationItem.titleView?.isAccessibilityElement = false
-        
-        let backButton = UIButton()
-        backButton.isAccessibilityElement = true
-        backButton.applyAccessibility(with: "Back", and: "Double tap to dismiss popup window", trait: .button)
-        backButton.setImage(UIImage(named: "back"), for: .normal)
-        backButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
-        let barButton = UIBarButtonItem(customView: backButton)
+   
+        let barButton = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(dismissController))
+        barButton.tintColor = .label
         navigationItem.setRightBarButton(barButton, animated: true)
-        
-        navigationController?.navigationBar.tintColor = .white
-        
     }
     
     @objc

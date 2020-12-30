@@ -13,9 +13,7 @@ class ToggleOnboarding: SettingItem {
     
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
-
-        cell.titleLabel.text = "Show Onboarding"
-        
+        cell.textLabel?.text = "Show Onboarding"
         return cell
     }
     

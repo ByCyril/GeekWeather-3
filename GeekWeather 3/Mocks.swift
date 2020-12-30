@@ -36,6 +36,12 @@ final class Mocks {
         let url = URL(fileURLWithPath: file)
         let data = try? Data(contentsOf: url, options: .mappedIfSafe)
         
+        let count = UserDefaults.standard.integer(forKey: "NumberOfCalls")
+        
+        if count >= 5 {
+            return data
+        }
+        
         if UserDefaults.standard.bool(forKey: "ToggleMockedResponse") {
             return data
         }

@@ -40,15 +40,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func sceneWillEnterForeground(_ scene: UIScene) {
         if let lastUpdate = UserDefaults.standard.value(forKey: "LastUpdated") as? Date {
-            guard let minutesPassed = Calendar.current.dateComponents([.minute], from: lastUpdate, to: Date()).minute else { return }
+            
+            let differenceInSeconds = abs(lastUpdate.timeIntervalSince(Date()))
+            let minutesPassed = differenceInSeconds / 60
 
             if minutesPassed >= 15 {
-//                mainViewController?.locationManager?.beginFetchingLocation()
+                mainViewController?.locationManager?.beginFetchingLocation()
             }
         }
     }
 
-    func sceneDidEnterBackground(_ scene: UIScene) {}
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")
+    }
+    
     func sceneDidDisconnect(_ scene: UIScene) { }
     func sceneDidBecomeActive(_ scene: UIScene) { }
     func sceneWillResignActive(_ scene: UIScene) { }

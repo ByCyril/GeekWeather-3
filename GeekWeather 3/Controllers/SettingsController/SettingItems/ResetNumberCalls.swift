@@ -1,5 +1,5 @@
 //
-//  ToggleMockedResponse.swift
+//  ResetNumberCalls.swift
 //  GeekWeather 3
 //
 //  Created by Cyril Garcia on 12/29/20.
@@ -8,44 +8,58 @@
 
 import UIKit
 
-class ToggleMockedResponse: SettingItem {
+class ResetNumberCalls: SettingItem {
     var cellHeight: CGFloat = 50
     
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
-        cell.textLabel?.text = "Show Mock Data"
+        cell.textLabel?.text = "Reset API Limit Count"
         return cell
     }
     
     func performSelector(_ vc: UIViewController) {
         let alert = UIAlertController(title: "Warning!", message: "Please use with caution. Some things might break when triggering this command. Feel free to ask the developer for more info about developer tools", preferredStyle: .actionSheet)
         
-        let mockedReponse = UserDefaults.standard.bool(forKey: "ToggleMockedResponse")
-        
-        let enable = UIAlertAction(title: "Turn On", style: .default) { (_) in
-            UserDefaults.standard.setValue(true, forKey: "ToggleMockedResponse")
-            self.finishedAlert(vc)
-        }
-        
-        let disable = UIAlertAction(title: "Turn Off", style: .default) { (_) in
-            UserDefaults.standard.setValue(false, forKey: "ToggleMockedResponse")
-            self.finishedAlert(vc)
+        let yes = UIAlertAction(title: "Reset", style: .default) { (_) in
+            self.askPermission(vc)
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alert.addAction(mockedReponse ? disable : enable )
+        alert.addAction(yes)
         alert.addAction(cancel)
         
-        vc.present(alert, animated: true) {
-            
-        }
+        vc.present(alert, animated: true)
     }
     
     func finishedAlert(_ vc: UIViewController) {
         let alert = UIAlertController(title: "Done", message: "Kill and relaunch the app", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancel)
+        vc.present(alert, animated: true)
+    }
+    
+    func askPermission(_ vc: UIViewController) {
+        let alert = UIAlertController(title: "Admin", message: "", preferredStyle: .alert)
+        
+        alert.addTextField { (textfield) in
+            textfield.isSecureTextEntry = true
+        }
+        
+        let reset = UIAlertAction(title: "Reset", style: .default) { (_) in
+            if let password =  alert.textFields?.first?.text {
+                if password == "573579257374367111111110" {
+                    UserDefaults.standard.setValue(0, forKey: "NumberOfCalls")
+                    self.finishedAlert(vc)
+                }
+            } 
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(reset)
+        alert.addAction(cancel)
+        
         vc.present(alert, animated: true, completion: nil)
     }
 }

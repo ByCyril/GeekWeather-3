@@ -14,41 +14,17 @@ final class SavedLocationViewController: UITableViewController {
     private let coreDataManager = PersistenceManager.shared
     private var savedLocation = [SavedLocation]()
     
-    init() {
-        super.init(style: .plain)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.separatorStyle = .none
-        
-    }
-        
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        locationSearchController?.isActive = true
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Search Location"
+        tableView.separatorStyle = .none
+        
         setupSearchController()
-        initUI()
+        
         savedLocation = coreDataManager.fetch(SavedLocation.self)
     }
-    
-    private func initUI() {
-        let backButton = UIButton()
-        backButton.setImage(UIImage(named: "back"), for: .normal)
-        backButton.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
-        let barButton = UIBarButtonItem(customView: backButton)
-        barButton.tintColor = UIColor.tertiarySystemFill
-        navigationItem.setRightBarButton(barButton, animated: true)
-    }
-    
-    @objc
-    func dismissController() {
+
+    @IBAction func dismissController() {
         dismiss(animated: true, completion: nil)
     }
     

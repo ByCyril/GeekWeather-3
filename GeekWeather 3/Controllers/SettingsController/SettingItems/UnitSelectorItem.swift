@@ -13,15 +13,16 @@ final class UnitSelectorItem: SettingItem {
     
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
-        cell.titleLabel.text = "Change Units"
-        cell.iconImageView.image = UIImage(named: "change-units-f")
+        cell.titleLabel.text = "F°/C°"
+        cell.iconImageView.image = UIImage(named: "thermometer")
         cell.accessoryType = .disclosureIndicator
         return cell
     }
     
     func performSelector(_ vc: UIViewController) {
-        
+        let uc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "ChangeUnitController")
+        uc.title = "F°/C°"
+        vc.show(uc, sender: vc)
     }
-    
     
 }

@@ -88,7 +88,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
                                              to: NotificationName.observerID("currentLocation"))
                     return
                 }
-                self.notificationManager.post(data: ["currentLocation": city],
+                self.notificationManager.post(data: ["currentLocation": city + ", " + country],
                                          to: NotificationName.observerID("currentLocation"))
                 
             }

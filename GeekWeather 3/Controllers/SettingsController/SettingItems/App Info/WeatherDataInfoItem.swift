@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-final class WeatherDataInfoItem: SettingItem {
+struct WeatherDataInfoItem: SettingItem {
     var cellHeight: CGFloat = 50
     
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {

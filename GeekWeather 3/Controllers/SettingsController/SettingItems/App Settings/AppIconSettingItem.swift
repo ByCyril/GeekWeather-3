@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppIconSettingItem: SettingItem {
+struct AppIconSettingItem: SettingItem {
     
     var cellHeight: CGFloat = 50
     

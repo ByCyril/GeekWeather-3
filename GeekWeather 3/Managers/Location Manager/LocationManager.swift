@@ -92,7 +92,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
                 
                 let city = firstLocation.locality ?? ""
                 let country = firstLocation.country ?? ""
-                print("Location manager",city, country)
+                print("📍 Location manager",city, country)
                 if country == "United States" {
                     let state = firstLocation.administrativeArea ?? ""
                     self.notificationManager.post(data: ["currentLocation": city + ", " + state],

@@ -37,12 +37,13 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
         var layout = UICollectionLayoutListConfiguration(appearance: .grouped)
         layout.backgroundColor = .clear
         layout.showsSeparators = false
+        
         let configuration = UICollectionViewCompositionalLayout.list(using: layout)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configuration)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
-        
+        collectionView.isScrollEnabled = false
         return collectionView
     }()
     

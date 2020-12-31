@@ -187,9 +187,22 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         }
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         HapticManager.soft()
     }
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        
+//        UIView.animate(withDuration: 0.4) { [weak self] in
+////            self?.levelOneViewController?.blurredEffectView.alpha = 0
+////            self?.levelTwoViewController?.blurredEffectView.alpha = 0
+////            self?.levelThreeViewController?.blurredEffectView.alpha = 0
+////            self?.levelOneViewController?.transform = .identity
+////            self?.levelTwoViewController?.transform = .identity
+////            self?.levelThreeViewController?.transform = .identity
+////            self?.shadowView.alpha = 0
+//            
+//        }
+//    }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
@@ -244,9 +257,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }
     
     func didFinishFetching(_ weatherModel: WeatherModel) {
-//        let location = CLLocation(latitude: weatherModel.lat, longitude: weatherModel.lon)
-//        locationManager?.lookupCurrentLocation(location)
-        
+
         let count = UserDefaults.standard.integer(forKey: "NumberOfCalls") + 1
         UserDefaults.standard.setValue(count, forKey: "NumberOfCalls")
         UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")

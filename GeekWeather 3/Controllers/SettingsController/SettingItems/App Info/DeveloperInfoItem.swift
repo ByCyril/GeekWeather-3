@@ -9,13 +9,13 @@
 import UIKit
 import SafariServices
 
-final class DeveloperInfoItem: SettingItem {
+struct DeveloperInfoItem: SettingItem {
     var cellHeight: CGFloat = 50
     
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
         
-        cell.titleLabel.text = "Developer"
+        cell.titleLabel.text = "Developer's Note"
         cell.iconImageView.image = UIImage(named: "boy")
         cell.accessoryType = .disclosureIndicator
         

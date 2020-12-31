@@ -8,12 +8,12 @@
 
 import UIKit
 
-final class UnitSelectorItem: SettingItem {
+struct UnitSelectorItem: SettingItem {
     var cellHeight: CGFloat = 50
     
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
-        cell.titleLabel.text = "Temperature"
+        cell.titleLabel.text = "Formatting"
         cell.iconImageView.image = UIImage(named: "thermometer")
         cell.accessoryType = .disclosureIndicator
         return cell
@@ -21,7 +21,7 @@ final class UnitSelectorItem: SettingItem {
     
     func performSelector(_ vc: UIViewController) {
         let uc = StoryboardManager.settings().instantiateViewController(withIdentifier: "ChangeUnitController")
-        uc.title = "Temperature"
+        uc.title = "Formatting"
         vc.show(uc, sender: vc)
     }
     

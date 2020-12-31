@@ -37,9 +37,8 @@ final class LevelTwoDailyViewCell: UICollectionViewCell {
         let padding: CGFloat = 10
         
         NSLayoutConstraint.activate([
-            iconView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
             iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding + 5),
-            iconView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
+            iconView.centerYAnchor.constraint(equalTo: centerYAnchor),
             iconView.heightAnchor.constraint(equalToConstant: 45),
             iconView.widthAnchor.constraint(equalToConstant: 45),
             

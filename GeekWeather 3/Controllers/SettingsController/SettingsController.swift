@@ -71,7 +71,6 @@ final class SettingsController: UITableViewController {
         return settingManager.sections[indexPath.section].cells[indexPath.row].createCell(in: tableView, for: indexPath)
     }
     
-    
     deinit {
         reclaimedMemory()
     }

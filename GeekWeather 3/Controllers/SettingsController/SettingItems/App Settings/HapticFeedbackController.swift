@@ -13,14 +13,14 @@ struct HapticFeedbackItem: SettingItem {
     
     func createCell(in tableView: UITableView, for indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
-        cell.titleLabel.text = "Haptic Feedback"
+        cell.titleLabel.text = "System"
         cell.accessoryType = .disclosureIndicator
         return cell
     }
     
     func performSelector(_ vc: UIViewController) {
         let hc = StoryboardManager.settings().instantiateViewController(withIdentifier: "HapticFeedbackSettings")
-        hc.title = "Haptic Feedback"
+        hc.title = "System"
         vc.show(hc, sender: vc)
     }
     

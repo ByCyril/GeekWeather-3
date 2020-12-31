@@ -190,17 +190,18 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
-        UIView.animate(withDuration: 0.3) {
-            self.levelOneViewController?.blurredEffectView.alpha = 0
-            self.levelTwoViewController?.blurredEffectView.alpha = 0
-            self.levelThreeViewController?.blurredEffectView.alpha = 0
-            self.levelOneViewController?.transform = .identity
-            self.levelTwoViewController?.transform = .identity
-            self.levelThreeViewController?.transform = .identity
-            self.shadowView.alpha = 0
-            self.leftShadowview.alpha = 0
-            self.rightShadowView.alpha = 0
-            self.bottomShadowView.alpha = 0
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.levelOneViewController?.blurredEffectView.alpha = 0
+            self?.levelTwoViewController?.blurredEffectView.alpha = 0
+            self?.levelThreeViewController?.blurredEffectView.alpha = 0
+            self?.levelOneViewController?.transform = .identity
+            self?.levelTwoViewController?.transform = .identity
+            self?.levelThreeViewController?.transform = .identity
+            self?.shadowView.alpha = 0
+            self?.leftShadowview.alpha = 0
+            self?.rightShadowView.alpha = 0
+            self?.bottomShadowView.alpha = 0
+            HapticManager.soft()
         }
     }
     
@@ -208,17 +209,18 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         
         let scale: CGFloat = 0.925
         
-        UIView.animate(withDuration: 0.2) {
-            self.levelOneViewController?.blurredEffectView.alpha = 0.35
-            self.levelTwoViewController?.blurredEffectView.alpha = 0.35
-            self.levelThreeViewController?.blurredEffectView.alpha = 0.35
-            self.levelOneViewController?.transform = .init(scaleX: scale, y: scale)
-            self.levelTwoViewController?.transform = .init(scaleX: scale, y: scale)
-            self.levelThreeViewController?.transform = .init(scaleX: scale, y: scale)
-            self.shadowView.alpha = self.shadowOpacity
-            self.leftShadowview.alpha = self.shadowOpacity
-            self.rightShadowView.alpha = self.shadowOpacity
-            self.bottomShadowView.alpha = self.shadowOpacity
+        UIView.animate(withDuration: 0.2) { [weak self] in
+            self?.levelOneViewController?.blurredEffectView.alpha = 0.35
+            self?.levelTwoViewController?.blurredEffectView.alpha = 0.35
+            self?.levelThreeViewController?.blurredEffectView.alpha = 0.35
+            self?.levelOneViewController?.transform = .init(scaleX: scale, y: scale)
+            self?.levelTwoViewController?.transform = .init(scaleX: scale, y: scale)
+            self?.levelThreeViewController?.transform = .init(scaleX: scale, y: scale)
+            self?.shadowView.alpha = self!.shadowOpacity
+            self?.leftShadowview.alpha = self!.shadowOpacity
+            self?.rightShadowView.alpha = self!.shadowOpacity
+            self?.bottomShadowView.alpha = self!.shadowOpacity
+            HapticManager.soft()
         }
     }
     

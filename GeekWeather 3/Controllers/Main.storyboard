@@ -263,60 +263,6 @@
             </objects>
             <point key="canvasLocation" x="2479.7101449275365" y="-725.22321428571422"/>
         </scene>
-        <!--Change Units-->
-        <scene sceneID="jcK-Oc-xXg">
-            <objects>
-                <tableViewController storyboardIdentifier="ChangeUnitController" id="ysr-9J-hd3" customClass="ChangeUnitController" customModule="GeekWeather" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="CC2-FD-kYc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="Change Units" id="Gg2-Lt-Zx8">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="flx-8S-m1F">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="flx-8S-m1F" id="i5s-mT-8wx">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OqS-r9-flM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
-                                                    <segments>
-                                                        <segment title="Imperial"/>
-                                                        <segment title="Metric"/>
-                                                    </segments>
-                                                    <connections>
-                                                        <action selector="didChangeUnits:" destination="ysr-9J-hd3" eventType="valueChanged" id="Nza-YB-8WJ"/>
-                                                    </connections>
-                                                </segmentedControl>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="OqS-r9-flM" secondAttribute="bottom" id="5Fo-SB-M8Y"/>
-                                                <constraint firstItem="OqS-r9-flM" firstAttribute="top" secondItem="i5s-mT-8wx" secondAttribute="top" id="8Jw-92-ein"/>
-                                                <constraint firstItem="OqS-r9-flM" firstAttribute="leading" secondItem="i5s-mT-8wx" secondAttribute="leading" id="94g-RX-P4n"/>
-                                                <constraint firstAttribute="trailing" secondItem="OqS-r9-flM" secondAttribute="trailing" id="EbC-Vu-goJ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="ysr-9J-hd3" id="3NM-Zx-HTb"/>
-                            <outlet property="delegate" destination="ysr-9J-hd3" id="D0a-0H-ifX"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Change Units" id="11V-VK-2uQ"/>
-                    <connections>
-                        <outlet property="segmentController" destination="OqS-r9-flM" id="MBt-br-RDS"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Yp-CC-uzC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3278" y="-725"/>
-        </scene>
         <!--Main View Controller-->
         <scene sceneID="gLe-gn-lFy">
             <objects>

@@ -10,13 +10,15 @@ import UIKit
 import GWFoundation
 
 enum Section {
-    case `static`
     case main
 }
 
 final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout {
-   
+    
     @IBOutlet var containerView: UIView!
+    
+    private var hourlyDataSource: UICollectionViewDiffableDataSource<Section, Hourly>?
+    private var dailyDataSource: UICollectionViewDiffableDataSource<Section, Daily>?
     
     lazy var hourlyView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -24,6 +26,8 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
         layout.itemSize = CGSize(width: 55, height: 100)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceHorizontal = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         return collectionView
@@ -34,16 +38,13 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
         layout.backgroundColor = .clear
         layout.showsSeparators = false
         let configuration = UICollectionViewCompositionalLayout.list(using: layout)
-
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configuration)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         
         return collectionView
     }()
-        
-    private var hourlyDataSource: UICollectionViewDiffableDataSource<Section, Hourly>?
-    private var dailyDataSource: UICollectionViewDiffableDataSource<Section, Daily>?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,7 +60,7 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
+    
     private func hourlyViewSetup() {
         addSubview(hourlyView)
         
@@ -71,7 +72,7 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
         ])
         
         layoutIfNeeded()
-                
+        
         let registration = UICollectionView.CellRegistration<LevelTwoHourlyViewCell, Hourly> { cell, indexPath, data in
             cell.iconView.image = UIImage(named: data.weather.first!.icon)
             cell.tempLabel.text = data.temp.temp()
@@ -83,11 +84,11 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
         })
         
     }
- 
+    
     private func dailyViewSetup() {
         dailyView.delegate = self
         addSubview(dailyView)
-
+        
         NSLayoutConstraint.activate([
             dailyView.topAnchor.constraint(equalTo: hourlyView.bottomAnchor),
             dailyView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -110,12 +111,12 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
                 cell.applyAccessibility(with: "On \(day)", and: "\(summary), and a high of \(daily.temp.max.temp()) and a low of \(daily.temp.min.temp())", trait: .staticText)
             }
             
-//            if daily.pop >= 0.15 {
-//                cell.percLabel.text = "Chance of Rain " + daily.pop.percentage(chop: false)
-//                cell.percLabel.isHidden = false
-//            } else {
-//                cell.percLabel.isHidden = true
-//            }
+            //            if daily.pop >= 0.15 {
+            //                cell.percLabel.text = "Chance of Rain " + daily.pop.percentage(chop: false)
+            //                cell.percLabel.isHidden = false
+            //            } else {
+            //                cell.percLabel.isHidden = true
+            //            }
             
             cell.iconView.image = UIImage(named: daily.weather.first!.icon)
             cell.highTempLabel.text = daily.temp.max.temp()
@@ -130,29 +131,24 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
     
     override func update(from notification: NSNotification) {
         guard let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel else { return }
-        populateHourlyView(with: weatherModel.hourly)
-        populateDailyView(with: weatherModel.daily)
+        populate(with: weatherModel)
     }
     
-    
-    private func populateHourlyView(with data: [Hourly]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Hourly>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(Array(data[..<20]))
-        hourlyDataSource?.apply(snapshot)
-    }
-    
-    private func populateDailyView(with data: [Daily]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Daily>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(data)
-        dailyDataSource?.apply(snapshot)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = dailyView.frame.height
-        print(height)
-        return CGSize(width: dailyView.frame.width, height: height / 8)
+    private func populate(with weatherModel: WeatherModel) {
+        var hourlySnapshot = NSDiffableDataSourceSnapshot<Section, Hourly>()
+        hourlySnapshot.appendSections([.main])
+        hourlySnapshot.appendItems(Array(weatherModel.hourly[..<20]))
+        hourlyDataSource?.apply(hourlySnapshot)
+        
+        var dailySnapshot = NSDiffableDataSourceSnapshot<Section, Daily>()
+        dailySnapshot.appendSections([.main])
+        dailySnapshot.appendItems(weatherModel.daily)
+        dailyDataSource?.apply(dailySnapshot)
     }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height = dailyView.frame.height
+        return CGSize(width: dailyView.frame.width, height: height / 8)
+    }
+    
 }

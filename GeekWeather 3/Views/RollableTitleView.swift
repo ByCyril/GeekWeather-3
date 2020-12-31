@@ -90,7 +90,10 @@ final class RollableTitleView: UIView {
         topAnimationConstraint?.constant = -offsetY
     }
     
+    var lastPadding: CGFloat = 0
+    
     func hideTitles() {
+        lastPadding = topAnimationConstraint!.constant
         topAnimationConstraint?.constant = itemHeight
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut) { [weak self] in
             self?.layoutIfNeeded()
@@ -98,7 +101,7 @@ final class RollableTitleView: UIView {
     }
     
     func showTitles() {
-        topAnimationConstraint?.constant = 0
+        topAnimationConstraint?.constant = lastPadding
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut) { [weak self] in
             self?.layoutIfNeeded()
         }

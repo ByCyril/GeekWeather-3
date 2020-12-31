@@ -16,7 +16,6 @@ final class NavigationView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         settingsButton.applyAccessibility(with: "Settings", and: nil, trait: .button)
         searchButton.applyAccessibility(with: "Search", and: nil, trait: .button)
     }

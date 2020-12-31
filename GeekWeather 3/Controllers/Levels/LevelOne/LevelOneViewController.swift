@@ -28,7 +28,7 @@ final class LevelOneViewController: BaseView {
         createBlurView()
         
         tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
-        summaryLabel.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: summaryLabel.font)
+        summaryLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: summaryLabel.font)
         commentLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: commentLabel.font)
                 
         [tempLabel, summaryLabel, commentLabel].forEach { (element) in

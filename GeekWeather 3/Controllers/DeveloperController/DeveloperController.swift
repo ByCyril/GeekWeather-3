@@ -16,6 +16,7 @@ final class DeveloperController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Developer"
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
         tableView.estimatedRowHeight = 150
         tableView.rowHeight = UITableView.automaticDimension
         tableView.reloadData()

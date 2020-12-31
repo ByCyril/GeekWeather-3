@@ -38,6 +38,10 @@
 		010F7DB8259C129C00D53BFA /* GWFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D14D2597D72200298ABD /* GWFont.swift */; };
 		010F7DCE259C44DF00D53BFA /* ResetNumberCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010F7DCD259C44DF00D53BFA /* ResetNumberCalls.swift */; };
 		011908C3259D34F400EE1C0F /* GWTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011908C2259D34F400EE1C0F /* GWTest.swift */; };
+		0119098E259D891B00EE1C0F /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119098D259D891B00EE1C0F /* HapticManager.swift */; };
+		01190992259D8BEA00EE1C0F /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01190991259D8BEA00EE1C0F /* Settings.storyboard */; };
+		01190996259D8C7B00EE1C0F /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01190995259D8C7B00EE1C0F /* StoryboardManager.swift */; };
+		0119099A259D8CDC00EE1C0F /* HapticFeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01190999259D8CDC00EE1C0F /* HapticFeedbackController.swift */; };
 		0127D10F2595735C00298ABD /* GeekWeatherWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B8A425957249008577FD /* GeekWeatherWidgetEntryView.swift */; };
 		0127D118259573CF00298ABD /* TodayViewMedium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D1142595736F00298ABD /* TodayViewMedium.swift */; };
 		0127D14E2597D72200298ABD /* GWFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D14D2597D72200298ABD /* GWFont.swift */; };
@@ -165,6 +169,10 @@
 		01042C3224ECDF850090B349 /* AppIconSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingItem.swift; sourceTree = "<group>"; };
 		010F7DCD259C44DF00D53BFA /* ResetNumberCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetNumberCalls.swift; sourceTree = "<group>"; };
 		011908C2259D34F400EE1C0F /* GWTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWTest.swift; sourceTree = "<group>"; };
+		0119098D259D891B00EE1C0F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		01190991259D8BEA00EE1C0F /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		01190995259D8C7B00EE1C0F /* StoryboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
+		01190999259D8CDC00EE1C0F /* HapticFeedbackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackController.swift; sourceTree = "<group>"; };
 		0127D1142595736F00298ABD /* TodayViewMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewMedium.swift; sourceTree = "<group>"; };
 		0127D14D2597D72200298ABD /* GWFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWFont.swift; sourceTree = "<group>"; };
 		0127D15B2597F55D00298ABD /* AppIconSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSelectionController.swift; sourceTree = "<group>"; };
@@ -310,6 +318,8 @@
 			children = (
 				0100D80A24CE52B600C9F9B5 /* Notification Manager */,
 				014D2A3D24D3F7550038623E /* Location Manager */,
+				0119098D259D891B00EE1C0F /* HapticManager.swift */,
+				01190995259D8C7B00EE1C0F /* StoryboardManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -327,10 +337,12 @@
 			isa = PBXGroup;
 			children = (
 				01844A1524F22113000B0D52 /* Main.storyboard */,
+				01190991259D8BEA00EE1C0F /* Settings.storyboard */,
+				011908F3259D797400EE1C0F /* DeveloperController */,
 				011908EA259D726600EE1C0F /* ChangeUnitController */,
 				011908D2259D718D00EE1C0F /* ErrorViewController */,
 				011908D5259D719800EE1C0F /* AppIconSelectionController */,
-				01430F3A259BF57500D67245 /* SavedLocation */,
+				01430F3A259BF57500D67245 /* SavedLocationController */,
 				01BE6CAF259AEBA6000016CA /* OnboardingController */,
 				01042C3424ECDFA50090B349 /* SettingsController */,
 				01042C2724EC8A6A0090B349 /* Main Controller */,
@@ -388,18 +400,10 @@
 		01042C3524ECDFB40090B349 /* SettingItems */ = {
 			isa = PBXGroup;
 			children = (
-				01BE6CC0259B1C40000016CA /* ToggleMockedResponse.swift */,
-				010F7DCD259C44DF00D53BFA /* ResetNumberCalls.swift */,
-				01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */,
-				01430F41259BFCD100D67245 /* DeleteAllSearchItems.swift */,
 				01042C2E24ECDF510090B349 /* SettingItem.swift */,
-				01042C3024ECDF660090B349 /* AboutSettingItem.swift */,
-				01B1BEBE24EE34740081C90F /* WeatherDataInfoItem.swift */,
-				01B1BEC024EE36310081C90F /* PrivacyPolicyInfoItem.swift */,
-				017B9F0D25930A4A007AB956 /* DeveloperController.swift */,
-				01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */,
-				01042C3224ECDF850090B349 /* AppIconSettingItem.swift */,
-				01B1BEBC24EE33320081C90F /* UnitSelectorItem.swift */,
+				0119099D259D8F3B00EE1C0F /* Developer Tools */,
+				011909A0259D8F4700EE1C0F /* App Info */,
+				011909A3259D8F5200EE1C0F /* App Settings */,
 			);
 			path = SettingItems;
 			sourceTree = "<group>";
@@ -452,14 +456,54 @@
 			path = ChangeUnitController;
 			sourceTree = "<group>";
 		};
-		01430F3A259BF57500D67245 /* SavedLocation */ = {
+		011908F3259D797400EE1C0F /* DeveloperController */ = {
+			isa = PBXGroup;
+			children = (
+				017B9F0D25930A4A007AB956 /* DeveloperController.swift */,
+			);
+			path = DeveloperController;
+			sourceTree = "<group>";
+		};
+		0119099D259D8F3B00EE1C0F /* Developer Tools */ = {
+			isa = PBXGroup;
+			children = (
+				01BE6CC0259B1C40000016CA /* ToggleMockedResponse.swift */,
+				010F7DCD259C44DF00D53BFA /* ResetNumberCalls.swift */,
+				01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */,
+				01430F41259BFCD100D67245 /* DeleteAllSearchItems.swift */,
+			);
+			path = "Developer Tools";
+			sourceTree = "<group>";
+		};
+		011909A0259D8F4700EE1C0F /* App Info */ = {
+			isa = PBXGroup;
+			children = (
+				01042C3024ECDF660090B349 /* AboutSettingItem.swift */,
+				01B1BEBE24EE34740081C90F /* WeatherDataInfoItem.swift */,
+				01B1BEC024EE36310081C90F /* PrivacyPolicyInfoItem.swift */,
+				01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */,
+			);
+			path = "App Info";
+			sourceTree = "<group>";
+		};
+		011909A3259D8F5200EE1C0F /* App Settings */ = {
+			isa = PBXGroup;
+			children = (
+				01042C3224ECDF850090B349 /* AppIconSettingItem.swift */,
+				01B1BEBC24EE33320081C90F /* UnitSelectorItem.swift */,
+				01190999259D8CDC00EE1C0F /* HapticFeedbackController.swift */,
+			);
+			path = "App Settings";
+			sourceTree = "<group>";
+		};
+		01430F3A259BF57500D67245 /* SavedLocationController */ = {
 			isa = PBXGroup;
 			children = (
 				0158D0292505DF0C008692DC /* SearchLocationViewController.swift */,
 				0158D0302505E3ED008692DC /* SavedLocationViewController.swift */,
 				01430F3D259BF58400D67245 /* PersistenceManager.swift */,
 			);
-			path = SavedLocation;
+			path = SavedLocationController;
 			sourceTree = "<group>";
 		};
 		014D2A3D24D3F7550038623E /* Location Manager */ = {
@@ -663,6 +707,7 @@
 			files = (
 				018818CB258F23FB009EE9EE /* LevelThreeTableViewCell.xib in Resources */,
 				01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */,
+				01190992259D8BEA00EE1C0F /* Settings.storyboard in Resources */,
 				01844A1C24F22646000B0D52 /* LevelTwoViewController.xib in Resources */,
 				018840E8258C3DE400CED4F1 /* loader.json in Resources */,
 				01844A1824F2219F000B0D52 /* LevelOneViewController.xib in Resources */,
@@ -746,6 +791,7 @@
 			files = (
 				01BE6C85259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift in Sources */,
 				01042C2C24EC8FCF0090B349 /* SettingsTableViewCell.swift in Sources */,
+				01190996259D8C7B00EE1C0F /* StoryboardManager.swift in Sources */,
 				01B94880259A687200884150 /* LevelTwoDailyViewCell.swift in Sources */,
 				01B1BEBD24EE33320081C90F /* UnitSelectorItem.swift in Sources */,
 				01430F37259BF4DB00D67245 /* Model.xcdatamodeld in Sources */,
@@ -760,6 +806,7 @@
 				0146C05A24F787D000967A37 /* Mocks.swift in Sources */,
 				0158D02A2505DF0C008692DC /* SearchLocationViewController.swift in Sources */,
 				0153693425174D580044D108 /* GWTransition.swift in Sources */,
+				0119098E259D891B00EE1C0F /* HapticManager.swift in Sources */,
 				0169434124E244B2006A7FAA /* BaseView.swift in Sources */,
 				01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */,
 				01BE6C9F259AD6DC000016CA /* OnboardingViewControllerLevelTwo.swift in Sources */,
@@ -771,6 +818,7 @@
 				0158D0312505E3ED008692DC /* SavedLocationViewController.swift in Sources */,
 				01430F3E259BF58400D67245 /* PersistenceManager.swift in Sources */,
 				01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */,
+				0119099A259D8CDC00EE1C0F /* HapticFeedbackController.swift in Sources */,
 				018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */,
 				0127D14E2597D72200298ABD /* GWFont.swift in Sources */,
 				01BE6CC1259B1C40000016CA /* ToggleMockedResponse.swift in Sources */,

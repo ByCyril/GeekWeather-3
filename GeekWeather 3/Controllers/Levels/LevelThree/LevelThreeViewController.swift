@@ -13,7 +13,7 @@ extension String {
     func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()
     }
-
+    
     mutating func capitalizeFirstLetter() {
         self = self.capitalizingFirstLetter()
     }
@@ -49,7 +49,7 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         let view = Bundle.main.loadNibNamed("LevelThreeViewController", owner: self, options: nil)?.first as! LevelThreeViewController
         loadXib(view, self)
         
@@ -87,14 +87,14 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
         let current = weatherModel.current
         
         let firstRow = DetailsData(firstItemLabel: "Sunrise",
-                                        firstItemValue: current.sunrise.date(.time),
-                                        secondItemLabel: "Sunset",
-                                        secondItemValue: current.sunset.date(.time))
+                                   firstItemValue: current.sunrise.date(.time),
+                                   secondItemLabel: "Sunset",
+                                   secondItemValue: current.sunset.date(.time))
         
         let secondRow = DetailsData(firstItemLabel: "High Temperature",
-                                      firstItemValue: weatherModel.daily.first!.temp.max.temp(),
-                                      secondItemLabel: "Low Temperature",
-                                      secondItemValue: weatherModel.daily.first!.temp.min.temp())
+                                    firstItemValue: weatherModel.daily.first!.temp.max.temp(),
+                                    secondItemLabel: "Low Temperature",
+                                    secondItemValue: weatherModel.daily.first!.temp.min.temp())
         
         let thirdRow = DetailsData(firstItemLabel: "Chance of Rain",
                                    firstItemValue: weatherModel.daily.first!.pop.percentage(chop: true),
@@ -121,10 +121,15 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
                                     secondItemLabel: "UV Index",
                                     secondItemValue: uviLevel)
         
-        detailsData = [firstRow, secondRow, thirdRow, fourthRow]
+        let fifthRow = DetailsData(firstItemLabel: "Wind Speed",
+                                   firstItemValue: current.wind_speed.stringRound(),
+                                    secondItemLabel: "Pressure",
+                                    secondItemValue: current.pressure.stringRound())
+        
+        detailsData = [firstRow, secondRow, thirdRow, fourthRow, fifthRow]
         tableView.reloadData()
     }
-        
+    
     override func getContentOffset(_ offset: CGPoint) {
         let height = frame.size.height
         tableView.alpha = (1 - ((offset.y) / height)) * -1
@@ -135,7 +140,7 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LevelThreeTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? LevelThreeTableViewCell else { return UITableViewCell() }
         let data = detailsData[indexPath.row]
         
         cell.firstItemLabel.text = data.firstItemLabel
@@ -145,5 +150,5 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
         
         return cell
     }
-
+    
 }

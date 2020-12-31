@@ -25,9 +25,11 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
     
     func initUI() {
         
+        timestampLabel.font = GWFont.AvenirNext(style: .Medium, size: 17)
         timestampLabel.textAlignment = .center
         timestampLabel.textColor = .white
         
+        tempLabel.font = GWFont.AvenirNext(style: .Bold, size: 18)
         tempLabel.textAlignment = .center
         tempLabel.textColor = .white
         

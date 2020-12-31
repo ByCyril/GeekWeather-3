@@ -9,15 +9,11 @@
 import UIKit
 import CoreLocation
 
-final class OnboardingViewControllerLevelThree: UIViewController {
+final class OnboardingViewControllerLevelThree: OnboardingBaseViewController {
     
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         searchButton.layer.borderWidth = 2

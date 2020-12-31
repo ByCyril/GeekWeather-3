@@ -8,20 +8,16 @@
 
 import UIKit
 
-final class OnboardingViewControllerLevelOne: UIViewController {
+final class OnboardingViewControllerLevelOne: OnboardingBaseViewController {
     
     @IBOutlet var logoView: UIImageView!
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var cyrilLabel: UILabel!
     @IBOutlet weak var continueButton: UIButton!
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         noteLabel.alpha = 0
         cyrilLabel.alpha = 0
         continueButton.alpha = 0
@@ -32,8 +28,13 @@ final class OnboardingViewControllerLevelOne: UIViewController {
         logoView.layer.cornerRadius = 35
         view.backgroundColor = UIColor(named: "IconBlue")!
         
-        UIView.animate(withDuration: 0.4, delay: 1.5, options: .curveEaseInOut) {
-            self.firstAnimation()
+        let backgroundView = UIView(frame: view.bounds)
+        backgroundView.backgroundColor = UIColor(named: "IconBlue")!
+        view.insertSubview(backgroundView, at: 1)
+        
+        UIView.animate(withDuration: 1, delay: 1.5, options: .curveEaseInOut) { [weak self] in
+            backgroundView.alpha = 0
+            self?.firstAnimation()
         }
 
     }

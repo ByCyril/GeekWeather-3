@@ -27,7 +27,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for downloading GeekWeather 3!" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTO-fg-76F">
                                 <rect key="frame" x="20" y="520.5" width="374" height="68.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfe-GR-xfn">
@@ -36,7 +36,9 @@
                                     <constraint firstAttribute="height" constant="50" id="hay-9w-szf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="Continue"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="zfe-Jd-ij4" kind="show" id="5uc-kF-YUx"/>
                                 </connections>
@@ -44,7 +46,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="-Cyril" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Oh-QJ-fQB">
                                 <rect key="frame" x="20" y="597" width="80" height="35"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -89,6 +91,7 @@
                                     <constraint firstAttribute="height" constant="50" id="xNl-Cw-wwe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Deny"/>
                                 <connections>
                                     <segue destination="B0g-Zn-W1a" kind="show" id="6xY-Wn-E4K"/>
@@ -100,6 +103,7 @@
                                     <constraint firstAttribute="height" constant="50" id="76K-5j-9AU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Allow"/>
                                 <connections>
                                     <action selector="requestLocationPermission:" destination="zfe-Jd-ij4" eventType="touchUpInside" id="kTz-uf-6ao"/>
@@ -107,20 +111,23 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn on location services?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZF-a4-X6g">
                                 <rect key="frame" x="20" y="315" width="374" height="41"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="30"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your location is used to determine the current weather conditions based on your current location." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KC-Iz-Pna">
                                 <rect key="frame" x="20" y="364" width="374" height="82"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GeekWeather does NOT collect any information about its users." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1V-nc-K5Q">
                                 <rect key="frame" x="20" y="526" width="374" height="55"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -164,7 +171,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can still use the app by searching for a location by city or zip code!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUh-3Y-3nK">
                                 <rect key="frame" x="20" y="425.5" width="374" height="55"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9w1-jt-TWH">
@@ -173,7 +180,9 @@
                                     <constraint firstAttribute="height" constant="50" id="n4z-uF-hLS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="Search"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="requestLocationPermission:" destination="zfe-Jd-ij4" eventType="touchUpInside" id="lSN-H2-A0h"/>
                                     <action selector="searchLocation:" destination="B0g-Zn-W1a" eventType="touchUpInside" id="ik9-6L-GMb"/>
@@ -182,7 +191,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9I-Mu-o4h">
                                 <rect key="frame" x="20" y="376.5" width="374" height="41"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="30"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -220,7 +229,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I hope you enjoy using GeekWeather" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11q-DZ-eKa">
                                 <rect key="frame" x="20" y="439.5" width="374" height="27.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqb-nk-9Tv">
@@ -229,7 +238,9 @@
                                     <constraint firstAttribute="height" constant="50" id="knK-q6-F8m"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="Continue"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="continueToApp:" destination="zd6-Zq-86N" eventType="touchUpInside" id="Axo-ae-4eF"/>
                                 </connections>
@@ -237,7 +248,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GeekWeather is ready!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVi-sk-itr">
                                 <rect key="frame" x="20" y="390" width="374" height="41"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="30"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -322,55 +333,23 @@
                                     <outlet property="settingsButton" destination="Shd-eo-sw5" id="3sF-F3-A5A"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JlI-sK-J5R">
-                                <rect key="frame" x="-35" y="119" width="30" height="800"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="lfu-c8-P4b"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5sW-73-GVa">
-                                <rect key="frame" x="419" y="119" width="30" height="800"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="HWq-hg-87H"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfs-qy-3yQ">
-                                <rect key="frame" x="0.0" y="896" width="414" height="30"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1MB-rF-5oV"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pXi-pg-nEr" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="top" id="1rj-30-y7z"/>
-                            <constraint firstItem="hfs-qy-3yQ" firstAttribute="bottom" secondItem="aeX-s0-w3a" secondAttribute="bottom" constant="30" id="9Ca-Q8-fn8"/>
-                            <constraint firstItem="1MB-rF-5oV" firstAttribute="leading" secondItem="JlI-sK-J5R" secondAttribute="leading" constant="35" id="El6-tj-Ejq"/>
-                            <constraint firstItem="JlI-sK-J5R" firstAttribute="bottom" secondItem="aeX-s0-w3a" secondAttribute="bottom" constant="23" id="Ldf-Nj-m9b"/>
-                            <constraint firstItem="5sW-73-GVa" firstAttribute="bottom" secondItem="aeX-s0-w3a" secondAttribute="bottom" constant="23" id="M4j-VH-3bU"/>
                             <constraint firstItem="pXi-pg-nEr" firstAttribute="bottom" secondItem="MPR-xt-J3y" secondAttribute="bottom" id="NaR-61-veC"/>
                             <constraint firstItem="pXi-pg-nEr" firstAttribute="height" secondItem="MPR-xt-J3y" secondAttribute="height" id="P78-Vl-fO0"/>
                             <constraint firstItem="1MB-rF-5oV" firstAttribute="trailing" secondItem="pXi-pg-nEr" secondAttribute="trailing" constant="-30" id="T54-Vk-sTn"/>
-                            <constraint firstItem="hfs-qy-3yQ" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="cao-NJ-je0"/>
-                            <constraint firstItem="5sW-73-GVa" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="bottom" id="eUB-nf-dGI"/>
-                            <constraint firstItem="5sW-73-GVa" firstAttribute="trailing" secondItem="1MB-rF-5oV" secondAttribute="trailing" constant="35" id="fUq-kl-YHL"/>
-                            <constraint firstItem="1MB-rF-5oV" firstAttribute="trailing" secondItem="hfs-qy-3yQ" secondAttribute="trailing" id="gCk-Mz-COH"/>
-                            <constraint firstItem="hfs-qy-3yQ" firstAttribute="height" secondItem="aeX-s0-w3a" secondAttribute="height" multiplier="0.0334821" id="jw6-Gi-49Z"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" id="lbM-lf-XnN"/>
                             <constraint firstItem="pXi-pg-nEr" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" constant="-46" id="qIz-Wd-Iho"/>
-                            <constraint firstItem="JlI-sK-J5R" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="bottom" id="u3W-wY-t2I"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="trailing" secondItem="1MB-rF-5oV" secondAttribute="trailing" id="wI8-yz-mZe"/>
                             <constraint firstItem="MPR-xt-J3y" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="zY5-zf-F16"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nf1-GG-9gM"/>
                     <connections>
-                        <outlet property="bottomShadowView" destination="hfs-qy-3yQ" id="VB7-nD-bmr"/>
-                        <outlet property="customNavView" destination="MPR-xt-J3y" id="TJh-QZ-Lh7"/>
-                        <outlet property="leftShadowview" destination="JlI-sK-J5R" id="SGX-9g-RSr"/>
                         <outlet property="navView" destination="MPR-xt-J3y" id="pYZ-sx-jfG"/>
-                        <outlet property="rightShadowView" destination="5sW-73-GVa" id="S5P-rw-9Jc"/>
                         <outlet property="shadowView" destination="pXi-pg-nEr" id="Wtp-aB-DkR"/>
                     </connections>
                 </viewController>
@@ -694,7 +673,7 @@
             <color red="0.99199998378753662" green="0.41999998688697815" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="White">
-            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.12200000137090683" green="0.32199999690055847" blue="0.51800000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -9,17 +9,13 @@
 import UIKit
 import CoreLocation
 
-final class OnboardingViewControllerLevelTwo: UIViewController, CLLocationManagerDelegate {
+final class OnboardingViewControllerLevelTwo: OnboardingBaseViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var denyButton: UIButton!
     @IBOutlet weak var allowButton: UIButton!
     
     let locationManager = CLLocationManager()
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

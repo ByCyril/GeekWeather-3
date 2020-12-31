@@ -8,14 +8,10 @@
 
 import UIKit
 
-final class OnboardingViewControllerLevelFour: UIViewController {
+final class OnboardingViewControllerLevelFour: OnboardingBaseViewController {
     
     @IBOutlet weak var continueButton: UIButton!
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
-    }
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         continueButton.layer.borderWidth = 2

@@ -30,6 +30,7 @@ class BaseView: UIView, NotificationManagerDelegate {
     func loadXib(_ view: UIView,_ main: UIView) {
         view.frame = bounds
         view.backgroundColor = .clear
+        view.clipsToBounds = true
         view.layoutIfNeeded()
         main.addSubview(view)
     }

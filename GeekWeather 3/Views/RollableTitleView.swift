@@ -40,7 +40,7 @@ final class RollableTitleView: UIView {
     }
         
     func initUI() {
-
+        todayLabel.numberOfLines = 1
         todayLabel.text = "--"
         geekLabel.text = "Details"
         forecastLabel.text = "Forecast"
@@ -58,12 +58,13 @@ final class RollableTitleView: UIView {
         addSubview(labelContainer)
         labelContainer.backgroundColor = .clear
         backgroundColor = .clear
+        alpha = 0
         
         labelContainer.addArrangedSubview(todayLabel)
         labelContainer.addArrangedSubview(forecastLabel)
         labelContainer.addArrangedSubview(geekLabel)
         
-        topAnimationConstraint = labelContainer.topAnchor.constraint(equalTo: topAnchor, constant: itemHeight)
+        topAnimationConstraint = labelContainer.topAnchor.constraint(equalTo: topAnchor)
         topAnimationConstraint?.isActive = true
         
         labelContainer.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
@@ -90,20 +91,15 @@ final class RollableTitleView: UIView {
         topAnimationConstraint?.constant = -offsetY
     }
     
-    var lastPadding: CGFloat = 0
-    
     func hideTitles() {
-        lastPadding = topAnimationConstraint!.constant
-        topAnimationConstraint?.constant = itemHeight
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut) { [weak self] in
-            self?.layoutIfNeeded()
+            self?.alpha = 0
         }
     }
     
     func showTitles() {
-        topAnimationConstraint?.constant = lastPadding
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut) { [weak self] in
-            self?.layoutIfNeeded()
+            self?.alpha = 1
         }
         
     }

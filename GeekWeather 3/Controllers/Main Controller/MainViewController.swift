@@ -21,18 +21,14 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     var locationManager: LocationManager?
     
     @IBOutlet var navView: NavigationView?
-    @IBOutlet var customNavView: UIView!
     @IBOutlet var shadowView: UIView!
-    @IBOutlet var leftShadowview: UIView!
-    @IBOutlet var rightShadowView: UIView!
-    @IBOutlet var bottomShadowView: UIView!
     
     private let gradientLayer = CAGradientLayer()
+    private let shadowOpacity: CGFloat = 0.75
     
     private var levelOneViewController: LevelOneViewController?
     private var levelTwoViewController: LevelTwoViewController?
     private var levelThreeViewController: LevelThreeViewController?
-    private var topConstraint: NSLayoutConstraint?
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -45,8 +41,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         return scrollView
     }()
     
-    let shadowOpacity: CGFloat = 0.75
- 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -64,13 +58,12 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     @objc
     func unitDidChange(_ notification: NSNotification) {
-        let count = UserDefaults.standard.integer(forKey: "NumberOfCalls")
-        
-        if count >= 5 {
-            let mock = Mocks.mockedResponse()
-            networkManager = NetworkManager(self, mock!)
-            return
-        }
+//        let count = UserDefaults.standard.integer(forKey: "NumberOfCalls")
+//        if count >= 5 {
+//            let mock = Mocks.mockedResponse()
+//            networkManager = NetworkManager(self, mock!)
+//            return
+//        }
         
         guard let unit = notification.object as? String else { return }
         
@@ -89,20 +82,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }
 
     func createShadows() {
-        [shadowView, leftShadowview, rightShadowView, bottomShadowView].forEach { (element) in
-            element?.layer.shadowColor = UIColor.black.cgColor
-            element?.layer.shadowRadius = 5
-            element?.layer.shadowOpacity = Float(shadowOpacity)
-            element?.alpha = 0
-            element?.backgroundColor = UIColor(named: "GradientTopColor")
-        }
-        
+        shadowView.layer.shadowColor = UIColor.black.cgColor
+        shadowView.layer.shadowRadius = 5
+        shadowView.layer.shadowOpacity = Float(shadowOpacity)
+        shadowView.alpha = 0
+        shadowView.backgroundColor = UIColor(named: "GradientTopColor")
         shadowView.layer.shadowOffset = CGSize(width: 0, height: 10)
-        leftShadowview.layer.shadowOffset = CGSize(width: 10, height: 0)
-        rightShadowView.layer.shadowOffset = CGSize(width: -10, height: 0)
-        bottomShadowView.layer.shadowOffset = CGSize(width: 0, height: -10)
     }
-    
     
     func createGradient() {
         gradientLayer.frame = view.bounds
@@ -133,13 +119,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     func newLocation(_ notification: NSNotification) {
         navView?.rollableTitleView.hideTitles()
         hideScrollView()
-        let count = UserDefaults.standard.integer(forKey: "NumberOfCalls")
         
-        if count >= 5 {
-            let mock = Mocks.mockedResponse()
-            networkManager = NetworkManager(self, mock!)
-            return
-        }
+//        let count = UserDefaults.standard.integer(forKey: "NumberOfCalls")
+//        if count >= 5 {
+//            let mock = Mocks.mockedResponse()
+//            networkManager = NetworkManager(self, mock!)
+//            return
+//        }
         
         if let location = notification.object as? CLLocation {
             hideScrollView { [weak self] (_) in
@@ -154,6 +140,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     func initUI() {
         
+        scrollView.alpha = 0
         scrollView.delegate = self
         view.insertSubview(scrollView, at: 0)
         
@@ -161,14 +148,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         let scrollViewYOffset = navView.frame.size.height + UIApplication.shared.windows[0].safeAreaInsets.top
         let trueHeight = view.bounds.size.height - scrollViewYOffset
         
-        topConstraint = scrollView.topAnchor.constraint(equalTo: navView.bottomAnchor, constant: trueHeight)
-        topConstraint?.isActive = true
-        
         NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: navView.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
         view.layoutIfNeeded()
         
         scrollView.contentSize = CGSize(width: view.frame.size.width, height: trueHeight*3)
@@ -198,16 +184,17 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
             self?.levelTwoViewController?.transform = .identity
             self?.levelThreeViewController?.transform = .identity
             self?.shadowView.alpha = 0
-            self?.leftShadowview.alpha = 0
-            self?.rightShadowView.alpha = 0
-            self?.bottomShadowView.alpha = 0
-            HapticManager.soft()
         }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        HapticManager.soft()
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
         let scale: CGFloat = 0.925
+        let alpha = shadowOpacity
         
         UIView.animate(withDuration: 0.2) { [weak self] in
             self?.levelOneViewController?.blurredEffectView.alpha = 0.35
@@ -216,10 +203,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
             self?.levelOneViewController?.transform = .init(scaleX: scale, y: scale)
             self?.levelTwoViewController?.transform = .init(scaleX: scale, y: scale)
             self?.levelThreeViewController?.transform = .init(scaleX: scale, y: scale)
-            self?.shadowView.alpha = self!.shadowOpacity
-            self?.leftShadowview.alpha = self!.shadowOpacity
-            self?.rightShadowView.alpha = self!.shadowOpacity
-            self?.bottomShadowView.alpha = self!.shadowOpacity
+            self?.shadowView.alpha = alpha
             HapticManager.soft()
         }
     }
@@ -231,7 +215,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }
     
     @IBAction func presentSavedLocationController() {
-        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "SavedLocationViewController")
+        let vc = StoryboardManager.main().instantiateViewController(withIdentifier: "SavedLocationViewController")
         present(vc, animated: true, completion: nil)
     }
     
@@ -260,8 +244,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }
     
     func didFinishFetching(_ weatherModel: WeatherModel) {
-        let location = CLLocation(latitude: weatherModel.lat, longitude: weatherModel.lon)
-        locationManager?.lookupCurrentLocation(location)
+//        let location = CLLocation(latitude: weatherModel.lat, longitude: weatherModel.lon)
+//        locationManager?.lookupCurrentLocation(location)
         
         let count = UserDefaults.standard.integer(forKey: "NumberOfCalls") + 1
         UserDefaults.standard.setValue(count, forKey: "NumberOfCalls")
@@ -301,18 +285,24 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }
     
     func hideScrollView(_ completion: ((Bool) -> Void)? = nil) {
-        let scrollViewYOffset = navView!.frame.size.height + UIApplication.shared.windows[0].safeAreaInsets.top
-        let trueHeight = view.bounds.size.height - scrollViewYOffset
-        topConstraint?.constant = trueHeight
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: { [weak self] in
-            self?.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.4,
+                       delay: 0,
+                       usingSpringWithDamping: 1,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseInOut,
+                       animations: { [weak self] in
+            self?.scrollView.alpha = 0
         }, completion: completion)
     }
     
     func showScrollView(_ completion: ((Bool) -> Void)? = nil) {
-        topConstraint?.constant = 0
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: { [weak self] in
-            self?.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.4,
+                       delay: 0,
+                       usingSpringWithDamping: 1,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseInOut,
+                       animations: { [weak self] in
+            self?.scrollView.alpha = 1
         }, completion: completion)
     }
     

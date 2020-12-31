@@ -43,7 +43,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func beginFetchingLocation(_ status: CLAuthorizationStatus = CLLocationManager.authorizationStatus(),
-                             _ manager: CLLocationManager = CLLocationManager()) {
+                               _ manager: CLLocationManager = CLLocationManager()) {
         
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
@@ -58,7 +58,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
             delegate?.currentLocation(location)
             
         case .notDetermined:
-             notDetermined()
+            notDetermined()
         @unknown default:
             notDetermined()
         }
@@ -80,7 +80,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         let location = CLLocation(latitude: lat, longitude: lon)
         delegate?.currentLocation(location)
     }
-
+    
     func lookupCurrentLocation(_ location: CLLocation) {
         CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
             
@@ -96,11 +96,11 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
                 if country == "United States" {
                     let state = firstLocation.administrativeArea ?? ""
                     self.notificationManager.post(data: ["currentLocation": city + ", " + state],
-                                             to: NotificationName.observerID("currentLocation"))
+                                                  to: NotificationName.observerID("currentLocation"))
                     return
                 }
                 self.notificationManager.post(data: ["currentLocation": city + ", " + country],
-                                         to: NotificationName.observerID("currentLocation"))
+                                              to: NotificationName.observerID("currentLocation"))
                 
             }
             

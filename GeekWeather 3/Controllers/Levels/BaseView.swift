@@ -18,7 +18,6 @@ class BaseView: UIView, NotificationManagerDelegate {
     private var view: UIView!
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        xibSetup()
         notificationManager.delegate = self
         notificationManager.listen(for: NotificationName.observerID("weatherModel"), in: self)
         initUI()

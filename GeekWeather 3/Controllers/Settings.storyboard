@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -52,6 +53,7 @@
                                                 <constraint firstItem="9cT-mZ-r2o" firstAttribute="leading" secondItem="wk0-Pu-FB7" secondAttribute="trailing" constant="35" id="pBY-dq-7Zq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -77,7 +79,6 @@
                                                     <connections>
                                                         <action selector="changeAppearance:" destination="f4t-66-EmI" eventType="valueChanged" id="E41-Lg-xi5"/>
                                                         <action selector="changeAppearance:" destination="FNN-W4-kgd" eventType="valueChanged" id="aiX-M7-fse"/>
-                                                        <action selector="didChangeUnits:" destination="y7e-NW-ZQP" eventType="valueChanged" id="JB3-s2-IR2"/>
                                                     </connections>
                                                 </segmentedControl>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKK-sW-uqX">
@@ -97,6 +98,7 @@
                                                 <constraint firstItem="GKK-sW-uqX" firstAttribute="leading" secondItem="Wrf-a4-jEi" secondAttribute="leading" constant="20" symbolic="YES" id="n6I-wJ-b8N"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -120,11 +122,12 @@
         <!--Change Units-->
         <scene sceneID="ni6-SK-w4K">
             <objects>
-                <tableViewController storyboardIdentifier="ChangeUnitController" id="y7e-NW-ZQP" customClass="ChangeUnitController" customModule="GeekWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ChangeUnitController" id="y7e-NW-ZQP" customClass="FormatSettingsController" customModule="GeekWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="jFh-6R-0Ut">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="separatorColor" name="IconBlue"/>
                         <sections>
                             <tableViewSection headerTitle="Temperature" id="Kg1-ur-SIN">
                                 <cells>
@@ -141,11 +144,13 @@
                                                         <constraint firstAttribute="width" constant="190" id="ahd-Vo-hr3"/>
                                                     </constraints>
                                                     <segments>
-                                                        <segment title="Imperial"/>
-                                                        <segment title="Metric"/>
+                                                        <segment title="Kelvin"/>
+                                                        <segment title="°F"/>
+                                                        <segment title="°C"/>
                                                     </segments>
                                                     <connections>
-                                                        <action selector="didChangeUnits:" destination="y7e-NW-ZQP" eventType="valueChanged" id="Epl-hy-bcL"/>
+                                                        <action selector="changeScale:" destination="onz-Fb-x4W" eventType="valueChanged" id="CIx-xM-1QG"/>
+                                                        <action selector="changeScale:" destination="y7e-NW-ZQP" eventType="valueChanged" id="Sq0-LZ-TSR"/>
                                                     </connections>
                                                 </segmentedControl>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Scale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7w-ft-AGq">
@@ -165,6 +170,7 @@
                                                 <constraint firstItem="m7w-ft-AGq" firstAttribute="leading" secondItem="oGB-gc-d3W" secondAttribute="leading" constant="20" symbolic="YES" id="oUc-9Y-KVf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -183,12 +189,13 @@
                                                         <constraint firstAttribute="width" constant="190" id="xbb-iq-j5g"/>
                                                     </constraints>
                                                     <segments>
+                                                        <segment title="m/s"/>
                                                         <segment title="mph"/>
                                                         <segment title="km/h"/>
-                                                        <segment title="m/s"/>
                                                     </segments>
                                                     <connections>
-                                                        <action selector="didChangeUnits:" destination="y7e-NW-ZQP" eventType="valueChanged" id="dqu-EX-5CY"/>
+                                                        <action selector="changeUnits:" destination="onz-Fb-x4W" eventType="valueChanged" id="FSc-0A-Kic"/>
+                                                        <action selector="changeUnits:" destination="y7e-NW-ZQP" eventType="valueChanged" id="f5E-0c-QBW"/>
                                                     </connections>
                                                 </segmentedControl>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Units" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSD-fE-rbH">
@@ -208,6 +215,49 @@
                                                 <constraint firstItem="xSD-fE-rbH" firstAttribute="leading" secondItem="Wa7-3U-OXN" secondAttribute="leading" constant="20" symbolic="YES" id="hEj-Em-Z5C"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Time Format" id="qce-Sr-m5k">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="n36-OD-zhx">
+                                        <rect key="frame" x="20" y="277.5" width="374" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n36-OD-zhx" id="qsu-T7-Hwt">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24-Hour Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffh-Ld-lgm">
+                                                    <rect key="frame" x="20" y="13" width="250" height="31"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jKw-6q-RHU">
+                                                    <rect key="frame" x="305" y="13" width="49" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="47" id="vJX-Fb-vPf"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="militaryTime:" destination="y7e-NW-ZQP" eventType="touchUpInside" id="Thl-v1-SOB"/>
+                                                        <action selector="militaryTime:" destination="onz-Fb-x4W" eventType="valueChanged" id="ZfC-ve-W9h"/>
+                                                        <action selector="toggleHapticFeedback:" destination="f4t-66-EmI" eventType="valueChanged" id="EiF-jz-xy4"/>
+                                                        <action selector="toggleHapticFeedback:" destination="FNN-W4-kgd" eventType="valueChanged" id="VIt-DV-qwI"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="jKw-6q-RHU" secondAttribute="trailing" constant="22" id="8hE-2g-N47"/>
+                                                <constraint firstItem="jKw-6q-RHU" firstAttribute="top" secondItem="qsu-T7-Hwt" secondAttribute="top" constant="13" id="Gcj-wd-c3r"/>
+                                                <constraint firstItem="jKw-6q-RHU" firstAttribute="leading" secondItem="Ffh-Ld-lgm" secondAttribute="trailing" constant="35" id="H5j-d9-Gkv"/>
+                                                <constraint firstItem="Ffh-Ld-lgm" firstAttribute="top" secondItem="qsu-T7-Hwt" secondAttribute="top" constant="13" id="Jbv-P3-hlU"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ffh-Ld-lgm" secondAttribute="bottom" constant="11" id="V4B-58-4NH"/>
+                                                <constraint firstAttribute="bottom" secondItem="jKw-6q-RHU" secondAttribute="bottom" constant="11" id="t1m-Y2-CPh"/>
+                                                <constraint firstItem="Ffh-Ld-lgm" firstAttribute="leading" secondItem="qsu-T7-Hwt" secondAttribute="leading" constant="20" symbolic="YES" id="u76-yr-msR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -219,15 +269,24 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Change Units" id="Jd3-oH-xng"/>
                     <connections>
-                        <outlet property="segmentController" destination="FCn-1i-Ixa" id="SpI-4Y-Ti5"/>
+                        <outlet property="hourSwitch" destination="jKw-6q-RHU" id="P9b-vG-efx"/>
+                        <outlet property="scaleSelector" destination="FCn-1i-Ixa" id="t7n-se-XWf"/>
+                        <outlet property="unitSelector" destination="45h-ic-wSd" id="a4H-Om-Wbr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZF-qU-LcI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="onz-Fb-x4W" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2614" y="-725"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="IconBlue">
+            <color red="0.046999998390674591" green="0.071000002324581146" blue="0.20399999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

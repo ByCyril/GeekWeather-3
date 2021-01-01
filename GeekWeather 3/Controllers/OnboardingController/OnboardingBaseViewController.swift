@@ -22,9 +22,12 @@ class OnboardingBaseViewController: UIViewController {
     }
     
     private func createGradient() {
+        
+        let theme = UserDefaults.standard.string(forKey: "Theme") ?? "System-"
+        
         gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor(named: "GradientTopColor")!.cgColor,
-                                UIColor(named: "GradientBottomColor")!.cgColor]
+        gradientLayer.colors = [UIColor(named: theme + "GradientTopColor")!.cgColor,
+                                UIColor(named: theme + "GradientBottomColor")!.cgColor]
         
         view.layer.insertSublayer(gradientLayer, at: 0)
         view.setNeedsDisplay()
@@ -35,8 +38,9 @@ class OnboardingBaseViewController: UIViewController {
             return
         }
 
-        gradientLayer.colors = [UIColor(named: "GradientTopColor")!.cgColor,
-                                UIColor(named: "GradientBottomColor")!.cgColor]
+        let theme = UserDefaults.standard.string(forKey: "Theme") ?? "System-"
+        gradientLayer.colors = [UIColor(named: theme + "GradientTopColor")!.cgColor,
+                                UIColor(named: theme + "GradientBottomColor")!.cgColor]
     }
     
 }

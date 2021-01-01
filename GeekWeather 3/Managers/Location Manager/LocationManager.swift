@@ -32,10 +32,10 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         delegate?.locationError(error.localizedDescription, nil)
     }
     
-    func locationManager(_ manager: CLLocationManager,
-                         didChangeAuthorization status: CLAuthorizationStatus) {
-        beginFetchingLocation(status, manager)
-    }
+//    func locationManager(_ manager: CLLocationManager,
+//                         didChangeAuthorization status: CLAuthorizationStatus) {
+//        beginFetchingLocation(status, manager)
+//    }
     
     func beginFetchingLocation(_ status: CLAuthorizationStatus = CLLocationManager.authorizationStatus(),
                                _ manager: CLLocationManager = CLLocationManager()) {

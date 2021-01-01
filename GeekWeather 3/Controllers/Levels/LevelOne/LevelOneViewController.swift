@@ -18,7 +18,7 @@ final class LevelOneViewController: BaseView {
     @IBOutlet var commentLabel: UILabel!
     @IBOutlet var iconView: UIImageView!
     
-    var currentWeatherData: Currently?
+//    var currentWeatherData: Currently?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,22 +42,28 @@ final class LevelOneViewController: BaseView {
         super.init(coder: coder)
     }
    
-    override func update(from notification: NSNotification) {
+    override func didRecieve(from notification: NSNotification) {
         if let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel {
+            self.weatherModel = weatherModel
             DispatchQueue.main.async { [weak self] in
-                self?.currentWeatherData = weatherModel.current
                 self?.displayData(weatherModel.current)
             }
         }
     }
-
+    
+    override func didUpdateValues() {
+        guard let currentWeatherData = weatherModel?.current else { return }
+        tempLabel.text = " " + currentWeatherData.temp.kelvinToSystemFormat()
+        commentLabel.text = "Feels like " + currentWeatherData.feels_like.kelvinToSystemFormat()
+    }
+    
     func displayData(_ currentWeatherData: Currently) {
                 
-        tempLabel.text = " " + currentWeatherData.temp.temp()
+        tempLabel.text = " " + currentWeatherData.temp.kelvinToSystemFormat()
         
         summaryLabel.text = instructions(currentWeatherData.weather.first?.description.capitalized ?? "")
         summaryLabel.numberOfLines = 0
-        commentLabel.text = "Feels like " + currentWeatherData.feels_like.temp()
+        commentLabel.text = "Feels like " + currentWeatherData.feels_like.kelvinToSystemFormat()
         iconView.image = UIImage(named: currentWeatherData.weather.first!.icon)
         UIView.animate(withDuration: 1) { [weak self] in
             self?.tempLabel.alpha = 1

@@ -30,6 +30,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     private var levelTwoViewController: LevelTwoViewController?
     private var levelThreeViewController: LevelThreeViewController?
     
+    let theme = UserDefaults.standard.string(forKey: "Theme") ?? "System-"
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.isPagingEnabled = true
@@ -64,21 +66,21 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
 //            networkManager = NetworkManager(self, mock!)
 //            return
 //        }
-        
-        guard let unit = notification.object as? String else { return }
-        
-        if let location = locationManager?.locationManager.location {
-            
-            hideScrollView()
-            
-            var req: RequestURL
-            if unit == "imperial" {
-                req = RequestURL(location: location, .imperial)
-            } else {
-                req = RequestURL(location: location, .metric)
-            }
-            networkManager?.fetch(req)
-        }
+//
+//        guard let unit = notification.object as? String else { return }
+//
+//        if let location = locationManager?.locationManager.location {
+//
+//            hideScrollView()
+//
+//            var req: RequestURL
+//            if unit == "imperial" {
+//                req = RequestURL(location: location, .imperial)
+//            } else {
+//                req = RequestURL(location: location, .metric)
+//            }
+//            networkManager?.fetch(req)
+//        }
     }
 
     func createShadows() {
@@ -86,14 +88,15 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         shadowView.layer.shadowRadius = 5
         shadowView.layer.shadowOpacity = Float(shadowOpacity)
         shadowView.alpha = 0
-        shadowView.backgroundColor = UIColor(named: "GradientTopColor")
+        
+        shadowView.backgroundColor = UIColor(named: theme + "GradientTopColor")
         shadowView.layer.shadowOffset = CGSize(width: 0, height: 10)
     }
     
     func createGradient() {
         gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor(named: "GradientTopColor")!.cgColor,
-                                UIColor(named: "GradientBottomColor")!.cgColor]
+        gradientLayer.colors = [UIColor(named: theme + "GradientTopColor")!.cgColor,
+                                UIColor(named: theme + "GradientBottomColor")!.cgColor]
         
         view.layer.insertSublayer(gradientLayer, at: 0)
         view.setNeedsDisplay()
@@ -101,8 +104,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     
     func initMethod() {
         
-        locationManager = LocationManager(self)
-        locationManager?.beginFetchingLocation()
         if let error = Mocks.mockError() {
             networkManager = NetworkManager(self, error)
             return
@@ -113,6 +114,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         } else {
             networkManager = NetworkManager(self)
         }
+        
+        locationManager = LocationManager(self)
+        locationManager?.beginFetchingLocation()
     }
     
     @objc
@@ -240,19 +244,14 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else {
             return
         }
-
-        gradientLayer.colors = [UIColor(named: "GradientTopColor")!.cgColor,
-                                UIColor(named: "GradientBottomColor")!.cgColor]
+        let theme = UserDefaults.standard.string(forKey: "Theme") ?? "System-"
+        gradientLayer.colors = [UIColor(named: theme + "GradientTopColor")!.cgColor,
+                                UIColor(named: theme + "GradientBottomColor")!.cgColor]
     }
     
     func currentLocation(_ location: CLLocation) {
         locationManager?.lookupCurrentLocation(location)
-        var req: RequestURL
-        if UserDefaults.standard.string(forKey: "Unit") == "metric" {
-            req = RequestURL(location: location, .metric)
-        } else {
-            req = RequestURL(location: location, .imperial)
-        }
+        let req = RequestURL(location: location)
         networkManager?.fetch(req)
     }
     

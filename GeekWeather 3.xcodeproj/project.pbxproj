@@ -89,6 +89,9 @@
 		01BE6CA8259ADE2E000016CA /* OnboardingViewControllerLevelThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6CA7259ADE2E000016CA /* OnboardingViewControllerLevelThree.swift */; };
 		01BE6CAC259AE99D000016CA /* OnboardingViewControllerLevelFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6CAB259AE99D000016CA /* OnboardingViewControllerLevelFour.swift */; };
 		01BE6CC1259B1C40000016CA /* ToggleMockedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6CC0259B1C40000016CA /* ToggleMockedResponse.swift */; };
+		01D0081E259EDB5100032D17 /* FormatSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0081D259EDB5100032D17 /* FormatSettingsController.swift */; };
+		01D00822259EE28E00032D17 /* Doouble+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D00821259EE28E00032D17 /* Doouble+Extension.swift */; };
+		01E3B56C259EE9130099F212 /* Doouble+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D00821259EE28E00032D17 /* Doouble+Extension.swift */; };
 		01E65B2024F19D9400D8F76F /* ChangeUnitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */; };
 		01F431DC259E288600B0D44F /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */; };
 		01F431EE259E76A300B0D44F /* SystemSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431ED259E76A300B0D44F /* SystemSettingsController.swift */; };
@@ -220,6 +223,8 @@
 		01BE6CA7259ADE2E000016CA /* OnboardingViewControllerLevelThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerLevelThree.swift; sourceTree = "<group>"; };
 		01BE6CAB259AE99D000016CA /* OnboardingViewControllerLevelFour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerLevelFour.swift; sourceTree = "<group>"; };
 		01BE6CC0259B1C40000016CA /* ToggleMockedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleMockedResponse.swift; sourceTree = "<group>"; };
+		01D0081D259EDB5100032D17 /* FormatSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatSettingsController.swift; sourceTree = "<group>"; };
+		01D00821259EE28E00032D17 /* Doouble+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Doouble+Extension.swift"; sourceTree = "<group>"; };
 		01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUnitController.swift; sourceTree = "<group>"; };
 		01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBaseViewController.swift; sourceTree = "<group>"; };
 		01F431ED259E76A300B0D44F /* SystemSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettingsController.swift; sourceTree = "<group>"; };
@@ -396,6 +401,7 @@
 				01042C2924EC8AB00090B349 /* SettingsController.swift */,
 				01B1BEB724EDBE520081C90F /* SettingManager.swift */,
 				01F431ED259E76A300B0D44F /* SystemSettingsController.swift */,
+				01D0081D259EDB5100032D17 /* FormatSettingsController.swift */,
 				01B1BEB924EE318A0081C90F /* SettingCells */,
 				01042C3524ECDFB40090B349 /* SettingItems */,
 			);
@@ -446,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				0127D14D2597D72200298ABD /* GWFont.swift */,
+				01D00821259EE28E00032D17 /* Doouble+Extension.swift */,
 				011908C2259D34F400EE1C0F /* GWTest.swift */,
 				0153693325174D580044D108 /* GWTransition.swift */,
 				0146C05924F787D000967A37 /* Mocks.swift */,
@@ -810,6 +817,7 @@
 				01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */,
 				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,
 				0146C05A24F787D000967A37 /* Mocks.swift in Sources */,
+				01D0081E259EDB5100032D17 /* FormatSettingsController.swift in Sources */,
 				0158D02A2505DF0C008692DC /* SearchLocationViewController.swift in Sources */,
 				0153693425174D580044D108 /* GWTransition.swift in Sources */,
 				0119098E259D891B00EE1C0F /* HapticManager.swift in Sources */,
@@ -844,6 +852,7 @@
 				01430F31259B1EFA00D67245 /* ToggleOnboarding.swift in Sources */,
 				017B9F0E25930A4A007AB956 /* DeveloperController.swift in Sources */,
 				0100D7D624CE1A8200C9F9B5 /* SceneDelegate.swift in Sources */,
+				01D00822259EE28E00032D17 /* Doouble+Extension.swift in Sources */,
 				01B1BEBF24EE34740081C90F /* WeatherDataInfoItem.swift in Sources */,
 				01042C3124ECDF660090B349 /* AboutSettingItem.swift in Sources */,
 				01F431DC259E288600B0D44F /* OnboardingBaseViewController.swift in Sources */,
@@ -873,6 +882,7 @@
 				0103B85D25944B6F008577FD /* WeatherEntry.swift in Sources */,
 				0127D10F2595735C00298ABD /* GeekWeatherWidgetEntryView.swift in Sources */,
 				0103B8922595524C008577FD /* NotificationNames.swift in Sources */,
+				01E3B56C259EE9130099F212 /* Doouble+Extension.swift in Sources */,
 				0103B87F25952D51008577FD /* TodayViewSmall.swift in Sources */,
 				0127D118259573CF00298ABD /* TodayViewMedium.swift in Sources */,
 				0103B845259449E7008577FD /* GeekWeatherWidget.swift in Sources */,

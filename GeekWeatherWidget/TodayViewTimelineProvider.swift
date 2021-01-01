@@ -39,10 +39,10 @@ class TodayViewTimelineProvider: TimelineProvider {
         WidgetNetworkManager().fetch { (model, error, city) in
             if let data = model, let city = city {
                 let model = WidgetWeatherModel(location: city,
-                                                     temp: data.current.temp.temp(),
+                                                     temp: data.current.temp.kelvinToSystemFormat(),
                                                      icon: data.current.weather[0].icon,
-                                                     lastUpdated: "Relevant as of " + Date().timeIntervalSince1970.date(.time),
-                                                     feelsLike: "Feels like " + data.current.feels_like.temp(),
+                                                     lastUpdated: "Relevant as of " + Date().timeIntervalSince1970.convertTime(),
+                                                     feelsLike: "Feels like " + data.current.feels_like.kelvinToSystemFormat(),
                                                      summary: data.current.weather[0].description.capitalized)
                 let entry = WeatherEntry(date: Date(), weatherModel: model)
                 completion(.success(entry))

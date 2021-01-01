@@ -66,16 +66,23 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
         super.init(coder: coder)
     }
     
-    override func update(from notification: NSNotification) {
+    override func didRecieve(from notification: NSNotification) {
         if let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel {
+            self.weatherModel = weatherModel
             prepareGeekyData(weatherModel)
             prepareSummary(weatherModel)
         }
     }
     
+    override func didUpdateValues() {
+        guard let weatherModel = self.weatherModel else { return }
+        prepareGeekyData(weatherModel)
+        prepareSummary(weatherModel)
+    }
+    
     func prepareSummary(_ weatherModel: WeatherModel) {
-        let high = weatherModel.daily.first!.temp.max.temp()
-        let low = weatherModel.daily.first!.temp.min.temp()
+        let high = weatherModel.daily.first!.temp.max.kelvinToSystemFormat()
+        let low = weatherModel.daily.first!.temp.min.kelvinToSystemFormat()
         let description = weatherModel.current.weather.first!.description.capitalizingFirstLetter()
         let summary = "\(description) with a high of \(high) and a low of \(low)"
         
@@ -87,15 +94,15 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
         let current = weatherModel.current
         
         let firstRow = DetailsData(firstItemLabel: "Sunrise",
-                                   firstItemValue: current.sunrise.date(.time),
+                                   firstItemValue: current.sunrise.convertTime(),
                                    secondItemLabel: "Sunset",
-                                   secondItemValue: current.sunset.date(.time))
+                                   secondItemValue: current.sunset.convertTime())
         
-        let secondRow = DetailsData(firstItemLabel: "High Temperature",
-                                    firstItemValue: weatherModel.daily.first!.temp.max.temp(),
-                                    secondItemLabel: "Low Temperature",
-                                    secondItemValue: weatherModel.daily.first!.temp.min.temp())
-        
+        let secondRow = DetailsData(firstItemLabel: "Dew Point",
+                                    firstItemValue: weatherModel.current.dew_point.kelvinToSystemFormat(),
+                                    secondItemLabel: "Visibility",
+                                    secondItemValue: weatherModel.current.visibility.mToSystemFormat())
+
         let thirdRow = DetailsData(firstItemLabel: "Chance of Rain",
                                    firstItemValue: weatherModel.daily.first!.pop.percentage(chop: true),
                                    secondItemLabel: "Cloud Cover",
@@ -122,9 +129,9 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
                                     secondItemValue: uviLevel)
         
         let fifthRow = DetailsData(firstItemLabel: "Wind Speed",
-                                   firstItemValue: current.wind_speed.stringRound(),
+                                   firstItemValue: current.wind_speed.msToSystemFormat(),
                                     secondItemLabel: "Pressure",
-                                    secondItemValue: current.pressure.stringRound())
+                                    secondItemValue: current.pressure.stringRound() + " hPa")
         
         detailsData = [firstRow, secondRow, thirdRow, fourthRow, fifthRow]
         tableView.reloadData()

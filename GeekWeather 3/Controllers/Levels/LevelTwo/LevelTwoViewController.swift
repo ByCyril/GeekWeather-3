@@ -76,8 +76,8 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
         
         let registration = UICollectionView.CellRegistration<LevelTwoHourlyViewCell, Hourly> { cell, indexPath, data in
             cell.iconView.image = UIImage(named: data.weather.first!.icon)
-            cell.tempLabel.text = data.temp.temp()
-            cell.timestampLabel.text = data.dt.date(.hour)
+            cell.tempLabel.text = data.temp.kelvinToSystemFormat()
+            cell.timestampLabel.text = data.dt.convertHourTime()
         }
         
         hourlyDataSource = UICollectionViewDiffableDataSource(collectionView: hourlyView, cellProvider: { (collectionView, indexpath, data) -> LevelTwoHourlyViewCell? in
@@ -105,23 +105,16 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
             
             if indexPath.row == 0 {
                 cell.dayLabel.text = "Today"
-                cell.applyAccessibility(with: "Forecast throughout the week", and: "Today. \(summary), and a high of \(daily.temp.max.temp()) and a low of \(daily.temp.min.temp())", trait: .staticText)
+                cell.applyAccessibility(with: "Forecast throughout the week", and: "Today. \(summary), and a high of \(daily.temp.max.kelvinToSystemFormat()) and a low of \(daily.temp.min.kelvinToSystemFormat())", trait: .staticText)
             } else {
                 let day = Double(daily.dt).date(.day)
                 cell.dayLabel.text = day
-                cell.applyAccessibility(with: "On \(day)", and: "\(summary), and a high of \(daily.temp.max.temp()) and a low of \(daily.temp.min.temp())", trait: .staticText)
+                cell.applyAccessibility(with: "On \(day)", and: "\(summary), and a high of \(daily.temp.max.kelvinToSystemFormat()) and a low of \(daily.temp.min.kelvinToSystemFormat())", trait: .staticText)
             }
             
-            //            if daily.pop >= 0.15 {
-            //                cell.percLabel.text = "Chance of Rain " + daily.pop.percentage(chop: false)
-            //                cell.percLabel.isHidden = false
-            //            } else {
-            //                cell.percLabel.isHidden = true
-            //            }
-            
             cell.iconView.image = UIImage(named: daily.weather.first!.icon)
-            cell.highTempLabel.text = daily.temp.max.temp()
-            cell.lowTempLabel.text = daily.temp.min.temp()
+            cell.highTempLabel.text = daily.temp.max.kelvinToSystemFormat()
+            cell.lowTempLabel.text = daily.temp.min.kelvinToSystemFormat()
         }
         
         dailyDataSource = UICollectionViewDiffableDataSource(collectionView: dailyView, cellProvider: { (collectionView, indexpath, data) -> LevelTwoDailyViewCell? in
@@ -130,7 +123,7 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
         
     }
     
-    override func update(from notification: NSNotification) {
+    override func didRecieve(from notification: NSNotification) {
         guard let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel else { return }
         populate(with: weatherModel)
     }
@@ -147,9 +140,9 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
         dailyDataSource?.apply(dailySnapshot)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = dailyView.frame.height
-        return CGSize(width: dailyView.frame.width, height: height / 8)
+    override func didUpdateValues() {
+        hourlyView.reloadData()
+        dailyView.reloadData()
     }
-    
+
 }

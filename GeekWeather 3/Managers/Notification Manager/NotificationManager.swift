@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol NotificationManagerDelegate: AnyObject {
-    func update(from notification: NSNotification)
+    func didRecieve(from notification: NSNotification)
 }
 
 final class NotificationManager {
@@ -18,7 +18,7 @@ final class NotificationManager {
     
     func listen(for name: Notification.Name, in vc: Any) {
         guard let delegate = self.delegate else { return }
-        NotificationCenter.default.addObserver(vc, selector: #selector(delegate.update(from:)), name: name, object: nil)
+        NotificationCenter.default.addObserver(vc, selector: #selector(delegate.didRecieve(from:)), name: name, object: nil)
     }
     
     func post(data: [AnyHashable: Any], to name: Notification.Name) {

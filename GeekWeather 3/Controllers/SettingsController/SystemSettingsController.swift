@@ -14,10 +14,20 @@ final class SystemSettingsConroller: UITableViewController {
     @IBOutlet weak var themeSelector: UISegmentedControl!
     
     let isHapticDisabled = UserDefaults.standard.bool(forKey: "DisableHaptic")
+    let theme = UserDefaults.standard.string(forKey: "Theme")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hapticToggle.isOn = !isHapticDisabled
+        
+        if theme == "System-" {
+            themeSelector.selectedSegmentIndex = 0
+        } else if theme == "Light-" {
+            themeSelector.selectedSegmentIndex = 1
+        } else if theme == "Dark-" {
+            themeSelector.selectedSegmentIndex = 2
+        }
+        
     }
     
     @IBAction func toggleHapticFeedback(_ sender: UISwitch) {
@@ -25,6 +35,8 @@ final class SystemSettingsConroller: UITableViewController {
     }
     
     @IBAction func changeAppearance(_ sender: UISegmentedControl) {
+        let vals = ["System-", "Light-", "Dark-"][sender.selectedSegmentIndex]
+        UserDefaults.standard.setValue(vals, forKey: "Theme")
     }
     
 }

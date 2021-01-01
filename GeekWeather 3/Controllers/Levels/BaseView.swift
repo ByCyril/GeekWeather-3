@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import GWFoundation
 
 class BaseView: UIView, NotificationManagerDelegate {
+ 
     
     let notificationManager = NotificationManager()
-    
     let gradientLayer = CAGradientLayer()
-    var viewControllerPresenter: UIViewController?
+    
+//    var viewControllerPresenter: UIViewController?
+    var weatherModel: WeatherModel?
     
     private var view: UIView!
     override init(frame: CGRect) {
         super.init(frame: frame)
         notificationManager.delegate = self
         notificationManager.listen(for: NotificationName.observerID("weatherModel"), in: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateValues), name: Notification.Name("UpdateValues"), object: nil)
         initUI()
     }
     
@@ -51,7 +55,9 @@ class BaseView: UIView, NotificationManagerDelegate {
     
     func initUI() {}
     func applyAccessibility() {}
-    func update(from notification: NSNotification) {}
+    func didRecieve(from notification: NSNotification) {}
     func getContentOffset(_ offset: CGPoint) {}
+    
+    @objc func didUpdateValues() {}
     
 }

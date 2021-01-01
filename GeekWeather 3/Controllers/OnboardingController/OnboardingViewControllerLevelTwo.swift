@@ -24,10 +24,7 @@ final class OnboardingViewControllerLevelTwo: OnboardingBaseViewController, CLLo
         allowButton.layer.borderWidth = 2
         allowButton.layer.borderColor = allowButton.titleLabel?.textColor.cgColor
         allowButton.layer.cornerRadius = 10
-        
-        view.backgroundColor = UIColor(named: "White")
     }
-    
     
     @IBAction func requestLocationPermission(_ sender: Any) {
         locationManager.requestWhenInUseAuthorization()

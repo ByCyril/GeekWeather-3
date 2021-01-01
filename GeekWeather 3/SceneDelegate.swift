@@ -17,14 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         resetLimit()
-        
+
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
+
         if let vc = GWTest.forceViewController() {
             setWindow(with: windowScene, vc: vc)
             return
         }
-        
+
         if UserDefaults.standard.bool(forKey: "ExistingUser") {
             guard let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { return }
             mainViewController = vc

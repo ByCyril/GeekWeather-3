@@ -23,6 +23,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     @IBOutlet var navView: NavigationView?
     @IBOutlet var shadowView: UIView!
     
+    private var pageIndicator: PageIndicator?
     private let gradientLayer = CAGradientLayer()
     private let shadowOpacity: CGFloat = 0.75
     
@@ -48,12 +49,30 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-        initMethod()
+        propertyInitializers()
         createShadows()
         createGradient()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(newLocation(_:)), name: Notification.Name("NewLocationLookup"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(unitDidChange(_:)), name: Notification.Name("UnitChange"), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(newLocation(_:)),
+                                               name: Notification.Name("NewLocationLookup"),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(unitDidChange(_:)),
+                                               name: Notification.Name("UnitChange"),
+                                               object: nil)
+        
+    }
+    
+    func createScrollArrow() {
+        if UserDefaults.standard.bool(forKey: "ExistingUser") {
+            return
+        }
+        
+        
+        
+        UserDefaults.standard.setValue(true, forKey: "ExistingUser")
     }
     
     @objc
@@ -99,10 +118,11 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         view.setNeedsDisplay()
     }
     
-    func initMethod() {
+    func propertyInitializers() {
         
         locationManager = LocationManager(self)
         locationManager?.beginFetchingLocation()
+        
         if let error = Mocks.mockError() {
             networkManager = NetworkManager(self, error)
             return
@@ -139,7 +159,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }
     
     func initUI() {
-        
+
         scrollView.alpha = 0
         scrollView.delegate = self
         view.insertSubview(scrollView, at: 0)
@@ -187,32 +207,24 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         }
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+    }
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         HapticManager.soft()
     }
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        
-//        UIView.animate(withDuration: 0.4) { [weak self] in
-////            self?.levelOneViewController?.blurredEffectView.alpha = 0
-////            self?.levelTwoViewController?.blurredEffectView.alpha = 0
-////            self?.levelThreeViewController?.blurredEffectView.alpha = 0
-////            self?.levelOneViewController?.transform = .identity
-////            self?.levelTwoViewController?.transform = .identity
-////            self?.levelThreeViewController?.transform = .identity
-////            self?.shadowView.alpha = 0
-//            
-//        }
-//    }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
         let scale: CGFloat = 0.925
         let alpha = shadowOpacity
+        let blur: CGFloat = 0.25
         
         UIView.animate(withDuration: 0.2) { [weak self] in
-            self?.levelOneViewController?.blurredEffectView.alpha = 0.35
-            self?.levelTwoViewController?.blurredEffectView.alpha = 0.35
-            self?.levelThreeViewController?.blurredEffectView.alpha = 0.35
+            self?.levelOneViewController?.blurredEffectView.alpha = blur
+            self?.levelTwoViewController?.blurredEffectView.alpha = blur
+            self?.levelThreeViewController?.blurredEffectView.alpha = blur
             self?.levelOneViewController?.transform = .init(scaleX: scale, y: scale)
             self?.levelTwoViewController?.transform = .init(scaleX: scale, y: scale)
             self?.levelThreeViewController?.transform = .init(scaleX: scale, y: scale)
@@ -225,6 +237,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         let scrollPercentage = (scrollView.contentOffset.y / scrollView.contentSize.height)
         let navScrollViewHeight = (225 * scrollPercentage)
         navView?.rollableTitleView.animateWithOffset(navScrollViewHeight)
+
+        pageIndicator?.currentPage = scrollView.contentOffset.y / scrollView.frame.height
     }
     
     @IBAction func presentSavedLocationController() {

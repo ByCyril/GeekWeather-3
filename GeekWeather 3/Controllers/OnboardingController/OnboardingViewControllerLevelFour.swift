@@ -17,10 +17,7 @@ final class OnboardingViewControllerLevelFour: OnboardingBaseViewController {
         continueButton.layer.borderWidth = 2
         continueButton.layer.borderColor = continueButton.titleLabel?.textColor.cgColor
         continueButton.layer.cornerRadius = 10
-        
-        UserDefaults.standard.setValue(true, forKey: "ExistingUser")
     }
-    
     
     @IBAction func continueToApp(_ sender: Any) {
         let viewController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "MainViewController")

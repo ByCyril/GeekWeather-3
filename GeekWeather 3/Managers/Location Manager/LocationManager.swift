@@ -32,11 +32,6 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         delegate?.locationError(error.localizedDescription, nil)
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
-        delegate?.currentLocation(location)
-    }
-    
     func locationManager(_ manager: CLLocationManager,
                          didChangeAuthorization status: CLAuthorizationStatus) {
         beginFetchingLocation(status, manager)
@@ -49,14 +44,13 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         case .authorizedAlways, .authorizedWhenInUse:
             authorizationEnabled(manager)
         case .denied, .restricted:
-            guard let lat = UserDefaults.standard.value(forKey: "ManualSearchedLocation-lat") as? Double,
-                  let lon = UserDefaults.standard.value(forKey: "ManualSearchedLocation-lon") as? Double else {
+            if let location = UserDefaults.standard.value(forKey: "DefaultLocation") as? [String: CLLocationDegrees] {
+                let cllocation = CLLocation(latitude: location["lat"]!,
+                                            longitude: location["lon"]!)
+                delegate?.currentLocation(cllocation)
+            } else {
                 delegate?.locationError("Location access either denied or restricted", status)
-                return
             }
-            let location = CLLocation(latitude: lat, longitude: lon)
-            delegate?.currentLocation(location)
-            
         case .notDetermined:
             notDetermined()
         @unknown default:
@@ -65,20 +59,24 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     private func authorizationEnabled(_ manager: CLLocationManager) {
-        guard let location = manager.location else { return }
-        delegate?.currentLocation(location)
+        if let location = UserDefaults.standard.value(forKey: "DefaultLocation") as? [String: CLLocationDegrees] {
+            let cllocation = CLLocation(latitude: location["lat"]!,
+                                        longitude: location["lon"]!)
+            delegate?.currentLocation(cllocation)
+        } else {
+            guard let location = manager.location else { return }
+            delegate?.currentLocation(location)
+        }
     }
     
     private func notDetermined() {
-        
-        guard let lat = UserDefaults.standard.value(forKey: "ManualSearchedLocation-lat") as? Double,
-              let lon = UserDefaults.standard.value(forKey: "ManualSearchedLocation-lon") as? Double else {
+        if let location = UserDefaults.standard.value(forKey: "DefaultLocation") as? [String: CLLocationDegrees] {
+            let cllocation = CLLocation(latitude: location["lat"]!,
+                                        longitude: location["lon"]!)
+            delegate?.currentLocation(cllocation)
+        } else {
             locationManager.requestWhenInUseAuthorization()
-            return
         }
-        
-        let location = CLLocation(latitude: lat, longitude: lon)
-        delegate?.currentLocation(location)
     }
     
     func lookupCurrentLocation(_ location: CLLocation) {

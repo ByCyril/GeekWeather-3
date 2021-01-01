@@ -9,9 +9,12 @@
 import UIKit
 
 final class HapticManager {
-    
     static func soft() {
         if UserDefaults.standard.bool(forKey: "DisableHaptic") { return }
         UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+    }
+    
+    static func success() {
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
     }
 }

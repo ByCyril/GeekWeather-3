@@ -94,19 +94,38 @@ final class SavedLocationViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let obj = savedLocation[indexPath.row - 1]
         
+        let savedLocation = self.savedLocation
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let deleteItem = UIAlertAction(title: "Remove from List", style: .destructive) { (_) in
+        let deleteItem = UIAlertAction(title: "Remove from List", style: .destructive) { [weak self] (_) in
+            let obj = savedLocation[indexPath.row - 1]
             PersistenceManager.shared.delete(item: obj)
-            self.savedLocation.remove(at: indexPath.row - 1)
+            self?.savedLocation.remove(at: indexPath.row - 1)
             tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        let setDefaultLocation = UIAlertAction(title: "Set Default Location", style: .default) { (_) in
+            if indexPath.row == 0 {
+                UserDefaults.standard.removeObject(forKey: "DefaultLocation")
+                HapticManager.success()
+                return
+            }
+            let obj = savedLocation[indexPath.row - 1]
+            let coord = ["lon": obj.location!.coordinate.longitude,
+                         "lat": obj.location!.coordinate.latitude]
+            UserDefaults.standard.setValue(coord, forKey: "DefaultLocation")
+            HapticManager.success()
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         
-        alert.addAction(deleteItem)
+        alert.addAction(setDefaultLocation)
+        
+        if indexPath.row != 0 {
+            alert.addAction(deleteItem)
+        }
+        
         alert.addAction(cancel)
         
         present(alert, animated: true, completion: nil)
@@ -126,8 +145,9 @@ final class SavedLocationViewController: UITableViewController {
             cell.imageView?.image = UIImage(named: "current")
         } else {
             cell.textLabel?.text = savedLocation[indexPath.row - 1].address
-            cell.accessoryType = .detailButton
         }
+        
+        cell.accessoryType = .detailButton
         
         return cell
     }

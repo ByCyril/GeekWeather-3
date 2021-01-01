@@ -29,8 +29,11 @@ final class OnboardingViewControllerLevelThree: OnboardingBaseViewController {
     @objc
     func searchedResults(_ object: NSNotification) {
         guard let location = object.object as? CLLocation else { return }
-        UserDefaults.standard.setValue(location.coordinate.latitude, forKey: "ManualSearchedLocation-lat")
-        UserDefaults.standard.setValue(location.coordinate.longitude, forKey: "ManualSearchedLocation-lon")
+        
+        let coord = ["lon": location.coordinate.longitude,
+                     "lat": location.coordinate.latitude]
+        UserDefaults.standard.setValue(coord, forKey: "DefaultLocation")
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "OnboardingViewControllerLevelFour")
             self?.show(vc, sender: self)

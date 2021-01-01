@@ -3,4 +3,54 @@
    uuid = "B4B84D48-8418-42A2-934D-EEDB42EA0332"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9AEEB5CF-E614-4132-BC2D-D44D2F58E153"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeekWeather 3/Managers/Location Manager/LocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "lookupCurrentLocation(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9AEEB5CF-E614-4132-BC2D-D44D2F58E153 - e9af0f36a57f1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GeekWeather.LocationManager.lookupCurrentLocation(__C.CLLocation) -&gt; ()"
+                  moduleName = "GeekWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cy/Documents/GitHub/GeekWeather/GeekWeather%203/GeekWeather%203/Managers/Location%20Manager/LocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "9AEEB5CF-E614-4132-BC2D-D44D2F58E153 - 34a78c2d8832efac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.CLPlacemark&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GeekWeather.LocationManager.lookupCurrentLocation(__C.CLLocation) -&gt; ()"
+                  moduleName = "GeekWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cy/Documents/GitHub/GeekWeather/GeekWeather%203/GeekWeather%203/Managers/Location%20Manager/LocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "156">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -346,7 +346,7 @@
 				011908EA259D726600EE1C0F /* ChangeUnitController */,
 				011908D2259D718D00EE1C0F /* ErrorViewController */,
 				011908D5259D719800EE1C0F /* AppIconSelectionController */,
-				01430F3A259BF57500D67245 /* SavedLocationController */,
+				01430F3A259BF57500D67245 /* LocationController */,
 				01BE6CAF259AEBA6000016CA /* OnboardingController */,
 				01042C3424ECDFA50090B349 /* SettingsController */,
 				01042C2724EC8A6A0090B349 /* Main Controller */,
@@ -501,14 +501,14 @@
 			path = "App Settings";
 			sourceTree = "<group>";
 		};
-		01430F3A259BF57500D67245 /* SavedLocationController */ = {
+		01430F3A259BF57500D67245 /* LocationController */ = {
 			isa = PBXGroup;
 			children = (
 				0158D0292505DF0C008692DC /* SearchLocationViewController.swift */,
 				0158D0302505E3ED008692DC /* SavedLocationViewController.swift */,
 				01430F3D259BF58400D67245 /* PersistenceManager.swift */,
 			);
-			path = SavedLocationController;
+			path = LocationController;
 			sourceTree = "<group>";
 		};
 		014D2A3D24D3F7550038623E /* Location Manager */ = {

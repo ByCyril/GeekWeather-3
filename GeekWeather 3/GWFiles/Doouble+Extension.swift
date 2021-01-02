@@ -10,15 +10,19 @@ import Foundation
 import GWFoundation
 
 extension Double {
-    func kelvinToSystemFormat() -> String {        
-        guard let measure = sharedUserDefaults?.integer(forKey: SharedUserDefaults.Keys.Temperature) else { return self.temp(" K") }
+    func kelvinToSystemFormat(_ toF: Bool = false) -> String {
+        if toF {
+            return ((self - 273.15) * (9.0/5.0) + 32).temp()
+        }
+        
+        guard let measure = sharedUserDefaults?.integer(forKey: SharedUserDefaults.Keys.Temperature) else { return ((self - 273.15) * (9.0/5.0) + 32).temp() }
         
         if measure == 0 {
-            return self.temp("K")
-        } else if measure == 1 {
             return ((self - 273.15) * (9.0/5.0) + 32).temp()
-        } else {
+        } else if measure == 1 {
             return (self - 273.15).temp()
+        } else {
+            return self.temp("K")
         }
     }
     

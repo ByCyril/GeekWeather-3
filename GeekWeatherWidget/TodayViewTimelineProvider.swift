@@ -16,12 +16,54 @@ class TodayViewTimelineProvider: TimelineProvider {
     typealias Entry = WeatherEntry
     
     func placeholder(in context: Context) -> WeatherEntry {
-        return WeatherEntry.placeholder
+        guard let file = Bundle.main.path(forResource: "preview", ofType: "json") else { return WeatherEntry.placeholder }
+        let url = URL(fileURLWithPath: file)
+
+        do {
+            let data = try Data(contentsOf: url, options: .mappedIfSafe)
+            let response = try JSONDecoder().decode(WeatherModel.self, from: data)
+            
+            var model = WidgetWeatherModel(location: "San Jose, CA",
+                                           temp: response.current.temp.kelvinToSystemFormat(),
+                                           icon: response.current.weather[0].icon,
+                                           lastUpdated: "Last Updated: " + Date().timeIntervalSince1970.convertTime(),
+                                           feelsLike: "Feels like " + response.current.feels_like.kelvinToSystemFormat(),
+                                           summary: response.current.weather[0].description.capitalized)
+            model.hourly = response.hourly
+            model.daily = response.daily
+            model.currently = response.current
+            let entry = WeatherEntry(date: Date(), weatherModel: model)
+            return entry
+        } catch {
+            return WeatherEntry.placeholder
+        }
     }
     
     func getSnapshot(in context: Context, completion: @escaping (WeatherEntry) -> Void) {
         if context.isPreview {
-            completion(WeatherEntry.stub)
+            guard let file = Bundle.main.path(forResource: "preview", ofType: "json") else { return }
+            let url = URL(fileURLWithPath: file)
+
+            do {
+                let data = try Data(contentsOf: url, options: .mappedIfSafe)
+                let response = try JSONDecoder().decode(WeatherModel.self, from: data)
+                
+                var model = WidgetWeatherModel(location: "San Jose, CA",
+                                               temp: response.current.temp.kelvinToSystemFormat(),
+                                               icon: response.current.weather[0].icon,
+                                               lastUpdated: "Last Updated: " + Date().timeIntervalSince1970.convertTime(),
+                                               feelsLike: "Feels like " + response.current.feels_like.kelvinToSystemFormat(),
+                                               summary: response.current.weather[0].description.capitalized)
+                model.hourly = response.hourly
+                model.daily = response.daily
+                model.currently = response.current
+                let entry = WeatherEntry(date: Date(), weatherModel: model)
+                
+                completion(entry)
+            } catch {
+                completion(WeatherEntry.placeholder)
+            }
+            
         } else {
             fetchWeatherData { (results) in
                 switch results {
@@ -40,11 +82,11 @@ class TodayViewTimelineProvider: TimelineProvider {
             
             if let data = model, let city = city {
                 var model = WidgetWeatherModel(location: city,
-                                                     temp: data.current.temp.kelvinToSystemFormat(),
-                                                     icon: data.current.weather[0].icon,
-                                                     lastUpdated: "Last Updated: " + Date().timeIntervalSince1970.convertTime(),
-                                                     feelsLike: "Feels like " + data.current.feels_like.kelvinToSystemFormat(),
-                                                     summary: data.current.weather[0].description.capitalized)
+                                               temp: data.current.temp.kelvinToSystemFormat(),
+                                               icon: data.current.weather[0].icon,
+                                               lastUpdated: "Last Updated: " + Date().timeIntervalSince1970.convertTime(),
+                                               feelsLike: "Feels like " + data.current.feels_like.kelvinToSystemFormat(),
+                                               summary: data.current.weather[0].description.capitalized)
                 model.hourly = data.hourly
                 model.daily = data.daily
                 model.currently = data.current

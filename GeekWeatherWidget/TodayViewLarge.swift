@@ -37,48 +37,48 @@ struct TodayViewLarge: View {
                 HStack(spacing: 0) {
                     VStack(alignment: .leading, spacing: 10) {
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("Sunrise").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize))
-                            Text(entry.weatherModel.daily?.first?.sunrise.convertTime() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize))
+                            Text("Sunrise").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize)).foregroundColor(.white)
+                            Text(entry.weatherModel.daily?.first?.sunrise.convertTime() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
                         }
                         
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("Dew Point").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize))
-                            Text(entry.weatherModel.currently?.dew_point.kelvinToSystemFormat() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize))
+                            Text("Dew Point").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize)).foregroundColor(.white)
+                            Text(entry.weatherModel.currently?.dew_point.kelvinToSystemFormat() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
                         }
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("Chance of Rain").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize))
-                            Text(entry.weatherModel.daily?.first?.pop.percentage(chop: true) ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize))
+                            Text("Chance of Rain").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize)).foregroundColor(.white)
+                            Text(entry.weatherModel.daily?.first?.pop.percentage(chop: true) ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
                         }
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("Humidity").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize))
-                            Text(entry.weatherModel.daily?.first?.humidity.percentage(chop: true) ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize))
+                            Text("Humidity").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize)).foregroundColor(.white)
+                            Text(entry.weatherModel.daily?.first?.humidity.percentage(chop: true) ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
                         }
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("Wind Speed").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize))
-                            Text(entry.weatherModel.currently?.wind_speed.msToSystemFormat() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize))
+                            Text("Wind Speed").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize)).foregroundColor(.white)
+                            Text(entry.weatherModel.currently?.wind_speed.msToSystemFormat() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
                         }
                     }.padding(.leading).padding(.trailing).padding(.bottom)
                     Spacer()
                     VStack(alignment: .leading, spacing: 10) {
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("Sunset").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize))
-                            Text(entry.weatherModel.daily?.first?.sunset.convertTime() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize))
+                            Text("Sunset").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize)).foregroundColor(.white)
+                            Text(entry.weatherModel.daily?.first?.sunset.convertTime() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
                         }
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("Visibility").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize))
-                            Text(entry.weatherModel.currently?.visibility.mToSystemFormat() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize))
+                            Text("Visibility").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize)).foregroundColor(.white)
+                            Text(entry.weatherModel.currently?.visibility.mToSystemFormat() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
                         }
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("Cloud Cover").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize))
-                            Text(entry.weatherModel.daily?.first?.clouds.percentage(chop: true) ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize))
+                            Text("Cloud Cover").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize)).foregroundColor(.white)
+                            Text(entry.weatherModel.daily?.first?.clouds.percentage(chop: true) ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
                         }
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("UV Index").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize))
-                            Text(entry.weatherModel.daily?.first?.uvi.stringRound() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize))
+                            Text("UV Index").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize)).foregroundColor(.white)
+                            Text(entry.weatherModel.daily?.first?.uvi.stringRound() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
                         }
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("Pressure").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize))
-                            Text(entry.weatherModel.currently?.pressure.stringRound() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize))
+                            Text("Pressure").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize)).foregroundColor(.white)
+                            Text(entry.weatherModel.currently?.pressure.stringRound() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
                         }
                     }.padding(.leading).padding(.trailing).padding(.bottom)
                     Spacer()

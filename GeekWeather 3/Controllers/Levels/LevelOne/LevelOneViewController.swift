@@ -17,11 +17,10 @@ final class LevelOneViewController: BaseView {
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var commentLabel: UILabel!
     @IBOutlet var iconView: UIImageView!
-    
-//    var currentWeatherData: Currently?
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         
         let view = Bundle.main.loadNibNamed("LevelOneViewController", owner: self)!.first as! LevelOneViewController
         loadXib(view, self)

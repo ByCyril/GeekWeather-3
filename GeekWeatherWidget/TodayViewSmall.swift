@@ -36,9 +36,6 @@ struct TodayViewSmall: View {
                 
                 Text(entry.weatherModel.summary).font(Font.custom("AvenirNext-Medium", size: 12)).foregroundColor(.white)
                 Spacer()
-                
-//                Text(entry.weatherModel.lastUpdated).font(Font.custom("AvenirNext-Medium", size: 10)).foregroundColor(.white).padding(.bottom)
-//                Spacer()
             }
         }
         .redacted(reason: entry.isPlaceholder ? .placeholder : .init())

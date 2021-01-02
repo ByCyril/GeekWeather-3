@@ -28,21 +28,13 @@ struct WeatherEntry: TimelineEntry {
     var isPlaceholder = false
 }
 
-struct MockHourly {
-    var hourly = [Hourly]()
-    
-    init() {
-        
-    }
-}
-
 extension WeatherEntry {
     
     static var stub: WeatherEntry {
-        WeatherEntry(date: Date(), weatherModel: WidgetWeatherModel(location: "San Jose, CA", temp: "71°", icon: "01d", lastUpdated: "Last Updated 9:01 AM", feelsLike: "Feels like 68°", summary: "Sunny"))
+        WeatherEntry(date: Date(), weatherModel: WidgetWeatherModel(location: "-", temp: "-", icon: "01d", lastUpdated: "-", feelsLike: "-", summary: "-"))
     }
     
     static var placeholder: WeatherEntry {
-        WeatherEntry(date: Date(), weatherModel: WidgetWeatherModel(location: "San Jose, CA", temp: "71°", icon: "01d", lastUpdated: "Last Updated 9:01 AM", feelsLike: "Feels like 62°", summary: "Sunny"), isPlaceholder: true)
+        WeatherEntry(date: Date(), weatherModel: WidgetWeatherModel(location: "-", temp: "-", icon: "01d", lastUpdated: "-", feelsLike: "-", summary: "-"), isPlaceholder: true)
     }
 }

@@ -30,7 +30,7 @@ final class WidgetNetworkManager: NSObject, CLLocationManagerDelegate {
     public func fetch(_ completion: @escaping (WeatherModel?, Error?, String?) -> Void) {
         guard let location = location?.location else { return }
         
-        let url = RequestURL(location: location, .imperial)
+        let url = RequestURL(location: location)
         session?.dataTaskWithUrl(url, completion: { (data, response, error) in
             
             if let error = error {

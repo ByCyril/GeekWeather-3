@@ -10,11 +10,11 @@ import Foundation
 import GWFoundation
 
 extension Double {
-    func kelvinToSystemFormat() -> String {
-        let measure = UserDefaults.standard.integer(forKey: "Temperature")
+    func kelvinToSystemFormat() -> String {        
+        guard let measure = sharedUserDefaults?.integer(forKey: SharedUserDefaults.Keys.Temperature) else { return self.temp(" K") }
         
         if measure == 0 {
-            return self.temp(" K")
+            return self.temp("K")
         } else if measure == 1 {
             return ((self - 273.15) * (9.0/5.0) + 32).temp()
         } else {
@@ -23,10 +23,10 @@ extension Double {
     }
     
     func mToSystemFormat() -> String {
-        let measure = UserDefaults.standard.integer(forKey: "Units")
+        guard let measure = sharedUserDefaults?.integer(forKey: SharedUserDefaults.Keys.Units) else { return self.stringRound() + " m" }
         
         if measure == 0 {
-            return self.stringRound() + "m"
+            return self.stringRound() + " m"
         } else if measure == 1 {
             return (self / 1609).stringRound() + " mi"
         } else {
@@ -35,7 +35,7 @@ extension Double {
     }
     
     func msToSystemFormat() -> String {
-        let measure = UserDefaults.standard.integer(forKey: "Units")
+        guard let measure = sharedUserDefaults?.integer(forKey: SharedUserDefaults.Keys.Units) else { return self.stringRound() + " m/s" }
         
         if measure == 0 {
             return self.stringRound() + " m/s"
@@ -47,12 +47,18 @@ extension Double {
     }
     
     func convertHourTime() -> String {
-        let is24 = UserDefaults.standard.bool(forKey: "is24Hour")
-        return is24 ? self.date(.mHour) : self.date(.hour)
+        if let is24 = sharedUserDefaults?.bool(forKey: SharedUserDefaults.Keys.is24Hour) {
+            return is24 ? self.date(.mHour) : self.date(.hour)
+        } else {
+            return self.date(.hour)
+        }
     }
     
     func convertTime() -> String {
-        let is24 = UserDefaults.standard.bool(forKey: "is24Hour")
-        return is24 ? self.date(.mtime) : self.date(.time)
+        if let is24 = sharedUserDefaults?.bool(forKey: SharedUserDefaults.Keys.is24Hour) {
+            return is24 ? self.date(.mtime) : self.date(.time)
+        } else {
+            return self.date(.time)
+        }
     }
 }

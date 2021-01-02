@@ -15,20 +15,30 @@ struct TodayViewSmall: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color("GradientTopColor"),Color("GradientBottomColor")]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [Color("System-GradientTopColor"),Color("System-GradientBottomColor")]), startPoint: .top, endPoint: .bottom)
 
             VStack {
                 Spacer()
-                Text(entry.weatherModel.location).font(Font.custom("AvenirNext", size: 15))
+                Text(entry.weatherModel.location).font(Font.custom("AvenirNext-Medium", size: 15)).foregroundColor(.white)
                     
                 HStack {
-                    Image(entry.weatherModel.icon).resizable().frame(width: 50, height: 50, alignment: .center)
-                    Text(entry.weatherModel.temp).font(Font.custom("AvenirNext-Medium", size: 45))
-                }
-                                
-                Text(entry.weatherModel.lastUpdated).font(Font.custom("AvenirNext", size: 10)).padding()
+                    Image(entry.weatherModel.icon)
+                        .resizable().frame(width: 50, height: 50, alignment: .center)
+                        .cornerRadius(15)
+                    
+                    Text(entry.weatherModel.temp)
+                        .font(Font.custom("AvenirNext-Bold", size: 40))
+                        .minimumScaleFactor(0.2)
+                        .allowsTightening(true)
+                        .lineLimit(1)
+                        .foregroundColor(.white)
+                }.padding(.leading).padding(.trailing)
                 
+                Text(entry.weatherModel.summary).font(Font.custom("AvenirNext-Medium", size: 12)).foregroundColor(.white)
+                Spacer()
                 
+//                Text(entry.weatherModel.lastUpdated).font(Font.custom("AvenirNext-Medium", size: 10)).foregroundColor(.white).padding(.bottom)
+//                Spacer()
             }
         }
         .redacted(reason: entry.isPlaceholder ? .placeholder : .init())

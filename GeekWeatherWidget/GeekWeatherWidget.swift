@@ -16,7 +16,7 @@ struct GeekWeatherWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
             GeekWeatherWidgetEntryView(entry: entry)
-        }.supportedFamilies([.systemSmall])
+        }.supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
         .configurationDisplayName("GeekWeather Widget")
         .description("Developed and designed by Cyril")
     }

@@ -46,6 +46,9 @@
 		0127D118259573CF00298ABD /* TodayViewMedium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D1142595736F00298ABD /* TodayViewMedium.swift */; };
 		0127D14E2597D72200298ABD /* GWFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D14D2597D72200298ABD /* GWFont.swift */; };
 		0127D15C2597F55D00298ABD /* AppIconSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D15B2597F55D00298ABD /* AppIconSelectionController.swift */; };
+		012D3AE1259FEDC60093ED51 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D3AE0259FEDC60093ED51 /* SharedUserDefaults.swift */; };
+		012D3AE2259FEDC70093ED51 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D3AE0259FEDC60093ED51 /* SharedUserDefaults.swift */; };
+		012D3AF825A019760093ED51 /* TodayViewLarge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D3AF625A019760093ED51 /* TodayViewLarge.swift */; };
 		0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */; };
 		01430F31259B1EFA00D67245 /* ToggleOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */; };
 		01430F37259BF4DB00D67245 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01430F35259BF4DB00D67245 /* Model.xcdatamodeld */; };
@@ -181,6 +184,8 @@
 		0127D1142595736F00298ABD /* TodayViewMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewMedium.swift; sourceTree = "<group>"; };
 		0127D14D2597D72200298ABD /* GWFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWFont.swift; sourceTree = "<group>"; };
 		0127D15B2597F55D00298ABD /* AppIconSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSelectionController.swift; sourceTree = "<group>"; };
+		012D3AE0259FEDC60093ED51 /* SharedUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedUserDefaults.swift; sourceTree = "<group>"; };
+		012D3AF625A019760093ED51 /* TodayViewLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewLarge.swift; sourceTree = "<group>"; };
 		0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeViewController.swift; sourceTree = "<group>"; };
 		01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleOnboarding.swift; sourceTree = "<group>"; };
 		01430F36259BF4DB00D67245 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -302,6 +307,7 @@
 				0157E8E0259144270026706D /* denied.json */,
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
+				012D3AE0259FEDC60093ED51 /* SharedUserDefaults.swift */,
 				011908E1259D722400EE1C0F /* GWFiles */,
 				011908D8259D71AB00EE1C0F /* Views */,
 				0100D80924CE52AF00C9F9B5 /* Managers */,
@@ -368,6 +374,7 @@
 				0103B89625955B25008577FD /* WidgetNetworkManager.swift */,
 				0103B86D259526AE008577FD /* TodayViewSmall.swift */,
 				0127D1142595736F00298ABD /* TodayViewMedium.swift */,
+				012D3AF625A019760093ED51 /* TodayViewLarge.swift */,
 				0103B85725944B59008577FD /* WeatherEntry.swift */,
 				0103B86425944F03008577FD /* TodayViewTimelineProvider.swift */,
 				0103B846259449E9008577FD /* Assets.xcassets */,
@@ -825,6 +832,7 @@
 				01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */,
 				01BE6C9F259AD6DC000016CA /* OnboardingViewControllerLevelTwo.swift in Sources */,
 				01042C3324ECDF850090B349 /* AppIconSettingItem.swift in Sources */,
+				012D3AE1259FEDC60093ED51 /* SharedUserDefaults.swift in Sources */,
 				018079CF258DBE5A00C88E0E /* RollableTitleView.swift in Sources */,
 				01F431EE259E76A300B0D44F /* SystemSettingsController.swift in Sources */,
 				01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */,
@@ -874,6 +882,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				012D3AF825A019760093ED51 /* TodayViewLarge.swift in Sources */,
 				0103B86825944F07008577FD /* TodayViewTimelineProvider.swift in Sources */,
 				010F7DB8259C129C00D53BFA /* GWFont.swift in Sources */,
 				0103B89A25955EA5008577FD /* WidgetNetworkManager.swift in Sources */,
@@ -886,6 +895,7 @@
 				0103B87F25952D51008577FD /* TodayViewSmall.swift in Sources */,
 				0127D118259573CF00298ABD /* TodayViewMedium.swift in Sources */,
 				0103B845259449E7008577FD /* GeekWeatherWidget.swift in Sources */,
+				012D3AE2259FEDC70093ED51 /* SharedUserDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,7 +1057,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 3.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2";
 				PRODUCT_NAME = GeekWeather;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1073,7 +1083,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 3.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2";
 				PRODUCT_NAME = GeekWeather;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1145,7 +1155,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3.GeekWeatherWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2.GeekWeatherWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1171,7 +1181,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-3.GeekWeatherWidget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2.GeekWeatherWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;

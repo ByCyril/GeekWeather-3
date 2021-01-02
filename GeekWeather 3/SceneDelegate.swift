@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        if UserDefaults.standard.bool(forKey: "ExistingUser") {
+        if UserDefaults.standard.bool(forKey: SharedUserDefaults.Keys.ExistingUser) {
             guard let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { return }
             mainViewController = vc
             setWindow(with: windowScene, vc: mainViewController!)
@@ -43,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneWillEnterForeground(_ scene: UIScene) {
-        if let lastUpdate = UserDefaults.standard.value(forKey: "LastUpdated") as? Date {
+        if let lastUpdate = UserDefaults.standard.value(forKey: SharedUserDefaults.Keys.LastUpdated) as? Date {
             
             let differenceInSeconds = abs(lastUpdate.timeIntervalSince(Date()))
             let minutesPassed = differenceInSeconds / 60

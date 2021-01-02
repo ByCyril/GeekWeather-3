@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WidgetKit
 
 final class FormatSettingsController: UITableViewController {
     
@@ -14,25 +15,35 @@ final class FormatSettingsController: UITableViewController {
     @IBOutlet var unitSelector: UISegmentedControl!
     @IBOutlet var hourSwitch: UISwitch!
     
+    let tempSetting = sharedUserDefaults?.integer(forKey: "Temperature") ?? 0
+    let unitSetting = sharedUserDefaults?.integer(forKey: "Units") ?? 0
+    let hourSetting = sharedUserDefaults?.bool(forKey: "is24Hour") ?? false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        scaleSelector.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "Temperature")
-        unitSelector.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "Units")
-        hourSwitch.isOn = UserDefaults.standard.bool(forKey: "is24Hour")
+        scaleSelector.selectedSegmentIndex = tempSetting
+        unitSelector.selectedSegmentIndex = unitSetting
+        hourSwitch.isOn = hourSetting
     }
     
     @IBAction func changeScale(_ sender: UISegmentedControl) {
-        UserDefaults.standard.setValue(sender.selectedSegmentIndex, forKey: "Temperature")
+        sharedUserDefaults?.setValue(sender.selectedSegmentIndex, forKey: "Temperature")
         NotificationCenter.default.post(name: Notification.Name("UpdateValues"), object: nil)
     }
     
     @IBAction func changeUnits(_ sender: UISegmentedControl) {
-        UserDefaults.standard.setValue(sender.selectedSegmentIndex, forKey: "Units")
+        sharedUserDefaults?.setValue(sender.selectedSegmentIndex, forKey: "Units")
         NotificationCenter.default.post(name: Notification.Name("UpdateValues"), object: nil)
     }
     
     @IBAction func militaryTime(_ sender: UISwitch) {
-        UserDefaults.standard.setValue(sender.isOn, forKey: "is24Hour")
+        sharedUserDefaults?.setValue(sender.isOn, forKey: "is24Hour")
         NotificationCenter.default.post(name: Notification.Name("UpdateValues"), object: nil)
+    }
+    
+    deinit {
+        if scaleSelector.selectedSegmentIndex != tempSetting || unitSelector.selectedSegmentIndex != unitSetting || hourSwitch.isOn != hourSetting {
+            WidgetCenter.shared.reloadAllTimelines()
+        }
     }
 }

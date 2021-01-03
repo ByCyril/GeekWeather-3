@@ -35,14 +35,25 @@ final class DetailsViewModal: UIView {
     func initUI() {
         containerStackView = createStackView(.horizontal, .fillEqually)
         addSubview(containerStackView!)
+        
         let topContainer = createStackView(.horizontal, .fill)
         topContainer.spacing = 15
         topContainer.addArrangedSubview(iconView)
-        topContainer.addArrangedSubview(dayLabel)
-        dayLabel.font = GWFont.AvenirNext(style: .Bold, size: 40)
+        
+        summaryLabel.textColor = .white
+        summaryLabel.font = GWFont.AvenirNext(style: .Medium, size: 17)
+        dayLabel.textColor = .white
+        dayLabel.font = GWFont.AvenirNext(style: .Bold, size: 35)
+        
+        let contentStack = createStackView(.vertical, .fillProportionally)
+        contentStack.addArrangedSubview(dayLabel)
+        contentStack.addArrangedSubview(summaryLabel)
+        topContainer.addArrangedSubview(contentStack)
+        
+        
         addSubview(topContainer)
         
-        let padding: CGFloat = 15
+        let padding: CGFloat = 25
         
         NSLayoutConstraint.activate([
             iconView.heightAnchor.constraint(equalToConstant: 75),
@@ -52,23 +63,12 @@ final class DetailsViewModal: UIView {
             topContainer.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -padding),
             topContainer.heightAnchor.constraint(equalToConstant: 75)
         ])
-        
-        summaryLabel.translatesAutoresizingMaskIntoConstraints = false
-        summaryLabel.numberOfLines = 0
-        summaryLabel.font = GWFont.AvenirNext(style: .Medium, size: 17)
-        addSubview(summaryLabel)
-        
-        NSLayoutConstraint.activate([
-            summaryLabel.topAnchor.constraint(equalTo: topContainer.bottomAnchor, constant: padding),
-            summaryLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
-            summaryLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -padding),
-            summaryLabel.bottomAnchor.constraint(equalTo: containerStackView!.topAnchor, constant: -padding)
-        ])
+       
         
         leftCol = createStackView(.vertical, .fillEqually)
-        leftCol?.spacing = 10
+        leftCol?.spacing = 7
         rightCol = createStackView(.vertical, .fillEqually)
-        rightCol?.spacing = 10
+        rightCol?.spacing = 7
         
         containerStackView?.addArrangedSubview(leftCol!)
         containerStackView?.addArrangedSubview(rightCol!)
@@ -78,7 +78,7 @@ final class DetailsViewModal: UIView {
             containerStackView!.topAnchor.constraint(equalTo: summaryLabel.bottomAnchor, constant: padding),
             containerStackView!.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -padding),
             containerStackView!.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
-            containerStackView!.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -padding)
+            containerStackView!.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
         ])
         
         layoutIfNeeded()
@@ -136,7 +136,9 @@ final class DetailsViewModal: UIView {
             let firstItemLabel = UILabel()
             firstItemLabel.text = item.firstItemLabel
             firstItemLabel.font = GWFont.AvenirNext(style: .Medium, size: 12)
-            firstItemLabel.textColor = .gray
+            firstItemLabel.textColor = .white
+            firstItemLabel.alpha = 0.75
+            
             let firstItemValue = UILabel()
             firstItemValue.text = item.firstItemValue
             firstItemValue.font = GWFont.AvenirNext(style: .Medium, size: 20)
@@ -149,8 +151,8 @@ final class DetailsViewModal: UIView {
             let secondItemLabel = UILabel()
             secondItemLabel.text = item.secondItemLabel
             secondItemLabel.font = GWFont.AvenirNext(style: .Medium, size: 12)
-            secondItemLabel.textColor = .gray
-
+            secondItemLabel.textColor = .white
+            secondItemLabel.alpha = 0.75
             let secondItemValue = UILabel()
             secondItemValue.text = item.secondItemValue
             secondItemValue.font = GWFont.AvenirNext(style: .Medium, size: 20)

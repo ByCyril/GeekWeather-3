@@ -73,13 +73,10 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         guard let daily = obj.object as? Daily else { return }
         
         detailsView.dayLabel.text = daily.dt.date(.day)
-        
-        let high = daily.temp.max.kelvinToSystemFormat()
-        let low = daily.temp.min.kelvinToSystemFormat()
+       
         let description = daily.weather.first!.description.capitalizingFirstLetter()
-        let summary = "\(description) with a high of \(high) and a low of \(low)"
         
-        detailsView.summaryLabel.text = summary
+        detailsView.summaryLabel.text = description
         detailsView.iconView.image = UIImage(named: daily.weather.first!.icon)
         detailsView.presentData(daily)
         flexibleCenterYConstraint?.constant = 0

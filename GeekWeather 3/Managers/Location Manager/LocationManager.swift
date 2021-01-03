@@ -24,7 +24,6 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     init(_ delegate: LocationManagerDelegate) {
         super.init()
         locationManager.delegate = self
-        
         self.delegate = delegate
     }
     
@@ -37,7 +36,12 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            authorizationEnabled(manager)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                print("#### Parsing Mocked Data ####")
+                self?.authorizationEnabled(manager)
+            }
+            
         case .denied, .restricted:
             if let location = UserDefaults.standard.value(forKey: "DefaultLocation") as? [String: CLLocationDegrees] {
                 let cllocation = CLLocation(latitude: location["lat"]!,
@@ -59,7 +63,10 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
                                         longitude: location["lon"]!)
             delegate?.currentLocation(cllocation)
         } else {
-            guard let location = manager.location else { return }
+            guard let location = manager.location else {
+                delegate?.locationError("unable to get location", .none)
+                return
+            }
             delegate?.currentLocation(location)
         }
     }
@@ -70,6 +77,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
                                         longitude: location["lon"]!)
             delegate?.currentLocation(cllocation)
         } else {
+            delegate?.locationError("here", .none)
             locationManager.requestWhenInUseAuthorization()
         }
     }

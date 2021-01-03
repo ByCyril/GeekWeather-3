@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if UserDefaults.standard.bool(forKey: SharedUserDefaults.Keys.ExistingUser) {
 
             if UIDevice.current.userInterfaceIdiom == .pad {
-                guard let vc = UIStoryboard(name: "iPad", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainPadController") as? MainPadController else { return }
+                let vc = MainPadController()
                 setWindow(with: windowScene, vc: vc)
                 return
             }
@@ -60,11 +60,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
     }
-
-    func sceneDidEnterBackground(_ scene: UIScene) { }
-    func sceneDidDisconnect(_ scene: UIScene) { }
-    func sceneDidBecomeActive(_ scene: UIScene) { }
-    func sceneWillResignActive(_ scene: UIScene) { }
     
     func resetLimit() {
         let day = Date().timeIntervalSince1970.date(.day)
@@ -79,4 +74,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
     }
+
+    func sceneDidEnterBackground(_ scene: UIScene) { }
+    func sceneDidDisconnect(_ scene: UIScene) { }
+    func sceneDidBecomeActive(_ scene: UIScene) { }
+    func sceneWillResignActive(_ scene: UIScene) { }
+
 }

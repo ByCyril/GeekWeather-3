@@ -46,8 +46,9 @@ struct TodayViewMedium: View {
                     if let hourly = entry.weatherModel.hourly {
                         ForEach(0..<7) { i in
                             let data = hourly[i]
+                            let time = (i == 0) ? "Now" : data.dt.convertHourTime()
                             VStack(spacing: 0) {
-                                Text(data.dt.convertHourTime())
+                                Text(time)
                                     .font(Font.custom("AvenirNext-Regular", size: 13))
                                     .minimumScaleFactor(0.2)
                                     .allowsTightening(true)
@@ -67,7 +68,7 @@ struct TodayViewMedium: View {
                           Divider()
                         }
                     }
-                  }.padding(.leading).padding(.trailing)
+                  }.padding(.leading).padding(.trailing).padding(.bottom)
             }
             
         }

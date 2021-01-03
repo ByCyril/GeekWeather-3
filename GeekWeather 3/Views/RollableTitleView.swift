@@ -41,7 +41,7 @@ final class RollableTitleView: UIView {
         
     func initUI() {
         todayLabel.numberOfLines = 1
-        todayLabel.text = "--"
+        todayLabel.text = ""
         geekLabel.text = "Details"
         forecastLabel.text = "Forecast"
         

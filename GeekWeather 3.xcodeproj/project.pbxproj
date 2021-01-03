@@ -101,6 +101,8 @@
 		01E65B2024F19D9400D8F76F /* ChangeUnitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */; };
 		01F431DC259E288600B0D44F /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */; };
 		01F431EE259E76A300B0D44F /* SystemSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431ED259E76A300B0D44F /* SystemSettingsController.swift */; };
+		01F4CD2525A067AE00A52971 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F4CD2425A067AE00A52971 /* iPad.storyboard */; };
+		01F4CD2D25A119EE00A52971 /* MainPadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F4CD2C25A119EE00A52971 /* MainPadController.swift */; };
 		01FCE338258B21E200C841C8 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 01FCE337258B21E200C841C8 /* demo.json */; };
 		CFBD38EB0C18677448B8E58B /* Pods_GeekWeather_3Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6603F886DADE4EC37E1E3758 /* Pods_GeekWeather_3Tests.framework */; };
 		E3302AE93113182ABB9234F7 /* Pods_GeekWeather_3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 826CCA41E772C9C5286D7281 /* Pods_GeekWeather_3.framework */; };
@@ -237,6 +239,8 @@
 		01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUnitController.swift; sourceTree = "<group>"; };
 		01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBaseViewController.swift; sourceTree = "<group>"; };
 		01F431ED259E76A300B0D44F /* SystemSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettingsController.swift; sourceTree = "<group>"; };
+		01F4CD2425A067AE00A52971 /* iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		01F4CD2C25A119EE00A52971 /* MainPadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPadController.swift; sourceTree = "<group>"; };
 		01FCE337258B21E200C841C8 /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
 		3AB4EFED94A002C1413075CC /* Pods-GeekWeather 3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeekWeather 3.debug.xcconfig"; path = "Target Support Files/Pods-GeekWeather 3/Pods-GeekWeather 3.debug.xcconfig"; sourceTree = "<group>"; };
 		6603F886DADE4EC37E1E3758 /* Pods_GeekWeather_3Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeekWeather_3Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,6 +362,8 @@
 			children = (
 				01844A1524F22113000B0D52 /* Main.storyboard */,
 				01190991259D8BEA00EE1C0F /* Settings.storyboard */,
+				01F4CD2425A067AE00A52971 /* iPad.storyboard */,
+				01F4CD2C25A119EE00A52971 /* MainPadController.swift */,
 				011908F3259D797400EE1C0F /* DeveloperController */,
 				011908EA259D726600EE1C0F /* ChangeUnitController */,
 				011908D2259D718D00EE1C0F /* ErrorViewController */,
@@ -739,6 +745,7 @@
 				0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */,
 				01844A1624F22113000B0D52 /* Main.storyboard in Resources */,
 				0157E8E3259144270026706D /* denied.json in Resources */,
+				01F4CD2525A067AE00A52971 /* iPad.storyboard in Resources */,
 				0100D7DD24CE1A8300C9F9B5 /* Assets.xcassets in Resources */,
 				012D3B1E25A0427C0093ED51 /* preview.json in Resources */,
 				01FCE338258B21E200C841C8 /* demo.json in Resources */,
@@ -861,6 +868,7 @@
 				0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
 				010F7DCE259C44DF00D53BFA /* ResetNumberCalls.swift in Sources */,
+				01F4CD2D25A119EE00A52971 /* MainPadController.swift in Sources */,
 				0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */,
 				01042C2A24EC8AB00090B349 /* SettingsController.swift in Sources */,
 				0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */,
@@ -1070,7 +1078,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1096,7 +1104,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

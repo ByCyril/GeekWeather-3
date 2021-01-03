@@ -19,9 +19,16 @@ final class LevelTwoDailyViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        initUI()
+        setupAccessibilityElements()
+    }
+    
+    func initUI() {
         backgroundColor = .clear
         
+        dayLabel.minimumScaleFactor = 0.1
         dayLabel.font = GWFont.AvenirNext(style: .Medium, size: 23)
+        
         highTempLabel.font = GWFont.AvenirNext(style: .Bold, size: 25)
         lowTempLabel.font = GWFont.AvenirNext(style: .Medium, size: 21)
 
@@ -33,6 +40,44 @@ final class LevelTwoDailyViewCell: UICollectionViewCell {
             element.translatesAutoresizingMaskIntoConstraints = false
             addSubview(element)
         }
+        
+    }
+    
+    func verticalLayout() {
+        let padding: CGFloat = 10
+        dayLabel.textAlignment = .center
+        
+        let tempContainerView = UIStackView()
+        tempContainerView.alignment = .center
+        tempContainerView.axis = .horizontal
+        tempContainerView.distribution = .fillEqually
+        tempContainerView.addArrangedSubview(highTempLabel)
+        tempContainerView.addArrangedSubview(lowTempLabel)
+        tempContainerView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(tempContainerView)
+        
+        NSLayoutConstraint.activate([
+            dayLabel.topAnchor.constraint(equalTo: topAnchor),
+            dayLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            dayLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            dayLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            iconView.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: padding),
+            iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            iconView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            iconView.bottomAnchor.constraint(equalTo: tempContainerView.topAnchor, constant: -padding),
+            
+            tempContainerView.heightAnchor.constraint(equalToConstant: 20),
+            tempContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tempContainerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tempContainerView.bottomAnchor.constraint(equalTo: bottomAnchor)
+
+        ])
+        
+        layoutIfNeeded()
+    }
+    
+    func horizontalLayout() {
         
         let padding: CGFloat = 10
         
@@ -56,13 +101,10 @@ final class LevelTwoDailyViewCell: UICollectionViewCell {
         ])
         
         layoutIfNeeded()
-        
-        setupAccessibilityElements()
     }
     
     func setupAccessibilityElements() {
         dayLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: dayLabel.font)
-        
         highTempLabel.font = UIFontMetrics(forTextStyle: .callout).scaledFont(for: highTempLabel.font)
         lowTempLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: lowTempLabel.font)
         

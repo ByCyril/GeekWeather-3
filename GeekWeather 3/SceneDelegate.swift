@@ -26,6 +26,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         if UserDefaults.standard.bool(forKey: SharedUserDefaults.Keys.ExistingUser) {
+
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                guard let vc = UIStoryboard(name: "iPad", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainPadController") as? MainPadController else { return }
+                setWindow(with: windowScene, vc: vc)
+                return
+            }
+            
             guard let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { return }
             mainViewController = vc
             setWindow(with: windowScene, vc: mainViewController!)

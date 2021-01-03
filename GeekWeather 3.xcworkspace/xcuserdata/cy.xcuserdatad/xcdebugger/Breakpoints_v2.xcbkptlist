@@ -14,9 +14,9 @@
             filePath = "GeekWeather 3/Managers/Location Manager/LocationManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "lookupCurrentLocation(_:)"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "notDetermined()"
             landmarkType = "7">
             <Locations>
                <Location

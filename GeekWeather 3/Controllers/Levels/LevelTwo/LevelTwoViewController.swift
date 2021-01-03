@@ -13,7 +13,7 @@ enum Section {
     case main
 }
 
-final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout {
+final class LevelTwoViewController: BaseView {
     
     @IBOutlet var containerView: UIView!
     
@@ -33,19 +33,37 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
         return collectionView
     }()
     
-    lazy var dailyView: UICollectionView = {
-        var layout = UICollectionLayoutListConfiguration(appearance: .grouped)
-        layout.backgroundColor = .clear
-        layout.showsSeparators = false
+    var dailyView: UICollectionView!
+//
+//    lazy var dailyView: UICollectionView = {
+////        var layout = UICollectionLayoutListConfiguration(appearance: .sidebarPlain)
+////        layout.backgroundColor = .clear
+////        layout.showsSeparators = false
+////
+////        let configuration = UICollectionViewCompositionalLayout.list(using: layout)
+//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+//
+//        collectionView.translatesAutoresizingMaskIntoConstraints = false
+//        collectionView.backgroundColor = .clear
+//        collectionView.isScrollEnabled = false
+//        return collectionView
+//    }()
+    
+    private func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .estimated((frame.height - 125) / 8))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: .fixed(8), trailing: nil, bottom: .fixed(8))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .estimated(50))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                       subitems: [item])
         
-        let configuration = UICollectionViewCompositionalLayout.list(using: layout)
+        let section = NSCollectionLayoutSection(group: group)
         
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configuration)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .clear
-        collectionView.isScrollEnabled = false
-        return collectionView
-    }()
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -66,7 +84,7 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
         addSubview(hourlyView)
         
         NSLayoutConstraint.activate([
-            hourlyView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            hourlyView.topAnchor.constraint(equalTo: topAnchor, constant: 25),
             hourlyView.leadingAnchor.constraint(equalTo: leadingAnchor),
             hourlyView.trailingAnchor.constraint(equalTo: trailingAnchor),
             hourlyView.heightAnchor.constraint(equalToConstant: 100)
@@ -75,9 +93,10 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
         layoutIfNeeded()
         
         let registration = UICollectionView.CellRegistration<LevelTwoHourlyViewCell, Hourly> { cell, indexPath, data in
+            let time = (indexPath.row == 0) ? "Now" : data.dt.convertHourTime()
+            cell.timestampLabel.text = time
             cell.iconView.image = UIImage(named: data.weather.first!.icon)
             cell.tempLabel.text = data.temp.kelvinToSystemFormat()
-            cell.timestampLabel.text = data.dt.convertHourTime()
         }
         
         hourlyDataSource = UICollectionViewDiffableDataSource(collectionView: hourlyView, cellProvider: { (collectionView, indexpath, data) -> LevelTwoHourlyViewCell? in
@@ -87,11 +106,22 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
     }
     
     private func dailyViewSetup() {
-        dailyView.delegate = self
-        addSubview(dailyView)
+//        var layout = UICollectionLayoutListConfiguration(appearance: .sidebarPlain)
+//         layout.backgroundColor = .clear
+//         layout.showsSeparators = false
+        //
+        //         let configuration = UICollectionViewCompositionalLayout.list(using: layout)
+        dailyView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         
+        dailyView.translatesAutoresizingMaskIntoConstraints = false
+        dailyView.backgroundColor = .clear
+        dailyView.isScrollEnabled = false
+        
+        
+        addSubview(dailyView)
+        dailyView.delegate = self
         NSLayoutConstraint.activate([
-            dailyView.topAnchor.constraint(equalTo: hourlyView.bottomAnchor),
+            dailyView.topAnchor.constraint(equalTo: hourlyView.bottomAnchor, constant: 15),
             dailyView.leadingAnchor.constraint(equalTo: leadingAnchor),
             dailyView.trailingAnchor.constraint(equalTo: trailingAnchor),
             dailyView.bottomAnchor.constraint(equalTo: bottomAnchor)
@@ -115,10 +145,13 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
             cell.iconView.image = UIImage(named: daily.weather.first!.icon)
             cell.highTempLabel.text = daily.temp.max.kelvinToSystemFormat()
             cell.lowTempLabel.text = daily.temp.min.kelvinToSystemFormat()
+            cell.frame.size = CGSize(width: self.dailyView.frame.size.width, height: self.dailyView.frame.size.height / 8)
         }
         
         dailyDataSource = UICollectionViewDiffableDataSource(collectionView: dailyView, cellProvider: { (collectionView, indexpath, data) -> LevelTwoDailyViewCell? in
-            return collectionView.dequeueConfiguredReusableCell(using: registration, for: indexpath, item: data)
+            let cell = collectionView.dequeueConfiguredReusableCell(using: registration, for: indexpath, item: data)
+            cell.horizontalLayout()
+            return cell
         })
         
     }
@@ -145,4 +178,11 @@ final class LevelTwoViewController: BaseView, UICollectionViewDelegateFlowLayout
         dailyView.reloadData()
     }
 
+}
+
+extension LevelTwoViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Hi")
+    }
 }

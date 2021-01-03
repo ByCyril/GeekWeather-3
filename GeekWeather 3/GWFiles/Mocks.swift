@@ -32,20 +32,15 @@ struct MockError: MockErrorProtocol {
 final class Mocks {
     
     static func mockedResponse() -> Data? {
-        guard let file = Bundle.main.path(forResource: "demo", ofType: "json") else { return nil }
+        guard let file = Bundle.main.path(forResource: "preview", ofType: "json") else { return nil }
         let url = URL(fileURLWithPath: file)
         let data = try? Data(contentsOf: url, options: .mappedIfSafe)
-        
-//        let count = UserDefaults.standard.integer(forKey: "NumberOfCalls")
-//        if count >= 5 {
-//            return data
-//        }
-        
+
         if UserDefaults.standard.bool(forKey: "ToggleMockedResponse") {
             return data
         }
         
-        return nil
+        return data
     }
     
     static func mockError() -> Error? {

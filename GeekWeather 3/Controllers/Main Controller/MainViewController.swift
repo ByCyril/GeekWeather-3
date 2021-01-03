@@ -55,33 +55,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         createGradient()
         
         NotificationCenter.default.addObserver(self, selector: #selector(newLocation(_:)), name: Notification.Name("NewLocationLookup"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(unitDidChange(_:)), name: Notification.Name("UnitChange"), object: nil)
-    }
-    
-    @objc
-    func unitDidChange(_ notification: NSNotification) {
-//        let count = UserDefaults.standard.integer(forKey: "NumberOfCalls")
-//        if count >= 5 {
-//            let mock = Mocks.mockedResponse()
-//            networkManager = NetworkManager(self, mock!)
-//            return
-//        }
-//
-//        guard let unit = notification.object as? String else { return }
-//
-//        if let location = locationManager?.locationManager.location {
-//
-//            hideScrollView()
-//
-//            var req: RequestURL
-//            if unit == "imperial" {
-//                req = RequestURL(location: location, .imperial)
-//            } else {
-//                req = RequestURL(location: location, .metric)
-//            }
-//            networkManager?.fetch(req)
-//        }
-    }
+     }
 
     func createShadows() {
         shadowView.layer.shadowColor = UIColor.black.cgColor
@@ -122,15 +96,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     @objc
     func newLocation(_ notification: NSNotification) {
         navView?.rollableTitleView.hideTitles()
-        hideScrollView()
-        
-//        let count = UserDefaults.standard.integer(forKey: "NumberOfCalls")
-//        if count >= 5 {
-//            let mock = Mocks.mockedResponse()
-//            networkManager = NetworkManager(self, mock!)
-//            return
-//        }
-        
+
         if let location = notification.object as? CLLocation {
             hideScrollView { [weak self] (_) in
                 self?.currentLocation(location)
@@ -194,19 +160,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         HapticManager.soft()
     }
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        
-//        UIView.animate(withDuration: 0.4) { [weak self] in
-////            self?.levelOneViewController?.blurredEffectView.alpha = 0
-////            self?.levelTwoViewController?.blurredEffectView.alpha = 0
-////            self?.levelThreeViewController?.blurredEffectView.alpha = 0
-////            self?.levelOneViewController?.transform = .identity
-////            self?.levelTwoViewController?.transform = .identity
-////            self?.levelThreeViewController?.transform = .identity
-////            self?.shadowView.alpha = 0
-//            
-//        }
-//    }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         

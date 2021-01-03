@@ -28,41 +28,82 @@ final class WidgetNetworkManager: NSObject, CLLocationManagerDelegate {
     }
     
     public func fetch(_ completion: @escaping (WeatherModel?, Error?, String?) -> Void) {
-        guard let location = location?.location else { return }
         
-        let url = RequestURL(location: location)
-        session?.dataTaskWithUrl(url, completion: { (data, response, error) in
+        if let location = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.WidgetDefaultLocation) as? [String: CLLocationDegrees] {
+            let cllocation = CLLocation(latitude: location["lat"]!,
+                                        longitude: location["lon"]!)
             
-            if let error = error {
-                completion(nil, error, error.localizedDescription)
-                return
-            }
-
-            if let data = data {
-                let decoder = JSONDecoder()
-
-                do {
-                    let weatherModel = try decoder.decode(WeatherModel.self, from: data)
-                    
-                    CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
-                        guard let firstLocation = placemark?.first else { return }
-
-                        if firstLocation.country == "United States" {
-                            let state = firstLocation.administrativeArea ?? ""
-                            completion(weatherModel,nil, "\(firstLocation.locality!), \(state)")
-                            return
-                        }
-
-                        completion(weatherModel,nil,firstLocation.locality!)
-                    }
-                    
-                } catch {
-                    completion(nil,error,nil)
+            let url = RequestURL(location: cllocation)
+            
+            session?.dataTaskWithUrl(url, completion: { (data, response, error) in
+                
+                if let error = error {
+                    completion(nil, error, error.localizedDescription)
+                    return
                 }
-            }
-            
-        }).resume()
+                
+                if let data = data {
+                    let decoder = JSONDecoder()
+                    
+                    do {
+                        let weatherModel = try decoder.decode(WeatherModel.self, from: data)
+                        
+                        CLGeocoder().reverseGeocodeLocation(cllocation) { (placemark, error) in
+                            guard let firstLocation = placemark?.first else { return }
+                            
+                            if firstLocation.country == "United States" {
+                                let state = firstLocation.administrativeArea ?? ""
+                                completion(weatherModel,nil, "\(firstLocation.locality!), \(state)")
+                                return
+                            }
+                            
+                            completion(weatherModel,nil,firstLocation.locality!)
+                        }
+                        
+                    } catch {
+                        completion(nil,error,nil)
+                    }
+                }
+                
+            }).resume()
+            return
+        }
         
+        if let location = location?.location {
+            
+            let url = RequestURL(location: location)
+            session?.dataTaskWithUrl(url, completion: { (data, response, error) in
+                
+                if let error = error {
+                    completion(nil, error, error.localizedDescription)
+                    return
+                }
+                
+                if let data = data {
+                    let decoder = JSONDecoder()
+                    
+                    do {
+                        let weatherModel = try decoder.decode(WeatherModel.self, from: data)
+                        
+                        CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
+                            guard let firstLocation = placemark?.first else { return }
+                            
+                            if firstLocation.country == "United States" {
+                                let state = firstLocation.administrativeArea ?? ""
+                                completion(weatherModel,nil, "\(firstLocation.locality!), \(state)")
+                                return
+                            }
+                            
+                            completion(weatherModel,nil,firstLocation.locality!)
+                        }
+                        
+                    } catch {
+                        completion(nil,error,nil)
+                    }
+                }
+                
+            }).resume()
+        }
     }
     
 }

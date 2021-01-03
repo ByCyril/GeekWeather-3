@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WidgetKit
 
 final class SavedLocationViewController: UITableViewController {
     
@@ -107,20 +108,36 @@ final class SavedLocationViewController: UITableViewController {
         
         let setDefaultLocation = UIAlertAction(title: "Set Default Location", style: .default) { (_) in
             if indexPath.row == 0 {
-                UserDefaults.standard.removeObject(forKey: "DefaultLocation")
+                sharedUserDefaults?.removeObject(forKey: SharedUserDefaults.Keys.DefaultLocation)
                 HapticManager.success()
                 return
             }
             let obj = savedLocation[indexPath.row - 1]
             let coord = ["lon": obj.location!.coordinate.longitude,
                          "lat": obj.location!.coordinate.latitude]
-            UserDefaults.standard.setValue(coord, forKey: "DefaultLocation")
+            sharedUserDefaults?.setValue(coord, forKey: SharedUserDefaults.Keys.DefaultLocation)
             HapticManager.success()
+        }
+        
+        let setWidgetDefaultLocation = UIAlertAction(title: "Set Default Location for Widgets", style: .default) { (_) in
+            if indexPath.row == 0 {
+                sharedUserDefaults?.removeObject(forKey: SharedUserDefaults.Keys.WidgetDefaultLocation)
+                HapticManager.success()
+                WidgetCenter.shared.reloadAllTimelines()
+                return
+            }
+            let obj = savedLocation[indexPath.row - 1]
+            let coord = ["lon": obj.location!.coordinate.longitude,
+                         "lat": obj.location!.coordinate.latitude]
+            sharedUserDefaults?.setValue(coord, forKey: SharedUserDefaults.Keys.WidgetDefaultLocation)
+            HapticManager.success()
+            WidgetCenter.shared.reloadAllTimelines()
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         
         alert.addAction(setDefaultLocation)
+        alert.addAction(setWidgetDefaultLocation)
         
         if indexPath.row != 0 {
             alert.addAction(deleteItem)

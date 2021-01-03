@@ -32,7 +32,7 @@ final class OnboardingViewControllerLevelThree: OnboardingBaseViewController {
         
         let coord = ["lon": location.coordinate.longitude,
                      "lat": location.coordinate.latitude]
-        UserDefaults.standard.setValue(coord, forKey: "DefaultLocation")
+        sharedUserDefaults?.setValue(coord, forKey: SharedUserDefaults.Keys.DefaultLocation)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "OnboardingViewControllerLevelFour")

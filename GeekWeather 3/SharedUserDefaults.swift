@@ -19,5 +19,7 @@ struct SharedUserDefaults {
         static let Temperature = "Temperature"
         static let ExistingUser = "ExistingUser"
         static let LastUpdated = "LastUpdated"
+        static let DefaultLocation = "DefaultLocation"
+        static let WidgetDefaultLocation = "WidgetDefaultLocation"
     }
 }

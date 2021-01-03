@@ -14,7 +14,7 @@ final class LayerOneView: UIView {
     private var locationLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = GWFont.AvenirNext(style: .Bold, size: 40)
+        label.font = GWFont.AvenirNext(style: .Bold, size: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -70,11 +70,21 @@ final class LayerOneView: UIView {
     }
     
     func initUI() {
+
+        let mainContainerView: UIStackView = {
+            let stack = UIStackView()
+            stack.alignment = .fill
+            stack.distribution = .fillEqually
+            stack.axis = .horizontal
+            stack.translatesAutoresizingMaskIntoConstraints = false
+            stack.spacing = 15
+            return stack
+        }()
         
         let containerView: UIStackView = {
             let stack = UIStackView()
             stack.alignment = .leading
-            stack.distribution = .fillProportionally
+            stack.distribution = .fill
             stack.axis = .vertical
             stack.translatesAutoresizingMaskIntoConstraints = false
             return stack
@@ -95,26 +105,25 @@ final class LayerOneView: UIView {
         containerView.addArrangedSubview(tempLabel)
         containerView.addArrangedSubview(tempContainers)
         
-        addSubview(containerView)
         addSubview(locationLabel)
-        addSubview(iconView)
+        
+        mainContainerView.addArrangedSubview(iconView)
+        mainContainerView.addArrangedSubview(containerView)
+        addSubview(mainContainerView)
         
         let padding: CGFloat = 25
         
         NSLayoutConstraint.activate([
-            locationLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: padding),
-            locationLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
             
-            iconView.topAnchor.constraint(equalTo: locationLabel.bottomAnchor),
-            iconView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
+            locationLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding * 2),
+            locationLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             iconView.heightAnchor.constraint(equalToConstant: 150),
-            iconView.widthAnchor.constraint(equalTo: iconView.heightAnchor),
-            iconView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            iconView.widthAnchor.constraint(equalToConstant: 150),
             
-            containerView.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: padding),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
-            containerView.heightAnchor.constraint(equalTo: iconView.heightAnchor),
-            containerView.centerYAnchor.constraint(equalTo: iconView.centerYAnchor)
+            mainContainerView.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: padding * 2),
+            mainContainerView.centerXAnchor.constraint(equalTo: locationLabel.centerXAnchor),
+            mainContainerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+ 
         ])
         
         layoutIfNeeded()

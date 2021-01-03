@@ -93,9 +93,7 @@ final class MainPadController: UIViewController, NetworkManagerDelegate, Locatio
         
         locationManager = LocationManager(self)
         locationManager?.beginFetchingLocation()
-        
-        
-       
+      
     }
     
     func createGradient() {

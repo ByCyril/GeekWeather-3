@@ -93,10 +93,26 @@ final class LevelTwoViewController: BaseView {
         layoutIfNeeded()
         
         let registration = UICollectionView.CellRegistration<LevelTwoHourlyViewCell, Hourly> { cell, indexPath, data in
-            let time = (indexPath.row == 0) ? "Now" : data.dt.convertHourTime()
-            cell.timestampLabel.text = time
-            cell.iconView.image = UIImage(named: data.weather.first!.icon)
-            cell.tempLabel.text = data.temp.kelvinToSystemFormat()
+            
+            if data.weather.first!.icon == "sunrise" || data.weather.first!.icon == "sunset" {
+                let time = data.dt.convertTime()
+                cell.timestampLabel.text = time
+                cell.timestampLabel.adjustsFontSizeToFitWidth = true
+                cell.timestampLabel.minimumScaleFactor = 0.5
+                cell.iconView.image = UIImage(named: data.weather.first!.icon)
+                cell.tempLabel.text = data.weather.first!.icon.capitalized
+                cell.tempLabel.adjustsFontSizeToFitWidth = true
+                cell.tempLabel.minimumScaleFactor = 0.5
+            } else {
+                let time = (indexPath.row == 0) ? "Now" : data.dt.convertHourTime()
+                cell.timestampLabel.adjustsFontSizeToFitWidth = false
+                cell.timestampLabel.minimumScaleFactor = 1
+                cell.timestampLabel.text = time
+                cell.iconView.image = UIImage(named: data.weather.first!.icon)
+                cell.tempLabel.text = data.temp.kelvinToSystemFormat()
+                cell.tempLabel.adjustsFontSizeToFitWidth = false
+                cell.tempLabel.minimumScaleFactor = 1
+            }
         }
         
         hourlyDataSource = UICollectionViewDiffableDataSource(collectionView: hourlyView, cellProvider: { (collectionView, indexpath, data) -> LevelTwoHourlyViewCell? in
@@ -106,17 +122,11 @@ final class LevelTwoViewController: BaseView {
     }
     
     private func dailyViewSetup() {
-//        var layout = UICollectionLayoutListConfiguration(appearance: .sidebarPlain)
-//         layout.backgroundColor = .clear
-//         layout.showsSeparators = false
-        //
-        //         let configuration = UICollectionViewCompositionalLayout.list(using: layout)
+
         dailyView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        
         dailyView.translatesAutoresizingMaskIntoConstraints = false
         dailyView.backgroundColor = .clear
         dailyView.isScrollEnabled = false
-        
         
         addSubview(dailyView)
         dailyView.delegate = self

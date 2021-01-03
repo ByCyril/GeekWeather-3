@@ -20,6 +20,8 @@ final class LevelTwoViewController: BaseView {
     private var hourlyDataSource: UICollectionViewDiffableDataSource<Section, Hourly>?
     private var dailyDataSource: UICollectionViewDiffableDataSource<Section, Daily>?
     
+    private var dailyView: UICollectionView!
+    
     lazy var hourlyView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -32,22 +34,6 @@ final class LevelTwoViewController: BaseView {
         collectionView.backgroundColor = .clear
         return collectionView
     }()
-    
-    var dailyView: UICollectionView!
-//
-//    lazy var dailyView: UICollectionView = {
-////        var layout = UICollectionLayoutListConfiguration(appearance: .sidebarPlain)
-////        layout.backgroundColor = .clear
-////        layout.showsSeparators = false
-////
-////        let configuration = UICollectionViewCompositionalLayout.list(using: layout)
-//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-//
-//        collectionView.translatesAutoresizingMaskIntoConstraints = false
-//        collectionView.backgroundColor = .clear
-//        collectionView.isScrollEnabled = false
-//        return collectionView
-//    }()
     
     private func createLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
@@ -127,9 +113,9 @@ final class LevelTwoViewController: BaseView {
         dailyView.translatesAutoresizingMaskIntoConstraints = false
         dailyView.backgroundColor = .clear
         dailyView.isScrollEnabled = false
-        
-        addSubview(dailyView)
         dailyView.delegate = self
+
+        addSubview(dailyView)
         NSLayoutConstraint.activate([
             dailyView.topAnchor.constraint(equalTo: hourlyView.bottomAnchor, constant: 15),
             dailyView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -193,6 +179,7 @@ final class LevelTwoViewController: BaseView {
 extension LevelTwoViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Hi")
+        guard let dailyObj = dailyDataSource?.itemIdentifier(for: indexPath) else { return }
+        NotificationCenter.default.post(name: Notification.Name("ShowDetailsView"), object: dailyObj)
     }
 }

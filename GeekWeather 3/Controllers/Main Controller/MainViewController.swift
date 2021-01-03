@@ -20,6 +20,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     private var networkManager: NetworkManager?
     var locationManager: LocationManager?
     
+    private var detailsView = DetailsViewModal()
+    
     @IBOutlet var navView: NavigationView?
     @IBOutlet var shadowView: UIView!
     
@@ -53,9 +55,62 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         initMethod()
         createShadows()
         createGradient()
+        prepareDetailsView()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(newLocation(_:)), name: Notification.Name("NewLocationLookup"), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(newLocation(_:)),
+                                               name: Notification.Name("NewLocationLookup"),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(presentDetailsView(_:)),
+                                               name: Notification.Name("ShowDetailsView"),
+                                               object: nil)
      }
+    
+    @objc
+    func presentDetailsView(_ obj: NSNotification) {
+        guard let daily = obj.object as? Daily else { return }
+        
+        detailsView.dayLabel.text = daily.dt.date(.day)
+        
+        let high = daily.temp.max.kelvinToSystemFormat()
+        let low = daily.temp.min.kelvinToSystemFormat()
+        let description = daily.weather.first!.description.capitalizingFirstLetter()
+        let summary = "\(description) with a high of \(high) and a low of \(low)"
+        
+        detailsView.summaryLabel.text = summary
+        detailsView.iconView.image = UIImage(named: daily.weather.first!.icon)
+        detailsView.presentData(daily)
+        flexibleCenterYConstraint?.constant = 0
+        
+        UIView.animate(withDuration: 0.4) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
+        
+    }
+    
+    var flexibleCenterYConstraint: NSLayoutConstraint?
+    
+    func prepareDetailsView() {
+        
+        detailsView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(detailsView)
+        
+        flexibleCenterYConstraint = detailsView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: view.frame.height * 2)
+        flexibleCenterYConstraint?.isActive = true
+        
+        let padding: CGFloat = 15
+        
+        NSLayoutConstraint.activate([
+            detailsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            detailsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: padding),
+            detailsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
+            detailsView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.55)
+        ])
+        
+        view.layoutIfNeeded()
+    }
 
     func createShadows() {
         shadowView.layer.shadowColor = UIColor.black.cgColor

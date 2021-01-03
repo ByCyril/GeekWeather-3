@@ -9,6 +9,34 @@
 import SwiftUI
 import WidgetKit
 
+struct TodayViewSmallitem: View {
+    
+    var time: String
+    var icon: String
+    var date: String
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            Text(time)
+                .font(Font.custom("AvenirNext-Regular", size: 13))
+                .minimumScaleFactor(0.2)
+                .allowsTightening(true)
+                .lineLimit(1)
+                .foregroundColor(Color.white)
+            Image(icon)
+                .resizable().frame(width: 25, height: 25, alignment: .center)
+                .cornerRadius(15)
+            Text(date)
+                .font(Font.custom("AvenirNext-Bold", size: 13))
+                .foregroundColor(Color.white)
+                .minimumScaleFactor(0.2)
+                .allowsTightening(true)
+                .lineLimit(1)
+                .foregroundColor(Color.white)
+        }
+    }
+}
+
 struct TodayViewMedium: View {
     
     let entry: WeatherEntry
@@ -47,25 +75,10 @@ struct TodayViewMedium: View {
                         ForEach(0..<7) { i in
                             let data = hourly[i]
                             let time = (i == 0) ? "Now" : data.dt.convertHourTime()
-                            VStack(spacing: 0) {
-                                Text(time)
-                                    .font(Font.custom("AvenirNext-Regular", size: 13))
-                                    .minimumScaleFactor(0.2)
-                                    .allowsTightening(true)
-                                    .lineLimit(1)
-                                    .foregroundColor(Color.white)
-                                Image(entry.weatherModel.icon)
-                                    .resizable().frame(width: 25, height: 25, alignment: .center)
-                                    .cornerRadius(15)
-                                Text(data.temp.kelvinToSystemFormat())
-                                    .font(Font.custom("AvenirNext-Bold", size: 13))
-                                    .foregroundColor(Color.white)
-                                    .minimumScaleFactor(0.2)
-                                    .allowsTightening(true)
-                                    .lineLimit(1)
-                                    .foregroundColor(Color.white)
+                            TodayViewSmallitem(time: time, icon: entry.weatherModel.icon, date: data.temp.kelvinToSystemFormat())
+                            if i < 6 {
+                                Divider()
                             }
-                          Divider()
                         }
                     }
                   }.padding(.leading).padding(.trailing).padding(.bottom)

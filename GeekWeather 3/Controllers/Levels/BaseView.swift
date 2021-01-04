@@ -10,12 +10,10 @@ import UIKit
 import GWFoundation
 
 class BaseView: UIView, NotificationManagerDelegate {
- 
-    
+     
     let notificationManager = NotificationManager()
     let gradientLayer = CAGradientLayer()
     
-//    var viewControllerPresenter: UIViewController?
     var weatherModel: WeatherModel?
     
     private var view: UIView!

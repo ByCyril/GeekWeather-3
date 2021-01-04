@@ -12,9 +12,9 @@ import GWFoundation
 final class ChangeUnitController: UITableViewController {
     
     @IBOutlet var segmentController: UISegmentedControl!
-     
+    
     private let selectedUnit = UserDefaults.standard.string(forKey: "Unit")
-
+    
     private var selection = ""
     
     override func viewDidLoad() {
@@ -34,18 +34,6 @@ final class ChangeUnitController: UITableViewController {
         if !selection.isEmpty && selection != selectedUnit {
             NotificationCenter.default.post(name: Notification.Name("UnitChange"), object: selection)
         }
-        reclaimedMemory()
-    }
-    
-    func reclaimedMemory(_ fileName: String = #file,
-                         _ funcName: String = #function,
-                         _ lineNumber: Int = #line) {
-        
-        Swift.print("")
-        Swift.print("##########")
-        Swift.print("Reclaimed memory")
-        Swift.print("CLASS:",String(describing: type(of: self)))
-        Swift.print("##########")
-        Swift.print("")
+        Mocks.reclaimedMemory(self)
     }
 }

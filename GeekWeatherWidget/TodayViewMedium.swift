@@ -18,8 +18,8 @@ struct TodayViewSmallitem: View {
     var body: some View {
         VStack(spacing: 0) {
             Text(time)
-                .font(Font.custom("AvenirNext-Regular", size: 13))
-                .minimumScaleFactor(0.2)
+                .font(Font.custom("AvenirNext-Medium", size: 13))
+                .minimumScaleFactor(0.5)
                 .allowsTightening(true)
                 .lineLimit(1)
                 .foregroundColor(Color.white)
@@ -33,6 +33,7 @@ struct TodayViewSmallitem: View {
                 .allowsTightening(true)
                 .lineLimit(1)
                 .foregroundColor(Color.white)
+            
         }
     }
 }
@@ -44,7 +45,7 @@ struct TodayViewMedium: View {
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color("System-GradientTopColor"),Color("System-GradientBottomColor")]), startPoint: .top, endPoint: .bottom)
-
+            
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
                     VStack(spacing: 0) {
@@ -69,19 +70,33 @@ struct TodayViewMedium: View {
                         Spacer()
                     }.padding(.trailing).padding(.top)
                 }
-
-                  HStack {
+                
+                HStack(spacing: 5) {
                     if let hourly = entry.weatherModel.hourly {
-                        ForEach(0..<7) { i in
+                        let numOfItems = 7
+                        
+                        var hourlySet = hourly
+
+                        ForEach(0..<numOfItems) { i in
                             let data = hourly[i]
-                            let time = (i == 0) ? "Now" : data.dt.convertHourTime()
-                            TodayViewSmallitem(time: time, icon: entry.weatherModel.icon, date: data.temp.kelvinToSystemFormat())
-                            if i < 6 {
+                            let icon = data.weather.first!.icon
+                            
+                            if (icon == "sunrise" || icon == "sunset") {
+                                if data.dt > Date().timeIntervalSince1970 {
+                                    let time = data.dt.convertTime()
+                                    TodayViewSmallitem(time: time, icon: icon, date: icon.capitalized).frame(width: 50)
+                                }
+                            } else {
+                                let time = (i == 0) ? "Now" : data.dt.convertHourTime()
+                                TodayViewSmallitem(time: time, icon: icon, date: data.temp.kelvinToSystemFormat())
+                            }
+                            
+                            if i < numOfItems - 1 {
                                 Divider()
                             }
                         }
                     }
-                  }.padding(.leading).padding(.trailing).padding(.bottom)
+                }.padding(.leading).padding(.trailing).padding(.bottom)
             }
             
         }

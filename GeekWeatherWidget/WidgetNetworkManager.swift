@@ -14,6 +14,7 @@ final class WidgetNetworkManager: NSObject, CLLocationManagerDelegate {
     
     var session: URLSession?
     var location: CLLocationManager?
+    var networkManager = NetworkManager()
     
     override init() {
         super.init()
@@ -48,16 +49,18 @@ final class WidgetNetworkManager: NSObject, CLLocationManagerDelegate {
                     do {
                         let weatherModel = try decoder.decode(WeatherModel.self, from: data)
                         
+                        let model = self.networkManager.formatData(response: weatherModel)
+                        
                         CLGeocoder().reverseGeocodeLocation(cllocation) { (placemark, error) in
                             guard let firstLocation = placemark?.first else { return }
                             
                             if firstLocation.country == "United States" {
                                 let state = firstLocation.administrativeArea ?? ""
-                                completion(weatherModel,nil, "\(firstLocation.locality!), \(state)")
+                                completion(model,nil, "\(firstLocation.locality!), \(state)")
                                 return
                             }
                             
-                            completion(weatherModel,nil,firstLocation.locality!)
+                            completion(model,nil,firstLocation.locality!)
                         }
                         
                     } catch {
@@ -84,17 +87,18 @@ final class WidgetNetworkManager: NSObject, CLLocationManagerDelegate {
                     
                     do {
                         let weatherModel = try decoder.decode(WeatherModel.self, from: data)
-                        
+                        let model = self.networkManager.formatData(response: weatherModel)
+
                         CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
                             guard let firstLocation = placemark?.first else { return }
                             
                             if firstLocation.country == "United States" {
                                 let state = firstLocation.administrativeArea ?? ""
-                                completion(weatherModel,nil, "\(firstLocation.locality!), \(state)")
+                                completion(model,nil, "\(firstLocation.locality!), \(state)")
                                 return
                             }
                             
-                            completion(weatherModel,nil,firstLocation.locality!)
+                            completion(model,nil,firstLocation.locality!)
                         }
                         
                     } catch {

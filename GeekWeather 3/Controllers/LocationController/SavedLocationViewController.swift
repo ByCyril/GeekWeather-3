@@ -8,6 +8,7 @@
 
 import UIKit
 import WidgetKit
+import CoreLocation
 
 final class SavedLocationViewController: UITableViewController {
     
@@ -49,21 +50,9 @@ final class SavedLocationViewController: UITableViewController {
     }
     
     deinit {
-        reclaimedMemory()
+        Mocks.reclaimedMemory(self)
     }
-    
-    func reclaimedMemory(_ fileName: String = #file,
-                         _ funcName: String = #function,
-                         _ lineNumber: Int = #line) {
-        
-        Swift.print("")
-        Swift.print("##########")
-        Swift.print("Reclaimed memory")
-        Swift.print("CLASS:",String(describing: type(of: self)))
-        Swift.print("##########")
-        Swift.print("")
-    }
-    
+
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
@@ -112,10 +101,13 @@ final class SavedLocationViewController: UITableViewController {
                 HapticManager.success()
                 return
             }
+            
             let obj = savedLocation[indexPath.row - 1]
             let coord = ["lon": obj.location!.coordinate.longitude,
-                         "lat": obj.location!.coordinate.latitude]
+                         "lat": obj.location!.coordinate.latitude,
+                         "name": obj.address!] as [String : Any]
             sharedUserDefaults?.setValue(coord, forKey: SharedUserDefaults.Keys.DefaultLocation)
+            tableView.reloadData()
             HapticManager.success()
         }
         
@@ -158,10 +150,25 @@ final class SavedLocationViewController: UITableViewController {
             } else {
                 cell.textLabel?.text = "Unavailable"
             }
-            
+            cell.detailTextLabel?.text = nil
             cell.imageView?.image = UIImage(named: "current")
         } else {
             cell.textLabel?.text = savedLocation[indexPath.row - 1].address
+            
+            if let loc = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.DefaultLocation) as? [String: Any] {
+                if let city = loc["name"] as? String {
+                    if city == savedLocation[indexPath.row - 1].address! {
+                        cell.detailTextLabel?.text = "Default Location"
+                    } else {
+                        cell.detailTextLabel?.text = nil
+                    }
+                } else {
+                    cell.detailTextLabel?.text = nil
+                }
+                
+            } else {
+                cell.detailTextLabel?.text = nil
+            }
         }
         
         cell.accessoryType = .detailButton

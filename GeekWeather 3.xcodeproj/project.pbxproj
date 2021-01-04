@@ -349,7 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				0100D80A24CE52B600C9F9B5 /* Notification Manager */,
-				014D2A3D24D3F7550038623E /* Location Manager */,
+				014D2A3924D3F6090038623E /* LocationManager.swift */,
 				0119098D259D891B00EE1C0F /* HapticManager.swift */,
 				01190995259D8C7B00EE1C0F /* StoryboardManager.swift */,
 			);
@@ -546,14 +546,6 @@
 				01430F3D259BF58400D67245 /* PersistenceManager.swift */,
 			);
 			path = LocationController;
-			sourceTree = "<group>";
-		};
-		014D2A3D24D3F7550038623E /* Location Manager */ = {
-			isa = PBXGroup;
-			children = (
-				014D2A3924D3F6090038623E /* LocationManager.swift */,
-			);
-			path = "Location Manager";
 			sourceTree = "<group>";
 		};
 		01844A1A24F22633000B0D52 /* LevelOne */ = {

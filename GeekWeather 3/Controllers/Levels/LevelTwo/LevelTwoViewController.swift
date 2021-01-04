@@ -116,10 +116,12 @@ final class LevelTwoViewController: BaseView {
         dailyView.delegate = self
 
         addSubview(dailyView)
+        let padding: CGFloat = 15
+        
         NSLayoutConstraint.activate([
-            dailyView.topAnchor.constraint(equalTo: hourlyView.bottomAnchor, constant: 15),
-            dailyView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            dailyView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            dailyView.topAnchor.constraint(equalTo: hourlyView.bottomAnchor, constant: padding),
+            dailyView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            dailyView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
             dailyView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
@@ -158,6 +160,7 @@ final class LevelTwoViewController: BaseView {
     }
     
     private func populate(with weatherModel: WeatherModel) {
+        
         var hourlySnapshot = NSDiffableDataSourceSnapshot<Section, Hourly>()
         hourlySnapshot.appendSections([.main])
         hourlySnapshot.appendItems(Array(weatherModel.hourly[..<20]))

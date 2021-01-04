@@ -52,4 +52,15 @@ final class Mocks {
         
         return nil
     }
+    
+    
+    static func reclaimedMemory(_ x: Any) {
+        Swift.print("")
+        Swift.print("##################################################")
+        Swift.print("Reclaimed memory")
+        Swift.print("CLASS:",String(describing: type(of: x)))
+        Swift.print("##################################################")
+        Swift.print("")
+    }
+    
 }

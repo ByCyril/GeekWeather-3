@@ -39,4 +39,7 @@ final class SystemSettingsConroller: UITableViewController {
         UserDefaults.standard.setValue(vals, forKey: "Theme")
     }
     
+    deinit {
+        Mocks.reclaimedMemory(self)
+    }
 }

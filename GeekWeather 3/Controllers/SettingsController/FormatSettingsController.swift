@@ -45,5 +45,6 @@ final class FormatSettingsController: UITableViewController {
         if scaleSelector.selectedSegmentIndex != tempSetting || unitSelector.selectedSegmentIndex != unitSetting || hourSwitch.isOn != hourSetting {
             WidgetCenter.shared.reloadAllTimelines()
         }
+        Mocks.reclaimedMemory(self)
     }
 }

@@ -19,6 +19,4 @@ final class LayerThree: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
 }

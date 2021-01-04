@@ -85,12 +85,12 @@ final class MainPadController: UIViewController, NetworkManagerDelegate, Locatio
     
     func initMethod() {
         
-        if let mock = Mocks.mockedResponse() {
-            networkManager = NetworkManager(self, mock)
-        } else {
-            networkManager = NetworkManager(self)
-        }
-        
+//        if let mock = Mocks.mockedResponse() {
+//            networkManager = NetworkManager(self, mock)
+//        } else {
+//            
+//        }
+        networkManager = NetworkManager(self)
         locationManager = LocationManager(self)
         locationManager?.beginFetchingLocation()
       

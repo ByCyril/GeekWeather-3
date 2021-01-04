@@ -72,19 +72,6 @@ final class SettingsController: UITableViewController {
     }
     
     deinit {
-        reclaimedMemory()
+        Mocks.reclaimedMemory(self)
     }
-    
-    func reclaimedMemory(_ fileName: String = #file,
-                         _ funcName: String = #function,
-                         _ lineNumber: Int = #line) {
-        
-        Swift.print("")
-        Swift.print("##########")
-        Swift.print("Reclaimed memory")
-        Swift.print("CLASS:",String(describing: type(of: self)))
-        Swift.print("##########")
-        Swift.print("")
-    }
-    
 }

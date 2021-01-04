@@ -94,6 +94,8 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
                 
                 savedLocation.address = location.title
                 savedLocation.location = location.location!
+                savedLocation.isDefault = false
+                savedLocation.isDefaultForWidget = false
                 activityManager.saveResults(savedLocation: savedLocation)
                 
                 self?.view.window?.rootViewController?.dismiss(animated: true, completion: {

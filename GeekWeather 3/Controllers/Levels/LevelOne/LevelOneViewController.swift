@@ -8,10 +8,13 @@
 
 import UIKit
 import GWFoundation
+import Lottie
 
 final class LevelOneViewController: BaseView {
    
     @IBOutlet var containerView: UIView!
+    
+    private var animationView: AnimationView!
     
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var summaryLabel: UILabel!
@@ -20,7 +23,6 @@ final class LevelOneViewController: BaseView {
         
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         
         let view = Bundle.main.loadNibNamed("LevelOneViewController", owner: self)!.first as! LevelOneViewController
         loadXib(view, self)

@@ -13,9 +13,7 @@ import CoreLocation
 class MainViewController: UIViewController, UIScrollViewDelegate, LocationManagerDelegate, NetworkManagerDelegate, UIScrollViewAccessibilityDelegate {
  
     private let notificationManager = NotificationManager()
-    
-    private var levels = [BaseView]()
-    
+        
     private var weatherModel: WeatherModel?
     private var networkManager: NetworkManager?
     var locationManager: LocationManager?
@@ -268,7 +266,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         
         DispatchQueue.main.async { [weak self] in
             self?.animateMainScrollView()
-            self?.notificationManager.post(data: ["weatherModel": weatherModel], to: NotificationName.observerID("weatherModel"))
+            self?.notificationManager.post(data: ["weatherModel": weatherModel],
+                                           to: NotificationName.observerID("weatherModel"))
         }
     }
     

@@ -40,7 +40,8 @@ final class RollableTitleView: UIView {
     }
         
     func initUI() {
-        todayLabel.numberOfLines = 1
+        
+        todayLabel.adjustsFontSizeToFitWidth = true
         todayLabel.text = ""
         geekLabel.text = "Details"
         forecastLabel.text = "Forecast"

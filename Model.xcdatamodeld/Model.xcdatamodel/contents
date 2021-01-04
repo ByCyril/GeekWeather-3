@@ -2,9 +2,11 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="SavedLocation" representedClassName="SavedLocation" syncable="YES" codeGenerationType="class">
         <attribute name="address" attributeType="String"/>
+        <attribute name="isDefault" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isDefaultForWidget" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="location" attributeType="Transformable" valueTransformerName="" customClassName="CLLocation"/>
     </entity>
     <elements>
-        <element name="SavedLocation" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="SavedLocation" positionX="-63" positionY="-18" width="128" height="89"/>
     </elements>
 </model>

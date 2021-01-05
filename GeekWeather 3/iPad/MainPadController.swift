@@ -11,6 +11,10 @@ import GWFoundation
 import SwiftUI
 
 final class MainPadController: UIViewController, NetworkLayerDelegate {
+    func didFail(with error: String) {
+        
+    }
+    
 
     private let networkLayer = NetworkLayer()
     

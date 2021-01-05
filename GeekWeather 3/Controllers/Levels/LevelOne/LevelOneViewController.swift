@@ -47,9 +47,7 @@ final class LevelOneViewController: BaseView {
     override func didRecieve(from notification: NSNotification) {
         if let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel {
             self.weatherModel = weatherModel
-            DispatchQueue.main.async { [weak self] in
-                self?.displayData(weatherModel.current)
-            }
+            displayData(weatherModel.current)
         }
     }
     

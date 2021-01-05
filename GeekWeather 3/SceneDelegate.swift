@@ -57,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let minutesPassed = differenceInSeconds / 60
 
             if minutesPassed >= 15 {
-                mainViewController?.locationManager?.beginFetchingLocation()
+                mainViewController?.networkLayer.fetch()
             }
         }
     }

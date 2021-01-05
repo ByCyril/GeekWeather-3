@@ -29,11 +29,6 @@ final class RollableTitleView: UIView {
     var bottomPadding: CGFloat = 0
     var itemHeight: CGFloat = 75
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        NotificationCenter.default.addObserver(self, selector: #selector(update(_:)), name: NotificationName.observerID("currentLocation"), object: nil)
-    }
-    
     override func didMoveToWindow() {
         super.didMoveToWindow()
         initUI()

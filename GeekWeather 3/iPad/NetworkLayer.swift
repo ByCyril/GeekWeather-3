@@ -12,6 +12,7 @@ import GWFoundation
 
 protocol NetworkLayerDelegate: AnyObject {
     func didFinishFetching(weatherModel: WeatherModel, location: String)
+    func didFail(with error: String)
 }
 
 final class NetworkLayer {
@@ -44,31 +45,42 @@ final class NetworkLayer {
         if let location = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.DefaultLocation) as? [String: Any] {
             let cllocation = CLLocation(latitude: location["lat"] as! CLLocationDegrees,
                                         longitude: location["lon"] as! CLLocationDegrees)
-            reverseGeoCode(cllocation)
+            fetch(with: cllocation)
         } else {
             guard let location = locationManager.location else {
                 throwError("unable to get location")
                 return
             }
-            reverseGeoCode(location)
+            fetch(with: location)
         }
     }
     
     func denied() {
-        
+        let key = SharedUserDefaults.Keys.DefaultLocation
+        if let location = sharedUserDefaults?.value(forKey: key) as? [String: Any] {
+            let cllocation = CLLocation(latitude: location["lat"] as! CLLocationDegrees,
+                                        longitude: location["lon"] as! CLLocationDegrees)
+            
+            fetch(with: cllocation)
+        } else {
+            throwError("No default location to be found")
+        }
     }
     
     func notDetermined() {
-        
+        locationManager.requestWhenInUseAuthorization()
     }
     
     func throwError(_ error: String) {
-        
+        delegate?.didFail(with: error)
     }
     
-    func reverseGeoCode(_ location: CLLocation) {
+    func fetch(with location: CLLocation) {
         CLGeocoder().reverseGeocodeLocation(location) { [weak self] (placemark, error) in
-            guard let firstLocation = placemark?.first else { return }
+            guard let firstLocation = placemark?.first else {
+                self?.delegate?.didFail(with: error?.localizedDescription ?? "Unable to get location")
+                return
+            }
             
             let country = firstLocation.country ?? ""
             

@@ -10,19 +10,21 @@ import UIKit
 import GWFoundation
 import CoreLocation
 
-class MainViewController: UIViewController, UIScrollViewDelegate, LocationManagerDelegate, NetworkManagerDelegate, UIScrollViewAccessibilityDelegate {
- 
+class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate, NetworkLayerDelegate {
+
     private let notificationManager = NotificationManager()
         
     private var weatherModel: WeatherModel?
-    private var networkManager: NetworkManager?
-    var locationManager: LocationManager?
     
     private var detailsView = DetailsViewModal()
+    
+    let networkLayer = NetworkLayer()
     
     @IBOutlet var navView: NavigationView?
     @IBOutlet var shadowView: UIView!
     
+    private var flexibleCenterYConstraint: NSLayoutConstraint?
+
     private let gradientLayer = CAGradientLayer()
     private let shadowOpacity: CGFloat = 0.75
     
@@ -85,8 +87,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         
     }
     
-    var flexibleCenterYConstraint: NSLayoutConstraint?
-    
     func prepareDetailsView() {
         
         detailsView.translatesAutoresizingMaskIntoConstraints = false
@@ -127,20 +127,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
     }
     
     func initMethod() {
-        
-        if let error = Mocks.mockError() {
-            networkManager = NetworkManager(self, error)
-            return
-        }
-        
-        if let data = Mocks.mockedResponse() {
-            networkManager = NetworkManager(self, data)
-        } else {
-            networkManager = NetworkManager(self)
-        }
-        
-        locationManager = LocationManager(self)
-        locationManager?.beginFetchingLocation()
+        networkLayer.delegate = self
+        networkLayer.fetch()
     }
     
     @objc
@@ -149,13 +137,25 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
 
         if let location = notification.object as? CLLocation {
             hideScrollView { [weak self] (_) in
-                self?.currentLocation(location)
+                self?.networkLayer.fetch(with: location)
             }
         } else {
             hideScrollView { [weak self] (_) in
-                self?.locationManager?.beginFetchingLocation()
+                self?.networkLayer.fetch()
             }
         }
+    }
+    
+    func didFinishFetching(weatherModel: WeatherModel, location: String) {
+        UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")
+        animateMainScrollView()
+        navView?.rollableTitleView.todayLabel.text = location
+        notificationManager.post(data: ["weatherModel": weatherModel],
+                                 to: NotificationName.observerID("weatherModel"))
+    }
+    
+    func didFail(with error: String) {
+        
     }
     
     func initUI() {
@@ -251,53 +251,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate, LocationManage
         gradientLayer.colors = [UIColor(named: theme + "GradientTopColor")!.cgColor,
                                 UIColor(named: theme + "GradientBottomColor")!.cgColor]
     }
-    
-    func currentLocation(_ location: CLLocation) {
-        locationManager?.lookupCurrentLocation(location)
-        let req = RequestURL(location: location)
-        networkManager?.fetch(req)
-    }
-    
-    func didFinishFetching(_ weatherModel: WeatherModel) {
 
-        let count = UserDefaults.standard.integer(forKey: "NumberOfCalls") + 1
-        UserDefaults.standard.setValue(count, forKey: "NumberOfCalls")
-        UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.animateMainScrollView()
-            self?.notificationManager.post(data: ["weatherModel": weatherModel],
-                                           to: NotificationName.observerID("weatherModel"))
-        }
-    }
-    
     func animateMainScrollView() {
         navView?.rollableTitleView.showTitles()
         scrollView.isScrollEnabled = true
         showScrollView()
     }
-    
-    func locationError(_ errorMsg: String,_ status: CLAuthorizationStatus?) {
-        presentError(errorMsg)
-    }
-    
-    func networkError(_ error: Error?) {
-        guard let error = error else { return }
-        presentError(error.localizedDescription)
-    }
-    
-    func presentError(_ errorMsg: String) {
-        guard let vc = storyboard?.instantiateViewController(identifier: "ErrorViewController") as? ErrorViewController else { return }
-        
-        let animation = AnimationType(name: "denied", speed: 0.35, size: CGSize(width: 250, height: 250), message: errorMsg)
-        vc.displayAnimation(with: animation)
-        
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .fullScreen
-        
-        present(vc, animated: true, completion: nil)
-    }
-    
+
     func hideScrollView(_ completion: ((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: 0.4,
                        delay: 0,

@@ -23,7 +23,14 @@ final class OnboardingViewControllerLevelFour: OnboardingBaseViewController {
     
     
     @IBAction func continueToApp(_ sender: Any) {
-        let viewController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "MainViewController")
+        var viewController: UIViewController
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            viewController = MainPadController()
+        } else {
+            viewController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "MainViewController")
+        }
+        
         UIApplication.shared.windows.first?.rootViewController = viewController
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }

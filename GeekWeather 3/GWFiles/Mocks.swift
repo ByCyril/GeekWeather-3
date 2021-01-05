@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GWFoundation
 
 protocol MockErrorProtocol: LocalizedError {
     var title: String? { get }
@@ -30,6 +31,17 @@ struct MockError: MockErrorProtocol {
 }
 
 final class Mocks {
+    
+    static func mock() -> WeatherModel {
+        let file = Bundle.main.path(forResource: "preview", ofType: "json")!
+        let url = URL(fileURLWithPath: file)
+        let data = try! Data(contentsOf: url, options: .mappedIfSafe)
+        
+        let decode = JSONDecoder()
+        let model = try! decode.decode(WeatherModel.self, from: data)
+        
+        return model
+    }
     
     static func mockedResponse() -> Data? {
         guard let file = Bundle.main.path(forResource: "preview", ofType: "json") else { return nil }

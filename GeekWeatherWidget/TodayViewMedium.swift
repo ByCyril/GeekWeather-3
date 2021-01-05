@@ -75,8 +75,6 @@ struct TodayViewMedium: View {
                     if let hourly = entry.weatherModel.hourly {
                         let numOfItems = 7
                         
-                        var hourlySet = hourly
-
                         ForEach(0..<numOfItems) { i in
                             let data = hourly[i]
                             let icon = data.weather.first!.icon

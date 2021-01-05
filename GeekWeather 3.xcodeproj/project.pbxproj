@@ -59,9 +59,6 @@
 		012D3B1E25A0427C0093ED51 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 012D3B1D25A0427C0093ED51 /* preview.json */; };
 		012D3B1F25A0427C0093ED51 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 012D3B1D25A0427C0093ED51 /* preview.json */; };
 		01305A9F25A3F2C3005C8B19 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01305A9E25A3F2C3005C8B19 /* NetworkLayer.swift */; };
-		01385A5925A19B9A0017406D /* LayerOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01385A5825A19B9A0017406D /* LayerOneView.swift */; };
-		01385A5D25A1A2E40017406D /* LayerTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01385A5C25A1A2E40017406D /* LayerTwoView.swift */; };
-		01385A6325A1A94A0017406D /* LayerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01385A6225A1A94A0017406D /* LayerThree.swift */; };
 		0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */; };
 		01430F31259B1EFA00D67245 /* ToggleOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */; };
 		01430F37259BF4DB00D67245 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01430F35259BF4DB00D67245 /* Model.xcdatamodeld */; };
@@ -98,6 +95,7 @@
 		01B1BEED24EFA0040081C90F /* LevelTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEEC24EFA0040081C90F /* LevelTwoViewController.swift */; };
 		01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF024EFA9A10081C90F /* Array+Extension.swift */; };
 		01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF224EFAD500081C90F /* View+Extension.swift */; };
+		01B5EA5225A407EC00F5CC4A /* SwiftUILib.WrapStack in Frameworks */ = {isa = PBXBuildFile; productRef = 01B5EA5125A407EC00F5CC4A /* SwiftUILib.WrapStack */; };
 		01B9487C259A654400884150 /* LevelTwoHourlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */; };
 		01B94880259A687200884150 /* LevelTwoDailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */; };
 		01BE6C85259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */; };
@@ -111,7 +109,6 @@
 		01E65B2024F19D9400D8F76F /* ChangeUnitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */; };
 		01F431DC259E288600B0D44F /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */; };
 		01F431EE259E76A300B0D44F /* SystemSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431ED259E76A300B0D44F /* SystemSettingsController.swift */; };
-		01F4CD2525A067AE00A52971 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F4CD2425A067AE00A52971 /* iPad.storyboard */; };
 		01F4CD2D25A119EE00A52971 /* MainPadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F4CD2C25A119EE00A52971 /* MainPadController.swift */; };
 		01F4CD3B25A16D5900A52971 /* DetailsViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F4CD3A25A16D5900A52971 /* DetailsViewModal.swift */; };
 		01FCE338258B21E200C841C8 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 01FCE337258B21E200C841C8 /* demo.json */; };
@@ -210,9 +207,6 @@
 		012D3AF625A019760093ED51 /* TodayViewLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewLarge.swift; sourceTree = "<group>"; };
 		012D3B1D25A0427C0093ED51 /* preview.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = preview.json; path = ../../../../../Desktop/preview.json; sourceTree = "<group>"; };
 		01305A9E25A3F2C3005C8B19 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
-		01385A5825A19B9A0017406D /* LayerOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerOneView.swift; sourceTree = "<group>"; };
-		01385A5C25A1A2E40017406D /* LayerTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerTwoView.swift; sourceTree = "<group>"; };
-		01385A6225A1A94A0017406D /* LayerThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerThree.swift; sourceTree = "<group>"; };
 		0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeViewController.swift; sourceTree = "<group>"; };
 		01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleOnboarding.swift; sourceTree = "<group>"; };
 		01430F36259BF4DB00D67245 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -260,7 +254,6 @@
 		01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUnitController.swift; sourceTree = "<group>"; };
 		01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBaseViewController.swift; sourceTree = "<group>"; };
 		01F431ED259E76A300B0D44F /* SystemSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettingsController.swift; sourceTree = "<group>"; };
-		01F4CD2425A067AE00A52971 /* iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		01F4CD2C25A119EE00A52971 /* MainPadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPadController.swift; sourceTree = "<group>"; };
 		01F4CD3A25A16D5900A52971 /* DetailsViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModal.swift; sourceTree = "<group>"; };
 		01FCE337258B21E200C841C8 /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
@@ -277,6 +270,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01B5EA5225A407EC00F5CC4A /* SwiftUILib.WrapStack in Frameworks */,
 				0185666124D774FE0035BF59 /* GWFoundation in Frameworks */,
 				018840DD258C391C00CED4F1 /* Lottie in Frameworks */,
 				E3302AE93113182ABB9234F7 /* Pods_GeekWeather_3.framework in Frameworks */,
@@ -385,10 +379,6 @@
 			children = (
 				01844A1524F22113000B0D52 /* Main.storyboard */,
 				01190991259D8BEA00EE1C0F /* Settings.storyboard */,
-				01F4CD2425A067AE00A52971 /* iPad.storyboard */,
-				01385A5825A19B9A0017406D /* LayerOneView.swift */,
-				01385A5C25A1A2E40017406D /* LayerTwoView.swift */,
-				01385A6225A1A94A0017406D /* LayerThree.swift */,
 				011908F3259D797400EE1C0F /* DeveloperController */,
 				011908EA259D726600EE1C0F /* ChangeUnitController */,
 				011908D2259D718D00EE1C0F /* ErrorViewController */,
@@ -682,6 +672,7 @@
 			packageProductDependencies = (
 				0185666024D774FE0035BF59 /* GWFoundation */,
 				018840DC258C391C00CED4F1 /* Lottie */,
+				01B5EA5125A407EC00F5CC4A /* SwiftUILib.WrapStack */,
 			);
 			productName = "GeekWeather 3";
 			productReference = 0100D7D024CE1A8200C9F9B5 /* GeekWeather.app */;
@@ -760,6 +751,7 @@
 			packageReferences = (
 				0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */,
 				018840DB258C391C00CED4F1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				01B5EA5025A407EC00F5CC4A /* XCRemoteSwiftPackageReference "wrap-stack" */,
 			);
 			productRefGroup = 0100D7D124CE1A8200C9F9B5 /* Products */;
 			projectDirPath = "";
@@ -786,7 +778,6 @@
 				0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */,
 				01844A1624F22113000B0D52 /* Main.storyboard in Resources */,
 				0157E8E3259144270026706D /* denied.json in Resources */,
-				01F4CD2525A067AE00A52971 /* iPad.storyboard in Resources */,
 				0100D7DD24CE1A8300C9F9B5 /* Assets.xcassets in Resources */,
 				012D3B1E25A0427C0093ED51 /* preview.json in Resources */,
 				01FCE338258B21E200C841C8 /* demo.json in Resources */,
@@ -883,7 +874,6 @@
 				014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */,
 				0146C05A24F787D000967A37 /* Mocks.swift in Sources */,
 				01D0081E259EDB5100032D17 /* FormatSettingsController.swift in Sources */,
-				01385A5D25A1A2E40017406D /* LayerTwoView.swift in Sources */,
 				0158D02A2505DF0C008692DC /* SearchLocationViewController.swift in Sources */,
 				0153693425174D580044D108 /* GWTransition.swift in Sources */,
 				0119098E259D891B00EE1C0F /* HapticManager.swift in Sources */,
@@ -894,7 +884,6 @@
 				012D3AE1259FEDC60093ED51 /* SharedUserDefaults.swift in Sources */,
 				018079CF258DBE5A00C88E0E /* RollableTitleView.swift in Sources */,
 				01305A9F25A3F2C3005C8B19 /* NetworkLayer.swift in Sources */,
-				01385A5925A19B9A0017406D /* LayerOneView.swift in Sources */,
 				01F431EE259E76A300B0D44F /* SystemSettingsController.swift in Sources */,
 				01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */,
 				0103B82C259311A2008577FD /* DetailsView.swift in Sources */,
@@ -902,7 +891,6 @@
 				0158D0312505E3ED008692DC /* SavedLocationViewController.swift in Sources */,
 				01430F3E259BF58400D67245 /* PersistenceManager.swift in Sources */,
 				011C61FD25A3C91C00F131D0 /* DailyView.swift in Sources */,
-				01385A6325A1A94A0017406D /* LayerThree.swift in Sources */,
 				01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */,
 				011C620125A3C93B00F131D0 /* HourlyView.swift in Sources */,
 				0119099A259D8CDC00EE1C0F /* HapticFeedbackController.swift in Sources */,
@@ -1316,6 +1304,14 @@
 				minimumVersion = 3.1.9;
 			};
 		};
+		01B5EA5025A407EC00F5CC4A /* XCRemoteSwiftPackageReference "wrap-stack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftuilib/wrap-stack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1333,6 +1329,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 018840DB258C391C00CED4F1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		01B5EA5125A407EC00F5CC4A /* SwiftUILib.WrapStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01B5EA5025A407EC00F5CC4A /* XCRemoteSwiftPackageReference "wrap-stack" */;
+			productName = SwiftUILib.WrapStack;
 		};
 /* End XCSwiftPackageProductDependency section */
 

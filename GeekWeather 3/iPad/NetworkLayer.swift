@@ -14,41 +14,93 @@ protocol NetworkLayerDelegate: AnyObject {
     func didFinishFetching(weatherModel: WeatherModel, location: String)
 }
 
-final class NetworkLayer: NetworkManagerDelegate, LocationManagerDelegate {
-    
-    private var locationManager: LocationManager?
-    private var networkManager: NetworkManager?
+final class NetworkLayer {
+
+    private let networkManager = NetworkManager()
+    private let locationManager = CLLocationManager()
     
     weak var delegate: NetworkLayerDelegate?
     
     init() {
-        networkManager = NetworkManager(self)
-        locationManager = LocationManager(self)
-        locationManager?.beginFetchingLocation()
+        locationManager.startUpdatingLocation()
+    }
+   
+    func fetch() {
+        let status = locationManager.authorizationStatus
+        
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            authorizationEnabled()
+        case .denied, .restricted:
+            denied()
+        case .notDetermined:
+            notDetermined()
+        @unknown default:
+            notDetermined()
+        }
     }
     
-    func fetch(_ completion: (WeatherModel, String) -> Void) {
+    func authorizationEnabled() {
+        if let location = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.DefaultLocation) as? [String: Any] {
+            let cllocation = CLLocation(latitude: location["lat"] as! CLLocationDegrees,
+                                        longitude: location["lon"] as! CLLocationDegrees)
+            reverseGeoCode(cllocation)
+        } else {
+            guard let location = locationManager.location else {
+                throwError("unable to get location")
+                return
+            }
+            reverseGeoCode(location)
+        }
+    }
+    
+    func denied() {
         
     }
-  
-    func didFinishFetching(_ weatherModel: WeatherModel) {
+    
+    func notDetermined() {
         
-        DispatchQueue.main.async { [weak self] in
+    }
+    
+    func throwError(_ error: String) {
+        
+    }
+    
+    func reverseGeoCode(_ location: CLLocation) {
+        CLGeocoder().reverseGeocodeLocation(location) { [weak self] (placemark, error) in
+            guard let firstLocation = placemark?.first else { return }
             
+            let country = firstLocation.country ?? ""
+            
+            var locationStr = ""
+            
+            if country == "United States" {
+                let locality = firstLocation.locality ?? ""
+                let state = firstLocation.administrativeArea ?? ""
+                locationStr = "\(locality), \(state)"
+            } else {
+                let locality = firstLocation.locality ?? ""
+                let subLocality = firstLocation.administrativeArea ?? ""
+                locationStr = "\(locality), \(subLocality)"
+            }
+            
+            print("📍 Location manager", locationStr)
+            
+            self?.beginFetchingWeatherData(location, locationStr)
         }
     }
   
-    func currentLocation(_ location: CLLocation) {
-        locationManager?.lookupCurrentLocation(location)
+    func beginFetchingWeatherData(_ location: CLLocation,_ locationStr: String) {
         let url = RequestURL(location: location)
-        networkManager?.fetch(url)
-    }
-    
-    func networkError(_ error: Error?) {
         
-    }
-    
-    func locationError(_ errorMsg: String, _ status: CLAuthorizationStatus?) {
-       
+        networkManager.fetch(url) { [weak self] (weatherModel, error) in
+            DispatchQueue.main.async { [weak self] in
+                if let model = weatherModel {
+                        self?.delegate?.didFinishFetching(weatherModel: model, location: locationStr)
+                } else {
+                    self?.throwError(error?.localizedDescription ?? "network error")
+                }
+            }
+        }
     }
 }

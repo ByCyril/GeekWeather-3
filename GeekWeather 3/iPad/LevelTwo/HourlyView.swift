@@ -23,7 +23,7 @@ struct HourlyViewCell: View {
                 .lineLimit(1)
                 .foregroundColor(Color.white)
             Image(icon)
-                .resizable().frame(width: 75, height: 75, alignment: .center)
+                .resizable().frame(width: 65, height: 65, alignment: .center)
                 .cornerRadius(15)
            
             Text(temp)
@@ -34,7 +34,7 @@ struct HourlyViewCell: View {
                 .lineLimit(1)
                 .foregroundColor(Color.white)
             
-        }
+        }.padding(.leading)
         
     }
 }
@@ -44,18 +44,29 @@ struct HourlyView: View {
     
     var body: some View {
         ScrollView(.horizontal) {
-            HStack(spacing: 0) {
+            HStack(spacing: 25) {
                 ForEach(0..<hourly.count) { i in
                     let hour = hourly[i]
-                    HourlyViewCell(time: hour.dt.convertHourTime(),
-                                   icon: hour.weather.first!.icon,
-                                   temp: hour.temp.kelvinToSystemFormat())
                     
-                    if i < hourly.count - 1{
-                        Divider()
+                    let icon = hour.weather.first!.icon
+                    if icon == "sunset" || icon == "sunrise" {
+                        HourlyViewCell(time: hour.dt.convertTime(),
+                                       icon: hour.weather.first!.icon,
+                                       temp: icon)
+                    } else {
+                        HourlyViewCell(time: hour.dt.convertHourTime(),
+                                       icon: hour.weather.first!.icon,
+                                       temp: hour.temp.kelvinToSystemFormat())
                     }
                 }
             }
         }
+    }
+}
+
+
+struct HourlyView_Previews: PreviewProvider {
+    static var previews: some View {
+        iPadMainView(weatherModel: Mocks.mock(), location: "San Jose, CA").previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
     }
 }

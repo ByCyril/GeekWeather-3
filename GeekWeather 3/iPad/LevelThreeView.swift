@@ -8,6 +8,7 @@
 
 import SwiftUI
 import GWFoundation
+import SwiftUILib_WrapStack
 
 struct LevelThreeCell: View {
     var title: String
@@ -29,7 +30,7 @@ struct LevelThreeCell: View {
                     .lineLimit(1)
                     .foregroundColor(Color.white)
             }.padding()
-        }.background(Color.white.opacity(0.15)).cornerRadius(15)
+        }.background(Color.white.opacity(0.15)).cornerRadius(15).padding(.leading)
     }
 }
 
@@ -38,19 +39,17 @@ struct LevelThreeView: View {
     var weatherModel: WeatherModel
     
     var body: some View {
-        VStack {
-            HStack {
-                LevelThreeCell(title: "Sunrise", value: "7:21 AM")
-                LevelThreeCell(title: "Sunset", value: "7:21 AM")
-                LevelThreeCell(title: "Dew Point", value: "7:21 AM")
-                LevelThreeCell(title: "Chance of Rain", value: "7:21 AM")
-            }
-            HStack {
-                LevelThreeCell(title: "Sunrise", value: "7:21 AM")
-                LevelThreeCell(title: "Sunset", value: "7:21 AM")
-                LevelThreeCell(title: "Dew Point", value: "7:21 AM")
-                LevelThreeCell(title: "Chance of Rain", value: "7:21 AM")
-            }
+        WHStack(spacing: 0) {
+            LevelThreeCell(title: "Sunrise", value: weatherModel.current.sunrise.convertTime())
+            LevelThreeCell(title: "Sunset", value: weatherModel.current.sunset.convertTime())
+            LevelThreeCell(title: "Dew Point", value: weatherModel.current.dew_point.kelvinToSystemFormat())
+            LevelThreeCell(title: "Visibility", value: weatherModel.current.visibility.mToSystemFormat())
+            LevelThreeCell(title: "Chance of Rain", value: weatherModel.daily.first!.pop.percentage(chop: false))
+            LevelThreeCell(title: "Cloud Cover", value: weatherModel.current.clouds.percentage(chop: true))
+            LevelThreeCell(title: "Humidity", value: weatherModel.current.humidity.percentage(chop: true))
+            LevelThreeCell(title: "UV Index", value: weatherModel.current.uvi.stringRound())
+            LevelThreeCell(title: "Wind Speed", value: weatherModel.current.wind_speed.msToSystemFormat())
+            LevelThreeCell(title: "Pressure", value: weatherModel.current.pressure.stringRound())
         }
     }
 }
@@ -59,7 +58,8 @@ struct LevelThreeView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color("System-GradientTopColor"),Color("System-GradientBottomColor")]), startPoint: .top, endPoint: .bottom)
-            LevelThreeView(weatherModel: Mocks.mock())
+            iPadMainView(weatherModel: Mocks.mock(), location: "San Jose, CA").previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
+
         }.previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
     }
 }

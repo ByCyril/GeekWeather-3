@@ -25,7 +25,7 @@ struct DailyCellItem: View {
                 .lineLimit(1)
                 .foregroundColor(Color.white)
             Image(icon)
-                .resizable().frame(width: 75, height: 75, alignment: .center)
+                .resizable().frame(width: 65, height: 65, alignment: .center)
                 .cornerRadius(15)
            
             HStack(spacing: 5) {

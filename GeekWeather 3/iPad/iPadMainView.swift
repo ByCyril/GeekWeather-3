@@ -10,28 +10,37 @@ import SwiftUI
 import GWFoundation
 
 struct iPadMainView: View {
-    
+        
     var weatherModel: WeatherModel
+    var location: String
     
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color("System-GradientTopColor"),Color("System-GradientBottomColor")]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
-            VStack(spacing: 0) {
+            
+            VStack {
                 Spacer()
-                LevelOneView(weatherModel: weatherModel)
-                LevelTwoView(weatherModel: weatherModel)
-                LevelThreeView(weatherModel: weatherModel).padding()
-                
-                Spacer()
+                Text("Developed and designed by Cyril")
+                    .foregroundColor(.white)
+                    .font(Font.custom("AvenirNext-Medium", size: 20))
             }
             
+            ScrollView(.vertical) {
+                VStack(alignment: .center, spacing: 35) {
+                    Spacer()
+                    LevelOneView(weatherModel: weatherModel, location: location).padding()
+                    LevelTwoView(weatherModel: weatherModel)
+                    LevelThreeView(weatherModel: weatherModel).padding()
+                }
+            }
+       
         }
-        
     }
+
 }
 
 struct iPadMainView_Previews: PreviewProvider {
     static var previews: some View {
-        iPadMainView(weatherModel: Mocks.mock()).previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
+        iPadMainView(weatherModel: Mocks.mock(),location: "San Jose, CA").previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch)"))
     }
 }

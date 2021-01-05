@@ -13,12 +13,12 @@ struct LevelOneView: View {
     
     var weatherModel: WeatherModel
     
+    var location: String
     let imageSize: CGFloat = 175
     
     var body: some View {
         VStack(spacing: 0) {
-//            Spacer()
-            Text("San Jose, CA").font(Font.custom("AvenirNext-Medium", size: 45)).foregroundColor(.white).padding(.top)
+            Text(location).font(Font.custom("AvenirNext-Medium", size: 45)).foregroundColor(.white).padding(.top)
                 
             HStack {
                 Image(weatherModel.current.weather.first!.icon)
@@ -34,13 +34,12 @@ struct LevelOneView: View {
             }.padding(.leading).padding(.trailing)
             
             Text(weatherModel.daily.first!.weather.first!.description.capitalized).font(Font.custom("AvenirNext-Medium", size: 35)).foregroundColor(.white).padding(.top)
-//            Spacer()
         }
     }
 }
 
 struct LevelOneView_Previews: PreviewProvider {
     static var previews: some View {
-        iPadMainView(weatherModel: Mocks.mock()).previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
+        iPadMainView(weatherModel: Mocks.mock(), location: "San Jose, CA").previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
     }
 }

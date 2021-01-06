@@ -36,17 +36,12 @@ final class LevelTwoViewController: BaseView {
     }()
     
     private func createLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .estimated((frame.height - 125) / 8))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated((frame.height - 125) / 8))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: .fixed(8), trailing: nil, bottom: .fixed(8))
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .estimated(50))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                       subitems: [item])
-        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
-        
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
@@ -112,7 +107,7 @@ final class LevelTwoViewController: BaseView {
         dailyView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         dailyView.translatesAutoresizingMaskIntoConstraints = false
         dailyView.backgroundColor = .clear
-        dailyView.isScrollEnabled = false
+        dailyView.isScrollEnabled = true
         dailyView.delegate = self
 
         addSubview(dailyView)
@@ -142,13 +137,12 @@ final class LevelTwoViewController: BaseView {
             
             cell.iconView.image = UIImage(named: daily.weather.first!.icon)
             cell.highTempLabel.text = daily.temp.max.kelvinToSystemFormat()
-            cell.lowTempLabel.text = daily.temp.min.kelvinToSystemFormat()
-            cell.frame.size = CGSize(width: self.dailyView.frame.size.width, height: self.dailyView.frame.size.height / 8)
+            cell.lowTempLabel.text = daily.temp.min.kelvinToSystemFormat()            
         }
         
         dailyDataSource = UICollectionViewDiffableDataSource(collectionView: dailyView, cellProvider: { (collectionView, indexpath, data) -> LevelTwoDailyViewCell? in
             let cell = collectionView.dequeueConfiguredReusableCell(using: registration, for: indexpath, item: data)
-            cell.horizontalLayout()
+            
             return cell
         })
         
@@ -160,7 +154,6 @@ final class LevelTwoViewController: BaseView {
     }
     
     private func populate(with weatherModel: WeatherModel) {
-        
         var hourlySnapshot = NSDiffableDataSourceSnapshot<Section, Hourly>()
         hourlySnapshot.appendSections([.main])
         hourlySnapshot.appendItems(Array(weatherModel.hourly[..<20]))
@@ -182,7 +175,7 @@ final class LevelTwoViewController: BaseView {
 extension LevelTwoViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let dailyObj = dailyDataSource?.itemIdentifier(for: indexPath) else { return }
-        NotificationCenter.default.post(name: Notification.Name("ShowDetailsView"), object: dailyObj)
+//        guard let dailyObj = dailyDataSource?.itemIdentifier(for: indexPath) else { return }
+//        NotificationCenter.default.post(name: Notification.Name("ShowDetailsView"), object: dailyObj)
     }
 }

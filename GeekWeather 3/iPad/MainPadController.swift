@@ -11,10 +11,6 @@ import GWFoundation
 import SwiftUI
 
 final class MainPadController: UIViewController, NetworkLayerDelegate {
-    func didFail(with error: String) {
-        
-    }
-    
 
     private let networkLayer = NetworkLayer()
     
@@ -35,4 +31,9 @@ final class MainPadController: UIViewController, NetworkLayerDelegate {
         UIApplication.shared.windows.first?.rootViewController = viewCtrl
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
+    
+    func didFail(with error: String) {
+        
+    }
+    
 }

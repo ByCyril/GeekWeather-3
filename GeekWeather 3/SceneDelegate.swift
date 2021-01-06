@@ -16,9 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var mainViewController: MainViewController?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-        resetLimit()
-        
+                
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         if let vc = GWTest.forceViewController() {
@@ -60,20 +58,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 mainViewController?.networkLayer.fetch()
             }
         }
-    }
-    
-    func resetLimit() {
-        let day = Date().timeIntervalSince1970.date(.day)
-        
-        if let savedDay = UserDefaults.standard.string(forKey: "APILimitCountStart") {
-            if savedDay != day {
-                UserDefaults.standard.setValue(0, forKey: "NumberOfCalls")
-                UserDefaults.standard.setValue(day, forKey: "APILimitCountStart")
-            }
-        } else {
-            UserDefaults.standard.setValue(day, forKey: "APILimitCountStart")
-        }
-        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -32,7 +32,7 @@ final class LevelOneViewController: BaseView {
         tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
         summaryLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: summaryLabel.font)
         commentLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: commentLabel.font)
-                
+        
         [tempLabel, summaryLabel, commentLabel].forEach { (element) in
             element?.adjustsFontForContentSizeCategory = true
             element?.adjustsFontSizeToFitWidth = true

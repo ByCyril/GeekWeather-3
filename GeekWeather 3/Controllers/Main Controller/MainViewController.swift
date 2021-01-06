@@ -10,12 +10,24 @@ import UIKit
 import GWFoundation
 import CoreLocation
 
-class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate, NetworkLayerDelegate {
-
-    private let notificationManager = NotificationManager()
-        
-    private var weatherModel: WeatherModel?
+extension MainViewController: NetworkLayerDelegate {
     
+    func didFinishFetching(weatherModel: WeatherModel, location: String) {
+        UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")
+        animateMainScrollView()
+        navView?.rollableTitleView.todayLabel.text = location
+        notificationManager.post(data: ["weatherModel": weatherModel],
+                                 to: NotificationName.observerID("weatherModel"))
+    }
+    
+    func didFail(with error: String) {
+        
+    }
+}
+
+class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate {
+    
+    private let notificationManager = NotificationManager()
     private var detailsView = DetailsViewModal()
     
     let networkLayer = NetworkLayer()
@@ -24,7 +36,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     @IBOutlet var shadowView: UIView!
     
     private var flexibleCenterYConstraint: NSLayoutConstraint?
-
+    
     private let gradientLayer = CAGradientLayer()
     private let shadowOpacity: CGFloat = 0.75
     
@@ -66,14 +78,14 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
                                                selector: #selector(presentDetailsView(_:)),
                                                name: Notification.Name("ShowDetailsView"),
                                                object: nil)
-     }
+    }
     
     @objc
     func presentDetailsView(_ obj: NSNotification) {
         guard let daily = obj.object as? Daily else { return }
         
         detailsView.dayLabel.text = daily.dt.date(.day)
-       
+        
         let description = daily.weather.first!.description.capitalizingFirstLetter()
         
         detailsView.summaryLabel.text = description
@@ -106,7 +118,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         
         view.layoutIfNeeded()
     }
-
+    
     func createShadows() {
         shadowView.layer.shadowColor = UIColor.black.cgColor
         shadowView.layer.shadowRadius = 5
@@ -128,13 +140,17 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     
     func initMethod() {
         networkLayer.delegate = self
-        networkLayer.fetch()
+        if let mock = Mocks.mockedResponse() {
+            networkLayer.fetch(mock)
+        } else {
+            networkLayer.fetch()
+        }
     }
     
     @objc
     func newLocation(_ notification: NSNotification) {
         navView?.rollableTitleView.hideTitles()
-
+        
         if let location = notification.object as? CLLocation {
             hideScrollView { [weak self] (_) in
                 self?.networkLayer.fetch(with: location)
@@ -144,18 +160,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
                 self?.networkLayer.fetch()
             }
         }
-    }
-    
-    func didFinishFetching(weatherModel: WeatherModel, location: String) {
-        UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")
-        animateMainScrollView()
-        navView?.rollableTitleView.todayLabel.text = location
-        notificationManager.post(data: ["weatherModel": weatherModel],
-                                 to: NotificationName.observerID("weatherModel"))
-    }
-    
-    func didFail(with error: String) {
-        
     }
     
     func initUI() {
@@ -178,11 +182,11 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         view.layoutIfNeeded()
         
         scrollView.contentSize = CGSize(width: view.frame.size.width, height: trueHeight*3)
-
+        
         levelOneViewController = LevelOneViewController(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: trueHeight))
         levelTwoViewController = LevelTwoViewController(frame: CGRect(x: 0, y: trueHeight, width: view.bounds.size.width, height: trueHeight))
         levelThreeViewController = LevelThreeViewController(frame: CGRect(x: 0, y: trueHeight * 2, width: view.bounds.size.width, height: trueHeight))
-
+        
         scrollView.addSubview(levelOneViewController!)
         scrollView.addSubview(levelTwoViewController!)
         scrollView.addSubview(levelThreeViewController!)
@@ -192,6 +196,10 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         let offsetY = scrollView.contentOffset.y
         let page = offsetY / scrollView.frame.size.height
         return ["Today View", "Forecast View", "Details View"][Int(page)]
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        HapticManager.soft()
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -207,19 +215,16 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         }
     }
     
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        HapticManager.soft()
-    }
-    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
-        let scale: CGFloat = 0.925
+        let scale: CGFloat = 0.95
         let alpha = shadowOpacity
+        let blurEffect: CGFloat = 0.25
         
         UIView.animate(withDuration: 0.2) { [weak self] in
-            self?.levelOneViewController?.blurredEffectView.alpha = 0.35
-            self?.levelTwoViewController?.blurredEffectView.alpha = 0.35
-            self?.levelThreeViewController?.blurredEffectView.alpha = 0.35
+            self?.levelOneViewController?.blurredEffectView.alpha = blurEffect
+            self?.levelTwoViewController?.blurredEffectView.alpha = blurEffect
+            self?.levelThreeViewController?.blurredEffectView.alpha = blurEffect
             self?.levelOneViewController?.transform = .init(scaleX: scale, y: scale)
             self?.levelTwoViewController?.transform = .init(scaleX: scale, y: scale)
             self?.levelThreeViewController?.transform = .init(scaleX: scale, y: scale)
@@ -251,13 +256,14 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         gradientLayer.colors = [UIColor(named: theme + "GradientTopColor")!.cgColor,
                                 UIColor(named: theme + "GradientBottomColor")!.cgColor]
     }
-
+    
     func animateMainScrollView() {
         navView?.rollableTitleView.showTitles()
         scrollView.isScrollEnabled = true
+        scrollView.setContentOffset(.zero, animated: true)
         showScrollView()
     }
-
+    
     func hideScrollView(_ completion: ((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: 0.4,
                        delay: 0,
@@ -265,8 +271,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
                        initialSpringVelocity: 1,
                        options: .curveEaseInOut,
                        animations: { [weak self] in
-            self?.scrollView.alpha = 0
-        }, completion: completion)
+                        self?.scrollView.alpha = 0
+                       }, completion: completion)
     }
     
     func showScrollView(_ completion: ((Bool) -> Void)? = nil) {
@@ -276,8 +282,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
                        initialSpringVelocity: 1,
                        options: .curveEaseInOut,
                        animations: { [weak self] in
-            self?.scrollView.alpha = 1
-        }, completion: completion)
+                        self?.scrollView.alpha = 1
+                       }, completion: completion)
     }
     
 }

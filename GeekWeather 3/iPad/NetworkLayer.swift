@@ -26,7 +26,13 @@ final class NetworkLayer {
         locationManager.startUpdatingLocation()
     }
    
-    func fetch() {
+    func fetch(_ mock: Data? = nil) {
+        if let mock = mock {
+            let response = try! JSONDecoder().decode(WeatherModel.self, from: mock)
+            delegate?.didFinishFetching(weatherModel: response, location: "Sunnyvale, CA")
+            return
+        }
+        
         let status = locationManager.authorizationStatus
         
         switch status {

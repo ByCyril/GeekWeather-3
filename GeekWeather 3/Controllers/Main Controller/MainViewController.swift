@@ -9,20 +9,25 @@
 import UIKit
 import GWFoundation
 import CoreLocation
+import Lottie
 
 extension MainViewController: NetworkLayerDelegate {
     
     func didFinishFetching(weatherModel: WeatherModel, location: String) {
         UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")
         animateMainScrollView()
+        loadingView.removeFromSuperview()
+        removeErrorItems()
         navView?.rollableTitleView.todayLabel.text = location
         notificationManager.post(data: ["weatherModel": weatherModel],
                                  to: NotificationName.observerID("weatherModel"))
     }
     
-    func didFail(with error: String) {
-        
+    func didFail(errorTitle: String, errorDetail: String) {
+        loadingView.removeFromSuperview()
+        createErrorView(errorTitle: errorTitle, errorDetail)
     }
+    
 }
 
 class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate {
@@ -46,6 +51,27 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     
     let theme = UserDefaults.standard.string(forKey: "Theme") ?? "System-"
     
+    private let errorTitleLabel = UILabel()
+    private let errorTextView = UITextView()
+    
+    private let loadingView: AnimationView = {
+        let animation = AnimationView(name: "loader")
+        animation.translatesAutoresizingMaskIntoConstraints = false
+        animation.animationSpeed = 2
+        animation.loopMode = .loop
+        animation.play()
+        return animation
+    }()
+    
+    private let errorView: AnimationView = {
+        let animation = AnimationView(name: "denied")
+        animation.translatesAutoresizingMaskIntoConstraints = false
+        animation.animationSpeed = 0.5
+        animation.loopMode = .autoReverse
+        animation.play()
+        return animation
+    }()
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.isPagingEnabled = true
@@ -64,7 +90,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-        initMethod()
+        
+        createAnimation()
         createShadows()
         createGradient()
         prepareDetailsView()
@@ -79,6 +106,12 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
                                                name: Notification.Name("ShowDetailsView"),
                                                object: nil)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        initMethod()
+    }
+    
     
     @objc
     func presentDetailsView(_ obj: NSNotification) {
@@ -97,6 +130,12 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
             self?.view.layoutIfNeeded()
         }
         
+    }
+    
+    func removeErrorItems() {
+        errorView.removeFromSuperview()
+        errorTitleLabel.removeFromSuperview()
+        errorTextView.removeFromSuperview()
     }
     
     func prepareDetailsView() {
@@ -138,10 +177,67 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         view.setNeedsDisplay()
     }
     
+    func createErrorView(errorTitle: String, _ errorDetails: String) {
+        
+        errorTitleLabel.text = errorTitle
+        errorTitleLabel.font = GWFont.AvenirNext(style: .Bold, size: 20)
+        errorTitleLabel.textAlignment = .center
+        
+        errorTextView.text = errorDetails
+        errorTextView.textAlignment = .center
+        errorTextView.backgroundColor = .clear
+        errorTextView.font = GWFont.AvenirNext(style: .Medium, size: 17)
+        errorTextView.isEditable = false
+        
+        [errorTextView, errorTitleLabel].forEach { (element) in
+            element.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(element)
+        }
+        
+        view.addSubview(errorView)
+        let size: CGFloat = 225
+        let padding: CGFloat = 25
+        
+        NSLayoutConstraint.activate([
+            errorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            errorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            errorView.heightAnchor.constraint(equalToConstant: size),
+            errorView.widthAnchor.constraint(equalToConstant: size),
+            
+            errorTitleLabel.topAnchor.constraint(equalTo: errorView.bottomAnchor),
+            errorTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            errorTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            errorTextView.topAnchor.constraint(equalTo: errorTitleLabel.bottomAnchor),
+            errorTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            errorTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            errorTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+        
+        view.layoutIfNeeded()
+    }
+    
+    func createAnimation() {
+        view.addSubview(loadingView)
+        loadingView.play()
+        let size: CGFloat = 300
+        
+        NSLayoutConstraint.activate([
+            loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            loadingView.heightAnchor.constraint(equalToConstant: size),
+            loadingView.widthAnchor.constraint(equalToConstant: size),
+        ])
+        
+        view.layoutIfNeeded()
+    }
+    
     func initMethod() {
         networkLayer.delegate = self
         if let mock = Mocks.mockedResponse() {
-            networkLayer.fetch(mock)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.networkLayer.fetch(mock)
+            }
         } else {
             networkLayer.fetch()
         }
@@ -150,7 +246,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     @objc
     func newLocation(_ notification: NSNotification) {
         navView?.rollableTitleView.hideTitles()
-        
+        removeErrorItems()
+        createAnimation()
         if let location = notification.object as? CLLocation {
             hideScrollView { [weak self] (_) in
                 self?.networkLayer.fetch(with: location)
@@ -203,7 +300,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
+        guard !UserDefaults.standard.bool(forKey: "ScrollAnimationToggle") else { return }
         UIView.animate(withDuration: 0.3) { [weak self] in
             self?.levelOneViewController?.blurredEffectView.alpha = 0
             self?.levelTwoViewController?.blurredEffectView.alpha = 0
@@ -216,7 +313,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        
+        guard !UserDefaults.standard.bool(forKey: "ScrollAnimationToggle") else { return }
         let scale: CGFloat = 0.95
         let alpha = shadowOpacity
         let blurEffect: CGFloat = 0.25
@@ -241,10 +338,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     
     @IBAction func presentSavedLocationController() {
         let vc = StoryboardManager.main().instantiateViewController(withIdentifier: "SavedLocationViewController")
+        let attributes = [NSAttributedString.Key.font: GWFont.AvenirNext(style: .Bold, size: 35)]
+        vc.navigationController?.navigationBar.largeTitleTextAttributes = attributes
         present(vc, animated: true, completion: nil)
     }
-    
+
     @IBAction func presentSettingsController() {
+       
         GWTransition.present(SettingsController(), from: self)
     }
     

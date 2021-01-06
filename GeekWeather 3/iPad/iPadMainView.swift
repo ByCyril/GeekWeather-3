@@ -18,19 +18,16 @@ struct iPadMainView: View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color("System-GradientTopColor"),Color("System-GradientBottomColor")]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
             
-            VStack {
-                Spacer()
-                Text("Developed and designed by Cyril")
-                    .foregroundColor(.white)
-                    .font(Font.custom("AvenirNext-Medium", size: 20))
-            }
-            
             ScrollView(.vertical) {
                 VStack(alignment: .center, spacing: 35) {
                     Spacer()
                     LevelOneView(weatherModel: weatherModel, location: location).padding()
                     LevelTwoView(weatherModel: weatherModel)
                     LevelThreeView(weatherModel: weatherModel).padding()
+                    Spacer()
+                    Text("Developed and designed by Cyril")
+                        .foregroundColor(.white)
+                        .font(Font.custom("AvenirNext-Medium", size: 20)).padding()
                 }
             }
        

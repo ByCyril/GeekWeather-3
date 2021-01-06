@@ -12,31 +12,26 @@ import GWFoundation
 
 protocol NetworkLayerDelegate: AnyObject {
     func didFinishFetching(weatherModel: WeatherModel, location: String)
-    func didFail(with error: String)
+    func didFail(errorTitle: String, errorDetail: String)
 }
 
-final class NetworkLayer {
+final class NetworkLayer: NSObject, CLLocationManagerDelegate {
 
     private let networkManager = NetworkManager()
-    private let locationManager = CLLocationManager()
+    private var locationManager: CLLocationManager?
     
     weak var delegate: NetworkLayerDelegate?
     
-    init() {
-        locationManager.startUpdatingLocation()
+    override init() {
+        super.init()
+        
     }
-   
-    func fetch(_ mock: Data? = nil) {
-        if let mock = mock {
-            let response = try! JSONDecoder().decode(WeatherModel.self, from: mock)
-            delegate?.didFinishFetching(weatherModel: response, location: "Sunnyvale, CA")
-            return
-        }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
-        let status = locationManager.authorizationStatus
-        
-        switch status {
+        switch manager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
+            
             authorizationEnabled()
         case .denied, .restricted:
             denied()
@@ -46,6 +41,17 @@ final class NetworkLayer {
             notDetermined()
         }
     }
+   
+    func fetch(_ mock: Data? = nil) {
+        if let mock = mock {
+            let response = try! JSONDecoder().decode(WeatherModel.self, from: mock)
+            delegate?.didFinishFetching(weatherModel: response, location: "Sunnyvale, CA")
+            return
+        }
+        
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+    }
     
     func authorizationEnabled() {
         if let location = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.DefaultLocation) as? [String: Any] {
@@ -53,8 +59,10 @@ final class NetworkLayer {
                                         longitude: location["lon"] as! CLLocationDegrees)
             fetch(with: cllocation)
         } else {
-            guard let location = locationManager.location else {
-                throwError("unable to get location")
+            locationManager?.startUpdatingLocation()
+            guard let location = locationManager?.location else {
+                delegate?.didFail(errorTitle: "Location Error",
+                                  errorDetail: "Could not get your current location at the moment. Please try again or let the developer know if the issue persists.")
                 return
             }
             fetch(with: location)
@@ -69,22 +77,20 @@ final class NetworkLayer {
             
             fetch(with: cllocation)
         } else {
-            throwError("No default location to be found")
+            delegate?.didFail(errorTitle: "Could not find a default location",
+                              errorDetail: "You can set a default location under search.")
         }
     }
     
     func notDetermined() {
-        locationManager.requestWhenInUseAuthorization()
-    }
-    
-    func throwError(_ error: String) {
-        delegate?.didFail(with: error)
+        locationManager?.requestWhenInUseAuthorization()
     }
     
     func fetch(with location: CLLocation) {
         CLGeocoder().reverseGeocodeLocation(location) { [weak self] (placemark, error) in
             guard let firstLocation = placemark?.first else {
-                self?.delegate?.didFail(with: error?.localizedDescription ?? "Unable to get location")
+                self?.delegate?.didFail(errorTitle: "Unable to get location.",
+                                        errorDetail: error?.localizedDescription ?? "Please try again later or try searching for a location.")
                 return
             }
             
@@ -116,7 +122,8 @@ final class NetworkLayer {
                 if let model = weatherModel {
                         self?.delegate?.didFinishFetching(weatherModel: model, location: locationStr)
                 } else {
-                    self?.throwError(error?.localizedDescription ?? "network error")
+                    self?.delegate?.didFail(errorTitle: "Network Error",
+                                            errorDetail: error?.localizedDescription ?? "Something went wrong. Please try again later. If error persist, please let the developer know!")
                 }
             }
         }

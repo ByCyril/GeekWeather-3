@@ -14,6 +14,7 @@ final class SettingsController: UITableViewController {
     
     init() {
         super.init(style: .insetGrouped)
+        tableView.estimatedRowHeight = 50
     }
     
     required init?(coder: NSCoder) {
@@ -51,7 +52,7 @@ final class SettingsController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return settingManager.sections[indexPath.section].cells[indexPath.row].cellHeight
+        return UITableView.automaticDimension
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

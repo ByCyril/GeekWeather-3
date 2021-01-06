@@ -44,7 +44,7 @@ class BaseView: UIView, NotificationManagerDelegate {
     }()
  
     func createBlurView() {
-        blurredEffectView.layer.cornerRadius = 35
+        blurredEffectView.layer.cornerRadius = 25
         blurredEffectView.alpha = 0
         blurredEffectView.frame = bounds
         blurredEffectView.clipsToBounds = true

@@ -109,14 +109,14 @@ final class LevelTwoViewController: BaseView {
         dailyView.backgroundColor = .clear
         dailyView.isScrollEnabled = true
         dailyView.delegate = self
-
         addSubview(dailyView)
+        
         let padding: CGFloat = 15
         
         NSLayoutConstraint.activate([
             dailyView.topAnchor.constraint(equalTo: hourlyView.bottomAnchor, constant: padding),
-            dailyView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            dailyView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            dailyView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            dailyView.trailingAnchor.constraint(equalTo: trailingAnchor),
             dailyView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
@@ -137,7 +137,7 @@ final class LevelTwoViewController: BaseView {
             
             cell.iconView.image = UIImage(named: daily.weather.first!.icon)
             cell.highTempLabel.text = daily.temp.max.kelvinToSystemFormat()
-            cell.lowTempLabel.text = daily.temp.min.kelvinToSystemFormat()            
+            cell.lowTempLabel.text = daily.temp.min.kelvinToSystemFormat()
         }
         
         dailyDataSource = UICollectionViewDiffableDataSource(collectionView: dailyView, cellProvider: { (collectionView, indexpath, data) -> LevelTwoDailyViewCell? in

@@ -40,6 +40,7 @@ final class RollableTitleView: UIView {
         todayLabel.text = ""
         geekLabel.text = "Details"
         forecastLabel.text = "Forecast"
+        labelContainer.backgroundColor = .clear
         
         [forecastLabel, geekLabel, todayLabel].forEach { (label) in
             label.notAccessibilityElement()
@@ -52,7 +53,7 @@ final class RollableTitleView: UIView {
         bottomPadding = itemHeight * 2
         
         addSubview(labelContainer)
-        labelContainer.backgroundColor = .clear
+        
         backgroundColor = .clear
         alpha = 0
         

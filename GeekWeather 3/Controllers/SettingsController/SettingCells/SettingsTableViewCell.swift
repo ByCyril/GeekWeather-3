@@ -22,7 +22,7 @@ class SettingsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
-        label.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: label.font)
+        label.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: GWFont.AvenirNext(style: .Medium, size: 17))
         return label
     }()
     
@@ -30,7 +30,7 @@ class SettingsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
-        label.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: label.font)
+        label.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: GWFont.AvenirNext(style: .Medium, size: 17))
         return label
     }()
     
@@ -45,31 +45,28 @@ class SettingsTableViewCell: UITableViewCell {
     
     func initUI() {
         
-        let padding: CGFloat = 10
+        let padding: CGFloat = 12
         
         addSubview(iconImageView)
         addSubview(titleLabel)
         addSubview(detailLabel)
         
         NSLayoutConstraint.activate([
-//            iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+
             iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-//            iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
             iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
-            iconImageView.heightAnchor.constraint(equalToConstant: 45),
-            iconImageView.widthAnchor.constraint(equalToConstant: 45),
+            iconImageView.heightAnchor.constraint(equalToConstant: 30),
+            iconImageView.widthAnchor.constraint(equalToConstant: 30),
             
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding),
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
             titleLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: padding),
-//            titleLabel.heightAnchor.constraint(equalTo: iconImageView.heightAnchor),
             
-            detailLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding),
-            detailLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
+            detailLabel.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            detailLabel.heightAnchor.constraint(equalTo: titleLabel.heightAnchor),
             detailLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: padding),
             detailLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding * 2.5),
-//            detailLabel.heightAnchor.constraint(equalTo: iconImageView.heightAnchor)
+
         ])
         
         layoutIfNeeded()

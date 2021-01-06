@@ -38,7 +38,7 @@
                                                         <constraint firstAttribute="width" constant="47" id="lFN-ks-4eu"/>
                                                     </constraints>
                                                     <connections>
-                                                        <action selector="toggleHapticFeedback:" destination="f4t-66-EmI" eventType="valueChanged" id="rjO-cG-hP9"/>
+                                                        <action selector="toggleHapticFeedback:" destination="f4t-66-EmI" eventType="touchUpInside" id="2fR-9G-8F9"/>
                                                         <action selector="toggleHapticFeedback:" destination="FNN-W4-kgd" eventType="valueChanged" id="uQy-bS-hyD"/>
                                                     </connections>
                                                 </switch>
@@ -99,6 +99,46 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Scroll Animation" id="U8y-P3-5qs">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="55" id="yan-IL-UcO">
+                                        <rect key="frame" x="20" y="277.5" width="374" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yan-IL-UcO" id="FzP-KW-Z3p">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Scroll Animation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LD6-3O-0gk">
+                                                    <rect key="frame" x="20" y="13" width="250" height="31"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y8q-oI-3Bc">
+                                                    <rect key="frame" x="305" y="13" width="49" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="47" id="Gvy-dI-cNQ"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="toggleHapticFeedback:" destination="FNN-W4-kgd" eventType="valueChanged" id="GXK-Dp-MBZ"/>
+                                                        <action selector="turnOffScrollAnimation:" destination="f4t-66-EmI" eventType="touchUpInside" id="cf9-1Y-wCS"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="y8q-oI-3Bc" firstAttribute="leading" secondItem="LD6-3O-0gk" secondAttribute="trailing" constant="35" id="2qT-M2-4kX"/>
+                                                <constraint firstAttribute="bottom" secondItem="LD6-3O-0gk" secondAttribute="bottom" constant="11" id="5fe-eR-ZCa"/>
+                                                <constraint firstItem="LD6-3O-0gk" firstAttribute="top" secondItem="FzP-KW-Z3p" secondAttribute="top" constant="13" id="YCL-zf-CkO"/>
+                                                <constraint firstAttribute="trailing" secondItem="y8q-oI-3Bc" secondAttribute="trailing" constant="22" id="f64-Em-g0w"/>
+                                                <constraint firstAttribute="bottom" secondItem="y8q-oI-3Bc" secondAttribute="bottom" constant="11" id="oKb-Rf-pa4"/>
+                                                <constraint firstItem="y8q-oI-3Bc" firstAttribute="top" secondItem="FzP-KW-Z3p" secondAttribute="top" constant="13" id="xBN-5c-cLH"/>
+                                                <constraint firstItem="LD6-3O-0gk" firstAttribute="leading" secondItem="FzP-KW-Z3p" secondAttribute="leading" constant="20" symbolic="YES" id="y5o-0Z-l3b"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="f4t-66-EmI" id="Zz5-A2-OZT"/>
@@ -108,6 +148,7 @@
                     <navigationItem key="navigationItem" title="Change Units" id="N6i-cG-sQw"/>
                     <connections>
                         <outlet property="hapticToggle" destination="9cT-mZ-r2o" id="4Om-3f-A27"/>
+                        <outlet property="scrollAnimationToggle" destination="y8q-oI-3Bc" id="DMK-hP-J31"/>
                         <outlet property="themeSelector" destination="YXP-yx-8Ob" id="q8a-Fn-gpG"/>
                     </connections>
                 </tableViewController>
@@ -233,7 +274,6 @@
                                                     <connections>
                                                         <action selector="militaryTime:" destination="y7e-NW-ZQP" eventType="touchUpInside" id="Thl-v1-SOB"/>
                                                         <action selector="militaryTime:" destination="onz-Fb-x4W" eventType="valueChanged" id="ZfC-ve-W9h"/>
-                                                        <action selector="toggleHapticFeedback:" destination="f4t-66-EmI" eventType="valueChanged" id="EiF-jz-xy4"/>
                                                         <action selector="toggleHapticFeedback:" destination="FNN-W4-kgd" eventType="valueChanged" id="VIt-DV-qwI"/>
                                                     </connections>
                                                 </switch>

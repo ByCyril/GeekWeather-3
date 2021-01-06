@@ -31,9 +31,16 @@ struct LevelOneView: View {
                     .allowsTightening(true)
                     .lineLimit(1)
                     .foregroundColor(.white)
+            
             }.padding(.leading).padding(.trailing)
             
-            Text(weatherModel.daily.first!.weather.first!.description.capitalized).font(Font.custom("AvenirNext-Medium", size: 35)).foregroundColor(.white).padding(.top)
+            Text(weatherModel.daily.first!.weather.first!.description.capitalized)
+                .font(Font.custom("AvenirNext-Medium", size: 35))
+                .foregroundColor(.white).padding(.top)
+            Text("Feels like " + weatherModel.current.feels_like.kelvinToSystemFormat())
+                .font(Font.custom("AvenirNext-Medium", size: 35))
+                .foregroundColor(.white).padding(.top)
+            
         }
     }
 }

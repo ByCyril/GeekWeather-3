@@ -52,7 +52,7 @@ final class Mocks {
             return data
         }
         
-        return data
+        return nil
     }
     
     static func mockError() -> Error? {

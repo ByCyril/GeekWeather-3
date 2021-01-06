@@ -86,13 +86,13 @@ final class LevelTwoDailyViewCell: UICollectionViewCell {
         iPhoneVerticalLayoutConstraints = [
             iconView.topAnchor.constraint(equalTo: topAnchor),
             iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            iconView.heightAnchor.constraint(equalToConstant: 55),
-            iconView.widthAnchor.constraint(equalToConstant: 55),
+            iconView.heightAnchor.constraint(equalToConstant: 65),
+            iconView.widthAnchor.constraint(equalToConstant: 65),
             
-            dayLabel.topAnchor.constraint(equalTo: iconView.bottomAnchor, constant: padding),
-            dayLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            dayLabel.topAnchor.constraint(equalTo: topAnchor),
+            dayLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: padding),
             dayLabel.bottomAnchor.constraint(equalTo: tempContainerView.topAnchor, constant: -padding),
-            dayLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            dayLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             tempContainerView.topAnchor.constraint(equalTo: dayLabel.bottomAnchor),
             tempContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),

@@ -17,6 +17,7 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initUI()
+        setupAccessibilityElements()
     }
     
     required init?(coder: NSCoder) {
@@ -60,6 +61,20 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
         ])
         
         layoutIfNeeded()
+    }
+    
+    func setupAccessibilityElements() {
+        timestampLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: timestampLabel.font)
+        tempLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: tempLabel.font)
+        
+        [tempLabel, timestampLabel].forEach { (element) in
+            element.isAccessibilityElement = false
+            element.adjustsFontForContentSizeCategory = true
+            element.sizeToFit()
+            element.numberOfLines = 1
+        }
+        
+        isAccessibilityElement = true
     }
     
 }

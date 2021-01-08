@@ -262,7 +262,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     func newLocation(_ notification: NSNotification) {
         navView?.rollableTitleView.hideTitles()
         removeErrorItems()
-        
+        loadingView.play()
         UIView.animate(withDuration: 0.4) {
             self.loadingView.alpha = 1
         }

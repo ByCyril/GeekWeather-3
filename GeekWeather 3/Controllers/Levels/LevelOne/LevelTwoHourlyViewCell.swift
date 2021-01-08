@@ -26,7 +26,20 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
     
     func initUI() {
         
-        timestampLabel.font = GWFont.AvenirNext(style: .Medium, size: 23)
+        let view = UIView()
+        view.layer.cornerRadius = 20
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.15)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: topAnchor),
+            view.bottomAnchor.constraint(equalTo: bottomAnchor),
+            view.trailingAnchor.constraint(equalTo: trailingAnchor),
+            view.leadingAnchor.constraint(equalTo: leadingAnchor)
+        ])
+        
+        timestampLabel.font = GWFont.AvenirNext(style: .Medium, size: 21)
         timestampLabel.textAlignment = .center
         timestampLabel.textColor = .white
         
@@ -44,16 +57,16 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
         let padding: CGFloat = 5
         
         NSLayoutConstraint.activate([
-            timestampLabel.topAnchor.constraint(equalTo: topAnchor),
+            timestampLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding),
             timestampLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             timestampLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            timestampLabel.heightAnchor.constraint(equalToConstant: 40),
+            timestampLabel.heightAnchor.constraint(equalToConstant: 35),
             
-            iconView.topAnchor.constraint(equalTo: timestampLabel.bottomAnchor, constant: padding),
+            iconView.topAnchor.constraint(equalTo: timestampLabel.bottomAnchor),
             iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             iconView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
             iconView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            iconView.bottomAnchor.constraint(equalTo: tempLabel.topAnchor, constant: -padding),
+            iconView.bottomAnchor.constraint(equalTo: tempLabel.topAnchor),
             
             tempLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             tempLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -65,12 +78,9 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
     }
     
     func setupAccessibilityElements() {
-        timestampLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: timestampLabel.font)
-        tempLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: tempLabel.font)
         
         [tempLabel, timestampLabel].forEach { (element) in
             element.isAccessibilityElement = false
-            element.adjustsFontForContentSizeCategory = true
             element.sizeToFit()
             element.numberOfLines = 1
         }

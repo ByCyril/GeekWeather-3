@@ -30,13 +30,22 @@ final class LevelThreeTableViewCell: UITableViewCell {
         backgroundColor = .clear
         
         let label = GWFont.AvenirNext(style: .Regular, size: 15)
-        let value = GWFont.AvenirNext(style: .Regular, size: 25)
+        let value = GWFont.AvenirNext(style: .Medium, size: 25)
         
-        firstItemLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: label)
-        firstItemValue.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: value)
+        firstItemLabel.numberOfLines = 0
+        firstItemValue.numberOfLines = 0
+        secondItemLabel.numberOfLines = 0
+        secondItemValue.numberOfLines = 0
         
-        secondItemLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: label)
-        secondItemValue.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: value)
+        firstItemLabel.adjustsFontForContentSizeCategory = true
+        firstItemValue.adjustsFontForContentSizeCategory = true
+        secondItemLabel.adjustsFontForContentSizeCategory = true
+        secondItemValue.adjustsFontForContentSizeCategory = true
+        
+        firstItemLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: label, maximumPointSize: 25)
+        firstItemValue.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: value, maximumPointSize: 35)
+        secondItemLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: label, maximumPointSize: 25)
+        secondItemValue.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: value, maximumPointSize: 35)
         
     }
 }
@@ -70,6 +79,7 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.flashScrollIndicators()
     }
     
     required init?(coder: NSCoder) {

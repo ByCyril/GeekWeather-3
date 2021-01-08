@@ -51,10 +51,8 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate {
         
         addSubview(dailyTableView)
 
-        let padding: CGFloat = 10
-        
         NSLayoutConstraint.activate([
-            dailyTableView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            dailyTableView.topAnchor.constraint(equalTo: topAnchor),
             dailyTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             dailyTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             dailyTableView.trailingAnchor.constraint(equalTo: trailingAnchor)

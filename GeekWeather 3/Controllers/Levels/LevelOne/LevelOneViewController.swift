@@ -24,8 +24,8 @@ final class LevelOneViewController: BaseView {
     @IBOutlet var hourlyView: UICollectionView! = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 105, height: 150)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.itemSize = CGSize(width: 75, height: 150)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.alwaysBounceHorizontal = true

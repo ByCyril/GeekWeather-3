@@ -17,7 +17,6 @@ final class LevelTwoViewController: BaseView {
     
     @IBOutlet var containerView: UIView!
     
-    private var hourlyDataSource: UICollectionViewDiffableDataSource<Section, Hourly>?
     private var dailyDataSource: UICollectionViewDiffableDataSource<Section, Daily>?
     
     lazy var dailyView: UICollectionView = {
@@ -36,31 +35,7 @@ final class LevelTwoViewController: BaseView {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
-    
-    lazy var hourlyView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 55, height: 100)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.alwaysBounceHorizontal = true
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .clear
-        return collectionView
-    }()
-    
-    private func createLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated((frame.height - 125) / 8))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: .fixed(8), trailing: nil, bottom: .fixed(8))
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        let section = NSCollectionLayoutSection(group: group)
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
-    }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -68,56 +43,11 @@ final class LevelTwoViewController: BaseView {
         loadXib(view, self)
         
         createBlurView()
-        hourlyViewSetup()
         dailyViewSetup()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-    }
-    
-    private func hourlyViewSetup() {
-        addSubview(hourlyView)
-        
-        NSLayoutConstraint.activate([
-            hourlyView.topAnchor.constraint(equalTo: topAnchor),
-            hourlyView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            hourlyView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            hourlyView.heightAnchor.constraint(equalToConstant: 100)
-        ])
-        
-        layoutIfNeeded()
-        
-        let registration = UICollectionView.CellRegistration<LevelTwoHourlyViewCell, Hourly> { cell, indexPath, data in
-            
-            if (data.weather.first!.icon == "sunrise" || data.weather.first!.icon == "sunset") {
-                if data.dt < Date().timeIntervalSince1970 {
-                    return
-                }
-                let time = data.dt.convertTime()
-                cell.timestampLabel.text = time
-                cell.timestampLabel.adjustsFontSizeToFitWidth = true
-                cell.timestampLabel.minimumScaleFactor = 0.5
-                cell.iconView.image = UIImage(named: data.weather.first!.icon)
-                cell.tempLabel.text = data.weather.first!.icon.capitalized
-                cell.tempLabel.adjustsFontSizeToFitWidth = true
-                cell.tempLabel.minimumScaleFactor = 0.5
-            } else {
-                let time = (indexPath.row == 0) ? "Now" : data.dt.convertHourTime()
-                cell.timestampLabel.adjustsFontSizeToFitWidth = false
-                cell.timestampLabel.minimumScaleFactor = 1
-                cell.timestampLabel.text = time
-                cell.iconView.image = UIImage(named: data.weather.first!.icon)
-                cell.tempLabel.text = data.temp.kelvinToSystemFormat()
-                cell.tempLabel.adjustsFontSizeToFitWidth = false
-                cell.tempLabel.minimumScaleFactor = 1
-            }
-        }
-        
-        hourlyDataSource = UICollectionViewDiffableDataSource(collectionView: hourlyView, cellProvider: { (collectionView, indexpath, data) -> LevelTwoHourlyViewCell? in
-            return collectionView.dequeueConfiguredReusableCell(using: registration, for: indexpath, item: data)
-        })
-        
     }
     
     private func dailyViewSetup() {
@@ -126,7 +56,7 @@ final class LevelTwoViewController: BaseView {
         addSubview(dailyView)
         
         NSLayoutConstraint.activate([
-            dailyView.topAnchor.constraint(equalTo: hourlyView.bottomAnchor),
+            dailyView.topAnchor.constraint(equalTo: topAnchor),
             dailyView.leadingAnchor.constraint(equalTo: leadingAnchor),
             dailyView.trailingAnchor.constraint(equalTo: trailingAnchor),
             dailyView.bottomAnchor.constraint(equalTo: bottomAnchor)
@@ -160,16 +90,7 @@ final class LevelTwoViewController: BaseView {
     
     override func didRecieve(from notification: NSNotification) {
         guard let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel else { return }
-        
-        var hourlySnapshot = NSDiffableDataSourceSnapshot<Section, Hourly>()
-        hourlySnapshot.appendSections([.main])
-        
-        let filtered = weatherModel.hourly.filter { (hour) -> Bool in
-            hour.dt > Date().timeIntervalSinceNow && hour.weather.first!.icon != "sunset" || hour.weather.first!.icon != "sunrise"
-        }
-        
-        hourlySnapshot.appendItems(Array(filtered[..<20]))
-        hourlyDataSource?.apply(hourlySnapshot)
+ 
         
         var dailySnapshot = NSDiffableDataSourceSnapshot<Section, Daily>()
         dailySnapshot.appendSections([.main])
@@ -178,7 +99,6 @@ final class LevelTwoViewController: BaseView {
     }
     
     override func didUpdateValues() {
-        hourlyView.reloadData()
         dailyView.reloadData()
     }
 

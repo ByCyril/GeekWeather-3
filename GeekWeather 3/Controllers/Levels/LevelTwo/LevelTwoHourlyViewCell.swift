@@ -26,11 +26,11 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
     
     func initUI() {
         
-        timestampLabel.font = GWFont.AvenirNext(style: .Medium, size: 17)
+        timestampLabel.font = GWFont.AvenirNext(style: .Medium, size: 23)
         timestampLabel.textAlignment = .center
         timestampLabel.textColor = .white
         
-        tempLabel.font = GWFont.AvenirNext(style: .Bold, size: 18)
+        tempLabel.font = GWFont.AvenirNext(style: .Bold, size: 25)
         tempLabel.textAlignment = .center
         tempLabel.textColor = .white
         
@@ -47,7 +47,7 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
             timestampLabel.topAnchor.constraint(equalTo: topAnchor),
             timestampLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             timestampLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            timestampLabel.heightAnchor.constraint(equalToConstant: 20),
+            timestampLabel.heightAnchor.constraint(equalToConstant: 40),
             
             iconView.topAnchor.constraint(equalTo: timestampLabel.bottomAnchor, constant: padding),
             iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
@@ -58,7 +58,7 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
             tempLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             tempLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             tempLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tempLabel.heightAnchor.constraint(equalToConstant: 20)
+            tempLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
         
         layoutIfNeeded()

@@ -36,7 +36,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mnX-AH-c7g">
-                    <rect key="frame" x="0.0" y="497" width="375" height="150"/>
+                    <rect key="frame" x="0.0" y="482" width="375" height="150"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="RzT-ko-UhU"/>
@@ -82,7 +82,7 @@
                 <constraint firstItem="BMM-sT-sOj" firstAttribute="top" secondItem="CTP-k3-ISq" secondAttribute="bottom" constant="8" symbolic="YES" id="gYJ-4z-0w0"/>
                 <constraint firstItem="mnX-AH-c7g" firstAttribute="top" relation="lessThanOrEqual" secondItem="MUs-Df-gaB" secondAttribute="bottom" constant="146.5" id="iaj-cC-9o9"/>
                 <constraint firstItem="MUs-Df-gaB" firstAttribute="top" secondItem="BMM-sT-sOj" secondAttribute="bottom" constant="8" symbolic="YES" id="o3J-fk-6nc"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="mnX-AH-c7g" secondAttribute="bottom" constant="20" id="szA-Op-deX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="mnX-AH-c7g" secondAttribute="bottom" constant="35" id="szA-Op-deX"/>
             </constraints>
             <point key="canvasLocation" x="-244" y="-20.239880059970016"/>
         </view>

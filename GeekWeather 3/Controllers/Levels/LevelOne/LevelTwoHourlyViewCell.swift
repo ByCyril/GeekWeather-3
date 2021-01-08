@@ -39,11 +39,12 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
             view.leadingAnchor.constraint(equalTo: leadingAnchor)
         ])
         
-        timestampLabel.font = GWFont.AvenirNext(style: .Medium, size: 21)
+        timestampLabel.font = GWFont.AvenirNext(style: .Medium, size: 19)
+        timestampLabel.adjustsFontSizeToFitWidth = true
         timestampLabel.textAlignment = .center
         timestampLabel.textColor = .white
         
-        tempLabel.font = GWFont.AvenirNext(style: .Bold, size: 25)
+        tempLabel.font = GWFont.AvenirNext(style: .Bold, size: 23)
         tempLabel.textAlignment = .center
         tempLabel.textColor = .white
         
@@ -58,8 +59,8 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             timestampLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding),
-            timestampLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            timestampLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            timestampLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
+            timestampLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -7),
             timestampLabel.heightAnchor.constraint(equalToConstant: 35),
             
             iconView.topAnchor.constraint(equalTo: timestampLabel.bottomAnchor),
@@ -69,8 +70,8 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
             iconView.bottomAnchor.constraint(equalTo: tempLabel.topAnchor),
             
             tempLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            tempLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tempLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tempLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
+            tempLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -7),
             tempLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
         

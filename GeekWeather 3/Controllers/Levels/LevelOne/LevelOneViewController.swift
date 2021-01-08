@@ -10,7 +10,7 @@ import UIKit
 import GWFoundation
 import Lottie
 
-final class LevelOneViewController: BaseView {
+final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout {
    
     @IBOutlet var containerView: UIView!
     
@@ -58,8 +58,7 @@ final class LevelOneViewController: BaseView {
     }
     
     private func hourlyViewSetup() {
-
-        layoutIfNeeded()
+        hourlyView.delegate = self
         
         let registration = UICollectionView.CellRegistration<LevelTwoHourlyViewCell, Hourly> { cell, indexPath, data in
             
@@ -75,6 +74,7 @@ final class LevelOneViewController: BaseView {
                 cell.tempLabel.text = data.weather.first!.icon.capitalized
                 cell.tempLabel.adjustsFontSizeToFitWidth = true
                 cell.tempLabel.minimumScaleFactor = 0.5
+                
             } else {
                 let time = (indexPath.row == 0) ? "Now" : data.dt.convertHourTime()
                 cell.timestampLabel.adjustsFontSizeToFitWidth = false
@@ -104,7 +104,7 @@ final class LevelOneViewController: BaseView {
             
             var hourlySnapshot = NSDiffableDataSourceSnapshot<Section, Hourly>()
             hourlySnapshot.appendSections([.main])
-            hourlySnapshot.appendItems(Array(weatherModel.hourly[..<15]))
+            hourlySnapshot.appendItems(Array(weatherModel.hourly[..<20]))
             hourlyDataSource?.apply(hourlySnapshot)
         }
     }
@@ -119,6 +119,16 @@ final class LevelOneViewController: BaseView {
         commentLabel.text = "⬆︎\(high)  ⬇︎\(low)"
         
         hourlyView.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let hourly = weatherModel?.hourly else { return CGSize(width: 75, height: 128) }
+        
+        if hourly[indexPath.row].weather.first?.icon == "sunrise" || hourly[indexPath.row].weather.first?.icon == "sunset" {
+            return CGSize(width: 110, height: 128)
+        } else {
+            return CGSize(width: 75, height: 128)
+        }
     }
     
     func displayData(_ currentWeatherData: Currently) {

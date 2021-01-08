@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import GWFoundation
+import MapKit
 
 protocol NetworkLayerDelegate: AnyObject {
     func didFinishFetching(weatherModel: WeatherModel, location: String)
@@ -24,15 +25,14 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
     
     override init() {
         super.init()
-        
     }
-    
+
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        print("🔴 New Location locationManagerDidChangeAuthorization")
         
         switch manager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
-            
-            authorizationEnabled()
+            authorizationEnabled(manager)
         case .denied, .restricted:
             denied()
         case .notDetermined:
@@ -42,10 +42,12 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
         }
     }
    
-    func fetch(_ mock: Data? = nil) {
-        if let mock = mock {
-            let response = try! JSONDecoder().decode(WeatherModel.self, from: mock)
-            delegate?.didFinishFetching(weatherModel: response, location: "Sunnyvale, CA")
+    func fetch() {
+        
+        if Mocks.showMockedResponse() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+                self?.delegate?.didFinishFetching(weatherModel: Mocks.mock(), location: "Sunnyvale, CA")
+            }
             return
         }
         
@@ -53,16 +55,19 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
         locationManager?.delegate = self
     }
     
-    func authorizationEnabled() {
+    func authorizationEnabled(_ manager: CLLocationManager) {
+        manager.startUpdatingLocation()
         if let location = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.DefaultLocation) as? [String: Any] {
             let cllocation = CLLocation(latitude: location["lat"] as! CLLocationDegrees,
                                         longitude: location["lon"] as! CLLocationDegrees)
             fetch(with: cllocation)
         } else {
-            locationManager?.startUpdatingLocation()
-            guard let location = locationManager?.location else {
+            guard let location = manager.location else {
+                let errorDetailsDev = "Error Details for Dev:\nLocManager:\(manager)\nLoc: \(String(describing: manager.location))"
+//                let errorDetails = "Could not get your current location at the moment. Please try again or let the developer know if the issue persists."
+                
                 delegate?.didFail(errorTitle: "Location Error",
-                                  errorDetail: "Could not get your current location at the moment. Please try again or let the developer know if the issue persists.")
+                                  errorDetail: errorDetailsDev)
                 return
             }
             fetch(with: location)
@@ -89,27 +94,14 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
     func fetch(with location: CLLocation) {
         CLGeocoder().reverseGeocodeLocation(location) { [weak self] (placemark, error) in
             guard let firstLocation = placemark?.first else {
-                self?.delegate?.didFail(errorTitle: "Unable to get location.",
-                                        errorDetail: error?.localizedDescription ?? "Please try again later or try searching for a location.")
+                self?.delegate?.didFail(errorTitle: "Unable to get location",
+                                        errorDetail: error?.localizedDescription ?? "Please try again later or try to manually search for a location. If the issue persists, please let the developer know!")
                 return
             }
             
-            let country = firstLocation.country ?? ""
-            
-            var locationStr = ""
-            
-            if country == "United States" {
-                let locality = firstLocation.locality ?? ""
-                let state = firstLocation.administrativeArea ?? ""
-                locationStr = "\(locality), \(state)"
-            } else {
-                let locality = firstLocation.locality ?? ""
-                let subLocality = firstLocation.administrativeArea ?? ""
-                locationStr = "\(locality), \(subLocality)"
-            }
-            
-            print("📍 Location manager", locationStr)
-            
+            let locality = firstLocation.locality ?? ""
+            let administrativeArea = firstLocation.administrativeArea ?? ""
+            let locationStr = "\(locality), \(administrativeArea)"
             self?.beginFetchingWeatherData(location, locationStr)
         }
     }
@@ -119,6 +111,7 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
         
         networkManager.fetch(url) { [weak self] (weatherModel, error) in
             DispatchQueue.main.async { [weak self] in
+                UserDefaults.standard.setValue(Date(), forKey: SharedUserDefaults.Keys.LastUpdated)
                 if let model = weatherModel {
                         self?.delegate?.didFinishFetching(weatherModel: model, location: locationStr)
                 } else {

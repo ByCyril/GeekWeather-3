@@ -52,6 +52,7 @@ final class LevelTwoHourlyViewCell: UICollectionViewCell {
             iconView.topAnchor.constraint(equalTo: timestampLabel.bottomAnchor, constant: padding),
             iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             iconView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            iconView.centerXAnchor.constraint(equalTo: centerXAnchor),
             iconView.bottomAnchor.constraint(equalTo: tempLabel.topAnchor, constant: -padding),
             
             tempLabel.bottomAnchor.constraint(equalTo: bottomAnchor),

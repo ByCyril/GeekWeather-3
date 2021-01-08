@@ -63,7 +63,13 @@ final class LevelOneViewController: BaseView {
         
         summaryLabel.text = instructions(currentWeatherData.weather.first?.description.capitalized ?? "")
         summaryLabel.numberOfLines = 0
-        commentLabel.text = "Feels like " + currentWeatherData.feels_like.kelvinToSystemFormat()
+        
+        let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? ""
+        let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? ""
+        
+        commentLabel.text = "⬆︎\(high) ⬇︎\(low)"
+        commentLabel.numberOfLines = 0
+        
         iconView.image = UIImage(named: currentWeatherData.weather.first!.icon)
         UIView.animate(withDuration: 1) { [weak self] in
             self?.tempLabel.alpha = 1

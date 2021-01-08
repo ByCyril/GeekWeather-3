@@ -21,5 +21,6 @@ struct SharedUserDefaults {
         static let LastUpdated = "LastUpdated"
         static let DefaultLocation = "DefaultLocation"
         static let WidgetDefaultLocation = "WidgetDefaultLocation"
+        static let WidgetLastUpdated = "WidgetLastUpdated"
     }
 }

@@ -10,13 +10,18 @@ import UIKit
 import GWFoundation
 import CoreLocation
 import Lottie
+import WidgetKit
 
 extension MainViewController: NetworkLayerDelegate {
     
     func didFinishFetching(weatherModel: WeatherModel, location: String) {
         UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")
         animateMainScrollView()
-        loadingView.removeFromSuperview()
+        
+        UIView.animate(withDuration: 0.15) {
+            self.loadingView.alpha = 0
+        }
+        
         removeErrorItems()
         navView?.rollableTitleView.todayLabel.text = location
         notificationManager.post(data: ["weatherModel": weatherModel],
@@ -24,7 +29,13 @@ extension MainViewController: NetworkLayerDelegate {
     }
     
     func didFail(errorTitle: String, errorDetail: String) {
-        loadingView.removeFromSuperview()
+        
+        hideScrollView()
+        
+        UIView.animate(withDuration: 0.15) {
+            self.loadingView.alpha = 0
+        }
+        
         createErrorView(errorTitle: errorTitle, errorDetail)
     }
     
@@ -55,9 +66,10 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     private let errorTextView = UITextView()
     
     private let loadingView: AnimationView = {
-        let animation = AnimationView(name: "loader")
+        let animation = AnimationView(name: "location-loading")
         animation.translatesAutoresizingMaskIntoConstraints = false
-        animation.animationSpeed = 2
+        animation.alpha = 0
+        animation.animationSpeed = 1.75
         animation.loopMode = .loop
         animation.play()
         return animation
@@ -90,8 +102,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-        
-        createAnimation()
+        initMethod()
+        createLoadingAnimation()
         createShadows()
         createGradient()
         prepareDetailsView()
@@ -106,12 +118,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
                                                name: Notification.Name("ShowDetailsView"),
                                                object: nil)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        initMethod()
-    }
-    
     
     @objc
     func presentDetailsView(_ obj: NSNotification) {
@@ -217,10 +223,14 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         view.layoutIfNeeded()
     }
     
-    func createAnimation() {
+    func createLoadingAnimation() {
         view.addSubview(loadingView)
         loadingView.play()
-        let size: CGFloat = 300
+        let size: CGFloat = 150
+        
+        UIView.animate(withDuration: 0.4) {
+            self.loadingView.alpha = 1
+        }
         
         NSLayoutConstraint.activate([
             loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -233,21 +243,30 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     }
     
     func initMethod() {
-        networkLayer.delegate = self
-        if let mock = Mocks.mockedResponse() {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.networkLayer.fetch(mock)
+        if let lastUpdated = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.WidgetLastUpdated) as? Date {
+            
+            let differenceInSeconds = abs(lastUpdated.timeIntervalSince(Date()))
+            let minutesPassed = differenceInSeconds / 60
+
+            print("⏱",minutesPassed)
+            if minutesPassed >= 10 {
+                WidgetCenter.shared.reloadAllTimelines()
             }
-        } else {
-            networkLayer.fetch()
         }
+        
+        networkLayer.delegate = self
+        networkLayer.fetch()
     }
     
     @objc
     func newLocation(_ notification: NSNotification) {
         navView?.rollableTitleView.hideTitles()
         removeErrorItems()
-        createAnimation()
+        
+        UIView.animate(withDuration: 0.4) {
+            self.loadingView.alpha = 1
+        }
+        
         if let location = notification.object as? CLLocation {
             hideScrollView { [weak self] (_) in
                 self?.networkLayer.fetch(with: location)

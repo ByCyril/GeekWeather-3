@@ -71,26 +71,22 @@ struct TodayViewMedium: View {
                     }.padding(.trailing).padding(.top)
                 }
                 
-                HStack(spacing: 5) {
+                HStack(spacing: 15) {
                     if let hourly = entry.weatherModel.hourly {
-                        let numOfItems = 7
+                        let numOfItems = 6
                         
                         ForEach(0..<numOfItems) { i in
                             let data = hourly[i]
                             let icon = data.weather.first!.icon
                             
                             if (icon == "sunrise" || icon == "sunset") {
-                                if data.dt > Date().timeIntervalSince1970 {
-                                    let time = data.dt.convertTime()
-                                    TodayViewSmallitem(time: time, icon: icon, date: icon.capitalized).frame(width: 50)
-                                }
+                                let time = data.dt.convertTime()
+                                TodayViewSmallitem(time: time,
+                                                   icon: icon,
+                                                   date: icon.capitalized).frame(width: 50)
                             } else {
                                 let time = (i == 0) ? "Now" : data.dt.convertHourTime()
                                 TodayViewSmallitem(time: time, icon: icon, date: data.temp.kelvinToSystemFormat())
-                            }
-                            
-                            if i < numOfItems - 1 {
-                                Divider()
                             }
                         }
                     }

@@ -84,6 +84,9 @@
 		018840DD258C391C00CED4F1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 018840DC258C391C00CED4F1 /* Lottie */; };
 		018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840E0258C39D600CED4F1 /* GWAnimationView.swift */; };
 		018F66B125A58D3D00FFC539 /* iPadNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F66B025A58D3D00FFC539 /* iPadNavigationView.swift */; };
+		018F66D325A6F5F700FFC539 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D125A6F5F700FFC539 /* loading.json */; };
+		018F66D425A6F5F700FFC539 /* location-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D225A6F5F700FFC539 /* location-loading.json */; };
+		018F66E025A7CB7400FFC539 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F66DF25A7CB7400FFC539 /* CustomNavigationController.swift */; };
 		0197FB5325913AA6000C4640 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197FB5225913AA6000C4640 /* ErrorViewController.swift */; };
 		01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */; };
 		01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB724EDBE520081C90F /* SettingManager.swift */; };
@@ -95,7 +98,6 @@
 		01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF024EFA9A10081C90F /* Array+Extension.swift */; };
 		01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF224EFAD500081C90F /* View+Extension.swift */; };
 		01B5EA5225A407EC00F5CC4A /* SwiftUILib.WrapStack in Frameworks */ = {isa = PBXBuildFile; productRef = 01B5EA5125A407EC00F5CC4A /* SwiftUILib.WrapStack */; };
-		01B5EA6425A568F900F5CC4A /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 01B5EA6325A568F900F5CC4A /* loader.json */; };
 		01B9487C259A654400884150 /* LevelTwoHourlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */; };
 		01B94880259A687200884150 /* LevelTwoDailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */; };
 		01BE6C85259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */; };
@@ -231,6 +233,9 @@
 		018818CA258F23FB009EE9EE /* LevelThreeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelThreeTableViewCell.xib; sourceTree = "<group>"; };
 		018840E0258C39D600CED4F1 /* GWAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWAnimationView.swift; sourceTree = "<group>"; };
 		018F66B025A58D3D00FFC539 /* iPadNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadNavigationView.swift; sourceTree = "<group>"; };
+		018F66D125A6F5F700FFC539 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		018F66D225A6F5F700FFC539 /* location-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "location-loading.json"; sourceTree = "<group>"; };
+		018F66DF25A7CB7400FFC539 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		0197FB5225913AA6000C4640 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoItem.swift; sourceTree = "<group>"; };
 		01B1BEB724EDBE520081C90F /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
@@ -241,7 +246,6 @@
 		01B1BEEC24EFA0040081C90F /* LevelTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoViewController.swift; sourceTree = "<group>"; };
 		01B1BEF024EFA9A10081C90F /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		01B1BEF224EFAD500081C90F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		01B5EA6325A568F900F5CC4A /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoHourlyViewCell.swift; sourceTree = "<group>"; };
 		01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoDailyViewCell.swift; sourceTree = "<group>"; };
 		01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerLevelOne.swift; sourceTree = "<group>"; };
@@ -329,7 +333,8 @@
 				01FCE337258B21E200C841C8 /* demo.json */,
 				0157E8E0259144270026706D /* denied.json */,
 				012D3B1D25A0427C0093ED51 /* preview.json */,
-				01B5EA6325A568F900F5CC4A /* loader.json */,
+				018F66D125A6F5F700FFC539 /* loading.json */,
+				018F66D225A6F5F700FFC539 /* location-loading.json */,
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
 				012D3AE0259FEDC60093ED51 /* SharedUserDefaults.swift */,
@@ -380,6 +385,7 @@
 			children = (
 				01844A1524F22113000B0D52 /* Main.storyboard */,
 				01190991259D8BEA00EE1C0F /* Settings.storyboard */,
+				018F66DF25A7CB7400FFC539 /* CustomNavigationController.swift */,
 				011908F3259D797400EE1C0F /* DeveloperController */,
 				011908EA259D726600EE1C0F /* ChangeUnitController */,
 				011908D2259D718D00EE1C0F /* ErrorViewController */,
@@ -771,16 +777,17 @@
 			files = (
 				018818CB258F23FB009EE9EE /* LevelThreeTableViewCell.xib in Resources */,
 				01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */,
+				018F66D325A6F5F700FFC539 /* loading.json in Resources */,
 				01190992259D8BEA00EE1C0F /* Settings.storyboard in Resources */,
 				01844A1C24F22646000B0D52 /* LevelTwoViewController.xib in Resources */,
 				01844A1824F2219F000B0D52 /* LevelOneViewController.xib in Resources */,
 				0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */,
+				018F66D425A6F5F700FFC539 /* location-loading.json in Resources */,
 				01844A1624F22113000B0D52 /* Main.storyboard in Resources */,
 				0157E8E3259144270026706D /* denied.json in Resources */,
 				0100D7DD24CE1A8300C9F9B5 /* Assets.xcassets in Resources */,
 				012D3B1E25A0427C0093ED51 /* preview.json in Resources */,
 				01FCE338258B21E200C841C8 /* demo.json in Resources */,
-				01B5EA6425A568F900F5CC4A /* loader.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -888,6 +895,7 @@
 				0103B82C259311A2008577FD /* DetailsView.swift in Sources */,
 				01E65B2024F19D9400D8F76F /* ChangeUnitController.swift in Sources */,
 				0158D0312505E3ED008692DC /* SavedLocationViewController.swift in Sources */,
+				018F66E025A7CB7400FFC539 /* CustomNavigationController.swift in Sources */,
 				01430F3E259BF58400D67245 /* PersistenceManager.swift in Sources */,
 				011C61FD25A3C91C00F131D0 /* DailyView.swift in Sources */,
 				01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */,
@@ -1118,7 +1126,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1144,7 +1152,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1216,7 +1224,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1242,7 +1250,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

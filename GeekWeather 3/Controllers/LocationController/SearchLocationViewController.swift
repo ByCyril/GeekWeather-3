@@ -23,6 +23,18 @@ final class ActivityManager {
     
 }
 
+final class SearchLocationViewCell: UITableViewCell {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        textLabel?.font = GWFont.AvenirNext(style: .Medium, size: 17)
+        detailTextLabel?.font = GWFont.AvenirNext(style: .Regular, size: 15)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 final class SearchLocationViewController: UITableViewController, UISearchControllerDelegate, UISearchBarDelegate {
     
     private var searchResults = [MKLocalSearchCompletion]()
@@ -34,7 +46,8 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
     init() {
         super.init(style: .plain)
         configureDataSource()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        tableView.register(SearchLocationViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     required init?(coder: NSCoder) {
@@ -101,8 +114,14 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
                 self?.view.window?.rootViewController?.dismiss(animated: true, completion: {
                     NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: location.location!)
                 })
+            } else {
+//              Handle error
             }
         }
+    }
+    
+    deinit {
+        Mocks.reclaimedMemory(self)
     }
     
 }

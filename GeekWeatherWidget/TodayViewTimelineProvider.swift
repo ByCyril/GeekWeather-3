@@ -91,6 +91,7 @@ class TodayViewTimelineProvider: TimelineProvider {
                 model.daily = data.daily
                 model.currently = data.current
                 let entry = WeatherEntry(date: Date(), weatherModel: model)
+                sharedUserDefaults?.setValue(Date(), forKey: SharedUserDefaults.Keys.WidgetLastUpdated)
                 completion(.success(entry))
             } else {
                 if let error = error {
@@ -105,7 +106,7 @@ class TodayViewTimelineProvider: TimelineProvider {
         fetchWeatherData { (result) in
             switch result {
             case .success(let entry):
-                let timeline = Timeline(entries: [entry], policy: .after(Date().addingTimeInterval(60 * 15)))
+                let timeline = Timeline(entries: [entry], policy: .after(Date().addingTimeInterval(60 * 10)))
                 completion(timeline)
             case .failure(_):
                 let timeline = Timeline(entries: [WeatherEntry.placeholder], policy: .after(Date().addingTimeInterval(60 * 2)))

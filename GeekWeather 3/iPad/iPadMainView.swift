@@ -21,6 +21,7 @@ struct iPadMainView: View {
             ScrollView(.vertical) {
                 VStack(alignment: .center, spacing: 35) {
                     Spacer()
+                    iPadNavigationView()
                     LevelOneView(weatherModel: weatherModel, location: location).padding()
                     LevelTwoView(weatherModel: weatherModel)
                     LevelThreeView(weatherModel: weatherModel).padding()

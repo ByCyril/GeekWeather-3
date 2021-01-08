@@ -23,9 +23,8 @@ struct DeveloperInfoItem: SettingItem {
     }
     
     func performSelector(_ vc: UIViewController) {
-        let url = URL(string: "https://bycyril.com/")!
-        let sf = SFSafariViewController(url: url)
-        vc.present(sf, animated: true)
+        let dc = StoryboardManager.main().instantiateViewController(withIdentifier: "DeveloperController")
+        vc.show(dc, sender: vc)
     }
     
 }

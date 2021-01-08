@@ -43,6 +43,10 @@ final class Mocks {
         return model
     }
     
+    static func showMockedResponse() -> Bool {
+        return false
+    }
+    
     static func mockedResponse() -> Data? {
         guard let file = Bundle.main.path(forResource: "preview", ofType: "json") else { return nil }
         let url = URL(fileURLWithPath: file)

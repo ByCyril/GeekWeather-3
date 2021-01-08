@@ -20,7 +20,22 @@ final class LevelTwoViewController: BaseView {
     private var hourlyDataSource: UICollectionViewDiffableDataSource<Section, Hourly>?
     private var dailyDataSource: UICollectionViewDiffableDataSource<Section, Daily>?
     
-    private var dailyView: UICollectionView!
+    lazy var dailyView: UICollectionView = {
+        var layout = UICollectionLayoutListConfiguration(appearance: .grouped)
+        layout.backgroundColor = .clear
+        layout.showsSeparators = false
+        let configuration = UICollectionViewCompositionalLayout.list(using: layout)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configuration)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .clear
+        return collectionView
+    }()
+    
+    private var scrollViewContainer: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
     
     lazy var hourlyView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -65,7 +80,7 @@ final class LevelTwoViewController: BaseView {
         addSubview(hourlyView)
         
         NSLayoutConstraint.activate([
-            hourlyView.topAnchor.constraint(equalTo: topAnchor, constant: 25),
+            hourlyView.topAnchor.constraint(equalTo: topAnchor),
             hourlyView.leadingAnchor.constraint(equalTo: leadingAnchor),
             hourlyView.trailingAnchor.constraint(equalTo: trailingAnchor),
             hourlyView.heightAnchor.constraint(equalToConstant: 100)
@@ -75,7 +90,10 @@ final class LevelTwoViewController: BaseView {
         
         let registration = UICollectionView.CellRegistration<LevelTwoHourlyViewCell, Hourly> { cell, indexPath, data in
             
-            if data.weather.first!.icon == "sunrise" || data.weather.first!.icon == "sunset" {
+            if (data.weather.first!.icon == "sunrise" || data.weather.first!.icon == "sunset") {
+                if data.dt < Date().timeIntervalSince1970 {
+                    return
+                }
                 let time = data.dt.convertTime()
                 cell.timestampLabel.text = time
                 cell.timestampLabel.adjustsFontSizeToFitWidth = true
@@ -103,18 +121,12 @@ final class LevelTwoViewController: BaseView {
     }
     
     private func dailyViewSetup() {
-
-        dailyView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        dailyView.translatesAutoresizingMaskIntoConstraints = false
-        dailyView.backgroundColor = .clear
-        dailyView.isScrollEnabled = true
+        dailyView.isScrollEnabled = traitCollection.preferredContentSizeCategory >= .extraExtraExtraLarge
         dailyView.delegate = self
         addSubview(dailyView)
         
-        let padding: CGFloat = 15
-        
         NSLayoutConstraint.activate([
-            dailyView.topAnchor.constraint(equalTo: hourlyView.bottomAnchor, constant: padding),
+            dailyView.topAnchor.constraint(equalTo: hourlyView.bottomAnchor),
             dailyView.leadingAnchor.constraint(equalTo: leadingAnchor),
             dailyView.trailingAnchor.constraint(equalTo: trailingAnchor),
             dailyView.bottomAnchor.constraint(equalTo: bottomAnchor)
@@ -141,22 +153,22 @@ final class LevelTwoViewController: BaseView {
         }
         
         dailyDataSource = UICollectionViewDiffableDataSource(collectionView: dailyView, cellProvider: { (collectionView, indexpath, data) -> LevelTwoDailyViewCell? in
-            let cell = collectionView.dequeueConfiguredReusableCell(using: registration, for: indexpath, item: data)
-            
-            return cell
+            return collectionView.dequeueConfiguredReusableCell(using: registration, for: indexpath, item: data)
         })
         
     }
     
     override func didRecieve(from notification: NSNotification) {
         guard let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel else { return }
-        populate(with: weatherModel)
-    }
-    
-    private func populate(with weatherModel: WeatherModel) {
+        
         var hourlySnapshot = NSDiffableDataSourceSnapshot<Section, Hourly>()
         hourlySnapshot.appendSections([.main])
-        hourlySnapshot.appendItems(Array(weatherModel.hourly[..<20]))
+        
+        let filtered = weatherModel.hourly.filter { (hour) -> Bool in
+            hour.dt > Date().timeIntervalSinceNow && hour.weather.first!.icon != "sunset" || hour.weather.first!.icon != "sunrise"
+        }
+        
+        hourlySnapshot.appendItems(Array(filtered[..<20]))
         hourlyDataSource?.apply(hourlySnapshot)
         
         var dailySnapshot = NSDiffableDataSourceSnapshot<Section, Daily>()
@@ -164,7 +176,7 @@ final class LevelTwoViewController: BaseView {
         dailySnapshot.appendItems(weatherModel.daily)
         dailyDataSource?.apply(dailySnapshot)
     }
-
+    
     override func didUpdateValues() {
         hourlyView.reloadData()
         dailyView.reloadData()

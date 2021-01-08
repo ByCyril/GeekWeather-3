@@ -26,11 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if UserDefaults.standard.bool(forKey: SharedUserDefaults.Keys.ExistingUser) {
             
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                let vc = MainPadController()
-                setWindow(with: windowScene, vc: vc)
-                return
-            }
+//            if UIDevice.current.userInterfaceIdiom == .pad {
+//                let vc = MainPadController()
+//                setWindow(with: windowScene, vc: vc)
+//                return
+//            }
             
             guard let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else { return }
             mainViewController = vc
@@ -54,6 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let differenceInSeconds = abs(lastUpdate.timeIntervalSince(Date()))
             let minutesPassed = differenceInSeconds / 60
 
+            print("⏱",minutesPassed)
             if minutesPassed >= 15 {
                 mainViewController?.networkLayer.fetch()
             }
@@ -61,7 +62,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
-        UserDefaults.standard.removeSuite(named: SharedUserDefaults.Keys.LastUpdated)
+        UserDefaults.standard.setValue(nil, forKey: SharedUserDefaults.Keys.LastUpdated)        
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) { }

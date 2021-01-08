@@ -8,12 +8,24 @@
 
 import SwiftUI
 
+struct LocationPicker: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        return SavedLocationViewController()
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        
+    }
+}
+
 struct iPadNavigationView: View {
-    @State var isPresented: Bool = false
+    var isPresented = false
 
 
     var body: some View {
-        Text("")
+        HStack {
+            Text("Test")
+        }
     }
 }
 

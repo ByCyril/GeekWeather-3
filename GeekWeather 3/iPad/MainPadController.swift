@@ -23,9 +23,9 @@ final class MainPadController: UIViewController, NetworkLayerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         createGradientLayer()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-            self.networkLayer.delegate = self
-            self.networkLayer.fetch()
+        networkLayer.delegate = self
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) { [weak self] in
+            self?.networkLayer.fetch()
         }
     }
         
@@ -52,7 +52,7 @@ final class MainPadController: UIViewController, NetworkLayerDelegate {
         let viewCtrl = UIHostingController(rootView: swiftUIView)
         viewCtrl.modalPresentationStyle = .fullScreen
         viewCtrl.modalTransitionStyle = .crossDissolve
-        present(viewCtrl, animated: true) 
+        present(viewCtrl, animated: true)
     }
     
     func didFail(errorTitle: String, errorDetail: String) {

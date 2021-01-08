@@ -18,13 +18,15 @@ final class SavedLocationViewController: UITableViewController {
     
     var hideCurrentLocationOption = false
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         title = "Search Location"
         tableView.separatorStyle = .none
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setupSearchController()
-        
         savedLocation = coreDataManager.fetch(SavedLocation.self)
     }
 
@@ -42,6 +44,7 @@ final class SavedLocationViewController: UITableViewController {
         locationSearchController?.automaticallyShowsCancelButton = false
         locationSearchController?.searchBar.delegate = searchLocationController
         locationSearchController?.searchBar.sizeToFit()
+        locationSearchController?.searchBar.searchTextField.font = GWFont.AvenirNext(style: .Regular, size: 17)
         locationSearchController?.searchBar.placeholder = "Search City or Zip Code"
         locationSearchController?.isActive = true
         
@@ -98,6 +101,7 @@ final class SavedLocationViewController: UITableViewController {
         let setDefaultLocation = UIAlertAction(title: "Set Default Location", style: .default) { (_) in
             if indexPath.row == 0 {
                 sharedUserDefaults?.removeObject(forKey: SharedUserDefaults.Keys.DefaultLocation)
+                tableView.reloadData()
                 HapticManager.success()
                 return
             }
@@ -150,30 +154,40 @@ final class SavedLocationViewController: UITableViewController {
             } else {
                 cell.textLabel?.text = "Unavailable"
             }
-            cell.detailTextLabel?.text = nil
-            cell.imageView?.image = UIImage(named: "current")
-        } else {
-            cell.textLabel?.text = savedLocation[indexPath.row - 1].address
             
-            if let loc = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.DefaultLocation) as? [String: Any] {
-                if let city = loc["name"] as? String {
-                    if city == savedLocation[indexPath.row - 1].address! {
-                        cell.detailTextLabel?.text = "Default Location"
-                    } else {
-                        cell.detailTextLabel?.text = nil
-                    }
-                } else {
-                    cell.detailTextLabel?.text = nil
-                }
-                
+            if sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.DefaultLocation) == nil {
+                cell.detailTextLabel?.text = "Default Location"
             } else {
                 cell.detailTextLabel?.text = nil
             }
+            
+            cell.imageView?.image = UIImage(named: "current")
+            
+        } else {
+            cell.textLabel?.text = savedLocation[indexPath.row - 1].address
+            cellDefaultLabels(cell, indexPath)
         }
         
         cell.accessoryType = .detailButton
         
         return cell
+    }
+    
+    func cellDefaultLabels(_ cell: UITableViewCell,_ indexPath: IndexPath) {
+        if let loc = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.DefaultLocation) as? [String: Any] {
+            if let city = loc["name"] as? String {
+                if city == savedLocation[indexPath.row - 1].address! {
+                    cell.detailTextLabel?.text = "Default Location"
+                } else {
+                    cell.detailTextLabel?.text = nil
+                }
+            } else {
+                cell.detailTextLabel?.text = nil
+            }
+            
+        } else {
+            cell.detailTextLabel?.text = nil
+        }
     }
     
 }

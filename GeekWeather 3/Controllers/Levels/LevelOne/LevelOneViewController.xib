@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="commentLabel" destination="MUs-Df-gaB" id="zq2-OI-fnf"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="ZGl-Nj-vbC"/>
+                <outlet property="hourlyView" destination="mnX-AH-c7g" id="VwV-gP-6Fo"/>
                 <outlet property="iconView" destination="eDq-ea-meq" id="6F2-0n-bto"/>
                 <outlet property="summaryLabel" destination="BMM-sT-sOj" id="q4B-nl-gFA"/>
                 <outlet property="tempLabel" destination="qkq-Va-aH5" id="QCp-bS-sZw"/>
@@ -52,6 +53,16 @@
                         </label>
                     </subviews>
                 </stackView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mnX-AH-c7g">
+                    <rect key="frame" x="0.0" y="497" width="375" height="150"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="orf-uY-Cfz">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -61,9 +72,13 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BMM-sT-sOj" secondAttribute="trailing" constant="25" id="8bi-Zm-CQv"/>
                 <constraint firstItem="MUs-Df-gaB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="AIu-dS-V5K"/>
                 <constraint firstItem="CTP-k3-ISq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="120" id="BkC-Di-6uB"/>
+                <constraint firstItem="mnX-AH-c7g" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="HtJ-lA-2hg"/>
+                <constraint firstItem="mnX-AH-c7g" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="HtQ-xG-YHw"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MUs-Df-gaB" secondAttribute="trailing" constant="25" id="Kca-PZ-MaI"/>
+                <constraint firstItem="mnX-AH-c7g" firstAttribute="top" secondItem="MUs-Df-gaB" secondAttribute="bottom" constant="121.5" id="iaj-cC-9o9"/>
                 <constraint firstItem="MUs-Df-gaB" firstAttribute="top" secondItem="BMM-sT-sOj" secondAttribute="bottom" constant="8" symbolic="YES" id="o3J-fk-6nc"/>
                 <constraint firstItem="BMM-sT-sOj" firstAttribute="top" secondItem="CTP-k3-ISq" secondAttribute="bottom" constant="33" id="pTA-xM-itr"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="mnX-AH-c7g" secondAttribute="bottom" constant="20" id="szA-Op-deX"/>
             </constraints>
             <point key="canvasLocation" x="-244" y="-20.239880059970016"/>
         </view>

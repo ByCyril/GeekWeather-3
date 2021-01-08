@@ -31,18 +31,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ste-fg-zDM">
-                    <rect key="frame" x="20" y="44" width="150" height="150"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="150" id="SI6-Tu-Ib6"/>
-                        <constraint firstAttribute="width" constant="150" id="s8e-iy-LO2"/>
-                    </constraints>
+                    <rect key="frame" x="20" y="44" width="70" height="70"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="va5-39-5SB">
-                    <rect key="frame" x="20" y="202" width="394" height="587"/>
+                    <rect key="frame" x="20" y="122" width="394" height="667"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blY-dS-Oh6">
-                    <rect key="frame" x="178" y="105.5" width="216" height="27.5"/>
+                    <rect key="frame" x="98" y="65.5" width="296" height="27.5"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -51,18 +47,20 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Ste-fg-zDM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="62x-Oo-aAx"/>
-                <constraint firstItem="blY-dS-Oh6" firstAttribute="leading" secondItem="Ste-fg-zDM" secondAttribute="trailing" constant="8" symbolic="YES" id="6eK-ln-TFB"/>
+                <constraint firstItem="Ste-fg-zDM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="3P7-a9-Lx9"/>
+                <constraint firstItem="MSW-e7-gMs" firstAttribute="top" secondItem="va5-39-5SB" secondAttribute="bottom" constant="8" symbolic="YES" id="7W0-s2-9xN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="va5-39-5SB" secondAttribute="trailing" id="9Lg-Eb-5Bh"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MSW-e7-gMs" secondAttribute="trailing" constant="20" id="Lcz-ga-6PW"/>
-                <constraint firstItem="MSW-e7-gMs" firstAttribute="top" secondItem="va5-39-5SB" secondAttribute="bottom" constant="8" symbolic="YES" id="PjM-7G-9ZN"/>
+                <constraint firstItem="va5-39-5SB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Pfm-pI-VAf"/>
+                <constraint firstItem="va5-39-5SB" firstAttribute="top" secondItem="Ste-fg-zDM" secondAttribute="bottom" constant="8" symbolic="YES" id="TO2-0I-hfe"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="MSW-e7-gMs" secondAttribute="bottom" constant="45" id="XVR-Rn-67p"/>
-                <constraint firstItem="va5-39-5SB" firstAttribute="top" secondItem="Ste-fg-zDM" secondAttribute="bottom" constant="8" symbolic="YES" id="Xdv-Y1-lJa"/>
                 <constraint firstItem="MSW-e7-gMs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="a1F-Pb-blb"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="blY-dS-Oh6" secondAttribute="trailing" constant="20" id="dAo-hq-ALT"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="va5-39-5SB" secondAttribute="trailing" id="e3l-bJ-5jl"/>
-                <constraint firstItem="Ste-fg-zDM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="eQt-qV-QXm"/>
-                <constraint firstItem="blY-dS-Oh6" firstAttribute="centerY" secondItem="Ste-fg-zDM" secondAttribute="centerY" id="ksk-uc-MSa"/>
-                <constraint firstItem="va5-39-5SB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="uYr-my-Twx"/>
+                <constraint firstItem="blY-dS-Oh6" firstAttribute="centerY" secondItem="Ste-fg-zDM" secondAttribute="centerY" id="aPM-yw-jDY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="blY-dS-Oh6" secondAttribute="trailing" constant="20" id="iYi-mf-bHH"/>
+                <constraint firstItem="Ste-fg-zDM" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.169082" id="kl5-sc-KFr"/>
+                <constraint firstItem="blY-dS-Oh6" firstAttribute="leading" secondItem="Ste-fg-zDM" secondAttribute="trailing" constant="8" symbolic="YES" id="nxq-Sv-dDd"/>
+                <constraint firstItem="Ste-fg-zDM" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.078125" id="oLa-52-yCK"/>
+                <constraint firstItem="Ste-fg-zDM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="xao-jc-Jol"/>
             </constraints>
             <point key="canvasLocation" x="140.57971014492756" y="153.34821428571428"/>
         </view>

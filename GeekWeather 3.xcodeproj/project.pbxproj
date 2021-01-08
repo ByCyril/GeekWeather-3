@@ -586,6 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				01B1BEC324EF95920081C90F /* LevelOneViewController.swift */,
+				01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */,
 				01844A1724F2219F000B0D52 /* LevelOneViewController.xib */,
 			);
 			path = LevelOne;
@@ -595,7 +596,6 @@
 			isa = PBXGroup;
 			children = (
 				01B1BEEC24EFA0040081C90F /* LevelTwoViewController.swift */,
-				01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */,
 				01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */,
 				0103B82B259311A2008577FD /* DetailsView.swift */,
 				01844A1B24F22646000B0D52 /* LevelTwoViewController.xib */,

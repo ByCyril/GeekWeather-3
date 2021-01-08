@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class LevelTwoDailyViewCell: UICollectionViewCell {
+final class LevelTwoDailyViewCell: UITableViewCell {
     
     let dayLabel = UILabel()
     let highTempLabel = UILabel()
@@ -19,16 +19,18 @@ final class LevelTwoDailyViewCell: UICollectionViewCell {
     var iPhoneVerticalLayoutConstraints = [NSLayoutConstraint]()
     var iPhoneHorizontalLayoutConstraints = [NSLayoutConstraint]()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: "cell")
         initUI()
         layout()
         setupAccessibilityElements()
     }
     
     func initUI() {
-        dayLabel.minimumScaleFactor = 0.1
         
+        backgroundColor = .clear
+        
+        dayLabel.minimumScaleFactor = 0.1
         dayLabel.font = GWFont.AvenirNext(style: .Medium, size: 23)
         highTempLabel.font = GWFont.AvenirNext(style: .Bold, size: 25)
         lowTempLabel.font = GWFont.AvenirNext(style: .Medium, size: 21)
@@ -83,11 +85,12 @@ final class LevelTwoDailyViewCell: UICollectionViewCell {
     func iPhoneLayoutVerticalLayout() {
         let padding: CGFloat = 10
         tempContainerView.alignment = .leading
+        
         iPhoneVerticalLayoutConstraints = [
-            iconView.topAnchor.constraint(equalTo: topAnchor),
             iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            iconView.heightAnchor.constraint(equalToConstant: 65),
-            iconView.widthAnchor.constraint(equalToConstant: 65),
+            iconView.heightAnchor.constraint(equalToConstant: 75),
+            iconView.widthAnchor.constraint(equalToConstant: 75),
+            iconView.centerYAnchor.constraint(equalTo: dayLabel.centerYAnchor),
             
             dayLabel.topAnchor.constraint(equalTo: topAnchor),
             dayLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: padding),

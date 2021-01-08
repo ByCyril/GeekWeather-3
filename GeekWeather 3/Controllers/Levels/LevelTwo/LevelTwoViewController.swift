@@ -13,28 +13,13 @@ enum Section {
     case main
 }
 
-final class LevelTwoViewController: BaseView {
+final class LevelTwoViewController: BaseView, UITableViewDelegate {
     
     @IBOutlet var containerView: UIView!
     
-    private var dailyDataSource: UICollectionViewDiffableDataSource<Section, Daily>?
-    
-    lazy var dailyView: UICollectionView = {
-        var layout = UICollectionLayoutListConfiguration(appearance: .grouped)
-        layout.backgroundColor = .clear
-        layout.showsSeparators = false
-        let configuration = UICollectionViewCompositionalLayout.list(using: layout)
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configuration)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .clear
-        return collectionView
-    }()
-    
-    private var scrollViewContainer: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollView
-    }()
+    private var dailyDataSource: UITableViewDiffableDataSource<Section, Daily>?
+ 
+    let dailyTableView = UITableView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,22 +35,35 @@ final class LevelTwoViewController: BaseView {
         super.init(coder: coder)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if traitCollection.preferredContentSizeCategory >= .extraExtraExtraLarge {
+            return UITableView.automaticDimension
+        } else {
+            return frame.size.height / 8
+        }
+    }
+ 
     private func dailyViewSetup() {
-        dailyView.isScrollEnabled = traitCollection.preferredContentSizeCategory >= .extraExtraExtraLarge
-        dailyView.delegate = self
-        addSubview(dailyView)
+        dailyTableView.translatesAutoresizingMaskIntoConstraints = false
+        dailyTableView.delegate = self
+        dailyTableView.backgroundColor = .clear
+        dailyTableView.separatorStyle = .none
+        
+        addSubview(dailyTableView)
+
+        let padding: CGFloat = 10
         
         NSLayoutConstraint.activate([
-            dailyView.topAnchor.constraint(equalTo: topAnchor),
-            dailyView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            dailyView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            dailyView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            dailyTableView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            dailyTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            dailyTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            dailyTableView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
         
-        layoutIfNeeded()
+        dailyTableView.register(LevelTwoDailyViewCell.self, forCellReuseIdentifier: "cell")
         
-        let registration = UICollectionView.CellRegistration<LevelTwoDailyViewCell, Daily> { (cell, indexPath, daily) in
-            
+        dailyDataSource = UITableViewDiffableDataSource<Section, Daily>(tableView: dailyTableView, cellProvider: { (tableView, indexPath, daily) -> LevelTwoDailyViewCell? in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LevelTwoDailyViewCell
             let summary = daily.weather.first!.description
             
             if indexPath.row == 0 {
@@ -80,18 +78,15 @@ final class LevelTwoViewController: BaseView {
             cell.iconView.image = UIImage(named: daily.weather.first!.icon)
             cell.highTempLabel.text = daily.temp.max.kelvinToSystemFormat()
             cell.lowTempLabel.text = daily.temp.min.kelvinToSystemFormat()
-        }
-        
-        dailyDataSource = UICollectionViewDiffableDataSource(collectionView: dailyView, cellProvider: { (collectionView, indexpath, data) -> LevelTwoDailyViewCell? in
-            return collectionView.dequeueConfiguredReusableCell(using: registration, for: indexpath, item: data)
+            cell.selectionStyle = .none
+            return cell
         })
         
+        layoutIfNeeded()
     }
     
     override func didRecieve(from notification: NSNotification) {
         guard let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel else { return }
- 
-        
         var dailySnapshot = NSDiffableDataSourceSnapshot<Section, Daily>()
         dailySnapshot.appendSections([.main])
         dailySnapshot.appendItems(weatherModel.daily)
@@ -99,7 +94,7 @@ final class LevelTwoViewController: BaseView {
     }
     
     override func didUpdateValues() {
-        dailyView.reloadData()
+        dailyTableView.reloadData()
     }
 
 }

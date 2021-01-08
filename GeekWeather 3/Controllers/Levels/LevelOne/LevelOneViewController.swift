@@ -21,7 +21,7 @@ final class LevelOneViewController: BaseView {
     @IBOutlet var commentLabel: UILabel!
     @IBOutlet var iconView: UIImageView!
         
-    lazy var hourlyView: UICollectionView = {
+    @IBOutlet var hourlyView: UICollectionView! = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 105, height: 150)
@@ -58,15 +58,7 @@ final class LevelOneViewController: BaseView {
     }
     
     private func hourlyViewSetup() {
-        addSubview(hourlyView)
-        
-        NSLayoutConstraint.activate([
-            hourlyView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            hourlyView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            hourlyView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            hourlyView.heightAnchor.constraint(equalToConstant: 150)
-        ])
-        
+
         layoutIfNeeded()
         
         let registration = UICollectionView.CellRegistration<LevelTwoHourlyViewCell, Hourly> { cell, indexPath, data in
@@ -139,7 +131,7 @@ final class LevelOneViewController: BaseView {
         let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? ""
         let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? ""
         
-        commentLabel.text = "⬆︎\(high) ⬇︎\(low)"
+        commentLabel.text = "⬆︎\(high)  ⬇︎\(low)"
         commentLabel.numberOfLines = 0
         
         iconView.image = UIImage(named: currentWeatherData.weather.first!.icon)

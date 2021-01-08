@@ -28,6 +28,16 @@ final class LevelThreeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .clear
+        
+        let label = GWFont.AvenirNext(style: .Regular, size: 15)
+        let value = GWFont.AvenirNext(style: .Regular, size: 25)
+        
+        firstItemLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: label)
+        firstItemValue.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: value)
+        
+        secondItemLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: label)
+        secondItemValue.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: value)
+        
     }
 }
 
@@ -67,16 +77,15 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
     }
     
     override func didRecieve(from notification: NSNotification) {
-        if let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel {
-            self.weatherModel = weatherModel
-            prepareGeekyData(weatherModel)
-            prepareSummary(weatherModel)
-        }
+        guard let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel else { return }
+        self.weatherModel = weatherModel
+        prepareDetailsData(weatherModel)
+        prepareSummary(weatherModel)
     }
     
     override func didUpdateValues() {
         guard let weatherModel = self.weatherModel else { return }
-        prepareGeekyData(weatherModel)
+        prepareDetailsData(weatherModel)
         prepareSummary(weatherModel)
     }
     
@@ -84,13 +93,13 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
         let high = weatherModel.daily.first!.temp.max.kelvinToSystemFormat()
         let low = weatherModel.daily.first!.temp.min.kelvinToSystemFormat()
         let description = weatherModel.current.weather.first!.description.capitalizingFirstLetter()
-        let summary = "\(description) with a high of \(high) and a low of \(low)"
+        let summary = "\(description) with a high of \(high) and a low of \(low)."
         
         summaryLabel.text = summary
         iconView.image = UIImage(named: weatherModel.current.weather.first!.icon)
     }
     
-    func prepareGeekyData(_ weatherModel: WeatherModel) {
+    func prepareDetailsData(_ weatherModel: WeatherModel) {
         let current = weatherModel.current
         
         let firstRow = DetailsData(firstItemLabel: "Sunrise",

@@ -2,3 +2,5 @@
 *.DS_Store
 *'GeekWeather 3.xcodeproj/project.xcworkspace/xcuserdata/cy.xcuserdatad/UserInterfaceState.xcuserstate'
 *.xcuserstate
+*.plist
+*.resolved

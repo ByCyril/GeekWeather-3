@@ -39,7 +39,7 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate {
         if traitCollection.preferredContentSizeCategory >= .extraExtraExtraLarge {
             return UITableView.automaticDimension
         } else {
-            return frame.size.height / 8
+            return dailyTableView.frame.size.height / 8
         }
     }
  
@@ -53,7 +53,7 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate {
 
         NSLayoutConstraint.activate([
             dailyTableView.topAnchor.constraint(equalTo: topAnchor),
-            dailyTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            dailyTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -35),
             dailyTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             dailyTableView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])

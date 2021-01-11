@@ -19,7 +19,7 @@ final class SettingManager {
     var cells = [CellType]()
     
     init() {
-        sections = [AppSettingSection(),AppInfoSection()]
+        sections = [AppSettingSection(),AppInfoSection(),AppSupprtSection()]
         cells = [CellType(cell: SettingsTableViewCell.self, id: "cell")]
     }
     
@@ -41,26 +41,36 @@ final class DeveloperToolsSection: SectionItem {
 }
 
 final class AppSettingSection: SectionItem {
-    var title: String = "App Setting"
+    var title: String = "Setting"
     
     var cells: [SettingItem]
     
     init() {
-        cells = [UnitSelectorItem(), HapticFeedbackItem()]
+        cells = [AppIconSettingItem(), UnitSelectorItem(), HapticFeedbackItem()]
     }
 }
 
 final class AppInfoSection: SectionItem {
-    var title: String = "App Info"
+    var title: String = "Info"
     
     var cells: [SettingItem]
     
     init() {
         cells = [AboutSettingItem(),
-                 DeveloperInfoItem(),
                  WeatherDataInfoItem(),
                  PrivacyPolicyInfoItem()]
     }
+}
+
+final class AppSupprtSection: SectionItem {
+    var title: String = "Support"
+    
+    var cells: [SettingItem]
+    
+    init() {
+        cells = [HelpItem(), DeveloperInfoItem()]
+    }
+    
 }
 
 struct CellType {

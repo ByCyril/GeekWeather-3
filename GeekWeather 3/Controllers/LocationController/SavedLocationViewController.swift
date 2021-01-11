@@ -29,13 +29,13 @@ final class SavedLocationViewController: UITableViewController {
         setupSearchController()
         savedLocation = coreDataManager.fetch(SavedLocation.self)
     }
-
+    
     @IBAction func dismissController() {
         dismiss(animated: true, completion: nil)
     }
     
     func setupSearchController() {
-  
+        
         let searchLocationController = SearchLocationViewController()
         locationSearchController = UISearchController(searchResultsController: searchLocationController)
         locationSearchController?.searchResultsUpdater = searchLocationController
@@ -55,7 +55,7 @@ final class SavedLocationViewController: UITableViewController {
     deinit {
         Mocks.reclaimedMemory(self)
     }
-
+    
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }

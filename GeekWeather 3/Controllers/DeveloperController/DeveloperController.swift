@@ -64,15 +64,7 @@ final class DeveloperController: UITableViewController, MFMailComposeViewControl
     }
     
     func sendEmail() {
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients(["garciacy@bycyril.com"])
-            mail.setMessageBody("<p>Mail from GeekWeather 3</p>", isHTML: true)
-            present(mail, animated: true)
-        } else {
-            // show failure alert
-        }
+        UIApplication.shared.open(URL(string: "mailto://garciacy@bycyril.com")!)
     }
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {

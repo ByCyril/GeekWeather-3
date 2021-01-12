@@ -263,6 +263,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         navView?.rollableTitleView.hideTitles()
         removeErrorItems()
         loadingView.play()
+        
         UIView.animate(withDuration: 0.4) {
             self.loadingView.alpha = 1
         }
@@ -363,7 +364,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     }
 
     @IBAction func presentSettingsController() {
-       
         GWTransition.present(SettingsController(), from: self)
     }
     

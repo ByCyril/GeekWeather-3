@@ -21,9 +21,3 @@ struct LevelTwoView: View {
         }
     }
 }
-
-struct LevelTwoView_Previews: PreviewProvider {
-    static var previews: some View {
-        iPadMainView(weatherModel: Mocks.mock(), location: "San Jose, CA").previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
-    }
-}

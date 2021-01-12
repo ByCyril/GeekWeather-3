@@ -21,17 +21,16 @@ struct iPadMainView: View {
             ScrollView(.vertical) {
                 VStack(alignment: .center, spacing: 35) {
                     Spacer()
-                    iPadNavigationView()
                     LevelOneView(weatherModel: weatherModel, location: location).padding()
                     LevelTwoView(weatherModel: weatherModel)
                     LevelThreeView(weatherModel: weatherModel).padding()
                     Spacer()
                     Text("Developed and designed by Cyril")
                         .foregroundColor(.white)
-                        .font(Font.custom("AvenirNext-Medium", size: 20)).padding()
+                        .font(Font.custom("AvenirNext-Medium", size: 20))
+                        .padding(.bottom)
                 }
             }
-       
         }
     }
 

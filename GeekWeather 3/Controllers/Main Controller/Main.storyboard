@@ -308,7 +308,10 @@
                                             <constraint firstAttribute="height" constant="25" id="YKh-t8-Jel"/>
                                             <constraint firstAttribute="width" constant="25" id="hM6-fX-QIe"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="settings"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button" image="gearshape" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                        </state>
                                         <connections>
                                             <action selector="presentSettingsController" destination="jJS-OJ-nXl" eventType="touchUpInside" id="TZT-qd-c0N"/>
                                         </connections>
@@ -319,7 +322,11 @@
                                             <constraint firstAttribute="height" constant="25" id="GBS-sV-Xt3"/>
                                             <constraint firstAttribute="width" constant="25" id="xku-4I-9gf"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="search"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="magnifyingglass" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                        </state>
                                         <connections>
                                             <action selector="presentSavedLocationController" destination="jJS-OJ-nXl" eventType="touchUpInside" id="EsI-85-LcW"/>
                                         </connections>
@@ -711,9 +718,9 @@
     <resources>
         <image name="back" width="20" height="20"/>
         <image name="developer" width="1335" height="1335"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="geekweather" width="1024" height="1024"/>
-        <image name="search" width="170.66667175292969" height="170.66667175292969"/>
-        <image name="settings" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <namedColor name="01d-Top">
             <color red="0.99199998378753662" green="0.41999998688697815" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

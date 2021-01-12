@@ -15,26 +15,29 @@ struct HourlyViewCell: View {
     var temp: String
     
     var body: some View {
-        VStack(spacing: 0) {
-            Text(time)
-                .font(Font.custom("AvenirNext-Medium", size: 20))
-                .minimumScaleFactor(0.5)
-                .allowsTightening(true)
-                .lineLimit(1)
-                .foregroundColor(Color.white)
-            Image(icon)
-                .resizable().frame(width: 65, height: 65, alignment: .center)
-                .cornerRadius(15)
-           
-            Text(temp)
-                .font(Font.custom("AvenirNext-Bold", size: 25))
-                .foregroundColor(Color.white)
-                .minimumScaleFactor(0.2)
-                .allowsTightening(true)
-                .lineLimit(1)
-                .foregroundColor(Color.white)
-            
-        }.padding(.leading)
+        ZStack {
+            VStack(alignment: .center, spacing: 5) {
+                Text(time)
+                    .font(Font.custom("AvenirNext-Medium", size: 25))
+                    .minimumScaleFactor(0.5)
+                    .allowsTightening(true)
+                    .lineLimit(1)
+                    .foregroundColor(Color.white)
+                Image(icon)
+                    .resizable().frame(width: 65, height: 65, alignment: .center)
+                    .cornerRadius(15)
+               
+                Text(temp)
+                    .font(Font.custom("AvenirNext-Bold", size: 25))
+                    .foregroundColor(Color.white)
+                    .minimumScaleFactor(0.2)
+                    .allowsTightening(true)
+                    .lineLimit(1)
+                    .foregroundColor(Color.white)
+            }.padding()
+        }.background(Color.white.opacity(0.15))
+        .cornerRadius(20)
+        .padding(.leading)
         
     }
 }
@@ -44,19 +47,24 @@ struct HourlyView: View {
     
     var body: some View {
         ScrollView(.horizontal) {
-            HStack(spacing: 25) {
-                ForEach(0..<hourly.count) { i in
+            HStack(spacing: 0) {
+                ForEach(0..<20) { i in
                     let hour = hourly[i]
-                    
                     let icon = hour.weather.first!.icon
-                    if icon == "sunset" || icon == "sunrise" {
-                        HourlyViewCell(time: hour.dt.convertTime(),
-                                       icon: hour.weather.first!.icon,
-                                       temp: icon)
-                    } else {
-                        HourlyViewCell(time: hour.dt.convertHourTime(),
+                    if i == 0 {
+                        HourlyViewCell(time: "Now",
                                        icon: hour.weather.first!.icon,
                                        temp: hour.temp.kelvinToSystemFormat())
+                    } else {
+                        if icon == "sunset" || icon == "sunrise" {
+                            HourlyViewCell(time: hour.dt.convertTime(),
+                                           icon: hour.weather.first!.icon,
+                                           temp: icon)
+                        } else {
+                            HourlyViewCell(time: hour.dt.convertHourTime(),
+                                           icon: hour.weather.first!.icon,
+                                           temp: hour.temp.kelvinToSystemFormat())
+                        }
                     }
                 }
             }

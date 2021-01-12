@@ -26,7 +26,7 @@ struct LevelOneView: View {
                     .cornerRadius(15)
                 
                 Text(weatherModel.current.temp.kelvinToSystemFormat())
-                    .font(Font.custom("AvenirNext-Bold", size: 75))
+                    .font(Font.custom("AvenirNext-Heavy", size: 75))
                     .minimumScaleFactor(0.2)
                     .allowsTightening(true)
                     .lineLimit(1)
@@ -45,7 +45,8 @@ struct LevelOneView: View {
     }
 }
 
-struct LevelOneView_Previews: PreviewProvider {
+
+struct LevelTwoView_Previews: PreviewProvider {
     static var previews: some View {
         iPadMainView(weatherModel: Mocks.mock(), location: "San Jose, CA").previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
     }

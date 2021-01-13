@@ -19,35 +19,73 @@ extension String {
     }
 }
 
-final class LevelThreeTableViewCell: UITableViewCell {
-    @IBOutlet var firstItemLabel: UILabel!
-    @IBOutlet var firstItemValue: UILabel!
-    @IBOutlet var secondItemLabel: UILabel!
-    @IBOutlet var secondItemValue: UILabel!
+final class LevelThreeCollectionViewCell: UICollectionViewCell {
+    var firstItemLabel = UILabel()
+    var firstItemValue = UILabel()
+    let container = UIView()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .clear
+     
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        
         
         let label = GWFont.AvenirNext(style: .Regular, size: 15)
         let value = GWFont.AvenirNext(style: .Medium, size: 25)
         
         firstItemLabel.numberOfLines = 0
         firstItemValue.numberOfLines = 0
-        secondItemLabel.numberOfLines = 0
-        secondItemValue.numberOfLines = 0
-        
         firstItemLabel.adjustsFontForContentSizeCategory = true
         firstItemValue.adjustsFontForContentSizeCategory = true
-        secondItemLabel.adjustsFontForContentSizeCategory = true
-        secondItemValue.adjustsFontForContentSizeCategory = true
-        
         firstItemLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: label, maximumPointSize: 25)
         firstItemValue.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: value, maximumPointSize: 35)
-        secondItemLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: label, maximumPointSize: 25)
-        secondItemValue.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: value, maximumPointSize: 35)
         
+        firstItemLabel.translatesAutoresizingMaskIntoConstraints = false
+        firstItemValue.translatesAutoresizingMaskIntoConstraints = false
+        
+        contentView.backgroundColor = UIColor.white.withAlphaComponent(0.15)
+        contentView.layer.cornerRadius = 20
+    
+        contentView.addSubview(firstItemLabel)
+        contentView.addSubview(firstItemValue)
+        
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.rightAnchor.constraint(equalTo: rightAnchor),
+            contentView.leftAnchor.constraint(equalTo: leftAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            firstItemLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            firstItemLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
+            firstItemLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
+            
+            firstItemValue.topAnchor.constraint(equalTo: firstItemLabel.topAnchor),
+            firstItemValue.leadingAnchor.constraint(equalTo: leadingAnchor),
+            firstItemValue.trailingAnchor.constraint(equalTo: trailingAnchor),
+            firstItemValue.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+        
+        layoutIfNeeded()
     }
+  
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+}
+
+struct ItemData {
+    var firstItemLabel: String
+    var firstItemValue: String
 }
 
 struct DetailsData {
@@ -57,14 +95,20 @@ struct DetailsData {
     var secondItemValue: String
 }
 
-final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableViewDataSource {
+final class LevelThreeViewController: BaseView, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var iconView: UIImageView!
     
-    private var detailsData = [DetailsData]()
+    @IBOutlet var collectionViewFlowLayout: UICollectionViewFlowLayout! {
+        didSet {
+            collectionViewFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }
+    }
+    
+    private var detailsData = [ItemData]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,12 +118,11 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
         
         createBlurView()
         
-        tableView.backgroundColor = .clear
-        tableView.register(UINib(nibName: "LevelThreeTableViewCell", bundle: .main), forCellReuseIdentifier: "cell")
-        tableView.separatorStyle = .none
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.flashScrollIndicators()
+        collectionView.backgroundColor = .clear
+        collectionView.register(LevelThreeCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.flashScrollIndicators()
     }
     
     required init?(coder: NSCoder) {
@@ -112,20 +155,23 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
     func prepareDetailsData(_ weatherModel: WeatherModel) {
         let current = weatherModel.current
         
-        let firstRow = DetailsData(firstItemLabel: "Sunrise",
-                                   firstItemValue: current.sunrise.convertTime(),
-                                   secondItemLabel: "Sunset",
-                                   secondItemValue: current.sunset.convertTime())
+        let itemOne = ItemData(firstItemLabel: "Sunrise",
+                                  firstItemValue: current.sunrise.convertTime())
         
-        let secondRow = DetailsData(firstItemLabel: "Dew Point",
-                                    firstItemValue: weatherModel.current.dew_point.kelvinToSystemFormat(),
-                                    secondItemLabel: "Visibility",
-                                    secondItemValue: weatherModel.current.visibility.mToSystemFormat())
-
-        let thirdRow = DetailsData(firstItemLabel: "Chance of Rain",
-                                   firstItemValue: weatherModel.daily.first!.pop.percentage(chop: true),
-                                   secondItemLabel: "Cloud Cover",
-                                   secondItemValue: current.clouds.percentage(chop: true))
+        let itemTwo = ItemData(firstItemLabel: "Sunset",
+                                  firstItemValue: current.sunset.convertTime())
+        
+        let itemThree = ItemData(firstItemLabel: "Dew Point",
+                                    firstItemValue: weatherModel.current.dew_point.kelvinToSystemFormat())
+        
+        let itemFour = ItemData(firstItemLabel: "Visibility",
+                                   firstItemValue: weatherModel.current.visibility.mToSystemFormat())
+        
+        let itemFive = ItemData(firstItemLabel: "Chance of Rain",
+                                   firstItemValue: weatherModel.daily.first!.pop.percentage(chop: true))
+        
+        let itemSix = ItemData(firstItemLabel: "Cloud Cover",
+                                  firstItemValue: current.clouds.percentage(chop: true))
         
         let uvi = current.uvi
         var uviLevel = uvi.stringRound()
@@ -142,37 +188,42 @@ final class LevelThreeViewController: BaseView, UITableViewDelegate, UITableView
             uviLevel += " Extreme"
         }
         
-        let fourthRow = DetailsData(firstItemLabel: "Humidity",
-                                    firstItemValue: current.humidity.percentage(chop: true),
-                                    secondItemLabel: "UV Index",
-                                    secondItemValue: uviLevel)
+        let itemSeven = ItemData(firstItemLabel: "Humidity",
+                                    firstItemValue: current.humidity.percentage(chop: true))
         
-        let fifthRow = DetailsData(firstItemLabel: "Wind Speed",
-                                   firstItemValue: current.wind_speed.msToSystemFormat(),
-                                    secondItemLabel: "Pressure",
-                                    secondItemValue: current.pressure.stringRound() + " hPa")
+        let itemEight = ItemData(firstItemLabel: "UV Index",
+                                    firstItemValue: uviLevel)
         
-        detailsData = [firstRow, secondRow, thirdRow, fourthRow, fifthRow]
-        tableView.reloadData()
+        let itemNine = ItemData(firstItemLabel: "Wind Speed",
+                                   firstItemValue: current.wind_speed.msToSystemFormat())
+        
+        let itemTen = ItemData(firstItemLabel: "Pressure",
+                                  firstItemValue: current.pressure.stringRound() + " hPa")
+        
+        detailsData = [itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, itemSeven, itemEight, itemNine, itemTen]
+        collectionView.reloadData()
     }
     
     override func getContentOffset(_ offset: CGPoint) {
         let height = frame.size.height
-        tableView.alpha = (1 - ((offset.y) / height)) * -1
+        collectionView.alpha = (1 - ((offset.y) / height)) * -1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return detailsData.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? LevelThreeTableViewCell else { return UITableViewCell() }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? LevelThreeCollectionViewCell else { return UICollectionViewCell() }
+        
         let data = detailsData[indexPath.row]
         
         cell.firstItemLabel.text = data.firstItemLabel
         cell.firstItemValue.text = data.firstItemValue
-        cell.secondItemLabel.text = data.secondItemLabel
-        cell.secondItemValue.text = data.secondItemValue
         
         return cell
     }

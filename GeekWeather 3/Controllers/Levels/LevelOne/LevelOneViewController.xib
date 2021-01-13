@@ -23,18 +23,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMM-sT-sOj">
-                    <rect key="frame" x="25" y="317" width="325" height="33"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUs-Df-gaB">
-                    <rect key="frame" x="25" y="358" width="325" height="31.5"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mnX-AH-c7g">
                     <rect key="frame" x="0.0" y="482" width="375" height="150"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,8 +36,20 @@
                         <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMM-sT-sOj">
+                    <rect key="frame" x="25" y="178" width="325" height="33"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUs-Df-gaB">
+                    <rect key="frame" x="25" y="219" width="325" height="31.5"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CTP-k3-ISq">
-                    <rect key="frame" x="32" y="159" width="310" height="150"/>
+                    <rect key="frame" x="32" y="20" width="310" height="150"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eDq-ea-meq">
                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -73,14 +73,13 @@
                 <constraint firstItem="BMM-sT-sOj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="2Fy-7J-mJc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BMM-sT-sOj" secondAttribute="trailing" constant="25" id="8bi-Zm-CQv"/>
                 <constraint firstItem="MUs-Df-gaB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="AIu-dS-V5K"/>
+                <constraint firstItem="CTP-k3-ISq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="DgF-Xd-BLb"/>
                 <constraint firstItem="mnX-AH-c7g" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="HtJ-lA-2hg"/>
                 <constraint firstItem="mnX-AH-c7g" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="HtQ-xG-YHw"/>
                 <constraint firstItem="CTP-k3-ISq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="Iy2-fH-fc9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MUs-Df-gaB" secondAttribute="trailing" constant="25" id="Kca-PZ-MaI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CTP-k3-ISq" secondAttribute="trailing" constant="33" id="Wxf-AO-fQi"/>
-                <constraint firstItem="BMM-sT-sOj" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="cKx-Uk-QcC"/>
                 <constraint firstItem="BMM-sT-sOj" firstAttribute="top" secondItem="CTP-k3-ISq" secondAttribute="bottom" constant="8" symbolic="YES" id="gYJ-4z-0w0"/>
-                <constraint firstItem="mnX-AH-c7g" firstAttribute="top" relation="lessThanOrEqual" secondItem="MUs-Df-gaB" secondAttribute="bottom" constant="146.5" id="iaj-cC-9o9"/>
                 <constraint firstItem="MUs-Df-gaB" firstAttribute="top" secondItem="BMM-sT-sOj" secondAttribute="bottom" constant="8" symbolic="YES" id="o3J-fk-6nc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="mnX-AH-c7g" secondAttribute="bottom" constant="35" id="szA-Op-deX"/>
             </constraints>

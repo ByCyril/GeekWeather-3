@@ -81,6 +81,7 @@
 		01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1E24F226B5000B0D52 /* LevelThreeViewController.xib */; };
 		0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185665A24D767050035BF59 /* AccessibilityFactory.swift */; };
 		0185666124D774FE0035BF59 /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0185666024D774FE0035BF59 /* GWFoundation */; };
+		01871D0A25AD706000E5817D /* DetailsViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01871D0925AD706000E5817D /* DetailsViewModal.swift */; };
 		018818CB258F23FB009EE9EE /* LevelThreeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018818CA258F23FB009EE9EE /* LevelThreeTableViewCell.xib */; };
 		018840DD258C391C00CED4F1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 018840DC258C391C00CED4F1 /* Lottie */; };
 		018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840E0258C39D600CED4F1 /* GWAnimationView.swift */; };
@@ -112,7 +113,6 @@
 		01F431DC259E288600B0D44F /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */; };
 		01F431EE259E76A300B0D44F /* SystemSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431ED259E76A300B0D44F /* SystemSettingsController.swift */; };
 		01F4CD2D25A119EE00A52971 /* MainPadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F4CD2C25A119EE00A52971 /* MainPadController.swift */; };
-		01F4CD3B25A16D5900A52971 /* DetailsViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F4CD3A25A16D5900A52971 /* DetailsViewModal.swift */; };
 		01FCE338258B21E200C841C8 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 01FCE337258B21E200C841C8 /* demo.json */; };
 		CFBD38EB0C18677448B8E58B /* Pods_GeekWeather_3Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6603F886DADE4EC37E1E3758 /* Pods_GeekWeather_3Tests.framework */; };
 		E3302AE93113182ABB9234F7 /* Pods_GeekWeather_3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 826CCA41E772C9C5286D7281 /* Pods_GeekWeather_3.framework */; };
@@ -231,6 +231,7 @@
 		01844A1B24F22646000B0D52 /* LevelTwoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelTwoViewController.xib; sourceTree = "<group>"; };
 		01844A1E24F226B5000B0D52 /* LevelThreeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelThreeViewController.xib; sourceTree = "<group>"; };
 		0185665A24D767050035BF59 /* AccessibilityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityFactory.swift; sourceTree = "<group>"; };
+		01871D0925AD706000E5817D /* DetailsViewModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsViewModal.swift; path = "../Main Controller/DetailsViewModal.swift"; sourceTree = "<group>"; };
 		018818CA258F23FB009EE9EE /* LevelThreeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelThreeTableViewCell.xib; sourceTree = "<group>"; };
 		018840E0258C39D600CED4F1 /* GWAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWAnimationView.swift; sourceTree = "<group>"; };
 		018F66D125A6F5F700FFC539 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
@@ -259,7 +260,6 @@
 		01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBaseViewController.swift; sourceTree = "<group>"; };
 		01F431ED259E76A300B0D44F /* SystemSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettingsController.swift; sourceTree = "<group>"; };
 		01F4CD2C25A119EE00A52971 /* MainPadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPadController.swift; sourceTree = "<group>"; };
-		01F4CD3A25A16D5900A52971 /* DetailsViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModal.swift; sourceTree = "<group>"; };
 		01FCE337258B21E200C841C8 /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
 		3AB4EFED94A002C1413075CC /* Pods-GeekWeather 3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeekWeather 3.debug.xcconfig"; path = "Target Support Files/Pods-GeekWeather 3/Pods-GeekWeather 3.debug.xcconfig"; sourceTree = "<group>"; };
 		6603F886DADE4EC37E1E3758 /* Pods_GeekWeather_3Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeekWeather_3Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -428,7 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				0169434024E244B2006A7FAA /* BaseView.swift */,
-				01F4CD3A25A16D5900A52971 /* DetailsViewModal.swift */,
+				01871D0925AD706000E5817D /* DetailsViewModal.swift */,
 				01844A1A24F22633000B0D52 /* LevelOne */,
 				01844A1D24F22658000B0D52 /* LevelTwo */,
 				01844A2024F226B9000B0D52 /* LevelThree */,
@@ -882,6 +882,7 @@
 				0197FB5325913AA6000C4640 /* ErrorViewController.swift in Sources */,
 				01430F42259BFCD100D67245 /* DeleteAllSearchItems.swift in Sources */,
 				01BE6CAC259AE99D000016CA /* OnboardingViewControllerLevelFour.swift in Sources */,
+				01871D0A25AD706000E5817D /* DetailsViewModal.swift in Sources */,
 				01B1BEED24EFA0040081C90F /* LevelTwoViewController.swift in Sources */,
 				011C620B25A3C9A100F131D0 /* LevelThreeView.swift in Sources */,
 				01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */,
@@ -915,7 +916,6 @@
 				011908C3259D34F400EE1C0F /* GWTest.swift in Sources */,
 				01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */,
 				018079CA258DB3B200C88E0E /* NavigationView.swift in Sources */,
-				01F4CD3B25A16D5900A52971 /* DetailsViewModal.swift in Sources */,
 				011C61EF25A3BD9100F131D0 /* iPadMainView.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
 				0127D15C2597F55D00298ABD /* AppIconSelectionController.swift in Sources */,

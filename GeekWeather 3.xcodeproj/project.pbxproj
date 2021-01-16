@@ -85,6 +85,7 @@
 		018818CB258F23FB009EE9EE /* LevelThreeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018818CA258F23FB009EE9EE /* LevelThreeTableViewCell.xib */; };
 		018840DD258C391C00CED4F1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 018840DC258C391C00CED4F1 /* Lottie */; };
 		018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840E0258C39D600CED4F1 /* GWAnimationView.swift */; };
+		018CCF2325AE8FEA002F54BE /* DailyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018CCF2225AE8FEA002F54BE /* DailyContainerView.swift */; };
 		018F66D325A6F5F700FFC539 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D125A6F5F700FFC539 /* loading.json */; };
 		018F66D425A6F5F700FFC539 /* location-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D225A6F5F700FFC539 /* location-loading.json */; };
 		018F66E025A7CB7400FFC539 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F66DF25A7CB7400FFC539 /* CustomNavigationController.swift */; };
@@ -234,6 +235,7 @@
 		01871D0925AD706000E5817D /* DetailsViewModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsViewModal.swift; path = "../Main Controller/DetailsViewModal.swift"; sourceTree = "<group>"; };
 		018818CA258F23FB009EE9EE /* LevelThreeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelThreeTableViewCell.xib; sourceTree = "<group>"; };
 		018840E0258C39D600CED4F1 /* GWAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWAnimationView.swift; sourceTree = "<group>"; };
+		018CCF2225AE8FEA002F54BE /* DailyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyContainerView.swift; sourceTree = "<group>"; };
 		018F66D125A6F5F700FFC539 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		018F66D225A6F5F700FFC539 /* location-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "location-loading.json"; sourceTree = "<group>"; };
 		018F66DF25A7CB7400FFC539 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 			children = (
 				01B1BEC324EF95920081C90F /* LevelOneViewController.swift */,
 				01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */,
+				018CCF2225AE8FEA002F54BE /* DailyContainerView.swift */,
 				01844A1724F2219F000B0D52 /* LevelOneViewController.xib */,
 			);
 			path = LevelOne;
@@ -876,6 +879,7 @@
 				011C61F925A3C17B00F131D0 /* LevelTwoView.swift in Sources */,
 				01190996259D8C7B00EE1C0F /* StoryboardManager.swift in Sources */,
 				01B94880259A687200884150 /* LevelTwoDailyViewCell.swift in Sources */,
+				018CCF2325AE8FEA002F54BE /* DailyContainerView.swift in Sources */,
 				01B1BEBD24EE33320081C90F /* UnitSelectorItem.swift in Sources */,
 				01430F37259BF4DB00D67245 /* Model.xcdatamodeld in Sources */,
 				01B1BEC424EF95920081C90F /* LevelOneViewController.swift in Sources */,

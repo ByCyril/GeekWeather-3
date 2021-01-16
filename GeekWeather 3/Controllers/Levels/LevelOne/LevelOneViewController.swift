@@ -20,7 +20,9 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var commentLabel: UILabel!
     @IBOutlet var iconView: UIImageView!
-        
+    @IBOutlet var dailyView: DailyContainerView!
+    @IBOutlet var topExpandableAnchor: NSLayoutConstraint!
+    
     @IBOutlet var hourlyView: UICollectionView! = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -123,8 +125,9 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let hourly = weatherModel?.hourly else { return CGSize(width: 75, height: 128) }
+        let icon = hourly[indexPath.row].weather.first?.icon
         
-        if hourly[indexPath.row].weather.first?.icon == "sunrise" || hourly[indexPath.row].weather.first?.icon == "sunset" {
+        if icon == "sunrise" || icon == "sunset" {
             return CGSize(width: 110, height: 128)
         } else {
             return CGSize(width: 75, height: 128)

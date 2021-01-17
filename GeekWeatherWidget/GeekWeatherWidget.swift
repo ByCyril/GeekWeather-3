@@ -9,22 +9,41 @@
 import WidgetKit
 import SwiftUI
 
-@main
-struct GeekWeatherWidget: Widget {
-    let kind: String = "GeekWeatherWidget"
+struct GeekWeatherSmallWidget: Widget {
+    let kind: String = "GeekWeatherSmallWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
-            GeekWeatherWidgetEntryView(entry: entry)
-        }.supportedFamilies([.systemSmall, .systemMedium])
+            TodayViewSmall(entry: entry)
+        }.supportedFamilies([.systemSmall])
         .configurationDisplayName("GeekWeather Widget")
-        .description("Developed and designed by Cyril")
+        .description("Today View")
     }
 }
 
-struct GeekWeatherWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        GeekWeatherWidgetEntryView(entry: .stub)
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+struct GeekWeatherLargeLabeledWidget: Widget {
+    let kind: String = "GeekWeatherLargeLabeledWidget"
+
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
+            LargeLabeledWidget(entry: entry)
+        }.supportedFamilies([.systemSmall])
+        .configurationDisplayName("GeekWeather Widget")
+        .description("Today View Large Label")
     }
 }
+
+
+struct GeekWeatherSmallDetailedWidget: Widget {
+    let kind: String = "GeekWeatherSmallDetailedWidget"
+
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
+            DetailedSmallView(entry: entry)
+        }.supportedFamilies([.systemSmall])
+        .configurationDisplayName("GeekWeather Widget")
+        .description("Detailed Today View")
+    }
+}
+
+

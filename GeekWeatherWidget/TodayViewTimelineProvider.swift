@@ -23,15 +23,16 @@ class TodayViewTimelineProvider: TimelineProvider {
             let data = try Data(contentsOf: url, options: .mappedIfSafe)
             let response = try JSONDecoder().decode(WeatherModel.self, from: data)
             
-            var model = WidgetWeatherModel(location: "San Jose, CA",
+            let model = WidgetWeatherModel(location: "San Jose, CA",
                                            temp: response.current.temp.kelvinToSystemFormat(),
                                            icon: response.current.weather[0].icon,
                                            lastUpdated: "Last Updated: " + Date().timeIntervalSince1970.convertTime(),
                                            feelsLike: "Feels like " + response.current.feels_like.kelvinToSystemFormat(),
-                                           summary: response.current.weather[0].description.capitalized)
-            model.hourly = response.hourly
-            model.daily = response.daily
-            model.currently = response.current
+                                           summary: response.current.weather[0].description.capitalized,
+                                           currently: response.current,
+                                           hourly: response.hourly,
+                                           daily: response.daily)
+            
             let entry = WeatherEntry(date: Date(), weatherModel: model)
             return entry
         } catch {
@@ -48,15 +49,16 @@ class TodayViewTimelineProvider: TimelineProvider {
                 let data = try Data(contentsOf: url, options: .mappedIfSafe)
                 let response = try JSONDecoder().decode(WeatherModel.self, from: data)
                 
-                var model = WidgetWeatherModel(location: "San Jose, CA",
+                let model = WidgetWeatherModel(location: "San Jose, CA",
                                                temp: response.current.temp.kelvinToSystemFormat(),
                                                icon: response.current.weather[0].icon,
                                                lastUpdated: "Last Updated: " + Date().timeIntervalSince1970.convertTime(),
                                                feelsLike: "Feels like " + response.current.feels_like.kelvinToSystemFormat(),
-                                               summary: response.current.weather[0].description.capitalized)
-                model.hourly = response.hourly
-                model.daily = response.daily
-                model.currently = response.current
+                                               summary: response.current.weather[0].description.capitalized,
+                                               currently: response.current,
+                                               hourly: response.hourly,
+                                               daily: response.daily)
+                
                 let entry = WeatherEntry(date: Date(), weatherModel: model)
                 
                 completion(entry)
@@ -81,15 +83,16 @@ class TodayViewTimelineProvider: TimelineProvider {
         WidgetNetworkManager().fetch { (model, error, city) in
             
             if let data = model, let city = city {
-                var model = WidgetWeatherModel(location: city,
+                let model = WidgetWeatherModel(location: city,
                                                temp: data.current.temp.kelvinToSystemFormat(),
                                                icon: data.current.weather[0].icon,
                                                lastUpdated: "Last Updated: " + Date().timeIntervalSince1970.convertTime(),
                                                feelsLike: "Feels like " + data.current.feels_like.kelvinToSystemFormat(),
-                                               summary: data.current.weather[0].description.capitalized)
-                model.hourly = data.hourly
-                model.daily = data.daily
-                model.currently = data.current
+                                               summary: data.current.weather[0].description.capitalized,
+                                               currently: data.current,
+                                               hourly: data.hourly,
+                                               daily: data.daily)
+                
                 let entry = WeatherEntry(date: Date(), weatherModel: model)
                 sharedUserDefaults?.setValue(Date(), forKey: SharedUserDefaults.Keys.WidgetLastUpdated)
                 completion(.success(entry))

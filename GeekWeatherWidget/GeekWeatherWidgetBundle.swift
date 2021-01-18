@@ -10,12 +10,22 @@ import SwiftUI
 import WidgetKit
 
 @main
-struct GeekWeatherWidgetBundles: WidgetBundle {
+struct GeekWeatherWidgetBundle: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
         GeekWeatherSmallWidget()
         GeekWeatherLargeLabeledWidget()
         GeekWeatherSmallDetailedWidget()
+        GeekWeatherDetailedTodayWidget()
+        MediumBundles().body
     }
     
+}
+
+struct MediumBundles: WidgetBundle {
+    @WidgetBundleBuilder
+    var body: some Widget {
+        GeekWeatherMediumDetailedWidget()
+        GeekWeatherMediumSimpleWidget()
+    }
 }

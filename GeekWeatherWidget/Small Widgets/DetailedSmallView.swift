@@ -19,7 +19,7 @@ struct DetailedSmallView: View {
             
             VStack {
                 Text(entry.weatherModel.location).font(Font.custom("AvenirNext-Medium", size: 12)).foregroundColor(.white).padding(.top)
-                    Spacer()
+                Spacer()
                 HStack {
                     Image(entry.weatherModel.icon)
                         .resizable().frame(width: 40, height: 40, alignment: .center)
@@ -33,7 +33,7 @@ struct DetailedSmallView: View {
                         .foregroundColor(.white)
                 }.padding(.leading).padding(.trailing)
                 Spacer()
-                HStack(spacing: 8) {
+                HStack(alignment: .center, spacing: 5) {
                     if let hourly = entry.weatherModel.hourly {
                         let numOfItems = 4
                         
@@ -47,12 +47,15 @@ struct DetailedSmallView: View {
                                                    icon: icon,
                                                    date: icon.capitalized).frame(width: 50)
                             } else {
-                                let time = (i == 0) ? "Now" : data.dt.convertHourTime()
-                                TodayViewSmallitem(time: time, icon: icon, date: data.temp.kelvinToSystemFormat())
+                                let time = (i == 0) ? "Now" : String(data.dt.convertHourTime().filter { !" \n\t\r".contains($0) }).lowercased()
+                                TodayViewSmallitem(time: time,
+                                                   icon: icon,
+                                                   date: data.temp.kelvinToSystemFormat())
                             }
                         }
                     }
-                }.padding(.leading).padding(.trailing).padding(.bottom)
+                }.padding(EdgeInsets(top: 0, leading: 3, bottom: 0, trailing: 3))
+                Spacer()
             }
             
         }
@@ -63,6 +66,6 @@ struct DetailedSmallView_Previews: PreviewProvider {
     static var previews: some View {
         DetailedSmallView(entry: .stub)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
-            .environment(\.colorScheme, .dark)
+            .environment(\.colorScheme, .light)
     }
 }

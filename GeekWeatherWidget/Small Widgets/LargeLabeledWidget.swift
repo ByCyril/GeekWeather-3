@@ -21,7 +21,7 @@ struct LargeLabeledWidget: View {
                 HStack {
                     Spacer()
                     Image(entry.weatherModel.currently.weather.first!.icon).resizable()
-                        .frame(width: 45, height: 45, alignment: .center)
+                        .frame(width: 75, height: 75, alignment: .center)
                         .cornerRadius(15).padding(.top).padding(.trailing)
                 }
                 HStack {
@@ -32,15 +32,13 @@ struct LargeLabeledWidget: View {
                             .allowsTightening(true)
                             .lineLimit(1)
                             .foregroundColor(.white)
-                        Text(entry.weatherModel.location).font(Font.custom("AvenirNext", size: 12))
-                            .minimumScaleFactor(0.2)
+                        Text(entry.weatherModel.location).font(Font.custom("AvenirNext-Regular", size: 12))
                             .allowsTightening(true)
                             .lineLimit(1)
-                            .foregroundColor(.white)
+                            .foregroundColor(.white).padding(EdgeInsets(top: -10, leading: 0, bottom: 0, trailing: 0))
                     }.padding(.bottom).padding(.leading)
                     Spacer()
-                }
-                
+                }.padding(EdgeInsets(top: -10, leading: 0, bottom: 0, trailing: 0))
             }
         }
     }

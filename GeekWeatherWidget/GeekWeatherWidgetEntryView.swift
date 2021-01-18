@@ -9,6 +9,8 @@
 import WidgetKit
 import SwiftUI
 
+
+
 @available(iOS 14.0, *)
 struct GeekWeatherWidgetEntryView: View {
     
@@ -19,7 +21,8 @@ struct GeekWeatherWidgetEntryView: View {
     var body: some View {
         switch family {
         case .systemSmall:
-            TodayViewSmall(entry: entry)
+//            TodayViewSmall(entry: entry)
+            DetailedSmallView(entry: entry)
         case .systemMedium:
             TodayViewMedium(entry: entry)
         case .systemLarge:

@@ -17,6 +17,7 @@
                 <outlet property="iconView" destination="eDq-ea-meq" id="6F2-0n-bto"/>
                 <outlet property="summaryLabel" destination="BMM-sT-sOj" id="q4B-nl-gFA"/>
                 <outlet property="tempLabel" destination="qkq-Va-aH5" id="QCp-bS-sZw"/>
+                <outlet property="topExpandableAnchor" destination="mBk-lC-GQR" id="Gns-i8-SMJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

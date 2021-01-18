@@ -21,7 +21,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     @IBOutlet var commentLabel: UILabel!
     @IBOutlet var iconView: UIImageView!
     @IBOutlet var dailyView: DailyContainerView!
-    @IBOutlet var topExpandableAnchor: NSLayoutConstraint!
+    @IBOutlet weak var topExpandableAnchor: NSLayoutConstraint!
     
     @IBOutlet var hourlyView: UICollectionView! = {
         let layout = UICollectionViewFlowLayout()
@@ -65,9 +65,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         let registration = UICollectionView.CellRegistration<LevelTwoHourlyViewCell, Hourly> { cell, indexPath, data in
             
             if (data.weather.first!.icon == "sunrise" || data.weather.first!.icon == "sunset") {
-                if data.dt < Date().timeIntervalSince1970 {
-                    return
-                }
+              
                 let time = data.dt.convertTime()
                 cell.timestampLabel.text = time
                 cell.timestampLabel.adjustsFontSizeToFitWidth = true
@@ -108,6 +106,8 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
             hourlySnapshot.appendSections([.main])
             hourlySnapshot.appendItems(Array(weatherModel.hourly[..<20]))
             hourlyDataSource?.apply(hourlySnapshot)
+            
+            dailyView.updateCollection(weatherModel)
         }
     }
     
@@ -121,6 +121,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         commentLabel.text = "⬆︎\(high)  ⬇︎\(low)"
         
         hourlyView.reloadData()
+        dailyView.dailyTableView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -138,7 +139,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
                 
         tempLabel.text = " " + currentWeatherData.temp.kelvinToSystemFormat()
         
-        summaryLabel.text = instructions(currentWeatherData.weather.first?.description.capitalized ?? "")
+        summaryLabel.text = currentWeatherData.weather.first?.description.capitalized ?? ""
         summaryLabel.numberOfLines = 0
         
         let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? ""
@@ -157,15 +158,20 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         accessibilityElements()
     }
     
-    func accessibilityElements() {
-        tempLabel.applyAccessibility(with: "Current Temperature", and: tempLabel.text, trait: .staticText)
+    @objc
+    func expandDailyView() {
+        
     }
     
-    func instructions(_ text: String) -> String {
-        if text == "Mock Data 👋🏼" {
-            return "You've exceeded the number of API calls for the beta program. Your limit will reset on the next day."
-        }
-        return text
+    @objc
+    func collapseDailyView() {
+        
     }
- 
+    
+    func accessibilityElements() {
+        tempLabel.applyAccessibility(with: "Current Temperature",
+                                     and: tempLabel.text,
+                                     trait: .staticText)
+    }
+    
 }

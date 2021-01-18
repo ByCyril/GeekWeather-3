@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class LevelTwoDailyViewCell: UITableViewCell {
+final class LevelTwoDailyViewCell: UICollectionViewCell {
     
     let dayLabel = UILabel()
     let highTempLabel = UILabel()
@@ -21,8 +21,13 @@ final class LevelTwoDailyViewCell: UITableViewCell {
     
     let containerView = UIView()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .default, reuseIdentifier: "cell")
+//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+//        super.init(style: .default, reuseIdentifier: "cell")
+//
+//    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         initUI()
         layout()
         setupAccessibilityElements()
@@ -43,8 +48,8 @@ final class LevelTwoDailyViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
-            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding * 2),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding * 2),
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding ),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
             containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)
         ])
         

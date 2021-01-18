@@ -28,7 +28,7 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate {
         loadXib(view, self)
         
         createBlurView()
-        dailyViewSetup()
+//        dailyViewSetup()
     }
     
     required init?(coder: NSCoder) {
@@ -60,25 +60,25 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate {
         
         dailyTableView.register(LevelTwoDailyViewCell.self, forCellReuseIdentifier: "cell")
         
-        dailyDataSource = UITableViewDiffableDataSource<Section, Daily>(tableView: dailyTableView, cellProvider: { (tableView, indexPath, daily) -> LevelTwoDailyViewCell? in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LevelTwoDailyViewCell
-            let summary = daily.weather.first!.description
-            
-            if indexPath.row == 0 {
-                cell.dayLabel.text = "Today"
-                cell.applyAccessibility(with: "Forecast throughout the week", and: "Today. \(summary), and a high of \(daily.temp.max.kelvinToSystemFormat()) and a low of \(daily.temp.min.kelvinToSystemFormat())", trait: .staticText)
-            } else {
-                let day = Double(daily.dt).date(.day)
-                cell.dayLabel.text = day
-                cell.applyAccessibility(with: "On \(day)", and: "\(summary), and a high of \(daily.temp.max.kelvinToSystemFormat()) and a low of \(daily.temp.min.kelvinToSystemFormat())", trait: .staticText)
-            }
-            
-            cell.iconView.image = UIImage(named: daily.weather.first!.icon)
-            cell.highTempLabel.text = daily.temp.max.kelvinToSystemFormat()
-            cell.lowTempLabel.text = daily.temp.min.kelvinToSystemFormat()
-            cell.selectionStyle = .none
-            return cell
-        })
+//        dailyDataSource = UITableViewDiffableDataSource<Section, Daily>(tableView: dailyTableView, cellProvider: { (tableView, indexPath, daily) -> LevelTwoDailyViewCell? in
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LevelTwoDailyViewCell
+//            let summary = daily.weather.first!.description
+//
+//            if indexPath.row == 0 {
+//                cell.dayLabel.text = "Today"
+//                cell.applyAccessibility(with: "Forecast throughout the week", and: "Today. \(summary), and a high of \(daily.temp.max.kelvinToSystemFormat()) and a low of \(daily.temp.min.kelvinToSystemFormat())", trait: .staticText)
+//            } else {
+//                let day = Double(daily.dt).date(.day)
+//                cell.dayLabel.text = day
+//                cell.applyAccessibility(with: "On \(day)", and: "\(summary), and a high of \(daily.temp.max.kelvinToSystemFormat()) and a low of \(daily.temp.min.kelvinToSystemFormat())", trait: .staticText)
+//            }
+//
+//            cell.iconView.image = UIImage(named: daily.weather.first!.icon)
+//            cell.highTempLabel.text = daily.temp.max.kelvinToSystemFormat()
+//            cell.lowTempLabel.text = daily.temp.min.kelvinToSystemFormat()
+//            cell.selectionStyle = .none
+//            return cell
+//        })
         
         layoutIfNeeded()
     }

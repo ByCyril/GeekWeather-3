@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import GWFoundation
 
 final class DailyContainerView: UIView {
-    lazy var dailyView: UICollectionView = {
-        let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+    
+    lazy var dailyTableView: UICollectionView = {
+        var config = UICollectionLayoutListConfiguration(appearance: .plain)
+        config.backgroundColor = .clear
+        config.showsSeparators = false
         let layout = UICollectionViewCompositionalLayout.list(using: config)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -18,10 +22,13 @@ final class DailyContainerView: UIView {
         collectionView.flashScrollIndicators()
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
-        
+        collectionView.alwaysBounceHorizontal = false
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
     
+    private var dailyDataSource: UICollectionViewDiffableDataSource<Section, Daily>?
+
     var containerView = UIView()
     
     let gradientLayer = CAGradientLayer()
@@ -51,16 +58,52 @@ final class DailyContainerView: UIView {
         backgroundColor = .clear
         layer.cornerRadius = 20
         layer.masksToBounds = true
-        addSubview(dailyView)
+        addSubview(dailyTableView)
         
         NSLayoutConstraint.activate([
-            dailyView.topAnchor.constraint(equalTo: topAnchor),
-            dailyView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            dailyView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            dailyView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            dailyTableView.topAnchor.constraint(equalTo: topAnchor),
+            dailyTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            dailyTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            dailyTableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
         layoutIfNeeded()
+    }
+    
+    func collectionViewSetup() {
+        
+        let registration = UICollectionView.CellRegistration<LevelTwoDailyViewCell, Daily> { cell, indexPath, daily in
+            let summary = daily.weather.first!.description
+            
+            if indexPath.row == 0 {
+                cell.dayLabel.text = "Today"
+                cell.applyAccessibility(with: "Forecast throughout the week", and: "Today. \(summary), and a high of \(daily.temp.max.kelvinToSystemFormat()) and a low of \(daily.temp.min.kelvinToSystemFormat())", trait: .staticText)
+            } else {
+                let day = Double(daily.dt).date(.day)
+                cell.dayLabel.text = day
+                cell.applyAccessibility(with: "On \(day)", and: "\(summary), and a high of \(daily.temp.max.kelvinToSystemFormat()) and a low of \(daily.temp.min.kelvinToSystemFormat())", trait: .staticText)
+            }
+            
+            cell.iconView.image = UIImage(named: daily.weather.first!.icon)
+            cell.highTempLabel.text = daily.temp.max.kelvinToSystemFormat()
+            cell.lowTempLabel.text = daily.temp.min.kelvinToSystemFormat()
+            
+        }
+        
+        dailyDataSource = UICollectionViewDiffableDataSource<Section, Daily>(collectionView: dailyTableView, cellProvider: { (collectionView, indexPath, daily) -> LevelTwoDailyViewCell? in
+            
+            let cell = collectionView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: daily)
+            return cell
+        })
+                
+    }
+    
+    func updateCollection(_ weatherModel: WeatherModel) {
+                
+        var hourlySnapshot = NSDiffableDataSourceSnapshot<Section, Daily>()
+        hourlySnapshot.appendSections([.main])
+        hourlySnapshot.appendItems(weatherModel.daily)
+        dailyDataSource?.apply(hourlySnapshot)
     }
     
     override func layoutSubviews() {
@@ -72,6 +115,7 @@ final class DailyContainerView: UIView {
         super.awakeFromNib()
         createGradientLayer()
         initUI()
+        collectionViewSetup()
     }
  
 }

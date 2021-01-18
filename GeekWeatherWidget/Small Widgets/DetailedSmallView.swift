@@ -47,7 +47,7 @@ struct DetailedSmallView: View {
                                                    icon: icon,
                                                    date: icon.capitalized).frame(width: 50)
                             } else {
-                                let time = (i == 0) ? "Now" : String(data.dt.convertHourTime().filter { !" \n\t\r".contains($0) }).lowercased()
+                                let time = (i == 0) ? "Now" : data.dt.convertHourTime()
                                 TodayViewSmallitem(time: time,
                                                    icon: icon,
                                                    date: data.temp.kelvinToSystemFormat())

@@ -20,9 +20,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var commentLabel: UILabel!
     @IBOutlet var iconView: UIImageView!
-    @IBOutlet var hourlyViewLayer: HourlyViewLayer!
     
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -50,7 +48,6 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         if let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel {
             self.weatherModel = weatherModel
             displayData(weatherModel.current)
-            hourlyViewLayer.populate(weatherModel)
         }
     }
     
@@ -62,7 +59,6 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? ""
         
         commentLabel.text = "⬆︎\(high)  ⬇︎\(low)"
-        hourlyViewLayer.hourlyView.reloadData()
     }
     
     func displayData(_ currentWeatherData: Currently) {

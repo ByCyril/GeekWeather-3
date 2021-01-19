@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class LevelTwoDailyViewCell: UITableViewCell {
+final class DailyViewCell: UITableViewCell {
     
     let dayLabel = UILabel()
     let highTempLabel = UILabel()

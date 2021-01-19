@@ -60,6 +60,7 @@
 		012D3B1E25A0427C0093ED51 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 012D3B1D25A0427C0093ED51 /* preview.json */; };
 		012D3B1F25A0427C0093ED51 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 012D3B1D25A0427C0093ED51 /* preview.json */; };
 		01305A9F25A3F2C3005C8B19 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01305A9E25A3F2C3005C8B19 /* NetworkLayer.swift */; };
+		01328D1225B6CD1E00E29B31 /* DailyViewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D1125B6CD1E00E29B31 /* DailyViewLayer.swift */; };
 		0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */; };
 		01430F31259B1EFA00D67245 /* ToggleOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */; };
 		01430F37259BF4DB00D67245 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01430F35259BF4DB00D67245 /* Model.xcdatamodeld */; };
@@ -216,6 +217,7 @@
 		012D3AF625A019760093ED51 /* TodayViewLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewLarge.swift; sourceTree = "<group>"; };
 		012D3B1D25A0427C0093ED51 /* preview.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = preview.json; path = ../../../../../Desktop/preview.json; sourceTree = "<group>"; };
 		01305A9E25A3F2C3005C8B19 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		01328D1125B6CD1E00E29B31 /* DailyViewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewLayer.swift; sourceTree = "<group>"; };
 		0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeViewController.swift; sourceTree = "<group>"; };
 		01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleOnboarding.swift; sourceTree = "<group>"; };
 		01430F36259BF4DB00D67245 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 			children = (
 				0169434024E244B2006A7FAA /* BaseView.swift */,
 				01871D0925AD706000E5817D /* DetailsViewModal.swift */,
+				01328D1125B6CD1E00E29B31 /* DailyViewLayer.swift */,
 				01D28B4625B6C6F7005CD583 /* HourlyViewLayer.swift */,
 				01B9487B259A654400884150 /* HourlyViewCell.swift */,
 				01844A1A24F22633000B0D52 /* LevelOne */,
@@ -945,6 +948,7 @@
 				01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */,
 				011C620125A3C93B00F131D0 /* HourlyView.swift in Sources */,
 				0119099A259D8CDC00EE1C0F /* HapticFeedbackController.swift in Sources */,
+				01328D1225B6CD1E00E29B31 /* DailyViewLayer.swift in Sources */,
 				018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */,
 				0127D14E2597D72200298ABD /* GWFont.swift in Sources */,
 				01BE6CC1259B1C40000016CA /* ToggleMockedResponse.swift in Sources */,

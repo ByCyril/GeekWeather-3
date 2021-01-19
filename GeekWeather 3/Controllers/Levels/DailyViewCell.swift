@@ -1,5 +1,5 @@
 //
-//  LevelTwoDailyViewCell.swift
+//  DailyViewCell.swift
 //  GeekWeather 3
 //
 //  Created by Cyril Garcia on 12/28/20.

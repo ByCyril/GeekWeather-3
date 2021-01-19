@@ -12,7 +12,7 @@
             <connections>
                 <outlet property="commentLabel" destination="MUs-Df-gaB" id="zq2-OI-fnf"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="ZGl-Nj-vbC"/>
-                <outlet property="hourlyView" destination="mnX-AH-c7g" id="VwV-gP-6Fo"/>
+                <outlet property="hourlyViewLayer" destination="UHb-LS-UnU" id="9Hp-KJ-vfQ"/>
                 <outlet property="iconView" destination="eDq-ea-meq" id="6F2-0n-bto"/>
                 <outlet property="summaryLabel" destination="BMM-sT-sOj" id="q4B-nl-gFA"/>
                 <outlet property="tempLabel" destination="qkq-Va-aH5" id="QCp-bS-sZw"/>
@@ -23,19 +23,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mnX-AH-c7g">
-                    <rect key="frame" x="0.0" y="482" width="375" height="150"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="150" id="RzT-ko-UhU"/>
-                    </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="orf-uY-Cfz">
-                        <size key="itemSize" width="75" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMM-sT-sOj">
                     <rect key="frame" x="25" y="178" width="325" height="33"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
@@ -66,22 +53,29 @@
                         </label>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHb-LS-UnU" customClass="HourlyViewLayer" customModule="GeekWeather" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="485" width="375" height="128"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="l9P-9t-IN9"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="BMM-sT-sOj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="2Fy-7J-mJc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UHb-LS-UnU" secondAttribute="trailing" id="7gr-zI-A9c"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BMM-sT-sOj" secondAttribute="trailing" constant="25" id="8bi-Zm-CQv"/>
                 <constraint firstItem="MUs-Df-gaB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="AIu-dS-V5K"/>
                 <constraint firstItem="CTP-k3-ISq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="DgF-Xd-BLb"/>
-                <constraint firstItem="mnX-AH-c7g" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="HtJ-lA-2hg"/>
-                <constraint firstItem="mnX-AH-c7g" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="HtQ-xG-YHw"/>
                 <constraint firstItem="CTP-k3-ISq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="Iy2-fH-fc9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MUs-Df-gaB" secondAttribute="trailing" constant="25" id="Kca-PZ-MaI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CTP-k3-ISq" secondAttribute="trailing" constant="33" id="Wxf-AO-fQi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="UHb-LS-UnU" secondAttribute="bottom" constant="54" id="cbp-5h-DwF"/>
                 <constraint firstItem="BMM-sT-sOj" firstAttribute="top" secondItem="CTP-k3-ISq" secondAttribute="bottom" constant="8" symbolic="YES" id="gYJ-4z-0w0"/>
+                <constraint firstItem="UHb-LS-UnU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jRn-5e-twx"/>
                 <constraint firstItem="MUs-Df-gaB" firstAttribute="top" secondItem="BMM-sT-sOj" secondAttribute="bottom" constant="8" symbolic="YES" id="o3J-fk-6nc"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="mnX-AH-c7g" secondAttribute="bottom" constant="35" id="szA-Op-deX"/>
             </constraints>
             <point key="canvasLocation" x="-244" y="-20.239880059970016"/>
         </view>

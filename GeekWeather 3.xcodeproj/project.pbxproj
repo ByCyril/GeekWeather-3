@@ -104,7 +104,7 @@
 		01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF024EFA9A10081C90F /* Array+Extension.swift */; };
 		01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF224EFAD500081C90F /* View+Extension.swift */; };
 		01B5EA5225A407EC00F5CC4A /* SwiftUILib.WrapStack in Frameworks */ = {isa = PBXBuildFile; productRef = 01B5EA5125A407EC00F5CC4A /* SwiftUILib.WrapStack */; };
-		01B9487C259A654400884150 /* LevelTwoHourlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */; };
+		01B9487C259A654400884150 /* HourlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487B259A654400884150 /* HourlyViewCell.swift */; };
 		01B94880259A687200884150 /* LevelTwoDailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */; };
 		01BE6C85259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */; };
 		01BE6C9F259AD6DC000016CA /* OnboardingViewControllerLevelTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6C9E259AD6DC000016CA /* OnboardingViewControllerLevelTwo.swift */; };
@@ -113,6 +113,7 @@
 		01BE6CC1259B1C40000016CA /* ToggleMockedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6CC0259B1C40000016CA /* ToggleMockedResponse.swift */; };
 		01D0081E259EDB5100032D17 /* FormatSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0081D259EDB5100032D17 /* FormatSettingsController.swift */; };
 		01D00822259EE28E00032D17 /* Doouble+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D00821259EE28E00032D17 /* Doouble+Extension.swift */; };
+		01D28B4725B6C6F7005CD583 /* HourlyViewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D28B4625B6C6F7005CD583 /* HourlyViewLayer.swift */; };
 		01E3B56C259EE9130099F212 /* Doouble+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D00821259EE28E00032D17 /* Doouble+Extension.swift */; };
 		01E65B2024F19D9400D8F76F /* ChangeUnitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */; };
 		01F431DC259E288600B0D44F /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */; };
@@ -257,7 +258,7 @@
 		01B1BEEC24EFA0040081C90F /* LevelTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoViewController.swift; sourceTree = "<group>"; };
 		01B1BEF024EFA9A10081C90F /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		01B1BEF224EFAD500081C90F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoHourlyViewCell.swift; sourceTree = "<group>"; };
+		01B9487B259A654400884150 /* HourlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyViewCell.swift; sourceTree = "<group>"; };
 		01B9487F259A687200884150 /* LevelTwoDailyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoDailyViewCell.swift; sourceTree = "<group>"; };
 		01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerLevelOne.swift; sourceTree = "<group>"; };
 		01BE6C9E259AD6DC000016CA /* OnboardingViewControllerLevelTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerLevelTwo.swift; sourceTree = "<group>"; };
@@ -266,6 +267,7 @@
 		01BE6CC0259B1C40000016CA /* ToggleMockedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleMockedResponse.swift; sourceTree = "<group>"; };
 		01D0081D259EDB5100032D17 /* FormatSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatSettingsController.swift; sourceTree = "<group>"; };
 		01D00821259EE28E00032D17 /* Doouble+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Doouble+Extension.swift"; sourceTree = "<group>"; };
+		01D28B4625B6C6F7005CD583 /* HourlyViewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyViewLayer.swift; sourceTree = "<group>"; };
 		01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUnitController.swift; sourceTree = "<group>"; };
 		01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBaseViewController.swift; sourceTree = "<group>"; };
 		01F431ED259E76A300B0D44F /* SystemSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettingsController.swift; sourceTree = "<group>"; };
@@ -440,6 +442,8 @@
 			children = (
 				0169434024E244B2006A7FAA /* BaseView.swift */,
 				01871D0925AD706000E5817D /* DetailsViewModal.swift */,
+				01D28B4625B6C6F7005CD583 /* HourlyViewLayer.swift */,
+				01B9487B259A654400884150 /* HourlyViewCell.swift */,
 				01844A1A24F22633000B0D52 /* LevelOne */,
 				01844A1D24F22658000B0D52 /* LevelTwo */,
 				01844A2024F226B9000B0D52 /* LevelThree */,
@@ -625,7 +629,6 @@
 			isa = PBXGroup;
 			children = (
 				01B1BEC324EF95920081C90F /* LevelOneViewController.swift */,
-				01B9487B259A654400884150 /* LevelTwoHourlyViewCell.swift */,
 				01844A1724F2219F000B0D52 /* LevelOneViewController.xib */,
 			);
 			path = LevelOne;
@@ -914,6 +917,7 @@
 				01430F42259BFCD100D67245 /* DeleteAllSearchItems.swift in Sources */,
 				01BE6CAC259AE99D000016CA /* OnboardingViewControllerLevelFour.swift in Sources */,
 				01871D0A25AD706000E5817D /* DetailsViewModal.swift in Sources */,
+				01D28B4725B6C6F7005CD583 /* HourlyViewLayer.swift in Sources */,
 				01B1BEED24EFA0040081C90F /* LevelTwoViewController.swift in Sources */,
 				011C620B25A3C9A100F131D0 /* LevelThreeView.swift in Sources */,
 				01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */,
@@ -968,7 +972,7 @@
 				01042C3124ECDF660090B349 /* AboutSettingItem.swift in Sources */,
 				01F431DC259E288600B0D44F /* OnboardingBaseViewController.swift in Sources */,
 				01BE6CA8259ADE2E000016CA /* OnboardingViewControllerLevelThree.swift in Sources */,
-				01B9487C259A654400884150 /* LevelTwoHourlyViewCell.swift in Sources */,
+				01B9487C259A654400884150 /* HourlyViewCell.swift in Sources */,
 				01B1BEC124EE36310081C90F /* PrivacyPolicyInfoItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

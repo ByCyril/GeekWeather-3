@@ -1,5 +1,5 @@
 //
-//  LevelTwoHourlyViewCell.swift
+//  HourlyViewCell.swift
 //  GeekWeather 3
 //
 //  Created by Cyril Garcia on 12/28/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class LevelTwoHourlyViewCell: UICollectionViewCell {
+final class HourlyViewCell: UICollectionViewCell {
     
     var timestampLabel = UILabel()
     var tempLabel = UILabel()

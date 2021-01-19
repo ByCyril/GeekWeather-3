@@ -9,7 +9,7 @@
 import SwiftUI
 import GWFoundation
 
-struct HourlyViewCell: View {
+struct HourlyCellView: View {
     var time: String
     var icon: String
     var temp: String
@@ -52,16 +52,16 @@ struct HourlyView: View {
                     let hour = hourly[i]
                     let icon = hour.weather.first!.icon
                     if i == 0 {
-                        HourlyViewCell(time: "Now",
+                        HourlyCellView(time: "Now",
                                        icon: hour.weather.first!.icon,
                                        temp: hour.temp.kelvinToSystemFormat())
                     } else {
                         if icon == "sunset" || icon == "sunrise" {
-                            HourlyViewCell(time: hour.dt.convertTime(),
+                            HourlyCellView(time: hour.dt.convertTime(),
                                            icon: hour.weather.first!.icon,
                                            temp: icon)
                         } else {
-                            HourlyViewCell(time: hour.dt.convertHourTime(),
+                            HourlyCellView(time: hour.dt.convertHourTime(),
                                            icon: hour.weather.first!.icon,
                                            temp: hour.temp.kelvinToSystemFormat())
                         }

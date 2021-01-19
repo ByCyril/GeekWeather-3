@@ -33,11 +33,11 @@ struct DetailedSmallView: View {
                         .foregroundColor(.white)
                 }.padding(.leading).padding(.trailing)
                 Spacer()
-                HStack(alignment: .center, spacing: 5) {
+                HStack(alignment: .center, spacing: 17) {
                     if let hourly = entry.weatherModel.hourly {
                         let numOfItems = 4
                         
-                        ForEach(0..<numOfItems) { i in
+                        ForEach(1..<numOfItems) { i in
                             let data = hourly[i]
                             let icon = data.weather.first!.icon
                             
@@ -47,8 +47,7 @@ struct DetailedSmallView: View {
                                                    icon: icon,
                                                    date: icon.capitalized).frame(width: 50)
                             } else {
-                                let time = (i == 0) ? "Now" : String(data.dt.convertHourTime().filter { !" \n\t\r".contains($0) }).lowercased()
-                                TodayViewSmallitem(time: time,
+                                TodayViewSmallitem(time: data.dt.convertHourTime(),
                                                    icon: icon,
                                                    date: data.temp.kelvinToSystemFormat())
                             }

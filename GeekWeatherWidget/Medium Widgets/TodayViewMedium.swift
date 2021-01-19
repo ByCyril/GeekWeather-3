@@ -17,15 +17,15 @@ struct TodayViewSmallitem: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Text(time.trimmingCharacters(in: .whitespacesAndNewlines))
-                .font(Font.custom("AvenirNext-Medium", size: 11))
+            Text(time)
+                .font(Font.custom("AvenirNext-Medium", size: 12))
                 .allowsTightening(true)
                 .lineLimit(1)
                 .foregroundColor(Color.white)
             Image(icon)
                 .resizable().frame(width: 23, height: 23, alignment: .center)
             Text(date)
-                .font(Font.custom("AvenirNext-Bold", size: 11))
+                .font(Font.custom("AvenirNext-Bold", size: 13))
                 .foregroundColor(Color.white)
                 .allowsTightening(true)
                 .lineLimit(1)
@@ -70,9 +70,9 @@ struct TodayViewMedium: View {
                 
                 HStack(spacing: 15) {
                     if let hourly = entry.weatherModel.hourly {
-                        let numOfItems = 7
+                        let numOfItems = 8
                         
-                        ForEach(0..<numOfItems) { i in
+                        ForEach(1..<numOfItems) { i in
                             let data = hourly[i]
                             let icon = data.weather.first!.icon
                             

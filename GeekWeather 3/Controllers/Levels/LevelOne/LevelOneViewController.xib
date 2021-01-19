@@ -12,6 +12,8 @@
             <connections>
                 <outlet property="commentLabel" destination="MUs-Df-gaB" id="zq2-OI-fnf"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="ZGl-Nj-vbC"/>
+                <outlet property="detailedViewFlowLayout" destination="ORp-dB-dHV" id="Fzf-cw-7OD"/>
+                <outlet property="detailedViewLayer" destination="Ogh-tL-8Ml" id="ofA-an-fXF"/>
                 <outlet property="iconView" destination="eDq-ea-meq" id="6F2-0n-bto"/>
                 <outlet property="summaryLabel" destination="BMM-sT-sOj" id="q4B-nl-gFA"/>
                 <outlet property="tempLabel" destination="qkq-Va-aH5" id="QCp-bS-sZw"/>
@@ -52,6 +54,19 @@
                         </label>
                     </subviews>
                 </stackView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ogh-tL-8Ml" customClass="DetailedViewLayer" customModule="GeekWeather" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="535" width="375" height="75"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="1r9-AC-Pth"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ORp-dB-dHV">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -61,7 +76,10 @@
                 <constraint firstItem="MUs-Df-gaB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="AIu-dS-V5K"/>
                 <constraint firstItem="CTP-k3-ISq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="Iy2-fH-fc9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MUs-Df-gaB" secondAttribute="trailing" constant="25" id="Kca-PZ-MaI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Ogh-tL-8Ml" secondAttribute="bottom" constant="57" id="Ss2-Ei-gEh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ogh-tL-8Ml" secondAttribute="trailing" id="T9K-v3-q2o"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CTP-k3-ISq" secondAttribute="trailing" constant="33" id="Wxf-AO-fQi"/>
+                <constraint firstItem="Ogh-tL-8Ml" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="c0e-fg-Ycd"/>
                 <constraint firstItem="BMM-sT-sOj" firstAttribute="top" secondItem="CTP-k3-ISq" secondAttribute="bottom" constant="8" symbolic="YES" id="gYJ-4z-0w0"/>
                 <constraint firstItem="BMM-sT-sOj" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="kxc-pV-40F"/>
                 <constraint firstItem="MUs-Df-gaB" firstAttribute="top" secondItem="BMM-sT-sOj" secondAttribute="bottom" constant="8" symbolic="YES" id="o3J-fk-6nc"/>

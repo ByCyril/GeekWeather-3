@@ -20,6 +20,14 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var commentLabel: UILabel!
     @IBOutlet var iconView: UIImageView!
+    @IBOutlet var detailedViewLayer: DetailedViewLayer!
+    
+    @IBOutlet var detailedViewFlowLayout: UICollectionViewFlowLayout! {
+        didSet {
+            detailedViewFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+            detailedViewFlowLayout.scrollDirection = .horizontal
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,6 +56,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         if let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel {
             self.weatherModel = weatherModel
             displayData(weatherModel.current)
+            detailedViewLayer.populate(weatherModel)
         }
     }
     
@@ -59,17 +68,19 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? ""
         
         commentLabel.text = "⬆︎\(high)  ⬇︎\(low)"
+        
+        detailedViewLayer.reloadData()
     }
     
     func displayData(_ currentWeatherData: Currently) {
-                
+        
         tempLabel.text = " " + currentWeatherData.temp.kelvinToSystemFormat()
         
         summaryLabel.text = instructions(currentWeatherData.weather.first?.description.capitalized ?? "")
         summaryLabel.numberOfLines = 0
         
-        let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? ""
-        let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? ""
+        let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? "na"
+        let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? "na"
         
         commentLabel.text = "⬆︎\(high)  ⬇︎\(low)"
         commentLabel.numberOfLines = 0

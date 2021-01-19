@@ -10,11 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LevelThreeViewController" customModule="GeekWeather" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="OGQ-ix-gKV" id="GMx-Be-lDx"/>
-                <outlet property="collectionViewFlowLayout" destination="2hT-db-zDS" id="Qfu-zb-tff"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="K9T-R7-Vfl"/>
-                <outlet property="iconView" destination="Ste-fg-zDM" id="Ebc-gu-zkw"/>
-                <outlet property="summaryLabel" destination="blY-dS-Oh6" id="lV9-w5-BYy"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

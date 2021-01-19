@@ -9,44 +9,40 @@
 import UIKit
 import GWFoundation
 
-final class DetailedViewLayer: UICollectionView {
+final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     private var detailsData = [ItemData]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        delegate = self
+        dataSource = self
         backgroundColor = .clear
         register(DetailedViewCell.self, forCellWithReuseIdentifier: "cell")
         flashScrollIndicators()
     }
     
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        super.init(frame: frame, collectionViewLayout: flowLayout)
-    }
-    
     func populate(_ weatherModel: WeatherModel) {
+        
         let current = weatherModel.current
         
         let itemOne = ItemData(firstItemLabel: "Sunrise",
-                                  firstItemValue: current.sunrise.convertTime())
+                               firstItemValue: current.sunrise.convertTime())
         
         let itemTwo = ItemData(firstItemLabel: "Sunset",
-                                  firstItemValue: current.sunset.convertTime())
+                               firstItemValue: current.sunset.convertTime())
         
         let itemThree = ItemData(firstItemLabel: "Dew Point",
-                                    firstItemValue: weatherModel.current.dew_point.kelvinToSystemFormat())
+                                 firstItemValue: weatherModel.current.dew_point.kelvinToSystemFormat())
         
         let itemFour = ItemData(firstItemLabel: "Visibility",
-                                   firstItemValue: weatherModel.current.visibility.mToSystemFormat())
+                                firstItemValue: weatherModel.current.visibility.mToSystemFormat())
         
         let itemFive = ItemData(firstItemLabel: "Chance of Rain",
-                                   firstItemValue: weatherModel.daily.first!.pop.percentage(chop: true))
+                                firstItemValue: weatherModel.daily.first!.pop.percentage(chop: true))
         
         let itemSix = ItemData(firstItemLabel: "Cloud Cover",
-                                  firstItemValue: current.clouds.percentage(chop: true))
+                               firstItemValue: current.clouds.percentage(chop: true))
         
         let uvi = current.uvi
         var uviLevel = uvi.stringRound()
@@ -64,23 +60,35 @@ final class DetailedViewLayer: UICollectionView {
         }
         
         let itemSeven = ItemData(firstItemLabel: "Humidity",
-                                    firstItemValue: current.humidity.percentage(chop: true))
+                                 firstItemValue: current.humidity.percentage(chop: true))
         
         let itemEight = ItemData(firstItemLabel: "UV Index",
-                                    firstItemValue: uviLevel)
+                                 firstItemValue: uviLevel)
         
         let itemNine = ItemData(firstItemLabel: "Wind Speed",
-                                   firstItemValue: current.wind_speed.msToSystemFormat())
+                                firstItemValue: current.wind_speed.msToSystemFormat())
         
         let itemTen = ItemData(firstItemLabel: "Pressure",
-                                  firstItemValue: current.pressure.stringRound() + " hPa")
+                               firstItemValue: current.pressure.stringRound() + " hPa")
         
         detailsData = [itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, itemSeven, itemEight, itemNine, itemTen]
         reloadData()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let firstItem: NSString = detailsData[indexPath.row].firstItemLabel as NSString
+        let firstValue: NSString = detailsData[indexPath.row].firstItemValue as NSString
+        
+        let firstItemWidth = firstItem.size(withAttributes: nil).width
+        let firstValueWidth = firstValue.size(withAttributes: nil).width
+        
+        if firstItemWidth > firstValueWidth {
+            return CGSize(width: firstItemWidth + 125, height: 50)
+        } else {
+            return CGSize(width: firstValueWidth + 125, height: 50)
+        }
+    
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

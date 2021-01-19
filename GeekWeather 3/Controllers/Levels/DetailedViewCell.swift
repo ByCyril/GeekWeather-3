@@ -46,15 +46,17 @@ final class DetailedViewCell: UICollectionViewCell {
             contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
         
+        let padding: CGFloat = 10
+        
         NSLayoutConstraint.activate([
-            firstItemLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            firstItemLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
-            firstItemLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
+            firstItemLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: padding),
+            firstItemLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: padding),
+            firstItemLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
             
-            firstItemValue.topAnchor.constraint(equalTo: firstItemLabel.topAnchor),
-            firstItemValue.leadingAnchor.constraint(equalTo: leadingAnchor),
-            firstItemValue.trailingAnchor.constraint(equalTo: trailingAnchor),
-            firstItemValue.bottomAnchor.constraint(equalTo: bottomAnchor)
+            firstItemValue.topAnchor.constraint(equalTo: firstItemLabel.bottomAnchor),
+            firstItemValue.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            firstItemValue.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            firstItemValue.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)
         ])
         
         layoutIfNeeded()

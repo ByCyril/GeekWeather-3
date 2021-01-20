@@ -22,6 +22,8 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     @IBOutlet var iconView: UIImageView!
     @IBOutlet var detailedViewLayer: DetailedViewLayer!
     
+    @IBOutlet var weatherAlertButton: UIButton!
+    
     @IBOutlet var detailedViewFlowLayout: UICollectionViewFlowLayout! {
         didSet {
             detailedViewFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -36,6 +38,9 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         loadXib(view, self)
         
         createBlurView()
+        
+        weatherAlertButton.layer.cornerRadius = 10
+        weatherAlertButton.isHidden = true
         
         tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
         summaryLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: summaryLabel.font)
@@ -57,6 +62,10 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
             self.weatherModel = weatherModel
             displayData(weatherModel.current)
             detailedViewLayer.populate(weatherModel)
+            
+            if let alerts = weatherModel.alerts {
+                weatherAlert(alerts)
+            }
         }
     }
     
@@ -93,6 +102,16 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         }
         
         accessibilityElements()
+    }
+    
+    func weatherAlert(_ alerts: [Alert]) {
+        weatherAlertButton.isHidden = false
+        weatherAlertButton.transform = .init(translationX: 0, y: -100)
+        
+        UIView.animate(withDuration: 0.4, delay: 1, options: .curveEaseInOut) {
+            self.weatherAlertButton.transform = .identity
+        }
+
     }
     
     func accessibilityElements() {

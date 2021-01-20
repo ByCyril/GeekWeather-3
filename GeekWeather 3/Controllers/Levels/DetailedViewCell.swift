@@ -15,8 +15,7 @@ final class DetailedViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        
-        
+                
         let label = GWFont.AvenirNext(style: .Regular, size: 15)
         let value = GWFont.AvenirNext(style: .Medium, size: 25)
         
@@ -35,7 +34,6 @@ final class DetailedViewCell: UICollectionViewCell {
     
         contentView.addSubview(firstItemLabel)
         contentView.addSubview(firstItemValue)
-        
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
         

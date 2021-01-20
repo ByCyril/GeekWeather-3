@@ -32,22 +32,22 @@ final class DailyViewCell: UITableViewCell {
         
         backgroundColor = .clear
         
-        containerView.backgroundColor = UIColor.white.withAlphaComponent(0.15)
-        containerView.layer.cornerRadius = 20
-        
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(containerView)
-        
+//        containerView.backgroundColor = UIColor.white.withAlphaComponent(0.15)
+//        containerView.layer.cornerRadius = 20
+//
+//        containerView.translatesAutoresizingMaskIntoConstraints = false
+//        addSubview(containerView)
+//
         let padding: CGFloat = 10
-        
-        
-        NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
-            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding * 2),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding * 2),
-            containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)
-        ])
-        
+//
+//
+//        NSLayoutConstraint.activate([
+//            containerView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+//            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding * 2),
+//            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding * 2),
+//            containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)
+//        ])
+//
         dayLabel.minimumScaleFactor = 0.1
         dayLabel.font = GWFont.AvenirNext(style: .Medium, size: 25)
         highTempLabel.font = GWFont.AvenirNext(style: .Bold, size: 27)
@@ -66,7 +66,7 @@ final class DailyViewCell: UITableViewCell {
         
         [dayLabel, iconView, tempContainerView].forEach { (element) in
             element.translatesAutoresizingMaskIntoConstraints = false
-            containerView.addSubview(element)
+            addSubview(element)
         }
     }
     
@@ -82,17 +82,17 @@ final class DailyViewCell: UITableViewCell {
         let padding: CGFloat = 10
         
         iPhoneHorizontalLayoutConstraints = [
-            iconView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
-            iconView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            iconView.centerYAnchor.constraint(equalTo: centerYAnchor),
             iconView.heightAnchor.constraint(equalToConstant: 45),
             iconView.widthAnchor.constraint(equalToConstant: 45),
             
-            dayLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: padding),
-            dayLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -padding),
+            dayLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            dayLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
             dayLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: padding),
             
-            tempContainerView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            tempContainerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding)
+            tempContainerView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            tempContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding)
         ]
         
         NSLayoutConstraint.deactivate(iPhoneVerticalLayoutConstraints)
@@ -105,19 +105,19 @@ final class DailyViewCell: UITableViewCell {
         tempContainerView.alignment = .leading
         
         iPhoneVerticalLayoutConstraints = [
-            iconView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
+            iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             iconView.heightAnchor.constraint(equalToConstant: 75),
             iconView.widthAnchor.constraint(equalToConstant: 75),
             iconView.centerYAnchor.constraint(equalTo: dayLabel.centerYAnchor),
             
-            dayLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
+            dayLabel.topAnchor.constraint(equalTo: topAnchor),
             dayLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: padding),
             dayLabel.bottomAnchor.constraint(equalTo: tempContainerView.topAnchor, constant: -padding),
-            dayLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            dayLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             tempContainerView.topAnchor.constraint(equalTo: dayLabel.bottomAnchor),
-            tempContainerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
-            tempContainerView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -padding),
+            tempContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            tempContainerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
         ]
         
         NSLayoutConstraint.deactivate(iPhoneHorizontalLayoutConstraints)

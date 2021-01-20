@@ -66,10 +66,10 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     private let errorTextView = UITextView()
     
     private let loadingView: AnimationView = {
-        let animation = AnimationView(name: "location-loading")
+        let animation = AnimationView(name: "fetching")
         animation.translatesAutoresizingMaskIntoConstraints = false
         animation.alpha = 0
-        animation.animationSpeed = 1.75
+        animation.animationSpeed = 0.85
         animation.loopMode = .loop
         animation.play()
         return animation

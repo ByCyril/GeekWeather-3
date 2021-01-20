@@ -25,20 +25,7 @@ final class HourlyViewCell: UICollectionViewCell {
     }
     
     func initUI() {
-        
-        let view = UIView()
-        view.layer.cornerRadius = 20
-        view.backgroundColor = UIColor.white.withAlphaComponent(0.15)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        
-        NSLayoutConstraint.activate([
-            view.topAnchor.constraint(equalTo: topAnchor),
-            view.bottomAnchor.constraint(equalTo: bottomAnchor),
-            view.trailingAnchor.constraint(equalTo: trailingAnchor),
-            view.leadingAnchor.constraint(equalTo: leadingAnchor)
-        ])
-        
+
         timestampLabel.font = GWFont.AvenirNext(style: .Medium, size: 19)
         timestampLabel.adjustsFontSizeToFitWidth = true
         timestampLabel.textAlignment = .center

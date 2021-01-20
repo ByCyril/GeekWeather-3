@@ -46,7 +46,7 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
         
         if Mocks.showMockedResponse() {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-                self?.delegate?.didFinishFetching(weatherModel: Mocks.mock(), location: "Sunnyvale, CA")
+                self?.delegate?.didFinishFetching(weatherModel: Mocks.mock(), location: "Mock Data")
             }
             return
         }
@@ -108,7 +108,7 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
   
     func beginFetchingWeatherData(_ location: CLLocation,_ locationStr: String) {
         let url = RequestURL(location: location)
-        
+        print("👀 URL",url.url.absoluteString)
         networkManager.fetch(url) { [weak self] (weatherModel, error) in
             DispatchQueue.main.async { [weak self] in
                 UserDefaults.standard.setValue(Date(), forKey: SharedUserDefaults.Keys.LastUpdated)

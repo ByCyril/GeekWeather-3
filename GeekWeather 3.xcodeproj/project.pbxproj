@@ -62,6 +62,10 @@
 		01328D1225B6CD1E00E29B31 /* DailyViewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D1125B6CD1E00E29B31 /* DailyViewLayer.swift */; };
 		01328D1A25B6D0D100E29B31 /* DetailedViewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D1925B6D0D100E29B31 /* DetailedViewLayer.swift */; };
 		01328D1E25B6D28C00E29B31 /* DetailedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D1D25B6D28C00E29B31 /* DetailedViewCell.swift */; };
+		01328D2B25B7A12C00E29B31 /* fetching.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D2A25B7A12C00E29B31 /* fetching.json */; };
+		01328D3925B7BD1000E29B31 /* DetailedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D3825B7BD1000E29B31 /* DetailedFlowLayout.swift */; };
+		01328D4125B7D45500E29B31 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
+		01328D4525B7D66200E29B31 /* WeatherAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D4425B7D66200E29B31 /* WeatherAlertController.swift */; };
 		0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */; };
 		01430F31259B1EFA00D67245 /* ToggleOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */; };
 		01430F37259BF4DB00D67245 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01430F35259BF4DB00D67245 /* Model.xcdatamodeld */; };
@@ -220,6 +224,10 @@
 		01328D1125B6CD1E00E29B31 /* DailyViewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewLayer.swift; sourceTree = "<group>"; };
 		01328D1925B6D0D100E29B31 /* DetailedViewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewLayer.swift; sourceTree = "<group>"; };
 		01328D1D25B6D28C00E29B31 /* DetailedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewCell.swift; sourceTree = "<group>"; };
+		01328D2A25B7A12C00E29B31 /* fetching.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fetching.json; sourceTree = "<group>"; };
+		01328D3825B7BD1000E29B31 /* DetailedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedFlowLayout.swift; sourceTree = "<group>"; };
+		01328D4025B7D45500E29B31 /* demo3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo3.json; sourceTree = "<group>"; };
+		01328D4425B7D66200E29B31 /* WeatherAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAlertController.swift; sourceTree = "<group>"; };
 		0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeViewController.swift; sourceTree = "<group>"; };
 		01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleOnboarding.swift; sourceTree = "<group>"; };
 		01430F36259BF4DB00D67245 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -347,10 +355,12 @@
 			children = (
 				0169434224E24974006A7FAA /* GeekWeather 3.entitlements */,
 				01FCE337258B21E200C841C8 /* demo.json */,
+				01328D4025B7D45500E29B31 /* demo3.json */,
 				0157E8E0259144270026706D /* denied.json */,
 				012D3B1D25A0427C0093ED51 /* preview.json */,
 				018F66D125A6F5F700FFC539 /* loading.json */,
 				018F66D225A6F5F700FFC539 /* location-loading.json */,
+				01328D2A25B7A12C00E29B31 /* fetching.json */,
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
 				012D3AE0259FEDC60093ED51 /* SharedUserDefaults.swift */,
@@ -446,11 +456,13 @@
 			children = (
 				0169434024E244B2006A7FAA /* BaseView.swift */,
 				01871D0925AD706000E5817D /* DetailsViewModal.swift */,
+				01328D4425B7D66200E29B31 /* WeatherAlertController.swift */,
 				01328D1125B6CD1E00E29B31 /* DailyViewLayer.swift */,
 				01B9487F259A687200884150 /* DailyViewCell.swift */,
 				01D28B4625B6C6F7005CD583 /* HourlyViewLayer.swift */,
 				01B9487B259A654400884150 /* HourlyViewCell.swift */,
 				01328D1925B6D0D100E29B31 /* DetailedViewLayer.swift */,
+				01328D3825B7BD1000E29B31 /* DetailedFlowLayout.swift */,
 				01328D1D25B6D28C00E29B31 /* DetailedViewCell.swift */,
 				01844A1A24F22633000B0D52 /* LevelOne */,
 				01844A1D24F22658000B0D52 /* LevelTwo */,
@@ -828,8 +840,10 @@
 				018F66D325A6F5F700FFC539 /* loading.json in Resources */,
 				01190992259D8BEA00EE1C0F /* Settings.storyboard in Resources */,
 				01844A1C24F22646000B0D52 /* LevelTwoViewController.xib in Resources */,
+				01328D2B25B7A12C00E29B31 /* fetching.json in Resources */,
 				01844A1824F2219F000B0D52 /* LevelOneViewController.xib in Resources */,
 				0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */,
+				01328D4125B7D45500E29B31 /* demo3.json in Resources */,
 				018F66D425A6F5F700FFC539 /* location-loading.json in Resources */,
 				01844A1624F22113000B0D52 /* Main.storyboard in Resources */,
 				0157E8E3259144270026706D /* denied.json in Resources */,
@@ -932,6 +946,7 @@
 				01328D1A25B6D0D100E29B31 /* DetailedViewLayer.swift in Sources */,
 				01D0081E259EDB5100032D17 /* FormatSettingsController.swift in Sources */,
 				0158D02A2505DF0C008692DC /* SearchLocationViewController.swift in Sources */,
+				01328D3925B7BD1000E29B31 /* DetailedFlowLayout.swift in Sources */,
 				0153693425174D580044D108 /* GWTransition.swift in Sources */,
 				0119098E259D891B00EE1C0F /* HapticManager.swift in Sources */,
 				0169434124E244B2006A7FAA /* BaseView.swift in Sources */,
@@ -952,6 +967,7 @@
 				01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */,
 				011C620125A3C93B00F131D0 /* HourlyView.swift in Sources */,
 				0119099A259D8CDC00EE1C0F /* HapticFeedbackController.swift in Sources */,
+				01328D4525B7D66200E29B31 /* WeatherAlertController.swift in Sources */,
 				01328D1225B6CD1E00E29B31 /* DailyViewLayer.swift in Sources */,
 				018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */,
 				0127D14E2597D72200298ABD /* GWFont.swift in Sources */,

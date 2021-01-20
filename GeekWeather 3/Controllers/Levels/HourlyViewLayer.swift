@@ -14,7 +14,7 @@ final class HourlyViewLayer: UIView, UICollectionViewDelegateFlowLayout {
     var hourlyView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 75, height: 150)
+        layout.itemSize = CGSize(width: 55, height: 150)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -54,9 +54,6 @@ final class HourlyViewLayer: UIView, UICollectionViewDelegateFlowLayout {
         let registration = UICollectionView.CellRegistration<HourlyViewCell, Hourly> { cell, indexPath, data in
             
             if (data.weather.first!.icon == "sunrise" || data.weather.first!.icon == "sunset") {
-                if data.dt < Date().timeIntervalSince1970 {
-                    return
-                }
                 let time = data.dt.convertTime()
                 cell.timestampLabel.text = time
                 cell.timestampLabel.adjustsFontSizeToFitWidth = true
@@ -102,7 +99,7 @@ final class HourlyViewLayer: UIView, UICollectionViewDelegateFlowLayout {
         if hourly[indexPath.row].weather.first?.icon == "sunrise" || hourly[indexPath.row].weather.first?.icon == "sunset" {
             return CGSize(width: 110, height: 128)
         } else {
-            return CGSize(width: 75, height: 128)
+            return CGSize(width: 55, height: 128)
         }
     }
 }

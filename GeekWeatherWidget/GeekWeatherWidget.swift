@@ -16,8 +16,8 @@ struct GeekWeatherSmallWidget: Widget {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
             TodayViewSmall(entry: entry)
         }.supportedFamilies([.systemSmall])
-        .configurationDisplayName("GeekWeather Widget")
-        .description("Today View")
+        .configurationDisplayName("Small GeekWeather Widget")
+        .description("Simple widget")
     }
 }
 
@@ -28,11 +28,10 @@ struct GeekWeatherLargeLabeledWidget: Widget {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
             LargeLabeledWidget(entry: entry)
         }.supportedFamilies([.systemSmall])
-        .configurationDisplayName("GeekWeather Widget")
-        .description("Today View Large Label")
+        .configurationDisplayName("Small GeekWeather Widget")
+        .description("Simple widget with large label")
     }
 }
-
 
 struct GeekWeatherSmallDetailedWidget: Widget {
     let kind: String = "GeekWeatherSmallDetailedWidget"
@@ -41,8 +40,8 @@ struct GeekWeatherSmallDetailedWidget: Widget {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
             DetailedSmallView(entry: entry)
         }.supportedFamilies([.systemSmall])
-        .configurationDisplayName("GeekWeather Widget")
-        .description("Detailed Today View")
+        .configurationDisplayName("Small GeekWeather Widget")
+        .description("Simple widget with daily view")
     }
 }
 
@@ -53,8 +52,8 @@ struct GeekWeatherDetailedTodayWidget: Widget {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
             DetailedTodayView(entry: entry)
         }.supportedFamilies([.systemSmall])
-        .configurationDisplayName("GeekWeather Widget")
-        .description("Detailed Today View")
+        .configurationDisplayName("Small GeekWeather Widget")
+        .description("Detailed widget with detailed conditions")
     }
 }
 
@@ -65,7 +64,7 @@ struct GeekWeatherMediumDetailedWidget: Widget {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
             TodayViewMedium(entry: entry)
         }.supportedFamilies([.systemMedium])
-        .configurationDisplayName("GeekWeather Widget")
+        .configurationDisplayName("Medium GeekWeather Widget")
         .description("Detailed Medium Widget")
     }
 }

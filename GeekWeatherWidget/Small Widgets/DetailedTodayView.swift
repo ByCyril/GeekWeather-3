@@ -65,14 +65,19 @@ struct DetailedTodayView: View {
                         HStack {
                             Image(systemName: "cloud.rain")
                                 .resizable()
-                                .frame(width: smallIcon, height: smallIcon, alignment: .center).foregroundColor(.white)
-                            Text(entry.weatherModel.daily.first!.pop.percentage(chop: false)).font(Font.custom("AvenirNext-Medium", size: 12)).foregroundColor(.white)
+                                .frame(width: smallIcon, height: smallIcon, alignment: .center)
+                                .foregroundColor(.white)
+                            Text(entry.weatherModel.daily.first!.pop.percentage(chop: false)).font(Font.custom("AvenirNext-Medium", size: 12))
+                                .foregroundColor(.white)
                         }
                         HStack {
                             Image(systemName: "cloud")
                                 .resizable()
-                                .frame(width: smallIcon, height: smallIcon, alignment: .center).foregroundColor(.white)
-                            Text(entry.weatherModel.daily.first!.clouds.percentage(chop: true)).font(Font.custom("AvenirNext-Medium", size: 12)).foregroundColor(.white)
+                                .frame(width: smallIcon, height: smallIcon, alignment: .center)
+                                .foregroundColor(.white)
+                            Text(entry.weatherModel.daily.first!.clouds.percentage(chop: true))
+                                .font(Font.custom("AvenirNext-Medium", size: 12))
+                                .foregroundColor(.white)
                         }
                     }
                 }

@@ -100,6 +100,8 @@
 		018F66D425A6F5F700FFC539 /* location-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D225A6F5F700FFC539 /* location-loading.json */; };
 		018F66E025A7CB7400FFC539 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018F66DF25A7CB7400FFC539 /* CustomNavigationController.swift */; };
 		0197FB5325913AA6000C4640 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197FB5225913AA6000C4640 /* ErrorViewController.swift */; };
+		0198005A25B803F700600DC3 /* TodayViewDetailedMediumWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198005925B803F700600DC3 /* TodayViewDetailedMediumWidget.swift */; };
+		0198005D25B8067D00600DC3 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
 		01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */; };
 		01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB724EDBE520081C90F /* SettingManager.swift */; };
 		01B1BEBD24EE33320081C90F /* UnitSelectorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEBC24EE33320081C90F /* UnitSelectorItem.swift */; };
@@ -261,6 +263,7 @@
 		018F66D225A6F5F700FFC539 /* location-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "location-loading.json"; sourceTree = "<group>"; };
 		018F66DF25A7CB7400FFC539 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		0197FB5225913AA6000C4640 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		0198005925B803F700600DC3 /* TodayViewDetailedMediumWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewDetailedMediumWidget.swift; sourceTree = "<group>"; };
 		01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoItem.swift; sourceTree = "<group>"; };
 		01B1BEB724EDBE520081C90F /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 		01B1BEBC24EE33320081C90F /* UnitSelectorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSelectorItem.swift; sourceTree = "<group>"; };
@@ -641,6 +644,7 @@
 			children = (
 				0127D1142595736F00298ABD /* TodayViewMedium.swift */,
 				01674F9725B41079002B9724 /* TodayViewSimpleWidget.swift */,
+				0198005925B803F700600DC3 /* TodayViewDetailedMediumWidget.swift */,
 			);
 			path = "Medium Widgets";
 			sourceTree = "<group>";
@@ -867,6 +871,7 @@
 				0103B8872595311D008577FD /* Assets.xcassets in Resources */,
 				012D3B0125A037E10093ED51 /* demo.json in Resources */,
 				012D3B1F25A0427C0093ED51 /* preview.json in Resources */,
+				0198005D25B8067D00600DC3 /* demo3.json in Resources */,
 				0103B847259449E9008577FD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1020,6 +1025,7 @@
 				01674F6A25B3B0CE002B9724 /* DetailedSmallView.swift in Sources */,
 				01674F8D25B3D9A6002B9724 /* LargeLabeledWidget.swift in Sources */,
 				010F7DB8259C129C00D53BFA /* GWFont.swift in Sources */,
+				0198005A25B803F700600DC3 /* TodayViewDetailedMediumWidget.swift in Sources */,
 				0103B89A25955EA5008577FD /* WidgetNetworkManager.swift in Sources */,
 				0103B8932595524C008577FD /* NotificationManager.swift in Sources */,
 				0103B88F2595522D008577FD /* Mocks.swift in Sources */,
@@ -1195,7 +1201,7 @@
 				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2";
 				PRODUCT_NAME = GeekWeather;
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1221,7 +1227,7 @@
 				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2";
 				PRODUCT_NAME = GeekWeather;
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1294,7 +1300,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2.GeekWeatherWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1320,7 +1326,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2.GeekWeatherWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -66,7 +66,7 @@ struct GeekWeatherMediumDetailedWidget: Widget {
             TodayViewMedium(entry: entry)
         }.supportedFamilies([.systemMedium])
         .configurationDisplayName("GeekWeather Widget")
-        .description("Medium Detailed Widget")
+        .description("Detailed Medium Widget")
     }
 }
 
@@ -78,6 +78,18 @@ struct GeekWeatherMediumSimpleWidget: Widget {
             TodayViewSimpleWidget(entry: entry)
         }.supportedFamilies([.systemMedium])
         .configurationDisplayName("GeekWeather Widget")
-        .description("Medium Simple Widget")
+        .description("Simple Medium Widget")
+    }
+}
+
+struct GeekWeatherMediumMoreDetailedWidget: Widget {
+    let kind: String = "GeekWeatherMediumMoreDetailedWidget"
+
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
+            TodayViewDetailedMediumWidget(entry: entry)
+        }.supportedFamilies([.systemMedium])
+        .configurationDisplayName("GeekWeather Widget")
+        .description("More Detailed Medium Widget")
     }
 }

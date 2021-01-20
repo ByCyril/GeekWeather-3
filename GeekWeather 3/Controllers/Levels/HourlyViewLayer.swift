@@ -14,7 +14,7 @@ final class HourlyViewLayer: UIView, UICollectionViewDelegateFlowLayout {
     var hourlyView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 55, height: 150)
+        layout.itemSize = CGSize(width: 70, height: 150)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -54,7 +54,7 @@ final class HourlyViewLayer: UIView, UICollectionViewDelegateFlowLayout {
         let registration = UICollectionView.CellRegistration<HourlyViewCell, Hourly> { cell, indexPath, data in
             
             if (data.weather.first!.icon == "sunrise" || data.weather.first!.icon == "sunset") {
-                let time = data.dt.convertTime()
+                let time = data.dt.convertTime().lowercased()
                 cell.timestampLabel.text = time
                 cell.timestampLabel.adjustsFontSizeToFitWidth = true
                 cell.timestampLabel.minimumScaleFactor = 0.5
@@ -64,7 +64,7 @@ final class HourlyViewLayer: UIView, UICollectionViewDelegateFlowLayout {
                 cell.tempLabel.minimumScaleFactor = 0.5
                 
             } else {
-                let time = (indexPath.row == 0) ? "Now" : data.dt.convertHourTime()
+                let time = (indexPath.row == 0) ? "Now" : data.dt.convertHourTime().lowercased()
                 cell.timestampLabel.adjustsFontSizeToFitWidth = false
                 cell.timestampLabel.minimumScaleFactor = 1
                 cell.timestampLabel.text = time
@@ -99,7 +99,7 @@ final class HourlyViewLayer: UIView, UICollectionViewDelegateFlowLayout {
         if hourly[indexPath.row].weather.first?.icon == "sunrise" || hourly[indexPath.row].weather.first?.icon == "sunset" {
             return CGSize(width: 110, height: 128)
         } else {
-            return CGSize(width: 55, height: 128)
+            return CGSize(width: 70, height: 128)
         }
     }
 }

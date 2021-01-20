@@ -64,7 +64,12 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
             detailedViewLayer.populate(weatherModel)
             
             if let alerts = weatherModel.alerts {
+                weatherAlertButton.isHidden = false
+                weatherAlertButton.transform = .init(translationX: 0, y: -100)
+                
                 weatherAlert(alerts)
+            } else {
+                weatherAlertButton.isHidden = true
             }
         }
     }
@@ -105,13 +110,9 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     }
     
     func weatherAlert(_ alerts: [Alert]) {
-        weatherAlertButton.isHidden = false
-        weatherAlertButton.transform = .init(translationX: 0, y: -100)
-        
         UIView.animate(withDuration: 0.4, delay: 1, options: .curveEaseInOut) {
             self.weatherAlertButton.transform = .identity
         }
-
     }
     
     func accessibilityElements() {

@@ -13,19 +13,26 @@ import WidgetKit
 struct GeekWeatherWidgetBundle: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
+        SmallBundles().body
+        MediumBundles().body
+    }
+}
+
+struct SmallBundles: WidgetBundle {
+    @WidgetBundleBuilder
+    var body: some Widget {
         GeekWeatherSmallWidget()
         GeekWeatherLargeLabeledWidget()
         GeekWeatherSmallDetailedWidget()
         GeekWeatherDetailedTodayWidget()
-        MediumBundles().body
     }
-    
 }
 
 struct MediumBundles: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
-        GeekWeatherMediumDetailedWidget()
         GeekWeatherMediumSimpleWidget()
+        GeekWeatherMediumDetailedWidget()
+        GeekWeatherMediumMoreDetailedWidget()
     }
 }

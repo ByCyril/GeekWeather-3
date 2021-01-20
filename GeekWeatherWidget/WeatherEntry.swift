@@ -20,6 +20,7 @@ struct WidgetWeatherModel {
     var currently: Currently
     var hourly: [Hourly]
     var daily: [Daily]
+    var alerts: [Alert]?
 }
 
 struct WeatherEntry: TimelineEntry {
@@ -31,10 +32,10 @@ struct WeatherEntry: TimelineEntry {
 extension WeatherEntry {
     
     static var stub: WeatherEntry {
-        WeatherEntry(date: Date(), weatherModel: WidgetWeatherModel(location: "San Jose, CA", temp: "71°", icon: "01d", lastUpdated: "-", feelsLike: "-", summary: "Clear Sky", currently: Mocks.mock().current, hourly: Mocks.mock().hourly, daily: Mocks.mock().daily))
+        WeatherEntry(date: Date(), weatherModel: WidgetWeatherModel(location: "San Jose, CA", temp: "71°", icon: "01d", lastUpdated: "-", feelsLike: "-", summary: "Clear Sky", currently: Mocks.mock().current, hourly: Mocks.mock().hourly, daily: Mocks.mock().daily, alerts: Mocks.mock().alerts))
     }
     
     static var placeholder: WeatherEntry {
-        WeatherEntry(date: Date(), weatherModel: WidgetWeatherModel(location: "San Jose, CA", temp: "71°", icon: "01d", lastUpdated: "-", feelsLike: "-", summary: "-", currently: Mocks.mock().current, hourly: Mocks.mock().hourly, daily: Mocks.mock().daily), isPlaceholder: true)
+        WeatherEntry(date: Date(), weatherModel: WidgetWeatherModel(location: "San Jose, CA", temp: "71°", icon: "01d", lastUpdated: "-", feelsLike: "-", summary: "-", currently: Mocks.mock().current, hourly: Mocks.mock().hourly, daily: Mocks.mock().daily, alerts: Mocks.mock().alerts), isPlaceholder: true)
     }
 }

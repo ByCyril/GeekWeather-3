@@ -42,12 +42,12 @@ struct DetailedSmallView: View {
                             let icon = data.weather.first!.icon
                             
                             if (icon == "sunrise" || icon == "sunset") {
-                                let time = data.dt.convertTime()
+                                let time = data.dt.convertTime().lowercased()
                                 TodayViewSmallitem(time: time,
                                                    icon: icon,
                                                    date: icon.capitalized).frame(width: 50)
                             } else {
-                                TodayViewSmallitem(time: data.dt.convertHourTime(),
+                                TodayViewSmallitem(time: data.dt.convertHourTime().lowercased(),
                                                    icon: icon,
                                                    date: data.temp.kelvinToSystemFormat())
                             }

@@ -17,7 +17,7 @@ struct TodayViewSmallitem: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Text(time)
+            Text(time.lowercased())
                 .font(Font.custom("AvenirNext-Medium", size: 12))
                 .allowsTightening(true)
                 .lineLimit(1)

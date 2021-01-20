@@ -45,28 +45,29 @@ struct TodayViewMedium: View {
             
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
-                    VStack(spacing: 0) {
-                        Text(entry.weatherModel.location)
-                            .font(Font.custom("AvenirNext-Medium", size: 15))
-                            .foregroundColor(.white)
+                    HStack(spacing: 15) {
+                        Image(entry.weatherModel.icon)
+                            .resizable().frame(width: 45, height: 45, alignment: .center)
+                            .cornerRadius(15)
                         Text(entry.weatherModel.temp)
                             .font(Font.custom("AvenirNext-Bold", size: 35))
                             .foregroundColor(.white)
                             .minimumScaleFactor(0.2)
                             .allowsTightening(true)
                             .lineLimit(1)
+                        
                     }.padding(.leading).padding(.top)
                     Spacer()
-                    VStack(spacing: 0) {
-                        Image(entry.weatherModel.icon)
-                            .resizable().frame(width: 45, height: 45, alignment: .center)
-                            .cornerRadius(15)
+                    VStack(alignment: .center, spacing: 0) {
+                        
                         Text(entry.weatherModel.summary)
+                            .font(Font.custom("AvenirNext-Medium", size: 21))
+                            .foregroundColor(.white)
+                        Text(entry.weatherModel.location)
                             .font(Font.custom("AvenirNext-Medium", size: 15))
                             .foregroundColor(.white)
-                        Spacer()
                     }.padding(.trailing).padding(.top)
-                }
+                }.padding()
                 
                 HStack(spacing: 15) {
                     if let hourly = entry.weatherModel.hourly {

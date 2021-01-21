@@ -18,6 +18,11 @@ struct TodayViewSimpleWidget: View {
             LinearGradient(gradient: Gradient(colors: [Color("System-GradientTopColor"),Color("System-GradientBottomColor")]), startPoint: .top, endPoint: .bottom)
             
             HStack {
+                Image(entry.weatherModel.currently.weather.first!.icon)
+                    .resizable()
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .cornerRadius(15).padding(.leading).padding(.trailing)
+                
                 VStack(alignment: .leading, spacing: 0) {
                     Text(entry.weatherModel.temp)
                         .font(Font.custom("AvenirNext-Bold", size: 50))
@@ -30,14 +35,14 @@ struct TodayViewSimpleWidget: View {
                         .minimumScaleFactor(0.2)
                         .allowsTightening(true)
                         .lineLimit(1)
-                        .foregroundColor(.white).padding(EdgeInsets(top: -12, leading: 0, bottom: 0, trailing: 0))
-                    Text(entry.weatherModel.location).font(Font.custom("AvenirNext-Regular", size: 17)).foregroundColor(.white)
+                        .foregroundColor(.white)
+                        .padding(EdgeInsets(top: -12, leading: 0, bottom: 0, trailing: 0))
+                    Text(entry.weatherModel.location)
+                        .font(Font.custom("AvenirNext-Regular", size: 17))
+                        .foregroundColor(.white)
                     
                 }.padding(.leading)
                 
-                Image(entry.weatherModel.currently.weather.first!.icon).resizable()
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .cornerRadius(15).padding(.leading).padding(.trailing)
             }
             
         }

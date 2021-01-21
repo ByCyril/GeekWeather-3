@@ -39,8 +39,9 @@ final class Mocks {
         
         let decode = JSONDecoder()
         let model = try! decode.decode(WeatherModel.self, from: data)
-        
-        return model
+
+        let format = NetworkManager().formatData(response: model)
+        return format
     }
     
     static func showMockedResponse() -> Bool {

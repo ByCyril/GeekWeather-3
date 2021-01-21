@@ -27,26 +27,26 @@ extension Double {
     }
     
     func mToSystemFormat() -> String {
-        guard let measure = sharedUserDefaults?.integer(forKey: SharedUserDefaults.Keys.Units) else { return self.stringRound() + " m" }
+        guard let measure = sharedUserDefaults?.integer(forKey: SharedUserDefaults.Keys.Units) else { return self.stringRound() + "m" }
         
         if measure == 0 {
-            return self.stringRound() + " m"
+            return self.stringRound() + "m"
         } else if measure == 1 {
-            return (self / 1609).stringRound() + " mi"
+            return (self / 1609).stringRound() + "mi"
         } else {
-            return (self / 1000).stringRound() + " km"
+            return (self / 1000).stringRound() + "km"
         }
     }
     
     func msToSystemFormat() -> String {
-        guard let measure = sharedUserDefaults?.integer(forKey: SharedUserDefaults.Keys.Units) else { return self.stringRound() + " m/s" }
+        guard let measure = sharedUserDefaults?.integer(forKey: SharedUserDefaults.Keys.Units) else { return self.stringRound() + "m/s" }
         
         if measure == 0 {
-            return self.stringRound() + " m/s"
+            return self.stringRound() + "m/s"
         } else if measure == 1 {
-            return (self * 2.23694).stringRound() + " mph"
+            return (self * 2.23694).stringRound() + "mph"
         } else {
-            return (self * 3.6).stringRound() + " km/h"
+            return (self * 3.6).stringRound() + "km/h"
         }
     }
     

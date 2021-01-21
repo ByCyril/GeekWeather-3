@@ -110,6 +110,8 @@
 		0198009B25B8D3B300600DC3 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* Mocks.swift */; };
 		0198009F25B8D3D200600DC3 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D3AE0259FEDC60093ED51 /* SharedUserDefaults.swift */; };
 		019800BE25B8D6A400600DC3 /* NetworkLayerIntentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019800BD25B8D6A400600DC3 /* NetworkLayerIntentExtension.swift */; };
+		019800CC25B921D200600DC3 /* WidgetNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B89625955B25008577FD /* WidgetNetworkManager.swift */; };
+		019800D625B9279200600DC3 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
 		01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */; };
 		01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB724EDBE520081C90F /* SettingManager.swift */; };
 		01B1BEBD24EE33320081C90F /* UnitSelectorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEBC24EE33320081C90F /* UnitSelectorItem.swift */; };
@@ -941,6 +943,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				019800D625B9279200600DC3 /* demo3.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,6 +1118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0198009F25B8D3D200600DC3 /* SharedUserDefaults.swift in Sources */,
+				019800CC25B921D200600DC3 /* WidgetNetworkManager.swift in Sources */,
 				0198007A25B8D35900600DC3 /* IntentHandler.swift in Sources */,
 				0198008225B8D36700600DC3 /* GeekWeatherIntents.intentdefinition in Sources */,
 				0198009B25B8D3B300600DC3 /* Mocks.swift in Sources */,

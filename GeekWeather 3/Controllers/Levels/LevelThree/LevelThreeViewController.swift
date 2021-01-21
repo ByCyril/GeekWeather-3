@@ -8,6 +8,7 @@
 
 import UIKit
 import GWFoundation
+import MapKit
 
 extension String {
     func capitalizingFirstLetter() -> String {
@@ -22,6 +23,7 @@ extension String {
 struct ItemData {
     var firstItemLabel: String
     var firstItemValue: String
+    var width: CGFloat
 }
 
 struct DetailsData {
@@ -34,13 +36,14 @@ struct DetailsData {
 final class LevelThreeViewController: BaseView {
     
     @IBOutlet weak var containerView: UIView!
-    private var detailsData = [ItemData]()
+    @IBOutlet weak var mapView: MKMapView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         let view = Bundle.main.loadNibNamed("LevelThreeViewController", owner: self, options: nil)?.first as! LevelThreeViewController
         loadXib(view, self)
+        mapView.clipsToBounds = true
         createBlurView()
     }
     

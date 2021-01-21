@@ -40,8 +40,8 @@ struct LevelThreeView: View {
     
     var body: some View {
         WHStack(spacing: 0) {
-            LevelThreeCell(title: "Sunrise", value: weatherModel.current.sunrise.convertTime())
-            LevelThreeCell(title: "Sunset", value: weatherModel.current.sunset.convertTime())
+            LevelThreeCell(title: "Sunrise", value: weatherModel.current.sunrise.convertTime().lowercased())
+            LevelThreeCell(title: "Sunset", value: weatherModel.current.sunset.convertTime().lowercased())
             LevelThreeCell(title: "Dew Point", value: weatherModel.current.dew_point.kelvinToSystemFormat())
             LevelThreeCell(title: "Visibility", value: weatherModel.current.visibility.mToSystemFormat())
             LevelThreeCell(title: "Chance of Rain", value: weatherModel.daily.first!.pop.percentage(chop: false))

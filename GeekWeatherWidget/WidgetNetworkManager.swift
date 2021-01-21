@@ -10,6 +10,12 @@ import Foundation
 import CoreLocation
 import GWFoundation
 
+extension LocationParam {
+    convenience init(location: CLLocation) {
+        self.init(identifier: "", display: "")
+    }
+}
+
 final class WidgetNetworkManager: NSObject, CLLocationManagerDelegate {
     
     var session: URLSession?

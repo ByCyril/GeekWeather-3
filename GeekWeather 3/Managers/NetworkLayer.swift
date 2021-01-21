@@ -55,6 +55,10 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
         locationManager?.delegate = self
     }
     
+    func fetch(_ callback: @escaping (WeatherModel?, Error?, String?) -> Void) {
+        
+    }
+    
     func authorizationEnabled(_ manager: CLLocationManager) {
         manager.startUpdatingLocation()
         if let location = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.DefaultLocation) as? [String: Any] {

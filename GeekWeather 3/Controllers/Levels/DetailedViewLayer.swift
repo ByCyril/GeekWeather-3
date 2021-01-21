@@ -9,12 +9,24 @@
 import UIKit
 import GWFoundation
 
+extension DetailedViewLayer: DetailedFlowLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView, widthForItemAtIndexPath indexPath: IndexPath) -> CGFloat {
+        return detailsData[indexPath.row].width
+    }
+}
+
 final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     private var detailsData = [ItemData]()
+    private var weatherModel: WeatherModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        if let layout = collectionViewLayout as? DetailedFlowLayout {
+          layout.delegate = self
+        }
+        
         delegate = self
         dataSource = self
         backgroundColor = .clear
@@ -22,27 +34,39 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
         flashScrollIndicators()
     }
     
+    func update() {
+        guard let weatherModel = self.weatherModel else { return }
+        populate(weatherModel)
+    }
+    
     func populate(_ weatherModel: WeatherModel) {
         
+        self.weatherModel = weatherModel
         let current = weatherModel.current
         
         let itemOne = ItemData(firstItemLabel: "Sunrise",
-                               firstItemValue: current.sunrise.convertTime())
+                               firstItemValue: current.sunrise.convertTime().lowercased(),
+                               width: 115)
         
         let itemTwo = ItemData(firstItemLabel: "Sunset",
-                               firstItemValue: current.sunset.convertTime())
+                               firstItemValue: current.sunset.convertTime().lowercased(),
+                               width: 115)
         
         let itemThree = ItemData(firstItemLabel: "Dew Point",
-                                 firstItemValue: weatherModel.current.dew_point.kelvinToSystemFormat())
+                                 firstItemValue: weatherModel.current.dew_point.kelvinToSystemFormat(),
+                                 width: 90)
         
         let itemFour = ItemData(firstItemLabel: "Visibility",
-                                firstItemValue: weatherModel.current.visibility.mToSystemFormat())
+                                firstItemValue: weatherModel.current.visibility.mToSystemFormat(),
+                                width: 115)
         
         let itemFive = ItemData(firstItemLabel: "Chance of Rain",
-                                firstItemValue: weatherModel.daily.first!.pop.percentage(chop: true))
+                                firstItemValue: weatherModel.daily.first!.pop.percentage(chop: true),
+                                width: 125)
         
         let itemSix = ItemData(firstItemLabel: "Cloud Cover",
-                               firstItemValue: current.clouds.percentage(chop: true))
+                               firstItemValue: current.clouds.percentage(chop: true),
+                               width: 115)
         
         let uvi = current.uvi
         var uviLevel = uvi.stringRound()
@@ -54,41 +78,29 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
         } else if (6...7) ~= uvi {
             uviLevel += " High"
         } else if (8...9) ~= uvi {
-            uviLevel += " VERY HIGH"
+            uviLevel += " Very High"
         } else if uvi >= 11 {
             uviLevel += " Extreme"
         }
         
         let itemSeven = ItemData(firstItemLabel: "Humidity",
-                                 firstItemValue: current.humidity.percentage(chop: true))
+                                 firstItemValue: current.humidity.percentage(chop: true),
+                                 width: 85)
         
         let itemEight = ItemData(firstItemLabel: "UV Index",
-                                 firstItemValue: uviLevel)
+                                 firstItemValue: uviLevel,
+                                 width: 125)
         
         let itemNine = ItemData(firstItemLabel: "Wind Speed",
-                                firstItemValue: current.wind_speed.msToSystemFormat())
+                                firstItemValue: current.wind_speed.msToSystemFormat(),
+                                width: 145)
         
         let itemTen = ItemData(firstItemLabel: "Pressure",
-                               firstItemValue: current.pressure.stringRound() + " hPa")
+                               firstItemValue: current.pressure.stringRound() + " hPa",
+                               width: 165)
         
-        detailsData = [itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, itemSeven, itemEight, itemNine, itemTen]
+        detailsData = [itemOne, itemThree, itemTwo, itemFour, itemFive, itemSix, itemSeven, itemEight, itemNine, itemTen]
         reloadData()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let firstItem: NSString = detailsData[indexPath.row].firstItemLabel as NSString
-        let firstValue: NSString = detailsData[indexPath.row].firstItemValue as NSString
-        
-        let firstItemWidth = firstItem.size(withAttributes: nil).width
-        let firstValueWidth = firstValue.size(withAttributes: nil).width
-        
-        if firstItemWidth > firstValueWidth {
-            return CGSize(width: firstItemWidth + 125, height: 50)
-        } else {
-            return CGSize(width: firstValueWidth + 125, height: 50)
-        }
-    
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

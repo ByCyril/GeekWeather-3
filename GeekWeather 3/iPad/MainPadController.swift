@@ -9,6 +9,7 @@
 import UIKit
 import GWFoundation
 import SwiftUI
+import CoreLocation
 
 final class MainHostingController: UIHostingController<iPadMainView> {
     
@@ -51,6 +52,7 @@ final class MainPadController: UIViewController, NetworkLayerDelegate {
         let settingsButton = UIButton()
         settingsButton.setImage(UIImage(systemName: "gearshape"), for: .normal)
         settingsButton.addTarget(self, action: #selector(showSettings), for: .touchUpInside)
+        settingsButton.tintColor = UIColor.white
         view.addSubview(settingsButton)
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
         settingsButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25).isActive = true
@@ -59,12 +61,21 @@ final class MainPadController: UIViewController, NetworkLayerDelegate {
         let searchButton = UIButton()
         searchButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
         searchButton.addTarget(self, action: #selector(searchLocation), for: .touchUpInside)
+        searchButton.tintColor = UIColor.white
         view.addSubview(searchButton)
         searchButton.translatesAutoresizingMaskIntoConstraints = false
         searchButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25).isActive = true
         searchButton.trailingAnchor.constraint(equalTo: settingsButton.leadingAnchor, constant: -25).isActive = true
 
-        NotificationCenter.default.addObserver(self, selector: #selector(didUpdate), name: Notification.Name("UpdateValues"), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didUpdate),
+                                               name: Notification.Name("UpdateValues"),
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(newLocation(_:)),
+                                               name: Notification.Name("NewLocationLookup"),
+                                               object: nil)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) { [weak self] in
             self?.networkLayer.fetch()
@@ -86,7 +97,8 @@ final class MainPadController: UIViewController, NetworkLayerDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        vc?.view.frame = view.frame
+        vc?.view.frame = view.bounds
+        gradientLayer.frame = view.bounds
     }
         
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -122,6 +134,20 @@ final class MainPadController: UIViewController, NetworkLayerDelegate {
         UIView.animate(withDuration: 0.4) {
             self.vc?.view.alpha = 1
         }
+    }
+    
+    @objc
+    func newLocation(_ notification: NSNotification) {
+        
+        vc?.view.removeFromSuperview()
+        vc?.removeFromParent()
+        
+        if let location = notification.object as? CLLocation {
+            networkLayer.fetch(with: location)
+        } else {
+            networkLayer.fetch()
+        }
+
     }
     
     @objc

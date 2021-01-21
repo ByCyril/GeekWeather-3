@@ -28,20 +28,32 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czG-2f-3VS" customClass="DailyViewLayer" customModule="GeekWeather" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="138" width="375" height="529"/>
+                    <rect key="frame" x="0.0" y="138" width="375" height="470"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed and Designed by Cyril © 2017 - 2021" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jow-lG-Fdz">
+                    <rect key="frame" x="16" y="616" width="343" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="7aw-NH-jDT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="nyW-7H-r1s" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3ao-hO-QQX"/>
                 <constraint firstItem="nyW-7H-r1s" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="7K4-Mk-n45"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="czG-2f-3VS" secondAttribute="bottom" id="Aad-kO-iIV"/>
                 <constraint firstItem="czG-2f-3VS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="LgR-zc-dXJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nyW-7H-r1s" secondAttribute="trailing" id="MUp-ch-tHJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jow-lG-Fdz" secondAttribute="bottom" constant="30" id="h9o-7p-lE3"/>
                 <constraint firstItem="czG-2f-3VS" firstAttribute="top" secondItem="nyW-7H-r1s" secondAttribute="bottom" constant="8" symbolic="YES" id="hdm-tl-flJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jow-lG-Fdz" secondAttribute="trailing" constant="16" id="kkl-Yr-OPk"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="czG-2f-3VS" secondAttribute="trailing" id="qHd-8B-Kxa"/>
+                <constraint firstItem="jow-lG-Fdz" firstAttribute="top" secondItem="czG-2f-3VS" secondAttribute="bottom" constant="8" symbolic="YES" id="u7O-S4-f7C"/>
+                <constraint firstItem="jow-lG-Fdz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="x1T-CW-Ydb"/>
             </constraints>
             <connections>
                 <outlet property="dailyViewLayer" destination="czG-2f-3VS" id="wSu-Eh-UAX"/>

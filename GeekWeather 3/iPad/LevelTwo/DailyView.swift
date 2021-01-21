@@ -44,6 +44,7 @@ struct DailyCellItem: View {
                         .allowsTightening(true)
                         .lineLimit(1)
                         .foregroundColor(Color.white)
+                    
                     Text(low)
                         .font(Font.custom("AvenirNext-Medium", size: 27))
                         .foregroundColor(Color.white)
@@ -51,7 +52,7 @@ struct DailyCellItem: View {
                         .allowsTightening(true)
                         .lineLimit(1)
                         .foregroundColor(Color.white)
-                }.padding()
+                }.padding(.trailing)
                 
             }
         }.background(Color.white.opacity(0.15)).cornerRadius(20).padding(.leading)
@@ -67,7 +68,10 @@ struct DailyView: View {
         VStack(spacing: 15) {
             ForEach(0..<daily.count) { i in
                 let day = daily[i]
-                DailyCellItem(time: day.dt.date(.day),
+                
+                let time = (i == 0) ? "Now" : day.dt.date(.day)
+                
+                DailyCellItem(time: time,
                               icon: day.weather.first!.icon,
                               high: day.temp.max.kelvinToSystemFormat(),
                               low: day.temp.min.kelvinToSystemFormat())

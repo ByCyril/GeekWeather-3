@@ -14,19 +14,19 @@ struct LevelOneView: View {
     var weatherModel: WeatherModel
     
     var location: String
-    let imageSize: CGFloat = 175
+    let imageSize: CGFloat = 125
     
     var body: some View {
-        VStack(spacing: 0) {
-            Text(location).font(Font.custom("AvenirNext-Medium", size: 45)).foregroundColor(.white).padding(.top)
+        VStack(spacing: 10) {
+            Text(location).font(Font.custom("AvenirNext-Medium", size: 45)).foregroundColor(.white).padding(.top).padding(.bottom)
                 
-            HStack {
+            HStack(spacing: 25) {
                 Image(weatherModel.current.weather.first!.icon)
                     .resizable().frame(width: imageSize, height: imageSize, alignment: .center)
                     .cornerRadius(15)
                 
                 Text(weatherModel.current.temp.kelvinToSystemFormat())
-                    .font(Font.custom("AvenirNext-Heavy", size: 75))
+                    .font(Font.custom("AvenirNext-Bold", size: 75))
                     .minimumScaleFactor(0.2)
                     .allowsTightening(true)
                     .lineLimit(1)
@@ -35,11 +35,15 @@ struct LevelOneView: View {
             }.padding(.leading).padding(.trailing)
             
             Text(weatherModel.daily.first!.weather.first!.description.capitalized)
-                .font(Font.custom("AvenirNext-Medium", size: 35))
+                .font(Font.custom("AvenirNext-Medium", size: 25))
                 .foregroundColor(.white).padding(.top)
-            Text("Feels like " + weatherModel.current.feels_like.kelvinToSystemFormat())
-                .font(Font.custom("AvenirNext-Medium", size: 35))
-                .foregroundColor(.white).padding(.top)
+            
+            let high = weatherModel.daily.first?.temp.max.kelvinToSystemFormat() ?? ""
+            let low = weatherModel.daily.first?.temp.min.kelvinToSystemFormat() ?? ""
+            
+            Text("⬆︎\(high)  ⬇︎\(low)")
+                .font(Font.custom("AvenirNext-Medium", size: 25))
+                .foregroundColor(.white)
             
         }
     }

@@ -22,7 +22,9 @@ struct DetailedTodayView: View {
             VStack(spacing: 0) {
                 VStack(spacing: 0) {
                     Spacer()
-                    Text(entry.weatherModel.location).font(Font.custom("AvenirNext-Medium", size: 12)).foregroundColor(.white)
+                    Text(entry.weatherModel.location)
+                        .font(Font.custom("AvenirNext-Medium", size: 12))
+                        .foregroundColor(.white)
                     HStack {
                         Image(entry.weatherModel.icon)
                             .resizable()
@@ -43,21 +45,21 @@ struct DetailedTodayView: View {
                         HStack {
                             Image(systemName: "sunrise")
                                 .resizable()
-                                .frame(width: smallIcon, height: smallIcon, alignment: .center).foregroundColor(.white)
-                            Text(entry.weatherModel.daily.first!.sunrise.convertTime()).font(Font.custom("AvenirNext-Medium", size: 12)).foregroundColor(.white)
+                                .frame(width: 15, height: 12, alignment: .center).foregroundColor(.white)
+                            Text(entry.weatherModel.daily.first!.sunrise.convertTime().lowercased()).font(Font.custom("AvenirNext-Medium", size: 12)).foregroundColor(.white)
                         }
                         HStack {
                             Image(systemName: "sunset")
                                 .resizable()
-                                .frame(width: smallIcon, height: smallIcon, alignment: .center).foregroundColor(.white)
-                            Text(entry.weatherModel.daily.first!.sunset.convertTime()).font(Font.custom("AvenirNext-Medium", size: 12)).foregroundColor(.white)
+                                .frame(width: 15, height: 12, alignment: .center).foregroundColor(.white)
+                            Text(entry.weatherModel.daily.first!.sunset.convertTime().lowercased()).font(Font.custom("AvenirNext-Medium", size: 12)).foregroundColor(.white)
                         }
                     }
                     
                     HStack {
                         Image(systemName: "wind")
                             .resizable()
-                            .frame(width: smallIcon, height: smallIcon, alignment: .center).foregroundColor(.white)
+                            .frame(width: 15, height: 12, alignment: .center).foregroundColor(.white)
                         Text(entry.weatherModel.daily.first!.wind_speed.msToSystemFormat()).font(Font.custom("AvenirNext-Medium", size: 12)).foregroundColor(.white)
                     }.padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
                     
@@ -65,7 +67,7 @@ struct DetailedTodayView: View {
                         HStack {
                             Image(systemName: "cloud.rain")
                                 .resizable()
-                                .frame(width: smallIcon, height: smallIcon, alignment: .center)
+                                .frame(width: 15, height: 15, alignment: .center)
                                 .foregroundColor(.white)
                             Text(entry.weatherModel.daily.first!.pop.percentage(chop: false)).font(Font.custom("AvenirNext-Medium", size: 12))
                                 .foregroundColor(.white)
@@ -73,7 +75,7 @@ struct DetailedTodayView: View {
                         HStack {
                             Image(systemName: "cloud")
                                 .resizable()
-                                .frame(width: smallIcon, height: smallIcon, alignment: .center)
+                                .frame(width: 15, height: 12, alignment: .center)
                                 .foregroundColor(.white)
                             Text(entry.weatherModel.daily.first!.clouds.percentage(chop: true))
                                 .font(Font.custom("AvenirNext-Medium", size: 12))

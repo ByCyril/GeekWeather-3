@@ -38,8 +38,9 @@ final class RollableTitleView: UIView {
         
         todayLabel.adjustsFontSizeToFitWidth = true
         todayLabel.text = ""
-        geekLabel.text = "Details"
         forecastLabel.text = "Forecast"
+        geekLabel.text = "Weather Map"
+        
         labelContainer.backgroundColor = .clear
         
         [forecastLabel, geekLabel, todayLabel].forEach { (label) in

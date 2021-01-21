@@ -47,11 +47,12 @@ final class DetailedViewCell: UICollectionViewCell {
         let padding: CGFloat = 10
         
         NSLayoutConstraint.activate([
-            firstItemLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: padding),
+            firstItemLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: padding + 5),
             firstItemLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: padding),
             firstItemLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
+            firstItemLabel.heightAnchor.constraint(equalToConstant: 17),
             
-            firstItemValue.topAnchor.constraint(equalTo: firstItemLabel.bottomAnchor),
+            firstItemValue.topAnchor.constraint(equalTo: firstItemLabel.bottomAnchor, constant: padding),
             firstItemValue.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             firstItemValue.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
             firstItemValue.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)

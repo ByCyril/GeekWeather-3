@@ -12,10 +12,9 @@ import Lottie
 
 final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout {
    
-    @IBOutlet var containerView: UIView!
-    
     private var animationView: AnimationView!
     
+    @IBOutlet var containerView: UIView!
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var commentLabel: UILabel!
@@ -23,13 +22,6 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     @IBOutlet var detailedViewLayer: DetailedViewLayer!
     
     @IBOutlet var weatherAlertButton: UIButton!
-    
-    @IBOutlet var detailedViewFlowLayout: UICollectionViewFlowLayout! {
-        didSet {
-            detailedViewFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-            detailedViewFlowLayout.scrollDirection = .horizontal
-        }
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,7 +37,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
         summaryLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: summaryLabel.font)
         commentLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: commentLabel.font)
-        
+    
         [tempLabel, summaryLabel, commentLabel].forEach { (element) in
             element?.adjustsFontForContentSizeCategory = true
             element?.adjustsFontSizeToFitWidth = true
@@ -83,7 +75,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         
         commentLabel.text = "⬆︎\(high)  ⬇︎\(low)"
         
-        detailedViewLayer.reloadData()
+        detailedViewLayer.update()
     }
     
     func displayData(_ currentWeatherData: Currently) {

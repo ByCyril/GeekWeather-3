@@ -15,14 +15,14 @@ protocol MockErrorProtocol: LocalizedError {
 }
 
 struct MockError: MockErrorProtocol {
-
+    
     var title: String?
     var code: Int
     var errorDescription: String? { return _description }
     var failureReason: String? { return _description }
-
+    
     private var _description: String
-
+    
     init(title: String?, description: String, code: Int) {
         self.title = title ?? "Error"
         self._description = description
@@ -39,7 +39,7 @@ final class Mocks {
         
         let decode = JSONDecoder()
         let model = try! decode.decode(WeatherModel.self, from: data)
-
+        
         let format = NetworkManager().formatData(response: model)
         return format
     }
@@ -52,7 +52,7 @@ final class Mocks {
         guard let file = Bundle.main.path(forResource: "preview", ofType: "json") else { return nil }
         let url = URL(fileURLWithPath: file)
         let data = try? Data(contentsOf: url, options: .mappedIfSafe)
-
+        
         if UserDefaults.standard.bool(forKey: "ToggleMockedResponse") {
             return data
         }

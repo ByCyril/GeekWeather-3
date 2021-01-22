@@ -26,13 +26,13 @@ struct TodayViewSimpleWidget: View {
                 VStack(alignment: .leading, spacing: 0) {
                     Text(entry.weatherModel.temp)
                         .font(Font.custom("AvenirNext-Bold", size: 50))
-                        .minimumScaleFactor(0.2)
+                        .minimumScaleFactor(0.5)
                         .allowsTightening(true)
                         .lineLimit(1)
                         .foregroundColor(.white)
                     Text(entry.weatherModel.summary)
-                        .font(Font.custom("AvenirNext-Regular", size: 35))
-                        .minimumScaleFactor(0.2)
+                        .font(Font.custom("AvenirNext-Regular", size: 30))
+                        .minimumScaleFactor(0.5)
                         .allowsTightening(true)
                         .lineLimit(1)
                         .foregroundColor(.white)
@@ -41,7 +41,7 @@ struct TodayViewSimpleWidget: View {
                         .font(Font.custom("AvenirNext-Regular", size: 17))
                         .foregroundColor(.white)
                     
-                }.padding(.leading)
+                }.padding(.leading).padding(.trailing)
                 
             }
             

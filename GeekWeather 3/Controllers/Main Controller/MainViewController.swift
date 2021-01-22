@@ -17,23 +17,25 @@ extension MainViewController: NetworkLayerDelegate {
     func didFinishFetching(weatherModel: WeatherModel, location: String) {
         UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")
         animateMainScrollView()
-        
-        UIView.animate(withDuration: 0.15) {
-            self.loadingView.alpha = 0
+  
+        UIView.animate(withDuration: 0.15) { [weak self] in
+            self?.loadingView.alpha = 0
         }
         
         removeErrorItems()
         navView?.rollableTitleView.todayLabel.text = location
         notificationManager.post(data: ["weatherModel": weatherModel],
                                  to: NotificationName.observerID("weatherModel"))
+        
+        levelThreeViewController?.receive(location: networkLayer.locationManager?.location)
     }
     
     func didFail(errorTitle: String, errorDetail: String) {
         
         hideScrollView()
         
-        UIView.animate(withDuration: 0.15) {
-            self.loadingView.alpha = 0
+        UIView.animate(withDuration: 0.15) { [weak self] in
+            self?.loadingView.alpha = 0
         }
         
         createErrorView(errorTitle: errorTitle, errorDetail)

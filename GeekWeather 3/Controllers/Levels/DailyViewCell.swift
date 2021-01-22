@@ -11,8 +11,7 @@ import UIKit
 final class DailyViewCell: UITableViewCell {
     
     let dayLabel = UILabel()
-    let highTempLabel = UILabel()
-    let lowTempLabel = UILabel()
+    let tempLabels = UILabel()
     let tempContainerView = UIStackView()
     let iconView = UIImageView()
     
@@ -31,34 +30,15 @@ final class DailyViewCell: UITableViewCell {
     func initUI() {
         
         backgroundColor = .clear
-        
-//        containerView.backgroundColor = UIColor.white.withAlphaComponent(0.15)
-//        containerView.layer.cornerRadius = 20
-//
-//        containerView.translatesAutoresizingMaskIntoConstraints = false
-//        addSubview(containerView)
-//
-        let padding: CGFloat = 10
-//
-//
-//        NSLayoutConstraint.activate([
-//            containerView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
-//            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding * 2),
-//            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding * 2),
-//            containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)
-//        ])
-//
+
         dayLabel.minimumScaleFactor = 0.1
         dayLabel.font = GWFont.AvenirNext(style: .Medium, size: 25)
-        highTempLabel.font = GWFont.AvenirNext(style: .Bold, size: 27)
-        lowTempLabel.font = GWFont.AvenirNext(style: .Medium, size: 25)
+        tempLabels.font = GWFont.AvenirNext(style: .Medium, size: 25)
         
         dayLabel.textColor = .white
-        highTempLabel.textColor = .white
-        lowTempLabel.textColor = .white
+        tempLabels.textColor = .white
         
-        tempContainerView.addArrangedSubview(highTempLabel)
-        tempContainerView.addArrangedSubview(lowTempLabel)
+        tempContainerView.addArrangedSubview(tempLabels)
         tempContainerView.spacing = 10
         tempContainerView.alignment = .trailing
         tempContainerView.axis = .horizontal
@@ -92,7 +72,7 @@ final class DailyViewCell: UITableViewCell {
             dayLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: padding),
             
             tempContainerView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            tempContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding)
+            tempContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(padding + 5))
         ]
         
         NSLayoutConstraint.deactivate(iPhoneVerticalLayoutConstraints)
@@ -124,7 +104,7 @@ final class DailyViewCell: UITableViewCell {
         NSLayoutConstraint.activate(iPhoneVerticalLayoutConstraints)
         layoutIfNeeded()
     }
-   
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         guard let traitCollection = previousTraitCollection else { return }
         if traitCollection.preferredContentSizeCategory >= .extraExtraExtraLarge {
@@ -136,10 +116,9 @@ final class DailyViewCell: UITableViewCell {
     
     func setupAccessibilityElements() {
         dayLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: dayLabel.font)
-        highTempLabel.font = UIFontMetrics(forTextStyle: .callout).scaledFont(for: highTempLabel.font)
-        lowTempLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: lowTempLabel.font)
+        tempLabels.font = UIFontMetrics(forTextStyle: .callout).scaledFont(for: tempLabels.font)
         
-        [dayLabel, highTempLabel, lowTempLabel].forEach { (element) in
+        [dayLabel, tempLabels].forEach { (element) in
             element.isAccessibilityElement = false
             element.adjustsFontForContentSizeCategory = true
             element.sizeToFit()

@@ -40,10 +40,8 @@ final class LevelThreeViewController: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         let view = Bundle.main.loadNibNamed("LevelThreeViewController", owner: self, options: nil)?.first as! LevelThreeViewController
         loadXib(view, self)
-        mapView.clipsToBounds = true
         createBlurView()
     }
     
@@ -58,6 +56,14 @@ final class LevelThreeViewController: BaseView {
     
     override func didUpdateValues() {
 
+    }
+    
+    func receive(location: CLLocation?) {
+        guard let loc = location?.coordinate else { return }
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let region = MKCoordinateRegion(center: loc, span: span)
+        mapView.setRegion(region, animated: true)
+        
     }
     
 }

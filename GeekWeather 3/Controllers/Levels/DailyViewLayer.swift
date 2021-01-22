@@ -52,8 +52,8 @@ final class DailyViewLayer: UIView, UITableViewDelegate {
             }
             
             cell.iconView.image = UIImage(named: daily.weather.first!.icon)
-            cell.highTempLabel.text = daily.temp.max.kelvinToSystemFormat()
-            cell.lowTempLabel.text = daily.temp.min.kelvinToSystemFormat()
+            cell.tempLabels.text = daily.temp.max.kelvinToSystemFormat() + "  " + daily.temp.min.kelvinToSystemFormat()
+
             cell.selectionStyle = .none
             return cell
         })

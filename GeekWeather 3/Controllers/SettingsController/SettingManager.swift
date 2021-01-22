@@ -68,7 +68,7 @@ final class AppSupprtSection: SectionItem {
     var cells: [SettingItem]
     
     init() {
-        cells = [HelpItem(), DeveloperInfoItem()]
+        cells = [HelpItem(), DeveloperInfoItem(), DesignerInfoItem()]
     }
     
 }

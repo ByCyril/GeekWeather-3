@@ -19,7 +19,7 @@ protocol NetworkLayerDelegate: AnyObject {
 final class NetworkLayer: NSObject, CLLocationManagerDelegate {
 
     private let networkManager = NetworkManager()
-    private var locationManager: CLLocationManager?
+    var locationManager: CLLocationManager?
     
     weak var delegate: NetworkLayerDelegate?
     

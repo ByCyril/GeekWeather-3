@@ -14,7 +14,7 @@ final class HourlyViewLayer: UIView, UICollectionViewDelegateFlowLayout {
     var hourlyView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 70, height: 150)
+        layout.itemSize = CGSize(width: 70, height: 100)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -65,8 +65,7 @@ final class HourlyViewLayer: UIView, UICollectionViewDelegateFlowLayout {
                 
             } else {
                 let time = (indexPath.row == 0) ? "Now" : data.dt.convertHourTime().lowercased()
-                cell.timestampLabel.adjustsFontSizeToFitWidth = false
-                cell.timestampLabel.minimumScaleFactor = 1
+                
                 cell.timestampLabel.text = time
                 cell.iconView.image = UIImage(named: data.weather.first!.icon)
                 cell.tempLabel.text = data.temp.kelvinToSystemFormat()
@@ -94,12 +93,12 @@ final class HourlyViewLayer: UIView, UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let hourly = weatherModel?.hourly else { return CGSize(width: 75, height: 128) }
+        guard let hourly = weatherModel?.hourly else { return CGSize(width: 60, height: 100) }
         
         if hourly[indexPath.row].weather.first?.icon == "sunrise" || hourly[indexPath.row].weather.first?.icon == "sunset" {
-            return CGSize(width: 110, height: 128)
+            return CGSize(width: 90, height: 100)
         } else {
-            return CGSize(width: 70, height: 128)
+            return CGSize(width: 60, height: 100)
         }
     }
 }

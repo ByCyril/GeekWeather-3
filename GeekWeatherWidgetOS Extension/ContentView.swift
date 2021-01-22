@@ -14,7 +14,7 @@ struct ContentView: View {
     var weatherModel: WeatherModel = Mocks.mock()
     
     var body: some View {
-        Text("")
+        LevelOneView(weatherModel: weatherModel)
     }
 }
 

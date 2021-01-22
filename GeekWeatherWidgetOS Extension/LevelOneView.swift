@@ -7,8 +7,12 @@
 //
 
 import SwiftUI
+import GWFoundation
 
 struct LevelOneView: View {
+    
+    let weatherModel: WeatherModel
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack {
@@ -38,6 +42,6 @@ struct LevelOneView: View {
 
 struct LevelOneView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelOneView()
+        LevelOneView(weatherModel: Mocks.mock())
     }
 }

@@ -16,6 +16,10 @@
 		0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80124CE46A200C9F9B5 /* NotificationNames.swift */; };
 		0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */; };
 		010370CA25BB893E000327AC /* LevelOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010370C925BB893E000327AC /* LevelOneView.swift */; };
+		0103714425BB9269000327AC /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010370F325BB8EFC000327AC /* WatchKit.framework */; };
+		0103716025BB9800000327AC /* LevelTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103715F25BB9800000327AC /* LevelTwoView.swift */; };
+		0103716725BB9BBC000327AC /* LevelThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103716625BB9BBB000327AC /* LevelThreeView.swift */; };
+		0103716E25BBA3D7000327AC /* WeatherFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103716D25BBA3D7000327AC /* WeatherFetcher.swift */; };
 		0103B840259449E7008577FD /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0103B83F259449E7008577FD /* WidgetKit.framework */; };
 		0103B842259449E7008577FD /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0103B841259449E7008577FD /* SwiftUI.framework */; };
 		0103B845259449E7008577FD /* GeekWeatherWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B844259449E7008577FD /* GeekWeatherWidget.swift */; };
@@ -114,7 +118,6 @@
 		0186EA2D25BB85B200CCD3A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
 		01871D0A25AD706000E5817D /* DetailsViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01871D0925AD706000E5817D /* DetailsViewModal.swift */; };
 		018818CB258F23FB009EE9EE /* LevelThreeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018818CA258F23FB009EE9EE /* LevelThreeTableViewCell.xib */; };
-		018840DD258C391C00CED4F1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 018840DC258C391C00CED4F1 /* Lottie */; };
 		018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840E0258C39D600CED4F1 /* GWAnimationView.swift */; };
 		018F66D325A6F5F700FFC539 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D125A6F5F700FFC539 /* loading.json */; };
 		018F66D425A6F5F700FFC539 /* location-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D225A6F5F700FFC539 /* location-loading.json */; };
@@ -142,7 +145,6 @@
 		01B1BEED24EFA0040081C90F /* LevelTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEEC24EFA0040081C90F /* LevelTwoViewController.swift */; };
 		01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF024EFA9A10081C90F /* Array+Extension.swift */; };
 		01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF224EFAD500081C90F /* View+Extension.swift */; };
-		01B5EA5225A407EC00F5CC4A /* SwiftUILib.WrapStack in Frameworks */ = {isa = PBXBuildFile; productRef = 01B5EA5125A407EC00F5CC4A /* SwiftUILib.WrapStack */; };
 		01B9487C259A654400884150 /* HourlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487B259A654400884150 /* HourlyViewCell.swift */; };
 		01B94880259A687200884150 /* DailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487F259A687200884150 /* DailyViewCell.swift */; };
 		01BE6C85259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */; };
@@ -255,6 +257,10 @@
 		0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		010370B225BB87C6000327AC /* GeekWeather 3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GeekWeather 3.entitlements"; sourceTree = "<group>"; };
 		010370C925BB893E000327AC /* LevelOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelOneView.swift; sourceTree = "<group>"; };
+		010370F325BB8EFC000327AC /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.2.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
+		0103715F25BB9800000327AC /* LevelTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoView.swift; sourceTree = "<group>"; };
+		0103716625BB9BBB000327AC /* LevelThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeView.swift; sourceTree = "<group>"; };
+		0103716D25BBA3D7000327AC /* WeatherFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFetcher.swift; sourceTree = "<group>"; };
 		0103B83E259449E7008577FD /* GeekWeatherWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GeekWeatherWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0103B83F259449E7008577FD /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		0103B841259449E7008577FD /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -393,9 +399,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01B5EA5225A407EC00F5CC4A /* SwiftUILib.WrapStack in Frameworks */,
 				0185666124D774FE0035BF59 /* GWFoundation in Frameworks */,
-				018840DD258C391C00CED4F1 /* Lottie in Frameworks */,
 				E3302AE93113182ABB9234F7 /* Pods_GeekWeather_3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0186E9E425BB81E200CCD3A2 /* GWFoundation in Frameworks */,
+				0103714425BB9269000327AC /* WatchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +437,13 @@
 			files = (
 				0198007725B8D35900600DC3 /* Intents.framework in Frameworks */,
 				0198009725B8D3A100600DC3 /* GWFoundation in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99A07CB46CF810F08644989D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -802,8 +814,11 @@
 			isa = PBXGroup;
 			children = (
 				0186E9C225BB81D600CCD3A2 /* GeekWeather_3App.swift */,
+				0103716D25BBA3D7000327AC /* WeatherFetcher.swift */,
 				0186E9C425BB81D600CCD3A2 /* ContentView.swift */,
 				010370C925BB893E000327AC /* LevelOneView.swift */,
+				0103715F25BB9800000327AC /* LevelTwoView.swift */,
+				0103716625BB9BBB000327AC /* LevelThreeView.swift */,
 				0186E9C625BB81D600CCD3A2 /* NotificationController.swift */,
 				0186E9C825BB81D600CCD3A2 /* NotificationView.swift */,
 				0186E9CA25BB81D600CCD3A2 /* ComplicationController.swift */,
@@ -883,6 +898,7 @@
 		9F2614160C5247F22647BA7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				010370F325BB8EFC000327AC /* WatchKit.framework */,
 				826CCA41E772C9C5286D7281 /* Pods_GeekWeather_3.framework */,
 				6603F886DADE4EC37E1E3758 /* Pods_GeekWeather_3Tests.framework */,
 				0103B83F259449E7008577FD /* WidgetKit.framework */,
@@ -907,6 +923,7 @@
 				014D2A3624D3F2AE0038623E /* Embed Frameworks */,
 				0103B84D259449E9008577FD /* Embed App Extensions */,
 				0186E9D625BB81D700CCD3A2 /* Embed Watch Content */,
+				5E4B76ED5F1D2A452B6DB004 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -917,8 +934,6 @@
 			name = "GeekWeather 3";
 			packageProductDependencies = (
 				0185666024D774FE0035BF59 /* GWFoundation */,
-				018840DC258C391C00CED4F1 /* Lottie */,
-				01B5EA5125A407EC00F5CC4A /* SwiftUILib.WrapStack */,
 			);
 			productName = "GeekWeather 3";
 			productReference = 0100D7D024CE1A8200C9F9B5 /* GeekWeather.app */;
@@ -969,6 +984,7 @@
 			buildPhases = (
 				0186E9B225BB81D500CCD3A2 /* Resources */,
 				0186E9D925BB81D700CCD3A2 /* Embed App Extensions */,
+				99A07CB46CF810F08644989D /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1062,8 +1078,6 @@
 			mainGroup = 0100D7C724CE1A8100C9F9B5;
 			packageReferences = (
 				0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */,
-				018840DB258C391C00CED4F1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				01B5EA5025A407EC00F5CC4A /* XCRemoteSwiftPackageReference "wrap-stack" */,
 			);
 			productRefGroup = 0100D7D124CE1A8200C9F9B5 /* Products */;
 			projectDirPath = "";
@@ -1152,6 +1166,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5E4B76ED5F1D2A452B6DB004 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeekWeather 3/Pods-GeekWeather 3-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GeekWeather 3/Pods-GeekWeather 3-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GeekWeather 3/Pods-GeekWeather 3-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7E1E3A51246DA1A34EDC2131 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1321,8 +1352,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0103716E25BBA3D7000327AC /* WeatherFetcher.swift in Sources */,
 				0186E9FD25BB845F00CCD3A2 /* NetworkLayer.swift in Sources */,
 				0186EA0925BB847D00CCD3A2 /* SharedUserDefaults.swift in Sources */,
+				0103716025BB9800000327AC /* LevelTwoView.swift in Sources */,
 				0186EA0F25BB855400CCD3A2 /* Doouble+Extension.swift in Sources */,
 				0186E9C725BB81D600CCD3A2 /* NotificationController.swift in Sources */,
 				010370CA25BB893E000327AC /* LevelOneView.swift in Sources */,
@@ -1330,6 +1363,7 @@
 				0186E9CB25BB81D600CCD3A2 /* ComplicationController.swift in Sources */,
 				0186EA0325BB847400CCD3A2 /* Mocks.swift in Sources */,
 				0186E9C325BB81D600CCD3A2 /* GeekWeather_3App.swift in Sources */,
+				0103716725BB9BBC000327AC /* LevelThreeView.swift in Sources */,
 				0186E9C925BB81D600CCD3A2 /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1871,22 +1905,6 @@
 				minimumVersion = 1.0.1;
 			};
 		};
-		018840DB258C391C00CED4F1 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.9;
-			};
-		};
-		01B5EA5025A407EC00F5CC4A /* XCRemoteSwiftPackageReference "wrap-stack" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/swiftuilib/wrap-stack";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1905,20 +1923,10 @@
 			package = 0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */;
 			productName = GWFoundation;
 		};
-		018840DC258C391C00CED4F1 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 018840DB258C391C00CED4F1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
 		0198009625B8D3A100600DC3 /* GWFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */;
 			productName = GWFoundation;
-		};
-		01B5EA5125A407EC00F5CC4A /* SwiftUILib.WrapStack */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 01B5EA5025A407EC00F5CC4A /* XCRemoteSwiftPackageReference "wrap-stack" */;
-			productName = SwiftUILib.WrapStack;
 		};
 /* End XCSwiftPackageProductDependency section */
 

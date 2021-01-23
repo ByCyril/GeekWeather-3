@@ -49,5 +49,6 @@ struct IconedWidgetView_Previews: PreviewProvider {
         LargeLabeledWidget(entry: .stub)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             .environment(\.colorScheme, .dark)
+        
     }
 }

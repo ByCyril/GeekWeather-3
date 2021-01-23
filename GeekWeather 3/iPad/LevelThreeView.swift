@@ -8,7 +8,7 @@
 
 import SwiftUI
 import GWFoundation
-import SwiftUILib_WrapStack
+//import SwiftUILib_WrapStack
 
 struct LevelThreeCell: View {
     var title: String
@@ -39,7 +39,7 @@ struct LevelThreeView: View {
     var weatherModel: WeatherModel
     
     var body: some View {
-        WHStack(spacing: 0) {
+//        WHStack(spacing: 0) {
             LevelThreeCell(title: "Sunrise", value: weatherModel.current.sunrise.convertTime().lowercased())
             LevelThreeCell(title: "Sunset", value: weatherModel.current.sunset.convertTime().lowercased())
             LevelThreeCell(title: "Dew Point", value: weatherModel.current.dew_point.kelvinToSystemFormat())
@@ -50,7 +50,7 @@ struct LevelThreeView: View {
             LevelThreeCell(title: "UV Index", value: weatherModel.current.uvi.stringRound())
             LevelThreeCell(title: "Wind Speed", value: weatherModel.current.wind_speed.msToSystemFormat())
             LevelThreeCell(title: "Pressure", value: weatherModel.current.pressure.stringRound())
-        }
+//        }
     }
 }
 

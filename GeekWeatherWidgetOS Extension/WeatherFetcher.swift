@@ -11,9 +11,16 @@ import SwiftUI
 import GWFoundation
 import CoreLocation
 
+struct WeatherFetcherError {
+    var title: String
+    var description: String
+}
+
 final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var weatherModel: [WeatherModel] = []
+    @Published var location: String = ""
     @Published var fetchError: Bool = false
+    @Published var error: [WeatherFetcherError] = []
     
     private var locationManager: CLLocationManager?
     private let networkManager = NetworkManager()
@@ -60,8 +67,8 @@ final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegat
     func fetch(with location: CLLocation) {
         CLGeocoder().reverseGeocodeLocation(location) { [weak self] (placemark, error) in
             guard let firstLocation = placemark?.first else {
-//                self?.delegate?.didFail(errorTitle: "Unable to get location",
-//                                        errorDetail: error?.localizedDescription ?? "Please try again later or try to manually search for a location. If the issue persists, please let the developer know!")
+                let err = WeatherFetcherError(title: "Unable to get location", description: error?.localizedDescription ?? "Please try again later or try to manually search for a location. If the issue persists, please let the developer know!")
+                self?.error = [err]
                 return
             }
             
@@ -77,9 +84,12 @@ final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegat
         print("👀 URL",url.url.absoluteString)
         networkManager.fetch(url) { [weak self] (weatherModel, error) in
             DispatchQueue.main.async { [weak self] in
-//                UserDefaults.standard.setValue(Date(), forKey: SharedUserDefaults.Keys.LastUpdated)
                 if let model = weatherModel {
                     self?.weatherModel.append(model)
+                    self?.location = locationStr
+                } else {
+                    let err = WeatherFetcherError(title: "Network Error!", description: error?.localizedDescription ?? "Something went wrong. Please try again later. If error persist, please let the developer know!")
+                    self?.error = [err]
                 }
             }
         }

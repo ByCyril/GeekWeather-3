@@ -16,7 +16,6 @@
 		0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80124CE46A200C9F9B5 /* NotificationNames.swift */; };
 		0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */; };
 		010370CA25BB893E000327AC /* LevelOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010370C925BB893E000327AC /* LevelOneView.swift */; };
-		0103714425BB9269000327AC /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010370F325BB8EFC000327AC /* WatchKit.framework */; };
 		0103716025BB9800000327AC /* LevelTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103715F25BB9800000327AC /* LevelTwoView.swift */; };
 		0103716725BB9BBC000327AC /* LevelThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103716625BB9BBB000327AC /* LevelThreeView.swift */; };
 		0103716E25BBA3D7000327AC /* WeatherFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103716D25BBA3D7000327AC /* WeatherFetcher.swift */; };
@@ -83,6 +82,7 @@
 		0157E8E3259144270026706D /* denied.json in Resources */ = {isa = PBXBuildFile; fileRef = 0157E8E0259144270026706D /* denied.json */; };
 		0158D02A2505DF0C008692DC /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0158D0292505DF0C008692DC /* SearchLocationViewController.swift */; };
 		0158D0312505E3ED008692DC /* SavedLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0158D0302505E3ED008692DC /* SavedLocationViewController.swift */; };
+		0164943B25BBBBAD00925321 /* WeatherFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103716D25BBA3D7000327AC /* WeatherFetcher.swift */; };
 		01674F6A25B3B0CE002B9724 /* DetailedSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01674F6125B3B09D002B9724 /* DetailedSmallView.swift */; };
 		01674F7525B3D3B5002B9724 /* GeekWeatherWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01674F7125B3D3AD002B9724 /* GeekWeatherWidgetBundle.swift */; };
 		01674F8D25B3D9A6002B9724 /* LargeLabeledWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01674F8725B3D868002B9724 /* LargeLabeledWidget.swift */; };
@@ -427,7 +427,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0186E9E425BB81E200CCD3A2 /* GWFoundation in Frameworks */,
-				0103714425BB9269000327AC /* WatchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1283,6 +1282,7 @@
 				01328D1225B6CD1E00E29B31 /* DailyViewLayer.swift in Sources */,
 				018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */,
 				0127D14E2597D72200298ABD /* GWFont.swift in Sources */,
+				0164943B25BBBBAD00925321 /* WeatherFetcher.swift in Sources */,
 				01BE6CC1259B1C40000016CA /* ToggleMockedResponse.swift in Sources */,
 				011908C3259D34F400EE1C0F /* GWTest.swift in Sources */,
 				01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */,

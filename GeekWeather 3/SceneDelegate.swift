@@ -27,7 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if UserDefaults.standard.bool(forKey: SharedUserDefaults.Keys.ExistingUser) {
             
             if UIDevice.current.userInterfaceIdiom == .pad {
-                let vc = MainPadController()
+//                let vc = MainPadController()
+                let vc = UIHostingController(rootView: iPadMainView())
                 setWindow(with: windowScene, vc: vc)
                 return
             }

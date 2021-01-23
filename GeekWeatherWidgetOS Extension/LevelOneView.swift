@@ -12,6 +12,7 @@ import GWFoundation
 struct LevelOneView: View {
     
     let weatherModel: WeatherModel
+    var location: String = ""
     
     var body: some View {
         VStack(spacing: 0) {
@@ -29,7 +30,8 @@ struct LevelOneView: View {
                         .allowsTightening(true)
                         .lineLimit(1)
                         .foregroundColor(.white)
-                    Text("San Jose, CA").font(Font.custom("AvenirNext-Regular", size: 25))
+                    Text(location).font(Font.custom("AvenirNext-Regular", size: 25))
+                        .minimumScaleFactor(0.2)
                         .allowsTightening(true)
                         .lineLimit(1)
                         .foregroundColor(.white).padding(EdgeInsets(top: -10, leading: 0, bottom: 0, trailing: 0))

@@ -17,14 +17,24 @@ struct ContentView: View {
     var body: some View {
         ScrollView {
             if weatherFetcher.fetchError {
-                Text("Error up here")
+                if let error = weatherFetcher.error.first {
+                    Image(systemName: "xmark.octagon.fill").resizable().frame(width: 75, height: 75, alignment: .center).padding()
+                    Text(error.title).font(.title)
+                    Text(error.description)
+                }
+                   
             } else {
                 if let model = self.weatherFetcher.weatherModel.first {
-                    LevelOneView(weatherModel: model)
+                    LevelOneView(weatherModel: model, location: self.weatherFetcher.location)
+                    Image(systemName: "chevron.compact.down")
                     LevelTwoView(weatherModel: model).padding()
                     LevelThreeView(weatherModel: model).padding()
                 } else {
-                    Text("Error here")
+                    if let error = weatherFetcher.error.first {
+                        Image(systemName: "xmark.octagon.fill").resizable().frame(width: 75, height: 75, alignment: .center).padding()
+                        Text(error.title).font(.title)
+                        Text(error.description)
+                    }
                 }
             }
             

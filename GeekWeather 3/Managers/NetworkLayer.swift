@@ -119,7 +119,7 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
                 if let model = weatherModel {
                         self?.delegate?.didFinishFetching(weatherModel: model, location: locationStr)
                 } else {
-                    self?.delegate?.didFail(errorTitle: "Network Error",
+                    self?.delegate?.didFail(errorTitle: "Network Error!",
                                             errorDetail: error?.localizedDescription ?? "Something went wrong. Please try again later. If error persist, please let the developer know!")
                 }
             }

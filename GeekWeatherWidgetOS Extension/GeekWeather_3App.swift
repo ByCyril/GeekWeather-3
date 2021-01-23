@@ -14,7 +14,7 @@ struct GeekWeather_3App: App {
         WindowGroup {
             NavigationView {
                 ContentView()
-            }
+            }.onAppear()
         }
 
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")

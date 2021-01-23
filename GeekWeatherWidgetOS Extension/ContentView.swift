@@ -12,12 +12,24 @@ import GWFoundation
 struct ContentView: View {
     
     var weatherModel: WeatherModel = Mocks.mock()
+    @ObservedObject var weatherFetcher = WeatherFetcher()
     
     var body: some View {
         ScrollView {
-            LevelOneView(weatherModel: weatherModel)
-            LevelTwoView(weatherModel: weatherModel).padding()
-            LevelThreeView(weatherModel: weatherModel).padding()
+            if weatherFetcher.fetchError {
+                Text("Error up here")
+            } else {
+                if let model = self.weatherFetcher.weatherModel.first {
+                    LevelOneView(weatherModel: model)
+                    LevelTwoView(weatherModel: model).padding()
+                    LevelThreeView(weatherModel: model).padding()
+                } else {
+                    Text("Error here")
+                }
+            }
+            
+        }.onAppear {
+            self.weatherFetcher.fetch()
         }
     }
 }

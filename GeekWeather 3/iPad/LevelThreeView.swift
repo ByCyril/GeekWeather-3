@@ -39,18 +39,22 @@ struct LevelThreeView: View {
     var weatherModel: WeatherModel
     
     var body: some View {
-//        WHStack(spacing: 0) {
-            LevelThreeCell(title: "Sunrise", value: weatherModel.current.sunrise.convertTime().lowercased())
-            LevelThreeCell(title: "Sunset", value: weatherModel.current.sunset.convertTime().lowercased())
-            LevelThreeCell(title: "Dew Point", value: weatherModel.current.dew_point.kelvinToSystemFormat())
-            LevelThreeCell(title: "Visibility", value: weatherModel.current.visibility.mToSystemFormat())
-            LevelThreeCell(title: "Chance of Rain", value: weatherModel.daily.first!.pop.percentage(chop: false))
-            LevelThreeCell(title: "Cloud Cover", value: weatherModel.current.clouds.percentage(chop: true))
-            LevelThreeCell(title: "Humidity", value: weatherModel.current.humidity.percentage(chop: true))
-            LevelThreeCell(title: "UV Index", value: weatherModel.current.uvi.stringRound())
-            LevelThreeCell(title: "Wind Speed", value: weatherModel.current.wind_speed.msToSystemFormat())
-            LevelThreeCell(title: "Pressure", value: weatherModel.current.pressure.stringRound())
-//        }
+
+        ScrollView(.horizontal) {
+            HStack {
+                    LevelThreeCell(title: "Sunrise", value: weatherModel.current.sunrise.convertTime().lowercased())
+                    LevelThreeCell(title: "Sunset", value: weatherModel.current.sunset.convertTime().lowercased())
+                    LevelThreeCell(title: "Dew Point", value: weatherModel.current.dew_point.kelvinToSystemFormat())
+                    LevelThreeCell(title: "Visibility", value: weatherModel.current.visibility.mToSystemFormat())
+                    LevelThreeCell(title: "Chance of Rain", value: weatherModel.daily.first!.pop.percentage(chop: false))
+                    LevelThreeCell(title: "Cloud Cover", value: weatherModel.current.clouds.percentage(chop: true))
+                    LevelThreeCell(title: "Humidity", value: weatherModel.current.humidity.percentage(chop: true))
+                    LevelThreeCell(title: "UV Index", value: weatherModel.current.uvi.stringRound())
+                    LevelThreeCell(title: "Wind Speed", value: weatherModel.current.wind_speed.msToSystemFormat())
+                    LevelThreeCell(title: "Pressure", value: weatherModel.current.pressure.stringRound())
+                
+            }
+        }
     }
 }
 

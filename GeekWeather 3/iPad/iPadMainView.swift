@@ -22,10 +22,11 @@ struct iPadMainView: View {
                 VStack(alignment: .center, spacing: 35) {
                     Spacer()
                     LevelOneView(weatherModel: weatherModel, location: location).padding()
+                    LevelThreeView(weatherModel: weatherModel)
                     LevelTwoView(weatherModel: weatherModel)
-                    LevelThreeView(weatherModel: weatherModel).padding()
+                    
                     Spacer()
-                    Text("Developed and designed by Cyril")
+                    Text("Developed and designed by Cyril © 2017 - 2021")
                         .foregroundColor(.white)
                         .font(Font.custom("AvenirNext-Medium", size: 20))
                         .padding(.bottom)

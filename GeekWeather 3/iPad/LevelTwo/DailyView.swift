@@ -37,16 +37,8 @@ struct DailyCellItem: View {
                 Spacer()
                 
                 HStack(spacing: 10) {
-                    Text(high)
-                        .font(Font.custom("AvenirNext-Bold", size: 30))
-                        .foregroundColor(Color.white)
-                        .minimumScaleFactor(0.2)
-                        .allowsTightening(true)
-                        .lineLimit(1)
-                        .foregroundColor(Color.white)
-                    
-                    Text(low)
-                        .font(Font.custom("AvenirNext-Medium", size: 27))
+                    Text(high + "   " + low)
+                        .font(Font.custom("AvenirNext-Medium", size: 30))
                         .foregroundColor(Color.white)
                         .minimumScaleFactor(0.2)
                         .allowsTightening(true)

@@ -23,7 +23,7 @@ final class DesignerController: UITableViewController, MFMailComposeViewControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Developer"
+        title = "Designer"
         createDynamicType()
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
         tableView.estimatedRowHeight = 150
@@ -48,9 +48,9 @@ final class DesignerController: UITableViewController, MFMailComposeViewControll
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 1 && indexPath.row == 0 {
-//            open("https://twitter.com/_ByCyril")
+            open("https://www.instagram.com/tiny.crab/")
         } else if indexPath.section == 1 && indexPath.row == 1 {
-//            open("https://www.linkedin.com/in/bycyril/")
+            open("https://dribbble.com/Animation_Andrade")
         } else if indexPath.section == 1 && indexPath.row == 2 {
 //            open("https://bycyril.com")
         } else if indexPath.section == 1 && indexPath.row == 3 {
@@ -64,7 +64,7 @@ final class DesignerController: UITableViewController, MFMailComposeViewControll
     }
     
     func sendEmail() {
-        UIApplication.shared.open(URL(string: "mailto://garciacy@bycyril.com")!)
+        UIApplication.shared.open(URL(string: "mailto://animation.andrade@gmail.com")!)
     }
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {

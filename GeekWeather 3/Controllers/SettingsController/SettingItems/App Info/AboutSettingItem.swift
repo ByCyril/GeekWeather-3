@@ -8,6 +8,16 @@
 
 import UIKit
 
+extension UIApplication {
+    static var appVersion: String? {
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    
+    static var buildVersion: String {
+        return Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
+    }
+}
+
 struct AboutSettingItem: SettingItem {
     var cellHeight: CGFloat = 50
     
@@ -16,7 +26,7 @@ struct AboutSettingItem: SettingItem {
 
         cell.iconImageView.image = UIImage(named: "geekweather")
         cell.titleLabel.text = "App Version"
-        cell.detailLabel.text = "3.0 β"
+        cell.detailLabel.text = (UIApplication.appVersion ?? "na") + " \(UIApplication.buildVersion)β"
         cell.selectionStyle = .none
         return cell
     }

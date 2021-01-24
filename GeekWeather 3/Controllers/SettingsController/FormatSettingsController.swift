@@ -26,6 +26,11 @@ final class FormatSettingsController: UITableViewController {
         hourSwitch.isOn = hourSetting
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: GWFont.AvenirNext(style: .Regular, size: 17)]
+    }
+    
     @IBAction func changeScale(_ sender: UISegmentedControl) {
         sharedUserDefaults?.setValue(sender.selectedSegmentIndex, forKey: "Temperature")
         NotificationCenter.default.post(name: Notification.Name("UpdateValues"), object: nil)
@@ -39,6 +44,12 @@ final class FormatSettingsController: UITableViewController {
     @IBAction func militaryTime(_ sender: UISwitch) {
         sharedUserDefaults?.setValue(sender.isOn, forKey: "is24Hour")
         NotificationCenter.default.post(name: Notification.Name("UpdateValues"), object: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let headerView = view as? UITableViewHeaderFooterView else { return }
+        headerView.textLabel?.textColor = .label
+        headerView.textLabel?.font = GWFont.AvenirNext(style: .Medium, size: 12)
     }
     
     deinit {

@@ -263,6 +263,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     @objc
     func newLocation(_ notification: NSNotification) {
         navView?.rollableTitleView.hideTitles()
+        levelOneViewController?.shrink()
         removeErrorItems()
         loadingView.play()
         
@@ -272,13 +273,16 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         
         if let location = notification.object as? CLLocation {
             hideScrollView { [weak self] (_) in
+                self?.scrollView.setContentOffset(.zero, animated: false)
                 self?.networkLayer.fetch(with: location)
             }
         } else {
             hideScrollView { [weak self] (_) in
+                self?.scrollView.setContentOffset(.zero, animated: false)
                 self?.networkLayer.fetch()
             }
         }
+        
     }
     
     func initUI() {

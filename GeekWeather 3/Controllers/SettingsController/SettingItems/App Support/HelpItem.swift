@@ -16,7 +16,7 @@ struct HelpItem: SettingItem {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
         
         cell.titleLabel.text = "Help"
-        cell.iconImageView.image = UIImage(named: "boy")
+        cell.iconImageView.image = UIImage(named: "life-saver")
         cell.accessoryType = .disclosureIndicator
         
         return cell

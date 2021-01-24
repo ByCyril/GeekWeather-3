@@ -17,6 +17,8 @@ struct WeatherFetcherError {
 }
 
 final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegate {
+    
+    @Published var currentStatus: String = ""
     @Published var weatherModel: [WeatherModel] = []
     @Published var location: String = ""
     @Published var fetchError: Bool = false
@@ -27,7 +29,7 @@ final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegat
     
     func fetch() {
         print("☎️ Fetching")
-        
+        currentStatus = "Fetching"
         locationManager = CLLocationManager()
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.delegate = self
@@ -58,10 +60,14 @@ final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegat
     
     func denied() {
         print("👎🏼 denied")
+        let err = WeatherFetcherError(title: "Unable to get location", description: "Please try again later or try to manually search for a location. If the issue persists, please let the developer know!")
+        error = [err]
     }
     
     func notDetermined() {
         print("👎🏼 not determined")
+        let err = WeatherFetcherError(title: "Unable to get location", description:  "Please try again later or try to manually search for a location. If the issue persists, please let the developer know!")
+        error = [err]
     }
     
     func fetch(with location: CLLocation) {
@@ -71,7 +77,7 @@ final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegat
                 self?.error = [err]
                 return
             }
-            
+            self?.currentStatus = "Getting Location"
             let locality = firstLocation.locality ?? ""
             let administrativeArea = firstLocation.administrativeArea ?? ""
             let locationStr = "\(locality), \(administrativeArea)"
@@ -82,7 +88,9 @@ final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegat
     func beginFetchingWeatherData(_ location: CLLocation,_ locationStr: String) {
         let url = RequestURL(location: location)
         print("👀 URL",url.url.absoluteString)
+        currentStatus = "Getting Weather Data"
         networkManager.fetch(url) { [weak self] (weatherModel, error) in
+            
             DispatchQueue.main.async { [weak self] in
                 if let model = weatherModel {
                     self?.weatherModel.append(model)

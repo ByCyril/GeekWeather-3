@@ -43,6 +43,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
             element?.adjustsFontSizeToFitWidth = true
             element?.textColor = .white
         }
+        shrink()
     }
     
     required init?(coder: NSCoder) {
@@ -92,11 +93,31 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         commentLabel.numberOfLines = 0
         
         iconView.image = UIImage(named: currentWeatherData.weather.first!.icon)
-        UIView.animate(withDuration: 1) { [weak self] in
-            self?.tempLabel.alpha = 1
-            self?.summaryLabel.alpha = 1
-            self?.commentLabel.alpha = 1
+        
+        var elementsRowOne = [iconView, tempLabel]
+        var elementsRowTwo = [summaryLabel, commentLabel]
+        var a: Double = 0
+        
+        while !elementsRowOne.isEmpty {
+            let element = elementsRowOne.removeFirst()
+            a += 0.15
+            UIView.animate(withDuration: 0.4, delay: a, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.9, options: .curveEaseInOut) {
+                element?.alpha = 1
+                element?.transform = .identity
+            }
         }
+        
+        var b: Double = 0.05
+        while !elementsRowTwo.isEmpty {
+            let element = elementsRowTwo.removeFirst()
+            b += 0.15
+            UIView.animate(withDuration: 0.4, delay: b, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.9, options: .curveEaseInOut) {
+                element?.alpha = 1
+                element?.transform = .identity
+            }
+        }
+        
+        detailedViewLayer.alpha = 1
         
         accessibilityElements()
     }
@@ -105,6 +126,16 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         UIView.animate(withDuration: 0.4, delay: 1, options: .curveEaseInOut) {
             self.weatherAlertButton.transform = .identity
         }
+    }
+    
+    func shrink() {
+        
+        [tempLabel, summaryLabel, commentLabel, iconView].forEach { (element) in
+            element?.alpha = 0
+            element?.transform = .init(scaleX: 0.01, y: 0.01)
+        }
+        detailedViewLayer.d = 0
+        detailedViewLayer.animatedCell.removeAll()
     }
     
     func accessibilityElements() {

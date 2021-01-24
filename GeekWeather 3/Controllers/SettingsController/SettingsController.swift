@@ -31,7 +31,7 @@ final class SettingsController: UITableViewController {
         
         title = "Settings"
         navigationItem.titleView?.isAccessibilityElement = false
-   
+
         let barButton = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(dismissController))
         barButton.tintColor = .label
         navigationItem.setRightBarButton(barButton, animated: true)
@@ -45,6 +45,7 @@ final class SettingsController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let headerView = view as? UITableViewHeaderFooterView else { return }
         headerView.textLabel?.textColor = .label
+        headerView.textLabel?.font = GWFont.AvenirNext(style: .Medium, size: 12)
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

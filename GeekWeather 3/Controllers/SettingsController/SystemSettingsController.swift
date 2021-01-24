@@ -34,6 +34,17 @@ final class SystemSettingsConroller: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: GWFont.AvenirNext(style: .Regular, size: 17)]
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let headerView = view as? UITableViewHeaderFooterView else { return }
+        headerView.textLabel?.textColor = .label
+        headerView.textLabel?.font = GWFont.AvenirNext(style: .Medium, size: 12)
+    }
+    
     @IBAction func toggleHapticFeedback(_ sender: UISwitch) {
         UserDefaults.standard.setValue(!sender.isOn, forKey: "DisableHaptic")
     }

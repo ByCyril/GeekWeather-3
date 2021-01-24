@@ -15,7 +15,7 @@ struct DesignerInfoItem: SettingItem {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
         
         cell.titleLabel.text = "Designer"
-        cell.iconImageView.image = UIImage(named: "boy")
+        cell.iconImageView.image = UIImage(named: "44")
         cell.accessoryType = .disclosureIndicator
         
         return cell

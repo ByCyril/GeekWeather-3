@@ -23,13 +23,13 @@ struct iPadMainView: View {
             if self.weatherFetcher.fetchError {
                 Text("Error")
             } else {
-                if let model = self.weatherFetcher.weatherModel.first {
+                if let weatherModel = self.weatherFetcher.weatherModel.first {
                     ScrollView(.vertical) {
                         VStack(alignment: .center, spacing: 35) {
                             Spacer()
-                            LevelOneView(weatherModel: model, location: self.weatherFetcher.location).padding()
-                            LevelThreeView(weatherModel: model)
-                            LevelTwoView(weatherModel: model)
+                            LevelOneView(weatherModel: weatherModel, location: self.weatherFetcher.location).padding()
+                            LevelThreeView(weatherModel: weatherModel)
+                            LevelTwoView(weatherModel: weatherModel)
                             
                             Spacer()
                             Text("Developed and designed by Cyril © 2017 - 2021")
@@ -38,7 +38,7 @@ struct iPadMainView: View {
                                 .padding(.bottom)
                         }
                     }
-                }
+                } 
             }
         }.onAppear {
             self.weatherFetcher.fetch()

@@ -12,7 +12,7 @@ import GWFoundation
 struct LevelOneView: View {
     
     let weatherModel: WeatherModel
-    var location: String = ""
+    var location: String = "San Jose, CA"
     
     var body: some View {
         VStack(spacing: 0) {
@@ -38,12 +38,14 @@ struct LevelOneView: View {
                 }.padding(.bottom).padding(.leading)
                 Spacer()
             }.padding(EdgeInsets(top: -10, leading: 0, bottom: 0, trailing: 0))
+            Spacer()
+            Image(systemName: "chevron.compact.down")
         }
     }
 }
 
 struct LevelOneView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelOneView(weatherModel: Mocks.mock())
+        LevelOneView(weatherModel: Mocks.mock()).previewDevice(PreviewDevice(rawValue: "Apple Watch Series 6 - 44mm"))
     }
 }

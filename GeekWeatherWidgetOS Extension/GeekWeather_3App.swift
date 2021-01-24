@@ -10,11 +10,12 @@ import SwiftUI
 
 @main
 struct GeekWeather_3App: App {
+    
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
                 ContentView()
-            }.onAppear()
+            }
         }
 
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")

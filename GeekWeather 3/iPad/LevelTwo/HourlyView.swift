@@ -37,7 +37,6 @@ struct HourlyCellView: View {
             }.padding()
         }.background(Color.white.opacity(0.15))
         .cornerRadius(20)
-        .padding(.leading)
         
     }
 }
@@ -47,25 +46,42 @@ struct HourlyView: View {
     
     var body: some View {
         ScrollView(.horizontal) {
-            HStack(spacing: 0) {
+            HStack(spacing: 20) {
                 ForEach(0..<20) { i in
                     let hour = hourly[i]
                     let icon = hour.weather.first!.icon
                     if i == 0 {
                         HourlyCellView(time: "Now",
                                        icon: hour.weather.first!.icon,
-                                       temp: hour.temp.kelvinToSystemFormat())
+                                       temp: hour.temp.kelvinToSystemFormat()).padding(.leading)
                     } else {
                         if icon == "sunset" || icon == "sunrise" {
-                            HourlyCellView(time: hour.dt.convertTime(),
-                                           icon: hour.weather.first!.icon,
-                                           temp: icon)
+                            if i == 19 {
+                                HourlyCellView(time: hour.dt.convertTime(),
+                                               icon: hour.weather.first!.icon,
+                                               temp: icon)
+                                    .padding(.trailing)
+                            } else {
+                                HourlyCellView(time: hour.dt.convertTime(),
+                                               icon: hour.weather.first!.icon,
+                                               temp: icon)
+                            }
+                            
                         } else {
-                            HourlyCellView(time: hour.dt.convertHourTime(),
-                                           icon: hour.weather.first!.icon,
-                                           temp: hour.temp.kelvinToSystemFormat())
+                            if i == 19 {
+                                HourlyCellView(time: hour.dt.convertHourTime(),
+                                               icon: hour.weather.first!.icon,
+                                               temp: hour.temp.kelvinToSystemFormat())
+                                    .padding(.trailing)
+                            } else {
+                                HourlyCellView(time: hour.dt.convertHourTime(),
+                                               icon: hour.weather.first!.icon,
+                                               temp: hour.temp.kelvinToSystemFormat())
+                            }
                         }
                     }
+                    
+                    
                 }
             }
         }

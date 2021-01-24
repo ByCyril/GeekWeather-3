@@ -50,10 +50,10 @@ struct LevelTwoView: View {
                     let icon = hour.weather.first!.icon
                     
                     if (icon == "sunrise" || icon == "sunset") {
-                        let time = hour.dt.convertTime()
+                        let time = hour.dt.convertTime().lowercased()
                         SmallItem(topItem: time,
                                   icon: icon,
-                                  bottomItem: icon.capitalized).frame(width: 50)
+                                  bottomItem: icon.capitalized).frame(width: 115)
                     } else {
                         let time = (i == 0) ? "Now" : hour.dt.convertHourTime()
                         SmallItem(topItem: time,

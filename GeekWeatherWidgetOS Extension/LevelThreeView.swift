@@ -25,6 +25,7 @@ struct HorizontalItemView: View {
                 
                 Text(date)
                     .font(Font.custom("AvenirNext-Medium", size: 20))
+                    .minimumScaleFactor(0.2)
                     .allowsTightening(true)
                     .lineLimit(1)
                     .foregroundColor(Color.white)
@@ -53,7 +54,7 @@ struct LevelThreeView: View {
     
     var body: some View {
         
-        ScrollView(.vertical) {
+//        ScrollView(.vertical) {
             VStack(spacing: 15) {
                 let daily = weatherModel.daily
                 
@@ -69,7 +70,7 @@ struct LevelThreeView: View {
                 }
                 
             }
-        }
+//        }
         
     }
 }

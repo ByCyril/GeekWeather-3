@@ -30,7 +30,7 @@ struct LevelThreeCell: View {
                     .lineLimit(1)
                     .foregroundColor(Color.white)
             }.padding()
-        }.background(Color.white.opacity(0.15)).cornerRadius(15).padding(.leading)
+        }.background(Color.white.opacity(0.15)).cornerRadius(15)
     }
 }
 
@@ -41,8 +41,8 @@ struct LevelThreeView: View {
     var body: some View {
 
         ScrollView(.horizontal) {
-            HStack {
-                    LevelThreeCell(title: "Sunrise", value: weatherModel.current.sunrise.convertTime().lowercased())
+            HStack(spacing: 20) {
+                LevelThreeCell(title: "Sunrise", value: weatherModel.current.sunrise.convertTime().lowercased()).padding(.leading)
                     LevelThreeCell(title: "Sunset", value: weatherModel.current.sunset.convertTime().lowercased())
                     LevelThreeCell(title: "Dew Point", value: weatherModel.current.dew_point.kelvinToSystemFormat())
                     LevelThreeCell(title: "Visibility", value: weatherModel.current.visibility.mToSystemFormat())
@@ -51,7 +51,7 @@ struct LevelThreeView: View {
                     LevelThreeCell(title: "Humidity", value: weatherModel.current.humidity.percentage(chop: true))
                     LevelThreeCell(title: "UV Index", value: weatherModel.current.uvi.stringRound())
                     LevelThreeCell(title: "Wind Speed", value: weatherModel.current.wind_speed.msToSystemFormat())
-                    LevelThreeCell(title: "Pressure", value: weatherModel.current.pressure.stringRound())
+                LevelThreeCell(title: "Pressure", value: weatherModel.current.pressure.stringRound()).padding(.trailing)
                 
             }
         }

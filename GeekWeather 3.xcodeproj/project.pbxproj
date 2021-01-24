@@ -23,7 +23,7 @@
 		0103B842259449E7008577FD /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0103B841259449E7008577FD /* SwiftUI.framework */; };
 		0103B845259449E7008577FD /* GeekWeatherWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B844259449E7008577FD /* GeekWeatherWidget.swift */; };
 		0103B847259449E9008577FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0103B846259449E9008577FD /* Assets.xcassets */; };
-		0103B84B259449E9008577FD /* GeekWeatherWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0103B83E259449E7008577FD /* GeekWeatherWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0103B84B259449E9008577FD /* GeekWeatherWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0103B83E259449E7008577FD /* GeekWeatherWidgetExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0103B85425944A2A008577FD /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0103B85325944A2A008577FD /* GWFoundation */; };
 		0103B85D25944B6F008577FD /* WeatherEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B85725944B59008577FD /* WeatherEntry.swift */; };
 		0103B86825944F07008577FD /* TodayViewTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B86425944F03008577FD /* TodayViewTimelineProvider.swift */; };
@@ -72,6 +72,7 @@
 		01328D4125B7D45500E29B31 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
 		01328D4525B7D66200E29B31 /* WeatherAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D4425B7D66200E29B31 /* WeatherAlertController.swift */; };
 		0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */; };
+		0141F60425BD4378001931C3 /* ComplicationForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141F60325BD4378001931C3 /* ComplicationForecastView.swift */; };
 		01430F31259B1EFA00D67245 /* ToggleOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */; };
 		01430F37259BF4DB00D67245 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01430F35259BF4DB00D67245 /* Model.xcdatamodeld */; };
 		01430F3E259BF58400D67245 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01430F3D259BF58400D67245 /* PersistenceManager.swift */; };
@@ -107,7 +108,7 @@
 		0186E9CB25BB81D600CCD3A2 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0186E9CA25BB81D600CCD3A2 /* ComplicationController.swift */; };
 		0186E9CD25BB81D600CCD3A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0186E9CC25BB81D600CCD3A2 /* Assets.xcassets */; };
 		0186E9D025BB81D600CCD3A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0186E9CF25BB81D600CCD3A2 /* Preview Assets.xcassets */; };
-		0186E9D525BB81D600CCD3A2 /* GeekWeatherWidgetOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0186E9B425BB81D500CCD3A2 /* GeekWeatherWidgetOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0186E9D525BB81D600CCD3A2 /* GeekWeatherWidgetOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0186E9B425BB81D500CCD3A2 /* GeekWeatherWidgetOS.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0186E9E425BB81E200CCD3A2 /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0186E9E325BB81E200CCD3A2 /* GWFoundation */; };
 		0186E9FD25BB845F00CCD3A2 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01305A9E25A3F2C3005C8B19 /* NetworkLayer.swift */; };
 		0186EA0325BB847400CCD3A2 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* Mocks.swift */; };
@@ -308,6 +309,7 @@
 		01328D4025B7D45500E29B31 /* demo3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo3.json; sourceTree = "<group>"; };
 		01328D4425B7D66200E29B31 /* WeatherAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAlertController.swift; sourceTree = "<group>"; };
 		0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeViewController.swift; sourceTree = "<group>"; };
+		0141F60325BD4378001931C3 /* ComplicationForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationForecastView.swift; sourceTree = "<group>"; };
 		01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleOnboarding.swift; sourceTree = "<group>"; };
 		01430F36259BF4DB00D67245 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		01430F3D259BF58400D67245 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
@@ -820,6 +822,7 @@
 				0103716625BB9BBB000327AC /* LevelThreeView.swift */,
 				0186E9C625BB81D600CCD3A2 /* NotificationController.swift */,
 				0186E9C825BB81D600CCD3A2 /* NotificationView.swift */,
+				0141F60325BD4378001931C3 /* ComplicationForecastView.swift */,
 				0186E9CA25BB81D600CCD3A2 /* ComplicationController.swift */,
 				0186E9CC25BB81D600CCD3A2 /* Assets.xcassets */,
 				0186E9D125BB81D600CCD3A2 /* Info.plist */,
@@ -1359,6 +1362,7 @@
 				0186EA0F25BB855400CCD3A2 /* Doouble+Extension.swift in Sources */,
 				0186E9C725BB81D600CCD3A2 /* NotificationController.swift in Sources */,
 				010370CA25BB893E000327AC /* LevelOneView.swift in Sources */,
+				0141F60425BD4378001931C3 /* ComplicationForecastView.swift in Sources */,
 				0186E9C525BB81D600CCD3A2 /* ContentView.swift in Sources */,
 				0186E9CB25BB81D600CCD3A2 /* ComplicationController.swift in Sources */,
 				0186EA0325BB847400CCD3A2 /* Mocks.swift in Sources */,
@@ -1391,6 +1395,7 @@
 		};
 		0103B84A259449E9008577FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 0103B83D259449E7008577FD /* GeekWeatherWidgetExtension */;
 			targetProxy = 0103B849259449E9008577FD /* PBXContainerItemProxy */;
 		};
@@ -1401,6 +1406,7 @@
 		};
 		0186E9D425BB81D600CCD3A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 0186E9B325BB81D500CCD3A2 /* GeekWeatherWidgetOS */;
 			targetProxy = 0186E9D325BB81D600CCD3A2 /* PBXContainerItemProxy */;
 		};
@@ -1552,7 +1558,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2";
 				PRODUCT_NAME = GeekWeather;
 				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1578,7 +1584,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ByCyril.GeekWeather-2";
 				PRODUCT_NAME = GeekWeather;
 				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

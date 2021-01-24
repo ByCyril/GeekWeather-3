@@ -47,7 +47,7 @@ struct DailyCellItem: View {
                 }.padding(.trailing)
                 
             }
-        }.background(Color.white.opacity(0.15)).cornerRadius(20).padding(.leading)
+        }.background(Color.white.opacity(0.15)).cornerRadius(20)
         
     }
 }
@@ -57,7 +57,7 @@ struct DailyView: View {
     var daily: [Daily]
     
     var body: some View {
-        VStack(spacing: 15) {
+        VStack(spacing: 20) {
             ForEach(0..<daily.count) { i in
                 let day = daily[i]
                 

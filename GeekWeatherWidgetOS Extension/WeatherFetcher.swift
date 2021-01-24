@@ -23,16 +23,35 @@ final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegat
     @Published var location: String = ""
     @Published var fetchError: Bool = false
     @Published var error: [WeatherFetcherError] = []
+    @Published var lastUpdatedStr: String = ""
     
     private var locationManager: CLLocationManager?
     private let networkManager = NetworkManager()
     
+    
     func fetch() {
         print("☎️ Fetching")
+        lastUpdatedStr = ""
         currentStatus = "Fetching"
         locationManager = CLLocationManager()
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.delegate = self
+    }
+    
+    func calculateLastUpdated() {
+        
+        if let lastUpdate = UserDefaults.standard.value(forKey: "LastUpdatedWatchOS") as? Date {
+            let differenceInSeconds = abs(lastUpdate.timeIntervalSince(Date()))
+            let minutesPassed = differenceInSeconds / 60
+            
+            if minutesPassed < 1 {
+                lastUpdatedStr = "\(Int(differenceInSeconds)) sec ago"
+            } else if minutesPassed < 5 {
+                lastUpdatedStr = "\(Int(minutesPassed)) min ago"
+            } else {
+                fetch()
+            }
+        }
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -60,17 +79,19 @@ final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegat
     
     func denied() {
         print("👎🏼 denied")
-        let err = WeatherFetcherError(title: "Unable to get location", description: "Please try again later or try to manually search for a location. If the issue persists, please let the developer know!")
+        let err = WeatherFetcherError(title: "Unable to get location", description: "You can manually set a default location to fetch weather data from inside the GeekWeather App. If the issue persists, please let the developer know!")
         error = [err]
     }
     
     func notDetermined() {
         print("👎🏼 not determined")
-        let err = WeatherFetcherError(title: "Unable to get location", description:  "Please try again later or try to manually search for a location. If the issue persists, please let the developer know!")
+        let err = WeatherFetcherError(title: "Unable to get location", description: "You can manually set a default location to fetch weather data from inside the GeekWeather App. If the issue persists, please let the developer know!")
         error = [err]
     }
     
     func fetch(with location: CLLocation) {
+        UserDefaults.standard.removeObject(forKey: "LastUpdatedWatchOS")
+        weatherModel.removeAll()
         CLGeocoder().reverseGeocodeLocation(location) { [weak self] (placemark, error) in
             guard let firstLocation = placemark?.first else {
                 let err = WeatherFetcherError(title: "Unable to get location", description: error?.localizedDescription ?? "Please try again later or try to manually search for a location. If the issue persists, please let the developer know!")
@@ -93,8 +114,10 @@ final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegat
             
             DispatchQueue.main.async { [weak self] in
                 if let model = weatherModel {
-                    self?.weatherModel.append(model)
+                    UserDefaults.standard.setValue(Date(), forKey: "LastUpdatedWatchOS")
+                    self?.weatherModel = [model]
                     self?.location = locationStr
+                    self?.lastUpdatedStr = "Now"
                 } else {
                     let err = WeatherFetcherError(title: "Network Error!", description: error?.localizedDescription ?? "Something went wrong. Please try again later. If error persist, please let the developer know!")
                     self?.error = [err]

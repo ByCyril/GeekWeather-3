@@ -28,8 +28,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if UserDefaults.standard.bool(forKey: SharedUserDefaults.Keys.ExistingUser) {
             
             if UIDevice.current.userInterfaceIdiom == .pad {
-//                let vc = MainPadController()
                 let vc = UIHostingController(rootView: iPadMainView())
+                
+                #if targetEnvironment(macCatalyst)
+                    windowScene.sizeRestrictions?.maximumSize = CGSize(width: 660, height: 1260)
+                
+                #else
+                    print("Your regular code")
+                #endif
+                
                 setWindow(with: windowScene, vc: vc)
                 return
             }
@@ -45,8 +52,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func setWindow(with windowScene: UIWindowScene, vc: UIViewController) {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        window?.rootViewController = vc
+
         window?.windowScene = windowScene
+        window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }
     

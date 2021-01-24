@@ -11,7 +11,7 @@ import GWFoundation
 
 struct iPadMainView: View {
     
-    @ObservedObject var weatherFetcher = WeatherFetcher()
+//    @ObservedObject var weatherFetcher = WeatherFetcher()
     
     var weatherModel: WeatherModel = Mocks.mock()
     var location: String = ""
@@ -19,29 +19,21 @@ struct iPadMainView: View {
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color("System-GradientTopColor"),Color("System-GradientBottomColor")]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
-            
-            if self.weatherFetcher.fetchError {
-                Text("Error")
-            } else {
-                if let weatherModel = self.weatherFetcher.weatherModel.first {
-                    ScrollView(.vertical) {
-                        VStack(alignment: .center, spacing: 35) {
-                            Spacer()
-                            LevelOneView(weatherModel: weatherModel, location: self.weatherFetcher.location).padding()
-                            LevelThreeView(weatherModel: weatherModel)
-                            LevelTwoView(weatherModel: weatherModel)
-                            
-                            Spacer()
-                            Text("Developed and designed by Cyril © 2017 - 2021")
-                                .foregroundColor(.white)
-                                .font(Font.custom("AvenirNext-Medium", size: 20))
-                                .padding(.bottom)
-                        }
-                    }
-                } 
+//
+            ScrollView(.vertical) {
+                VStack(alignment: .center, spacing: 35) {
+                    Spacer()
+                    LevelOneView(weatherModel: weatherModel, location: location).padding()
+                    LevelThreeView(weatherModel: weatherModel)
+                    LevelTwoView(weatherModel: weatherModel)
+                    
+                    Spacer()
+                    Text("Developed and designed by Cyril © 2017 - 2021")
+                        .foregroundColor(.white)
+                        .font(Font.custom("AvenirNext-Medium", size: 20))
+                        .padding(.bottom)
+                }
             }
-        }.onAppear {
-            self.weatherFetcher.fetch()
         }
     }
     

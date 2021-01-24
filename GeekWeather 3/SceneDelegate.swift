@@ -28,7 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if UserDefaults.standard.bool(forKey: SharedUserDefaults.Keys.ExistingUser) {
             
             if UIDevice.current.userInterfaceIdiom == .pad {
-                let vc = UIHostingController(rootView: iPadMainView())
+                let vc = MainPadController()
+                
+//                let vc = UIHostingController(rootView: iPadMainView())
                 
                 #if targetEnvironment(macCatalyst)
                     windowScene.sizeRestrictions?.maximumSize = CGSize(width: 660, height: 1260)

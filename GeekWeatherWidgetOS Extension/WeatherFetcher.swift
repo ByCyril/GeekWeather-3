@@ -11,11 +11,6 @@ import SwiftUI
 import GWFoundation
 import CoreLocation
 
-struct WeatherFetcherError {
-    var title: String
-    var description: String
-}
-
 final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var currentStatus: String = ""

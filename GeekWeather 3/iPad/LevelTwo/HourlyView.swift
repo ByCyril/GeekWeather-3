@@ -59,12 +59,12 @@ struct HourlyView: View {
                             if i == 19 {
                                 HourlyCellView(time: hour.dt.convertTime(),
                                                icon: hour.weather.first!.icon,
-                                               temp: icon)
+                                               temp: icon.capitalized)
                                     .padding(.trailing)
                             } else {
                                 HourlyCellView(time: hour.dt.convertTime(),
                                                icon: hour.weather.first!.icon,
-                                               temp: icon)
+                                               temp: icon.capitalized)
                             }
                             
                         } else {

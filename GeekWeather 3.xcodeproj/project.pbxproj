@@ -157,6 +157,8 @@
 		01D00822259EE28E00032D17 /* Doouble+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D00821259EE28E00032D17 /* Doouble+Extension.swift */; };
 		01D28B4725B6C6F7005CD583 /* HourlyViewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D28B4625B6C6F7005CD583 /* HourlyViewLayer.swift */; };
 		01E3B56C259EE9130099F212 /* Doouble+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D00821259EE28E00032D17 /* Doouble+Extension.swift */; };
+		01E51A7625BD7DA700B0BBD3 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E51A7525BD7DA700B0BBD3 /* ErrorView.swift */; };
+		01E51A7C25BD7E3E00B0BBD3 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E51A7525BD7DA700B0BBD3 /* ErrorView.swift */; };
 		01E65B2024F19D9400D8F76F /* ChangeUnitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */; };
 		01F431DC259E288600B0D44F /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */; };
 		01F431EE259E76A300B0D44F /* SystemSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431ED259E76A300B0D44F /* SystemSettingsController.swift */; };
@@ -383,6 +385,7 @@
 		01D0081D259EDB5100032D17 /* FormatSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatSettingsController.swift; sourceTree = "<group>"; };
 		01D00821259EE28E00032D17 /* Doouble+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Doouble+Extension.swift"; sourceTree = "<group>"; };
 		01D28B4625B6C6F7005CD583 /* HourlyViewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyViewLayer.swift; sourceTree = "<group>"; };
+		01E51A7525BD7DA700B0BBD3 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUnitController.swift; sourceTree = "<group>"; };
 		01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBaseViewController.swift; sourceTree = "<group>"; };
 		01F431ED259E76A300B0D44F /* SystemSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettingsController.swift; sourceTree = "<group>"; };
@@ -726,6 +729,7 @@
 			children = (
 				01F4CD2C25A119EE00A52971 /* MainPadController.swift */,
 				011C61EE25A3BD9100F131D0 /* iPadMainView.swift */,
+				01E51A7525BD7DA700B0BBD3 /* ErrorView.swift */,
 				011C61F425A3BE4C00F131D0 /* LevelOneView.swift */,
 				011C620425A3C96F00F131D0 /* LevelTwo */,
 				011C620A25A3C9A100F131D0 /* LevelThreeView.swift */,
@@ -1273,6 +1277,7 @@
 				01F431EE259E76A300B0D44F /* SystemSettingsController.swift in Sources */,
 				01328D1E25B6D28C00E29B31 /* DetailedViewCell.swift in Sources */,
 				01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */,
+				01E51A7625BD7DA700B0BBD3 /* ErrorView.swift in Sources */,
 				01E65B2024F19D9400D8F76F /* ChangeUnitController.swift in Sources */,
 				0158D0312505E3ED008692DC /* SavedLocationViewController.swift in Sources */,
 				018F66E025A7CB7400FFC539 /* CustomNavigationController.swift in Sources */,
@@ -1365,6 +1370,7 @@
 				0141F60425BD4378001931C3 /* ComplicationForecastView.swift in Sources */,
 				0186E9C525BB81D600CCD3A2 /* ContentView.swift in Sources */,
 				0186E9CB25BB81D600CCD3A2 /* ComplicationController.swift in Sources */,
+				01E51A7C25BD7E3E00B0BBD3 /* ErrorView.swift in Sources */,
 				0186EA0325BB847400CCD3A2 /* Mocks.swift in Sources */,
 				0186E9C325BB81D600CCD3A2 /* GeekWeather_3App.swift in Sources */,
 				0103716725BB9BBC000327AC /* LevelThreeView.swift in Sources */,

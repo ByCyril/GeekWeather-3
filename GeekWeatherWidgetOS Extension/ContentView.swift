@@ -9,19 +9,6 @@
 import SwiftUI
 import GWFoundation
 
-struct ErrorView: View {
-    
-    var error: WeatherFetcherError
-    
-    var body: some View {
-        HStack {
-            Image(systemName: "xmark.octagon.fill").resizable().frame(width: 25, height: 25, alignment: .center).padding()
-            Text(error.title).font(.callout).padding().multilineTextAlignment(.center)
-        }
-        Text(error.description)
-    }
-}
-
 struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
 

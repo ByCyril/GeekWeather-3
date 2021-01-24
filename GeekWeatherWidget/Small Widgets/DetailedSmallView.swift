@@ -31,11 +31,11 @@ struct DetailedSmallView: View {
                         .allowsTightening(true)
                         .lineLimit(1)
                         .foregroundColor(.white)
-                }.padding(.leading).padding(.trailing)
+                }
                 Spacer()
-                HStack(alignment: .center, spacing: 17) {
+                HStack(alignment: .center, spacing: 10) {
                     if let hourly = entry.weatherModel.hourly {
-                        let numOfItems = 4
+                        let numOfItems = 5
                         
                         ForEach(1..<numOfItems) { i in
                             let data = hourly[i]
@@ -53,7 +53,7 @@ struct DetailedSmallView: View {
                             }
                         }
                     }
-                }.padding(EdgeInsets(top: 0, leading: 3, bottom: 0, trailing: 3))
+                }.padding(EdgeInsets(top: 0, leading: 3, bottom: 0, trailing: 3)).ignoresSafeArea()
                 Spacer()
             }
             

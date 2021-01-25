@@ -284,6 +284,8 @@
 		011C61FC25A3C91C00F131D0 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
 		011C620025A3C93B00F131D0 /* HourlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyView.swift; sourceTree = "<group>"; };
 		011C620A25A3C9A100F131D0 /* LevelThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeView.swift; sourceTree = "<group>"; };
+		01228FED25BE4FCE00FD47BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01228FEE25BE4FD400FD47BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0125E46425A90E4D00DBD33B /* HelpItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpItem.swift; sourceTree = "<group>"; };
 		0127D1142595736F00298ABD /* TodayViewMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewMedium.swift; sourceTree = "<group>"; };
 		0127D14D2597D72200298ABD /* GWFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWFont.swift; sourceTree = "<group>"; };
@@ -307,8 +309,6 @@
 		01430F36259BF4DB00D67245 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		01430F3D259BF58400D67245 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		01430F41259BFCD100D67245 /* DeleteAllSearchItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllSearchItems.swift; sourceTree = "<group>"; };
-		0143DCD025BE464C002B250B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0143DCD625BE4659002B250B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0146C05924F787D000967A37 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		014D2A3924D3F6090038623E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0153693325174D580044D108 /* GWTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWTransition.swift; sourceTree = "<group>"; };
@@ -785,8 +785,8 @@
 		0186E9B525BB81D500CCD3A2 /* GeekWeatherWidgetOS */ = {
 			isa = PBXGroup;
 			children = (
-				0143DCD625BE4659002B250B /* Info.plist */,
 				0186E9B625BB81D600CCD3A2 /* Assets.xcassets */,
+				01228FED25BE4FCE00FD47BA /* Info.plist */,
 			);
 			path = GeekWeatherWidgetOS;
 			sourceTree = "<group>";
@@ -806,7 +806,7 @@
 				0186E9CA25BB81D600CCD3A2 /* ComplicationController.swift */,
 				0186E9CC25BB81D600CCD3A2 /* Assets.xcassets */,
 				0186E9D225BB81D600CCD3A2 /* PushNotificationPayload.apns */,
-				0143DCD025BE464C002B250B /* Info.plist */,
+				01228FEE25BE4FD400FD47BA /* Info.plist */,
 				0186E9CE25BB81D600CCD3A2 /* Preview Content */,
 			);
 			path = "GeekWeatherWidgetOS Extension";

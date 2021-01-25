@@ -66,7 +66,7 @@ struct TodayViewLarge: View {
                         }
                         VStack(alignment: .leading, spacing: 0) {
                             Text("Visibility").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize)).foregroundColor(.white)
-                            Text(entry.weatherModel.currently.visibility.mToSystemFormat() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
+                            Text(entry.weatherModel.currently.visibility.mToSystemFormat()).font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
                         }
                         VStack(alignment: .leading, spacing: 0) {
                             Text("Cloud Cover").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize)).foregroundColor(.white)
@@ -78,7 +78,7 @@ struct TodayViewLarge: View {
                         }
                         VStack(alignment: .leading, spacing: 0) {
                             Text("Pressure").font(Font.custom("AvenirNext-\(smallFontWeight)", size: smallTextSize)).foregroundColor(.white)
-                            Text(entry.weatherModel.currently.pressure.stringRound() ?? "NA ☹️").font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
+                            Text(entry.weatherModel.currently.pressure.stringRound()).font(Font.custom("AvenirNext-\(valueTextSize)", size: valueTextSize)).foregroundColor(.white)
                         }
                     }.padding(.leading).padding(.trailing).padding(.bottom)
                     Spacer()

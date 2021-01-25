@@ -10,7 +10,7 @@ import UIKit
 
 final class Observe {
     static let data = Data()
-    static let state = State()
+    static let state = GWState()
 }
 
 class NotificationName {
@@ -19,7 +19,7 @@ class NotificationName {
     }
 }
 
-final class State: NotificationName {
+final class GWState: NotificationName {
 //    MARK: Location
     let locationServiceDisabled = observerID("LocationServiceDisabled")
     

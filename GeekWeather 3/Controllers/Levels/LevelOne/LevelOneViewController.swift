@@ -83,7 +83,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         
         tempLabel.text = " " + currentWeatherData.temp.kelvinToSystemFormat()
         
-        summaryLabel.text = instructions(currentWeatherData.weather.first?.description.capitalized ?? "")
+        summaryLabel.text = currentWeatherData.weather.first?.description.capitalized
         summaryLabel.numberOfLines = 0
         
         let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? "na"
@@ -142,11 +142,4 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         tempLabel.applyAccessibility(with: "Current Temperature", and: tempLabel.text, trait: .staticText)
     }
     
-    func instructions(_ text: String) -> String {
-        if text == "Mock Data 👋🏼" {
-            return "You've exceeded the number of API calls for the beta program. Your limit will reset on the next day."
-        }
-        return text
-    }
- 
 }

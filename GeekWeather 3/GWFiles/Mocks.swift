@@ -45,7 +45,7 @@ final class Mocks {
     }
     
     static func showMockedResponse() -> Bool {
-        return false
+        return true
     }
     
     static func mockedResponse() -> Data? {

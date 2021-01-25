@@ -54,7 +54,6 @@ final class DailyViewLayer: UIView, UITableViewDelegate {
             cell.iconView.image = UIImage(named: daily.weather.first!.icon)
             cell.tempLabels.text = daily.temp.max.kelvinToSystemFormat() + "  " + daily.temp.min.kelvinToSystemFormat()
 
-            cell.selectionStyle = .none
             return cell
         })
         
@@ -72,7 +71,15 @@ final class DailyViewLayer: UIView, UITableViewDelegate {
         if traitCollection.preferredContentSizeCategory >= .extraExtraExtraLarge {
             return UITableView.automaticDimension
         } else {
+            
             return dailyTableView.frame.size.height / 8
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let daily = dailyDataSource?.itemIdentifier(for: indexPath) {
+            NotificationCenter.default.post(name: Notification.Name("DailyItemSelection"), object: daily)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

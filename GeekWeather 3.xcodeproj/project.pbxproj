@@ -50,6 +50,7 @@
 		011C61FD25A3C91C00F131D0 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C61FC25A3C91C00F131D0 /* DailyView.swift */; };
 		011C620125A3C93B00F131D0 /* HourlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C620025A3C93B00F131D0 /* HourlyView.swift */; };
 		011C620B25A3C9A100F131D0 /* LevelThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C620A25A3C9A100F131D0 /* LevelThreeView.swift */; };
+		0122900025BE54C500FD47BA /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01228FFF25BE54C500FD47BA /* DetailsView.swift */; };
 		0125E46525A90E4D00DBD33B /* HelpItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125E46425A90E4D00DBD33B /* HelpItem.swift */; };
 		0127D10F2595735C00298ABD /* GeekWeatherWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B8A425957249008577FD /* GeekWeatherWidgetEntryView.swift */; };
 		0127D118259573CF00298ABD /* TodayViewMedium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D1142595736F00298ABD /* TodayViewMedium.swift */; };
@@ -286,6 +287,7 @@
 		011C620A25A3C9A100F131D0 /* LevelThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeView.swift; sourceTree = "<group>"; };
 		01228FED25BE4FCE00FD47BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01228FEE25BE4FD400FD47BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01228FFF25BE54C500FD47BA /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		0125E46425A90E4D00DBD33B /* HelpItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpItem.swift; sourceTree = "<group>"; };
 		0127D1142595736F00298ABD /* TodayViewMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewMedium.swift; sourceTree = "<group>"; };
 		0127D14D2597D72200298ABD /* GWFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWFont.swift; sourceTree = "<group>"; };
@@ -552,6 +554,7 @@
 			children = (
 				01844A1524F22113000B0D52 /* Main.storyboard */,
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
+				01228FFF25BE54C500FD47BA /* DetailsView.swift */,
 			);
 			path = "Main Controller";
 			sourceTree = "<group>";
@@ -1182,6 +1185,7 @@
 				012C3AFB25BA6D0F003B2F5D /* DesignerInfoItem.swift in Sources */,
 				01B1BEBD24EE33320081C90F /* UnitSelectorItem.swift in Sources */,
 				01430F37259BF4DB00D67245 /* Model.xcdatamodeld in Sources */,
+				0122900025BE54C500FD47BA /* DetailsView.swift in Sources */,
 				01B1BEC424EF95920081C90F /* LevelOneViewController.swift in Sources */,
 				0197FB5325913AA6000C4640 /* ErrorViewController.swift in Sources */,
 				01430F42259BFCD100D67245 /* DeleteAllSearchItems.swift in Sources */,

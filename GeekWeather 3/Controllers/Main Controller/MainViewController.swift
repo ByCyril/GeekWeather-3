@@ -11,6 +11,7 @@ import GWFoundation
 import CoreLocation
 import Lottie
 import WidgetKit
+import SwiftUI
 
 extension MainViewController: NetworkLayerDelegate {
     
@@ -117,7 +118,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(presentDetailsView(_:)),
-                                               name: Notification.Name("ShowDetailsView"),
+                                               name: Notification.Name("DailyItemSelection"),
                                                object: nil)
     }
     
@@ -125,18 +126,29 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     func presentDetailsView(_ obj: NSNotification) {
         guard let daily = obj.object as? Daily else { return }
         
-        detailsView.dayLabel.text = daily.dt.date(.day)
+        let backgroundView = UIView(frame: view.bounds)
+        backgroundView.backgroundColor = UIColor.white.withAlphaComponent(0.15)
+        backgroundView.alpha = 0
         
-        let description = daily.weather.first!.description.capitalizingFirstLetter()
+        let dailyView = ContainerView(dailyModel: daily, dismissAction: {
+            UIView.animate(withDuration: 0.4) {
+                backgroundView.alpha = 0
+            } completion: { _ in
+                backgroundView.removeFromSuperview()
+            }
+            self.dismiss(animated: true)
+        })
         
-        detailsView.summaryLabel.text = description
-        detailsView.iconView.image = UIImage(named: daily.weather.first!.icon)
-        detailsView.presentData(daily)
-        flexibleCenterYConstraint?.constant = 0
         
-        UIView.animate(withDuration: 0.4) { [weak self] in
-            self?.view.layoutIfNeeded()
+        let host = UIHostingController(rootView: dailyView)
+        host.modalPresentationStyle = .overCurrentContext
+        host.modalTransitionStyle = .coverVertical
+        host.view.backgroundColor = .clear
+        view.addSubview(backgroundView)
+        UIView.animate(withDuration: 0.4) {
+            backgroundView.alpha = 1
         }
+        present(host, animated: true)
         
     }
     

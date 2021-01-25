@@ -145,22 +145,6 @@ final class MainPadController: UIViewController, NetworkLayerDelegate {
         view.setNeedsDisplay()
     }
     
-    func didFinishFetching(weatherModel: WeatherModel, location: String) {
-        self.weatherModel = weatherModel
-        self.location = location
-        
-        let swiftUIView = iPadMainView(weatherModel: weatherModel, location: location)
-        vc = MainHostingController(rootView: swiftUIView)
-        vc?.view.alpha = 0
-        addChild(vc!)
-        vc?.view.tag = 25
-        view.insertSubview(vc!.view, at: 1)
-        vc?.didMove(toParent: self)
-        
-        UIView.animate(withDuration: 0.4) {
-            self.vc?.view.alpha = 1
-        }
-    }
     
     @objc
     func newLocation(_ notification: NSNotification) {
@@ -178,6 +162,7 @@ final class MainPadController: UIViewController, NetworkLayerDelegate {
 
     }
     
+    
     @objc
     func didUpdate() {
         guard let weatherModel = self.weatherModel, let location = self.location else { return }
@@ -191,7 +176,7 @@ final class MainPadController: UIViewController, NetworkLayerDelegate {
         vc?.view.alpha = 0
         addChild(vc!)
         vc?.view.tag = 25
-        view.insertSubview(vc!.view, at: 1)
+        view.insertSubview(vc!.view, at: 0)
         vc?.didMove(toParent: self)
         
         UIView.animate(withDuration: 0.4) {
@@ -199,17 +184,36 @@ final class MainPadController: UIViewController, NetworkLayerDelegate {
         }
     }
     
+    func didFinishFetching(weatherModel: WeatherModel, location: String) {
+        self.weatherModel = weatherModel
+        self.location = location
+        
+        let swiftUIView = iPadMainView(weatherModel: weatherModel, location: location)
+        vc = MainHostingController(rootView: swiftUIView)
+        vc?.view.alpha = 0
+        addChild(vc!)
+        vc?.view.tag = 25
+        view.insertSubview(vc!.view, at: 0)
+        vc?.didMove(toParent: self)
+        
+        UIView.animate(withDuration: 0.4) {
+            self.vc?.view.alpha = 1
+        }
+    }
+
+    
     func didFail(errorTitle: String, errorDetail: String) {
         errorVc?.view.removeFromSuperview()
         errorVc?.removeFromParent()
         vc?.view.removeFromSuperview()
         vc?.removeFromParent()
         
-        errorVc = ErrorHostingController(rootView: ErrorView(error: WeatherFetcherError(title: errorTitle, description: errorDetail)))
+        let errorView = ErrorView(error: WeatherFetcherError(title: errorTitle, description: errorDetail))
+        errorVc = ErrorHostingController(rootView: errorView)
         errorVc?.view.alpha = 0
         addChild(errorVc!)
         errorVc?.view.tag = 25
-        view.insertSubview(errorVc!.view, at: 1)
+        view.insertSubview(errorVc!.view, at: 0)
         errorVc?.didMove(toParent: self)
         
         UIView.animate(withDuration: 0.4) {

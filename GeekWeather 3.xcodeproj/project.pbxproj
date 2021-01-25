@@ -138,6 +138,7 @@
 		01B1BEED24EFA0040081C90F /* LevelTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEEC24EFA0040081C90F /* LevelTwoViewController.swift */; };
 		01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF024EFA9A10081C90F /* Array+Extension.swift */; };
 		01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF224EFAD500081C90F /* View+Extension.swift */; };
+		01B5989625BE9EF70097C4A4 /* DetailsViewHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B5989525BE9EF70097C4A4 /* DetailsViewHostingController.swift */; };
 		01B9487C259A654400884150 /* HourlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487B259A654400884150 /* HourlyViewCell.swift */; };
 		01B94880259A687200884150 /* DailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487F259A687200884150 /* DailyViewCell.swift */; };
 		01BE6C85259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */; };
@@ -364,6 +365,7 @@
 		01B1BEEC24EFA0040081C90F /* LevelTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoViewController.swift; sourceTree = "<group>"; };
 		01B1BEF024EFA9A10081C90F /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		01B1BEF224EFAD500081C90F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		01B5989525BE9EF70097C4A4 /* DetailsViewHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewHostingController.swift; sourceTree = "<group>"; };
 		01B9487B259A654400884150 /* HourlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyViewCell.swift; sourceTree = "<group>"; };
 		01B9487F259A687200884150 /* DailyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewCell.swift; sourceTree = "<group>"; };
 		01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerLevelOne.swift; sourceTree = "<group>"; };
@@ -555,6 +557,7 @@
 				01844A1524F22113000B0D52 /* Main.storyboard */,
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
 				01228FFF25BE54C500FD47BA /* DetailsView.swift */,
+				01B5989525BE9EF70097C4A4 /* DetailsViewHostingController.swift */,
 			);
 			path = "Main Controller";
 			sourceTree = "<group>";
@@ -1215,6 +1218,7 @@
 				01F431EE259E76A300B0D44F /* SystemSettingsController.swift in Sources */,
 				01328D1E25B6D28C00E29B31 /* DetailedViewCell.swift in Sources */,
 				01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */,
+				01B5989625BE9EF70097C4A4 /* DetailsViewHostingController.swift in Sources */,
 				01E51A7625BD7DA700B0BBD3 /* ErrorView.swift in Sources */,
 				01E65B2024F19D9400D8F76F /* ChangeUnitController.swift in Sources */,
 				0158D0312505E3ED008692DC /* SavedLocationViewController.swift in Sources */,

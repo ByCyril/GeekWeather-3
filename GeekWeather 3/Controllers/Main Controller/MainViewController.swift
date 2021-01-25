@@ -44,7 +44,7 @@ extension MainViewController: NetworkLayerDelegate {
     
 }
 
-class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate {
+class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate, DetailsViewHostingControllerDelegate {
     
     private let notificationManager = NotificationManager()
     private var detailsView = DetailsViewModal()
@@ -62,6 +62,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     private var levelOneViewController: LevelOneViewController?
     private var levelTwoViewController: LevelTwoViewController?
     private var levelThreeViewController: LevelThreeViewController?
+    private var detailsViewHostingController: DetailsViewHostingController?
+    private var backdropView: UIView?
     
     let theme = UserDefaults.standard.string(forKey: "Theme") ?? "System-"
     
@@ -126,30 +128,34 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     func presentDetailsView(_ obj: NSNotification) {
         guard let daily = obj.object as? Daily else { return }
         
-        let backgroundView = UIView(frame: view.bounds)
-        backgroundView.backgroundColor = UIColor.white.withAlphaComponent(0.15)
-        backgroundView.alpha = 0
+        backdropView = UIView(frame: view.bounds)
+        backdropView?.backgroundColor = UIColor.white.withAlphaComponent(0.15)
+        backdropView?.alpha = 0
         
-        let dailyView = ContainerView(dailyModel: daily, dismissAction: {
-            UIView.animate(withDuration: 0.4) {
-                backgroundView.alpha = 0
-            } completion: { _ in
-                backgroundView.removeFromSuperview()
-            }
-            self.dismiss(animated: true)
+        let dailyView = ContainerView(dailyModel: daily, dismissAction: { [weak self] in
+            self?.didDismissModal()
         })
         
+        detailsViewHostingController = DetailsViewHostingController(rootView: dailyView)
+        detailsViewHostingController?.delegate = self
+        view.addSubview(backdropView!)
         
-        let host = UIHostingController(rootView: dailyView)
-        host.modalPresentationStyle = .overCurrentContext
-        host.modalTransitionStyle = .coverVertical
-        host.view.backgroundColor = .clear
-        view.addSubview(backgroundView)
-        UIView.animate(withDuration: 0.4) {
-            backgroundView.alpha = 1
+        UIView.animate(withDuration: 0.4) { [weak self] in
+            self?.backdropView?.alpha = 1
         }
-        present(host, animated: true)
         
+        present(detailsViewHostingController!, animated: true)
+        
+    }
+    
+    func didDismissModal() {
+        UIView.animate(withDuration: 0.4) { [weak self] in
+            self?.backdropView?.alpha = 0
+        } completion: {  [weak self] _ in
+            self?.backdropView?.removeFromSuperview()
+            self?.detailsViewHostingController = nil
+        }
+        dismiss(animated: true)
     }
     
     func removeErrorItems() {

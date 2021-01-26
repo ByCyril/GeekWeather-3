@@ -119,7 +119,6 @@
 		0186EA1525BB858F00CCD3A2 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
 		0186EA1B25BB859000CCD3A2 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
 		01871D0A25AD706000E5817D /* DetailsViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01871D0925AD706000E5817D /* DetailsViewModal.swift */; };
-		018818CB258F23FB009EE9EE /* LevelThreeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018818CA258F23FB009EE9EE /* LevelThreeTableViewCell.xib */; };
 		018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840E0258C39D600CED4F1 /* GWAnimationView.swift */; };
 		018F66D325A6F5F700FFC539 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D125A6F5F700FFC539 /* loading.json */; };
 		018F66D425A6F5F700FFC539 /* location-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D225A6F5F700FFC539 /* location-loading.json */; };
@@ -348,7 +347,6 @@
 		0186E9F725BB844900CCD3A2 /* preview.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = preview.json; sourceTree = "<group>"; };
 		0186EA2125BB859400CCD3A2 /* preview.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = preview.json; path = ../../../../../../Desktop/preview.json; sourceTree = "<group>"; };
 		01871D0925AD706000E5817D /* DetailsViewModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsViewModal.swift; path = "../Main Controller/DetailsViewModal.swift"; sourceTree = "<group>"; };
-		018818CA258F23FB009EE9EE /* LevelThreeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelThreeTableViewCell.xib; sourceTree = "<group>"; };
 		018840E0258C39D600CED4F1 /* GWAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWAnimationView.swift; sourceTree = "<group>"; };
 		018F66D125A6F5F700FFC539 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		018F66D225A6F5F700FFC539 /* location-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "location-loading.json"; sourceTree = "<group>"; };
@@ -521,6 +519,7 @@
 			children = (
 				01190991259D8BEA00EE1C0F /* Settings.storyboard */,
 				018F66DF25A7CB7400FFC539 /* CustomNavigationController.swift */,
+				0145C67225BFD7BC00EF1AA4 /* Designer */,
 				011908F3259D797400EE1C0F /* DeveloperController */,
 				011908EA259D726600EE1C0F /* ChangeUnitController */,
 				011908D2259D718D00EE1C0F /* ErrorViewController */,
@@ -661,7 +660,6 @@
 			isa = PBXGroup;
 			children = (
 				017B9F0D25930A4A007AB956 /* DeveloperController.swift */,
-				012C3AF525BA6CB5003B2F5D /* DesignerController.swift */,
 			);
 			path = DeveloperController;
 			sourceTree = "<group>";
@@ -740,6 +738,14 @@
 			path = LocationController;
 			sourceTree = "<group>";
 		};
+		0145C67225BFD7BC00EF1AA4 /* Designer */ = {
+			isa = PBXGroup;
+			children = (
+				012C3AF525BA6CB5003B2F5D /* DesignerController.swift */,
+			);
+			path = Designer;
+			sourceTree = "<group>";
+		};
 		01674F8425B3D84F002B9724 /* Small Widgets */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,7 +790,6 @@
 			children = (
 				0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */,
 				01844A1E24F226B5000B0D52 /* LevelThreeViewController.xib */,
-				018818CA258F23FB009EE9EE /* LevelThreeTableViewCell.xib */,
 			);
 			path = LevelThree;
 			sourceTree = "<group>";
@@ -1054,7 +1059,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				018818CB258F23FB009EE9EE /* LevelThreeTableViewCell.xib in Resources */,
 				01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */,
 				018F66D325A6F5F700FFC539 /* loading.json in Resources */,
 				01190992259D8BEA00EE1C0F /* Settings.storyboard in Resources */,

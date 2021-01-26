@@ -55,7 +55,7 @@
                     </subviews>
                 </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ogh-tL-8Ml" customClass="DetailedViewLayer" customModule="GeekWeather" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="438.5" width="375" height="196.5"/>
+                    <rect key="frame" x="0.0" y="439" width="375" height="185"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="vjW-4f-ZBA"/>
@@ -70,6 +70,14 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="chevron.compact.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4vb-y8-BIC">
+                    <rect key="frame" x="167" y="630" width="40" height="13"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="SJS-YK-z6t"/>
+                        <constraint firstAttribute="height" constant="26.5" id="g4Q-1Y-Ltv"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -85,8 +93,10 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gUP-eO-3t6" secondAttribute="trailing" constant="16" id="QNB-4e-lAb"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CTP-k3-ISq" secondAttribute="trailing" constant="33" id="Wxf-AO-fQi"/>
                 <constraint firstItem="gUP-eO-3t6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="c6a-4N-uGN"/>
+                <constraint firstItem="4vb-y8-BIC" firstAttribute="top" secondItem="Ogh-tL-8Ml" secondAttribute="bottom" id="emZ-tT-ayY"/>
                 <constraint firstItem="BMM-sT-sOj" firstAttribute="top" secondItem="CTP-k3-ISq" secondAttribute="bottom" constant="8" symbolic="YES" id="gYJ-4z-0w0"/>
                 <constraint firstItem="BMM-sT-sOj" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" constant="-15" id="kxc-pV-40F"/>
+                <constraint firstItem="4vb-y8-BIC" firstAttribute="centerX" secondItem="Ogh-tL-8Ml" secondAttribute="centerX" id="mmU-mI-bGp"/>
                 <constraint firstItem="MUs-Df-gaB" firstAttribute="top" secondItem="BMM-sT-sOj" secondAttribute="bottom" constant="8" symbolic="YES" id="o3J-fk-6nc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ogh-tL-8Ml" secondAttribute="trailing" id="uzt-Lm-vpl"/>
                 <constraint firstItem="BMM-sT-sOj" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="vmr-CV-RF8"/>
@@ -96,6 +106,7 @@
         </view>
     </objects>
     <resources>
+        <image name="chevron.compact.down" catalog="system" width="128" height="43"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

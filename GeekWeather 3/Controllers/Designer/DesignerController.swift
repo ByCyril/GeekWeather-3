@@ -48,11 +48,11 @@ final class DesignerController: UITableViewController, MFMailComposeViewControll
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 1 && indexPath.row == 0 {
-            open("https://www.instagram.com/tiny.crab/")
+            open("https://www.instagram.com/Animated.andrade/")
         } else if indexPath.section == 1 && indexPath.row == 1 {
             open("https://dribbble.com/Animation_Andrade")
         } else if indexPath.section == 1 && indexPath.row == 2 {
-//            open("https://bycyril.com")
+            open("https://www.animationandrade.com/")
         } else if indexPath.section == 1 && indexPath.row == 3 {
             sendEmail()
         }

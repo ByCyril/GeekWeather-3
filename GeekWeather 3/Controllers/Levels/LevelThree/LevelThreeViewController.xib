@@ -20,23 +20,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD9-2J-Az9">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="678"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                 </mapView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8v-5J-PbH">
-                    <rect key="frame" x="20" y="686" width="374" height="30"/>
-                    <state key="normal" title="Button"/>
-                </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fgu-1s-oYF">
+                    <rect key="frame" x="20" y="20" width="374" height="32"/>
+                    <segments>
+                        <segment title="Percipitation"/>
+                        <segment title="Clouds"/>
+                        <segment title="Temperature"/>
+                    </segments>
+                </segmentedControl>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="p8v-5J-PbH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="7ZE-C2-eLL"/>
-                <constraint firstItem="p8v-5J-PbH" firstAttribute="top" secondItem="bD9-2J-Az9" secondAttribute="bottom" constant="8" symbolic="YES" id="N9X-oL-ZQf"/>
-                <constraint firstItem="bD9-2J-Az9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="NeY-24-jMk"/>
-                <constraint firstItem="bD9-2J-Az9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Qd5-OR-rhm"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="p8v-5J-PbH" secondAttribute="bottom" constant="20" id="iW2-sT-kvu"/>
-                <constraint firstItem="bD9-2J-Az9" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="kCg-u9-wul"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="p8v-5J-PbH" secondAttribute="trailing" constant="20" id="vkG-HT-XrH"/>
+                <constraint firstItem="fgu-1s-oYF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="7D7-aX-1Sw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fgu-1s-oYF" secondAttribute="trailing" constant="20" id="P9h-Sy-Mck"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="bD9-2J-Az9" secondAttribute="bottom" id="g4d-MH-bwJ"/>
+                <constraint firstItem="bD9-2J-Az9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="h8Z-Od-Akx"/>
+                <constraint firstItem="bD9-2J-Az9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jgZ-pJ-vz6"/>
+                <constraint firstItem="fgu-1s-oYF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="pBb-PU-eqk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bD9-2J-Az9" secondAttribute="trailing" id="qNv-Ig-ZXv"/>
             </constraints>
             <point key="canvasLocation" x="140.57971014492756" y="153.2608695652174"/>
         </view>

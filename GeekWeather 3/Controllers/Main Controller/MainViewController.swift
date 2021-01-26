@@ -104,6 +104,10 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         return .lightContent
     }
     
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
@@ -343,8 +347,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         HapticManager.soft()
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        levelThreeViewController?.mainViewController(isScrolling: false)
+    }
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         guard !UserDefaults.standard.bool(forKey: "ScrollAnimationToggle") else { return }
+        
         UIView.animate(withDuration: 0.3) { [weak self] in
             self?.levelOneViewController?.blurredEffectView.alpha = 0
             self?.levelTwoViewController?.blurredEffectView.alpha = 0
@@ -361,7 +370,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         let scale: CGFloat = 0.95
         let alpha = shadowOpacity
         let blurEffect: CGFloat = 0.25
-        
+        levelThreeViewController?.mainViewController(isScrolling: true)
         UIView.animate(withDuration: 0.2) { [weak self] in
             self?.levelOneViewController?.blurredEffectView.alpha = blurEffect
             self?.levelTwoViewController?.blurredEffectView.alpha = blurEffect

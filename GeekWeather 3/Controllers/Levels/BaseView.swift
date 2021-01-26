@@ -58,4 +58,5 @@ class BaseView: UIView, NotificationManagerDelegate {
     
     @objc func didUpdateValues() {}
     
+    func mainViewController(isScrolling: Bool) {}
 }

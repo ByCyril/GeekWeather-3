@@ -39,11 +39,11 @@ struct ContentView: View {
                     .padding()
                 } else {
                     if let error = weatherFetcher.error.first {
-                        //                                ErrorView(error: error)
+//                        ErrorView(error: error)
                         LevelOneView(weatherModel: weatherModel, location: "Mountain View, CA")
                         LevelTwoView(weatherModel: weatherModel).padding()
                         LevelThreeView(weatherModel: weatherModel)
-                        
+
                         VStack {
                             Text("Developed and Designed")
                             Text("by Cyril © 2017 - 2021")
@@ -65,15 +65,15 @@ struct ContentView: View {
         }.onChange(of: scenePhase) { phase in
             switch phase {
             case .active:
-                self.weatherFetcher.calculateLastUpdated()
+                if self.weatherFetcher.weatherModel.isEmpty {
+                    self.weatherFetcher.fetch()
+                } else {
+                    self.weatherFetcher.calculateLastUpdated()
+                }
             default:
-                print(">> do something else in future")
+                break
             }
-        }.navigationTitle(self.weatherFetcher.lastUpdatedStr).onAppear {
-            if comingFromDetailsView == false {
-                self.weatherFetcher.fetch()
-            }
-        }
+        }.navigationTitle(self.weatherFetcher.lastUpdatedStr)
     }
 }
 

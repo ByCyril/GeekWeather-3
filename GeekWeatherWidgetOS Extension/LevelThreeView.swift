@@ -71,6 +71,13 @@ struct LevelThreeView: View {
                                            lowTemp: day.temp.min.kelvinToSystemFormat())
                     })
             }
+            
+            NavigationLink(
+                destination: SettingsView(),
+                label: {
+                    Text("Settings")
+                })
+            
         }
     }
 }

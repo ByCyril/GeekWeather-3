@@ -11,7 +11,7 @@ import UIKit
 final class SettingsController: UITableViewController {
   
     private let settingManager = SettingManager()
-    
+
     init() {
         super.init(style: .insetGrouped)
         tableView.estimatedRowHeight = 50
@@ -19,6 +19,11 @@ final class SettingsController: UITableViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     override func viewDidLoad() {
@@ -36,7 +41,7 @@ final class SettingsController: UITableViewController {
         barButton.tintColor = .label
         navigationItem.setRightBarButton(barButton, animated: true)
     }
-    
+
     @objc
     func dismissController() {
         dismiss(animated: true, completion: nil)

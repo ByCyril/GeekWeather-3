@@ -39,7 +39,8 @@ extension Double {
     }
     
     func msToSystemFormat() -> String {
-        guard let measure = sharedUserDefaults?.integer(forKey: SharedUserDefaults.Keys.Units) else { return self.stringRound() + "m/s" }
+        
+        guard let measure = UserDefaults(suiteName: SharedUserDefaults.suiteName)?.integer(forKey: SharedUserDefaults.Keys.Units) else { return self.stringRound() + "m/s" }
         
         if measure == 0 {
             return self.stringRound() + "m/s"

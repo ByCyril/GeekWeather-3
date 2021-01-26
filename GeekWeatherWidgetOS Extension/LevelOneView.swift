@@ -12,7 +12,7 @@ import GWFoundation
 struct LevelOneView: View {
     
     let weatherModel: WeatherModel
-    var location: String = "San Jose, CA"
+    var location: String = ""
     
     var body: some View {
         VStack(spacing: 0) {

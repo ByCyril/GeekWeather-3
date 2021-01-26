@@ -41,7 +41,7 @@ final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegat
             
             if minutesPassed < 1 {
                 lastUpdatedStr = "\(Int(differenceInSeconds)) sec ago"
-            } else if minutesPassed < 5 {
+            } else if minutesPassed < 60 {
                 lastUpdatedStr = "\(Int(minutesPassed)) min ago"
             } else {
                 fetch()

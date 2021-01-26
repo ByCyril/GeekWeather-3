@@ -79,6 +79,8 @@
 		01430F42259BFCD100D67245 /* DeleteAllSearchItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01430F41259BFCD100D67245 /* DeleteAllSearchItems.swift */; };
 		0145C65C25BF7BBF00EF1AA4 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0145C65B25BF7BBF00EF1AA4 /* DetailsView.swift */; };
 		0145C66925BFCECB00EF1AA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
+		0145C67825BFE6ED00EF1AA4 /* SmallItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0145C67725BFE6ED00EF1AA4 /* SmallItemDetailView.swift */; };
+		0145C68125BFE70300EF1AA4 /* SmallItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0145C67725BFE6ED00EF1AA4 /* SmallItemDetailView.swift */; };
 		0146C05A24F787D000967A37 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* Mocks.swift */; };
 		014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3924D3F6090038623E /* LocationManager.swift */; };
 		0153693425174D580044D108 /* GWTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153693325174D580044D108 /* GWTransition.swift */; };
@@ -312,6 +314,7 @@
 		01430F3D259BF58400D67245 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		01430F41259BFCD100D67245 /* DeleteAllSearchItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllSearchItems.swift; sourceTree = "<group>"; };
 		0145C65B25BF7BBF00EF1AA4 /* DetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		0145C67725BFE6ED00EF1AA4 /* SmallItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallItemDetailView.swift; sourceTree = "<group>"; };
 		0146C05924F787D000967A37 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		014D2A3924D3F6090038623E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0153693325174D580044D108 /* GWTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWTransition.swift; sourceTree = "<group>"; };
@@ -557,6 +560,7 @@
 				01844A1524F22113000B0D52 /* Main.storyboard */,
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
 				01228FFF25BE54C500FD47BA /* DetailsView.swift */,
+				0145C67725BFE6ED00EF1AA4 /* SmallItemDetailView.swift */,
 				01B5989525BE9EF70097C4A4 /* DetailsViewHostingController.swift */,
 			);
 			path = "Main Controller";
@@ -1234,6 +1238,7 @@
 				011C620125A3C93B00F131D0 /* HourlyView.swift in Sources */,
 				0119099A259D8CDC00EE1C0F /* HapticFeedbackController.swift in Sources */,
 				01328D4525B7D66200E29B31 /* WeatherAlertController.swift in Sources */,
+				0145C67825BFE6ED00EF1AA4 /* SmallItemDetailView.swift in Sources */,
 				01328D1225B6CD1E00E29B31 /* DailyViewLayer.swift in Sources */,
 				018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */,
 				0127D14E2597D72200298ABD /* GWFont.swift in Sources */,
@@ -1315,6 +1320,7 @@
 				0186E9C725BB81D600CCD3A2 /* NotificationController.swift in Sources */,
 				010370CA25BB893E000327AC /* LevelOneView.swift in Sources */,
 				0141F60425BD4378001931C3 /* ComplicationForecastView.swift in Sources */,
+				0145C68125BFE70300EF1AA4 /* SmallItemDetailView.swift in Sources */,
 				0186E9C525BB81D600CCD3A2 /* ContentView.swift in Sources */,
 				0186E9CB25BB81D600CCD3A2 /* ComplicationController.swift in Sources */,
 				01E51A7C25BD7E3E00B0BBD3 /* ErrorView.swift in Sources */,

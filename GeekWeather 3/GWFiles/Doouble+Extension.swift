@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import GWFoundation
 
 extension Double {
     func kelvinToSystemFormat(_ toF: Bool = false) -> String {

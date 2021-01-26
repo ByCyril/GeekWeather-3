@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreLocation
-import GWFoundation
 import MapKit
 
 protocol NetworkLayerDelegate: AnyObject {

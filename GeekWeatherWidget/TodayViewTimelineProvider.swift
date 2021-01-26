@@ -8,7 +8,7 @@
 
 import Foundation
 import WidgetKit
-import GWFoundation
+
 import CoreLocation
 
 class TodayViewTimelineProvider: TimelineProvider {

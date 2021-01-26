@@ -8,7 +8,6 @@
 
 import Foundation
 import SwiftUI
-import GWFoundation
 import CoreLocation
 
 final class WeatherFetcher: NSObject, ObservableObject, CLLocationManagerDelegate {

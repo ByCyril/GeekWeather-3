@@ -8,7 +8,7 @@
 
 import Foundation
 import WidgetKit
-import GWFoundation
+
 
 struct WidgetWeatherModel {
     let location: String

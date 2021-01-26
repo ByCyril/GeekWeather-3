@@ -8,7 +8,7 @@
 
 import SwiftUI
 import ClockKit
-import GWFoundation
+
 
 struct ComplicationItem: View {
 

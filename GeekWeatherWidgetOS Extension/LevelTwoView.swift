@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import GWFoundation
+
 
 struct SmallItem: View {
     

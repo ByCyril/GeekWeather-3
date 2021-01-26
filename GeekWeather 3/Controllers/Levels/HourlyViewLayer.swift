@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import GWFoundation
-
+    
 final class HourlyViewLayer: UIView, UICollectionViewDelegateFlowLayout {
     
     var hourlyView: UICollectionView = {

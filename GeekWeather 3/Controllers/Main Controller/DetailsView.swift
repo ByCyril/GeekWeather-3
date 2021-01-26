@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import GWFoundation
 
 struct DetailsView: View {
     var dismissAction: (() -> Void)

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GWFoundation
 import Lottie
 
 final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout {

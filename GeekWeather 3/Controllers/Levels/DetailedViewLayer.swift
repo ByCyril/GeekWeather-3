@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GWFoundation
 
 extension DetailedViewLayer: DetailedFlowLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, widthForItemAtIndexPath indexPath: IndexPath) -> CGFloat {

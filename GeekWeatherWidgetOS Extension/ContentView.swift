@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import GWFoundation
+
 
 struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase

@@ -24,7 +24,6 @@
 		0103B845259449E7008577FD /* GeekWeatherWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B844259449E7008577FD /* GeekWeatherWidget.swift */; };
 		0103B847259449E9008577FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0103B846259449E9008577FD /* Assets.xcassets */; };
 		0103B84B259449E9008577FD /* GeekWeatherWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0103B83E259449E7008577FD /* GeekWeatherWidgetExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0103B85425944A2A008577FD /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0103B85325944A2A008577FD /* GWFoundation */; };
 		0103B85D25944B6F008577FD /* WeatherEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B85725944B59008577FD /* WeatherEntry.swift */; };
 		0103B86825944F07008577FD /* TodayViewTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B86425944F03008577FD /* TodayViewTimelineProvider.swift */; };
 		0103B87F25952D51008577FD /* TodayViewSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B86D259526AE008577FD /* TodayViewSmall.swift */; };
@@ -36,6 +35,33 @@
 		01042C2F24ECDF510090B349 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2E24ECDF510090B349 /* SettingItem.swift */; };
 		01042C3124ECDF660090B349 /* AboutSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3024ECDF660090B349 /* AboutSettingItem.swift */; };
 		01042C3324ECDF850090B349 /* AppIconSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3224ECDF850090B349 /* AppIconSettingItem.swift */; };
+		010D53CB25C0D99800222FF5 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C225C0D99700222FF5 /* Double+Extension.swift */; };
+		010D53CC25C0D99800222FF5 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C225C0D99700222FF5 /* Double+Extension.swift */; };
+		010D53CD25C0D99800222FF5 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C225C0D99700222FF5 /* Double+Extension.swift */; };
+		010D53CE25C0D99800222FF5 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C325C0D99700222FF5 /* Date+Extension.swift */; };
+		010D53CF25C0D99800222FF5 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C325C0D99700222FF5 /* Date+Extension.swift */; };
+		010D53D025C0D99800222FF5 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C325C0D99700222FF5 /* Date+Extension.swift */; };
+		010D53D125C0D99800222FF5 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C425C0D99800222FF5 /* DataManager.swift */; };
+		010D53D225C0D99800222FF5 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C425C0D99800222FF5 /* DataManager.swift */; };
+		010D53D325C0D99800222FF5 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C425C0D99800222FF5 /* DataManager.swift */; };
+		010D53D425C0D99800222FF5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C525C0D99800222FF5 /* NetworkManager.swift */; };
+		010D53D525C0D99800222FF5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C525C0D99800222FF5 /* NetworkManager.swift */; };
+		010D53D625C0D99800222FF5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C525C0D99800222FF5 /* NetworkManager.swift */; };
+		010D53D725C0D99800222FF5 /* GWFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C625C0D99800222FF5 /* GWFoundation.swift */; };
+		010D53D825C0D99800222FF5 /* GWFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C625C0D99800222FF5 /* GWFoundation.swift */; };
+		010D53D925C0D99800222FF5 /* GWFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C625C0D99800222FF5 /* GWFoundation.swift */; };
+		010D53DA25C0D99800222FF5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C725C0D99800222FF5 /* String+Extension.swift */; };
+		010D53DB25C0D99800222FF5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C725C0D99800222FF5 /* String+Extension.swift */; };
+		010D53DC25C0D99800222FF5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C725C0D99800222FF5 /* String+Extension.swift */; };
+		010D53DD25C0D99800222FF5 /* RequestURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C825C0D99800222FF5 /* RequestURL.swift */; };
+		010D53DE25C0D99800222FF5 /* RequestURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C825C0D99800222FF5 /* RequestURL.swift */; };
+		010D53DF25C0D99800222FF5 /* RequestURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C825C0D99800222FF5 /* RequestURL.swift */; };
+		010D53E025C0D99800222FF5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C925C0D99800222FF5 /* Weather.swift */; };
+		010D53E125C0D99800222FF5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C925C0D99800222FF5 /* Weather.swift */; };
+		010D53E225C0D99800222FF5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C925C0D99800222FF5 /* Weather.swift */; };
+		010D53E325C0D99800222FF5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53CA25C0D99800222FF5 /* Color+Extension.swift */; };
+		010D53E425C0D99800222FF5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53CA25C0D99800222FF5 /* Color+Extension.swift */; };
+		010D53E525C0D99800222FF5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53CA25C0D99800222FF5 /* Color+Extension.swift */; };
 		010F7DB8259C129C00D53BFA /* GWFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D14D2597D72200298ABD /* GWFont.swift */; };
 		010F7DCE259C44DF00D53BFA /* ResetNumberCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010F7DCD259C44DF00D53BFA /* ResetNumberCalls.swift */; };
 		011908C3259D34F400EE1C0F /* GWTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011908C2259D34F400EE1C0F /* GWTest.swift */; };
@@ -104,7 +130,6 @@
 		01844A1C24F22646000B0D52 /* LevelTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1B24F22646000B0D52 /* LevelTwoViewController.xib */; };
 		01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1E24F226B5000B0D52 /* LevelThreeViewController.xib */; };
 		0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185665A24D767050035BF59 /* AccessibilityFactory.swift */; };
-		0185666124D774FE0035BF59 /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0185666024D774FE0035BF59 /* GWFoundation */; };
 		0186E9B725BB81D600CCD3A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0186E9B625BB81D600CCD3A2 /* Assets.xcassets */; };
 		0186E9BE25BB81D600CCD3A2 /* GeekWeatherWidgetOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0186E9BD25BB81D600CCD3A2 /* GeekWeatherWidgetOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0186E9C325BB81D600CCD3A2 /* GeekWeather_3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0186E9C225BB81D600CCD3A2 /* GeekWeather_3App.swift */; };
@@ -115,7 +140,6 @@
 		0186E9CD25BB81D600CCD3A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0186E9CC25BB81D600CCD3A2 /* Assets.xcassets */; };
 		0186E9D025BB81D600CCD3A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0186E9CF25BB81D600CCD3A2 /* Preview Assets.xcassets */; };
 		0186E9D525BB81D600CCD3A2 /* GeekWeatherWidgetOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0186E9B425BB81D500CCD3A2 /* GeekWeatherWidgetOS.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0186E9E425BB81E200CCD3A2 /* GWFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 0186E9E325BB81E200CCD3A2 /* GWFoundation */; };
 		0186E9FD25BB845F00CCD3A2 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01305A9E25A3F2C3005C8B19 /* NetworkLayer.swift */; };
 		0186EA0325BB847400CCD3A2 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* Mocks.swift */; };
 		0186EA0925BB847D00CCD3A2 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D3AE0259FEDC60093ED51 /* SharedUserDefaults.swift */; };
@@ -276,6 +300,15 @@
 		01042C2E24ECDF510090B349 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
 		01042C3024ECDF660090B349 /* AboutSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingItem.swift; sourceTree = "<group>"; };
 		01042C3224ECDF850090B349 /* AppIconSettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingItem.swift; sourceTree = "<group>"; };
+		010D53C225C0D99700222FF5 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		010D53C325C0D99700222FF5 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		010D53C425C0D99800222FF5 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		010D53C525C0D99800222FF5 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		010D53C625C0D99800222FF5 /* GWFoundation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GWFoundation.swift; sourceTree = "<group>"; };
+		010D53C725C0D99800222FF5 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		010D53C825C0D99800222FF5 /* RequestURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestURL.swift; sourceTree = "<group>"; };
+		010D53C925C0D99800222FF5 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		010D53CA25C0D99800222FF5 /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		010F7DCD259C44DF00D53BFA /* ResetNumberCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetNumberCalls.swift; sourceTree = "<group>"; };
 		011908C2259D34F400EE1C0F /* GWTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWTest.swift; sourceTree = "<group>"; };
 		0119098D259D891B00EE1C0F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -402,7 +435,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0185666124D774FE0035BF59 /* GWFoundation in Frameworks */,
 				E3302AE93113182ABB9234F7 /* Pods_GeekWeather_3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,7 +453,6 @@
 			files = (
 				0103B842259449E7008577FD /* SwiftUI.framework in Frameworks */,
 				0103B840259449E7008577FD /* WidgetKit.framework in Frameworks */,
-				0103B85425944A2A008577FD /* GWFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +460,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0186E9E425BB81E200CCD3A2 /* GWFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +509,7 @@
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
 				012D3AE0259FEDC60093ED51 /* SharedUserDefaults.swift */,
+				010D53F525C0DAAA00222FF5 /* GWFoundation */,
 				011C620725A3C98B00F131D0 /* iPad */,
 				011908E1259D722400EE1C0F /* GWFiles */,
 				011908D8259D71AB00EE1C0F /* Views */,
@@ -614,6 +645,22 @@
 				0119099D259D8F3B00EE1C0F /* Developer Tools */,
 			);
 			path = SettingItems;
+			sourceTree = "<group>";
+		};
+		010D53F525C0DAAA00222FF5 /* GWFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				010D53CA25C0D99800222FF5 /* Color+Extension.swift */,
+				010D53C425C0D99800222FF5 /* DataManager.swift */,
+				010D53C325C0D99700222FF5 /* Date+Extension.swift */,
+				010D53C225C0D99700222FF5 /* Double+Extension.swift */,
+				010D53C625C0D99800222FF5 /* GWFoundation.swift */,
+				010D53C525C0D99800222FF5 /* NetworkManager.swift */,
+				010D53C825C0D99800222FF5 /* RequestURL.swift */,
+				010D53C725C0D99800222FF5 /* String+Extension.swift */,
+				010D53C925C0D99800222FF5 /* Weather.swift */,
+			);
+			path = GWFoundation;
 			sourceTree = "<group>";
 		};
 		011908D2259D718D00EE1C0F /* ErrorViewController */ = {
@@ -931,7 +978,6 @@
 			);
 			name = "GeekWeather 3";
 			packageProductDependencies = (
-				0185666024D774FE0035BF59 /* GWFoundation */,
 			);
 			productName = "GeekWeather 3";
 			productReference = 0100D7D024CE1A8200C9F9B5 /* GeekWeather.app */;
@@ -970,7 +1016,6 @@
 			);
 			name = GeekWeatherWidgetExtension;
 			packageProductDependencies = (
-				0103B85325944A2A008577FD /* GWFoundation */,
 			);
 			productName = GeekWeatherWidgetExtension;
 			productReference = 0103B83E259449E7008577FD /* GeekWeatherWidgetExtension.appex */;
@@ -1008,7 +1053,6 @@
 			);
 			name = "GeekWeatherWidgetOS Extension";
 			packageProductDependencies = (
-				0186E9E325BB81E200CCD3A2 /* GWFoundation */,
 			);
 			productName = "GeekWeatherWidgetOS Extension";
 			productReference = 0186E9BD25BB81D600CCD3A2 /* GeekWeatherWidgetOS Extension.appex */;
@@ -1052,7 +1096,6 @@
 			);
 			mainGroup = 0100D7C724CE1A8100C9F9B5;
 			packageReferences = (
-				0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */,
 			);
 			productRefGroup = 0100D7D124CE1A8200C9F9B5 /* Products */;
 			projectDirPath = "";
@@ -1199,6 +1242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01BE6C85259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift in Sources */,
+				010D53E325C0D99800222FF5 /* Color+Extension.swift in Sources */,
 				01042C2C24EC8FCF0090B349 /* SettingsTableViewCell.swift in Sources */,
 				011C61F925A3C17B00F131D0 /* LevelTwoView.swift in Sources */,
 				01190996259D8C7B00EE1C0F /* StoryboardManager.swift in Sources */,
@@ -1222,9 +1266,11 @@
 				01D0081E259EDB5100032D17 /* FormatSettingsController.swift in Sources */,
 				0158D02A2505DF0C008692DC /* SearchLocationViewController.swift in Sources */,
 				0198006B25B8D22900600DC3 /* GeekWeatherIntents.intentdefinition in Sources */,
+				010D53D725C0D99800222FF5 /* GWFoundation.swift in Sources */,
 				01328D3925B7BD1000E29B31 /* DetailedFlowLayout.swift in Sources */,
 				0153693425174D580044D108 /* GWTransition.swift in Sources */,
 				0119098E259D891B00EE1C0F /* HapticManager.swift in Sources */,
+				010D53D425C0D99800222FF5 /* NetworkManager.swift in Sources */,
 				0169434124E244B2006A7FAA /* BaseView.swift in Sources */,
 				01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */,
 				01BE6C9F259AD6DC000016CA /* OnboardingViewControllerLevelTwo.swift in Sources */,
@@ -1258,10 +1304,12 @@
 				018079CA258DB3B200C88E0E /* NavigationView.swift in Sources */,
 				011C61EF25A3BD9100F131D0 /* iPadMainView.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
+				010D53E025C0D99800222FF5 /* Weather.swift in Sources */,
 				0127D15C2597F55D00298ABD /* AppIconSelectionController.swift in Sources */,
 				0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
 				010F7DCE259C44DF00D53BFA /* ResetNumberCalls.swift in Sources */,
+				010D53CB25C0D99800222FF5 /* Double+Extension.swift in Sources */,
 				011C61F525A3BE4C00F131D0 /* LevelOneView.swift in Sources */,
 				01F4CD2D25A119EE00A52971 /* MainPadController.swift in Sources */,
 				0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */,
@@ -1270,14 +1318,18 @@
 				0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */,
 				01430F31259B1EFA00D67245 /* ToggleOnboarding.swift in Sources */,
 				017B9F0E25930A4A007AB956 /* DeveloperController.swift in Sources */,
+				010D53D125C0D99800222FF5 /* DataManager.swift in Sources */,
 				0100D7D624CE1A8200C9F9B5 /* SceneDelegate.swift in Sources */,
 				01D00822259EE28E00032D17 /* Doouble+Extension.swift in Sources */,
+				010D53CE25C0D99800222FF5 /* Date+Extension.swift in Sources */,
+				010D53DD25C0D99800222FF5 /* RequestURL.swift in Sources */,
 				0125E46525A90E4D00DBD33B /* HelpItem.swift in Sources */,
 				01B1BEBF24EE34740081C90F /* WeatherDataInfoItem.swift in Sources */,
 				01042C3124ECDF660090B349 /* AboutSettingItem.swift in Sources */,
 				01F431DC259E288600B0D44F /* OnboardingBaseViewController.swift in Sources */,
 				01BE6CA8259ADE2E000016CA /* OnboardingViewControllerLevelThree.swift in Sources */,
 				01B9487C259A654400884150 /* HourlyViewCell.swift in Sources */,
+				010D53DA25C0D99800222FF5 /* String+Extension.swift in Sources */,
 				01B1BEC124EE36310081C90F /* PrivacyPolicyInfoItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1295,18 +1347,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				01674F9C25B55026002B9724 /* DetailedTodayView.swift in Sources */,
+				010D53CF25C0D99800222FF5 /* Date+Extension.swift in Sources */,
 				012D3AF825A019760093ED51 /* TodayViewLarge.swift in Sources */,
+				010D53CC25C0D99800222FF5 /* Double+Extension.swift in Sources */,
 				0103B86825944F07008577FD /* TodayViewTimelineProvider.swift in Sources */,
+				010D53D225C0D99800222FF5 /* DataManager.swift in Sources */,
+				010D53DB25C0D99800222FF5 /* String+Extension.swift in Sources */,
+				010D53E425C0D99800222FF5 /* Color+Extension.swift in Sources */,
 				01674F7525B3D3B5002B9724 /* GeekWeatherWidgetBundle.swift in Sources */,
+				010D53D825C0D99800222FF5 /* GWFoundation.swift in Sources */,
 				01674F6A25B3B0CE002B9724 /* DetailedSmallView.swift in Sources */,
 				01674F8D25B3D9A6002B9724 /* LargeLabeledWidget.swift in Sources */,
 				010F7DB8259C129C00D53BFA /* GWFont.swift in Sources */,
 				0198005A25B803F700600DC3 /* TodayViewDetailedMediumWidget.swift in Sources */,
 				0103B89A25955EA5008577FD /* WidgetNetworkManager.swift in Sources */,
+				010D53DE25C0D99800222FF5 /* RequestURL.swift in Sources */,
+				010D53D525C0D99800222FF5 /* NetworkManager.swift in Sources */,
 				0103B88F2595522D008577FD /* Mocks.swift in Sources */,
 				0103B85D25944B6F008577FD /* WeatherEntry.swift in Sources */,
 				0127D10F2595735C00298ABD /* GeekWeatherWidgetEntryView.swift in Sources */,
 				0103B8922595524C008577FD /* NotificationNames.swift in Sources */,
+				010D53E125C0D99800222FF5 /* Weather.swift in Sources */,
 				01674F9825B41079002B9724 /* TodayViewSimpleWidget.swift in Sources */,
 				01E3B56C259EE9130099F212 /* Doouble+Extension.swift in Sources */,
 				0103B87F25952D51008577FD /* TodayViewSmall.swift in Sources */,
@@ -1325,13 +1386,22 @@
 				0186E9FD25BB845F00CCD3A2 /* NetworkLayer.swift in Sources */,
 				0186EA0925BB847D00CCD3A2 /* SharedUserDefaults.swift in Sources */,
 				0145C69B25C0066B00EF1AA4 /* SettingsView.swift in Sources */,
+				010D53D625C0D99800222FF5 /* NetworkManager.swift in Sources */,
+				010D53D925C0D99800222FF5 /* GWFoundation.swift in Sources */,
+				010D53DF25C0D99800222FF5 /* RequestURL.swift in Sources */,
 				0103716025BB9800000327AC /* LevelTwoView.swift in Sources */,
+				010D53E225C0D99800222FF5 /* Weather.swift in Sources */,
+				010D53D025C0D99800222FF5 /* Date+Extension.swift in Sources */,
 				0145C68B25BFF86900EF1AA4 /* ErrorView.swift in Sources */,
 				0186EA0F25BB855400CCD3A2 /* Doouble+Extension.swift in Sources */,
 				0186E9C725BB81D600CCD3A2 /* NotificationController.swift in Sources */,
 				010370CA25BB893E000327AC /* LevelOneView.swift in Sources */,
+				010D53D325C0D99800222FF5 /* DataManager.swift in Sources */,
 				0141F60425BD4378001931C3 /* ComplicationForecastView.swift in Sources */,
 				0145C68125BFE70300EF1AA4 /* SmallItemDetailView.swift in Sources */,
+				010D53CD25C0D99800222FF5 /* Double+Extension.swift in Sources */,
+				010D53DC25C0D99800222FF5 /* String+Extension.swift in Sources */,
+				010D53E525C0D99800222FF5 /* Color+Extension.swift in Sources */,
 				0186E9C525BB81D600CCD3A2 /* ContentView.swift in Sources */,
 				0186E9CB25BB81D600CCD3A2 /* ComplicationController.swift in Sources */,
 				0186EA0325BB847400CCD3A2 /* Mocks.swift in Sources */,
@@ -1807,35 +1877,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ByCyril/GWFoundation.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0103B85325944A2A008577FD /* GWFoundation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */;
-			productName = GWFoundation;
-		};
-		0185666024D774FE0035BF59 /* GWFoundation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */;
-			productName = GWFoundation;
-		};
-		0186E9E325BB81E200CCD3A2 /* GWFoundation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0185665F24D774FE0035BF59 /* XCRemoteSwiftPackageReference "GWFoundation" */;
-			productName = GWFoundation;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		01430F35259BF4DB00D67245 /* Model.xcdatamodeld */ = {

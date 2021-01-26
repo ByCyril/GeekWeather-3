@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GWFoundation
 import SwiftUI
 import CoreLocation
 

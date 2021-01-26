@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import GWFoundation
 
 struct HourlyCellView: View {
     var time: String

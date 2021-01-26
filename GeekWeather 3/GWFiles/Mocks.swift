@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import GWFoundation
 
 protocol MockErrorProtocol: LocalizedError {
     var title: String? { get }

@@ -28,7 +28,6 @@
 		0103B85D25944B6F008577FD /* WeatherEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B85725944B59008577FD /* WeatherEntry.swift */; };
 		0103B86825944F07008577FD /* TodayViewTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B86425944F03008577FD /* TodayViewTimelineProvider.swift */; };
 		0103B87F25952D51008577FD /* TodayViewSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B86D259526AE008577FD /* TodayViewSmall.swift */; };
-		0103B8872595311D008577FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
 		0103B88F2595522D008577FD /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* Mocks.swift */; };
 		0103B8922595524C008577FD /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80124CE46A200C9F9B5 /* NotificationNames.swift */; };
 		0103B89A25955EA5008577FD /* WidgetNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103B89625955B25008577FD /* WidgetNetworkManager.swift */; };
@@ -78,6 +77,8 @@
 		01430F37259BF4DB00D67245 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01430F35259BF4DB00D67245 /* Model.xcdatamodeld */; };
 		01430F3E259BF58400D67245 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01430F3D259BF58400D67245 /* PersistenceManager.swift */; };
 		01430F42259BFCD100D67245 /* DeleteAllSearchItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01430F41259BFCD100D67245 /* DeleteAllSearchItems.swift */; };
+		0145C65C25BF7BBF00EF1AA4 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0145C65B25BF7BBF00EF1AA4 /* DetailsView.swift */; };
+		0145C66925BFCECB00EF1AA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
 		0146C05A24F787D000967A37 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* Mocks.swift */; };
 		014D2A3A24D3F6090038623E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3924D3F6090038623E /* LocationManager.swift */; };
 		0153693425174D580044D108 /* GWTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153693325174D580044D108 /* GWTransition.swift */; };
@@ -117,7 +118,6 @@
 		0186EA0F25BB855400CCD3A2 /* Doouble+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D00821259EE28E00032D17 /* Doouble+Extension.swift */; };
 		0186EA1525BB858F00CCD3A2 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
 		0186EA1B25BB859000CCD3A2 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
-		0186EA2D25BB85B200CCD3A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
 		01871D0A25AD706000E5817D /* DetailsViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01871D0925AD706000E5817D /* DetailsViewModal.swift */; };
 		018818CB258F23FB009EE9EE /* LevelThreeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 018818CA258F23FB009EE9EE /* LevelThreeTableViewCell.xib */; };
 		018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840E0258C39D600CED4F1 /* GWAnimationView.swift */; };
@@ -312,6 +312,7 @@
 		01430F36259BF4DB00D67245 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		01430F3D259BF58400D67245 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		01430F41259BFCD100D67245 /* DeleteAllSearchItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllSearchItems.swift; sourceTree = "<group>"; };
+		0145C65B25BF7BBF00EF1AA4 /* DetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		0146C05924F787D000967A37 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		014D2A3924D3F6090038623E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0153693325174D580044D108 /* GWTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWTransition.swift; sourceTree = "<group>"; };
@@ -806,6 +807,7 @@
 				010370C925BB893E000327AC /* LevelOneView.swift */,
 				0103715F25BB9800000327AC /* LevelTwoView.swift */,
 				0103716625BB9BBB000327AC /* LevelThreeView.swift */,
+				0145C65B25BF7BBF00EF1AA4 /* DetailsView.swift */,
 				0186E9C625BB81D600CCD3A2 /* NotificationController.swift */,
 				0186E9C825BB81D600CCD3A2 /* NotificationView.swift */,
 				0141F60325BD4378001931C3 /* ComplicationForecastView.swift */,
@@ -1081,11 +1083,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0103B8872595311D008577FD /* Assets.xcassets in Resources */,
 				012D3B0125A037E10093ED51 /* demo.json in Resources */,
 				012D3B1F25A0427C0093ED51 /* preview.json in Resources */,
 				0198005D25B8067D00600DC3 /* demo3.json in Resources */,
 				0103B847259449E9008577FD /* Assets.xcassets in Resources */,
+				0145C66925BFCECB00EF1AA4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1104,7 +1106,6 @@
 			files = (
 				0186E9D025BB81D600CCD3A2 /* Preview Assets.xcassets in Resources */,
 				0186E9CD25BB81D600CCD3A2 /* Assets.xcassets in Resources */,
-				0186EA2D25BB85B200CCD3A2 /* Assets.xcassets in Resources */,
 				0186EA1525BB858F00CCD3A2 /* demo3.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1315,6 +1316,7 @@
 				01E51A7C25BD7E3E00B0BBD3 /* ErrorView.swift in Sources */,
 				0186EA0325BB847400CCD3A2 /* Mocks.swift in Sources */,
 				0186E9C325BB81D600CCD3A2 /* GeekWeather_3App.swift in Sources */,
+				0145C65C25BF7BBF00EF1AA4 /* DetailsView.swift in Sources */,
 				0103716725BB9BBC000327AC /* LevelThreeView.swift in Sources */,
 				0186E9C925BB81D600CCD3A2 /* NotificationView.swift in Sources */,
 			);

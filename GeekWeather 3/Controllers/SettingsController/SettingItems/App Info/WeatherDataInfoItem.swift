@@ -24,7 +24,7 @@ struct WeatherDataInfoItem: SettingItem {
     func performSelector(_ vc: UIViewController) {
         let url = URL(string: "https://openweathermap.org/api")!
         let sf = SFSafariViewController(url: url)
-        vc.present(sf, animated: true, completion: nil)
+        vc.present(sf, animated: true)
     }
     
 }

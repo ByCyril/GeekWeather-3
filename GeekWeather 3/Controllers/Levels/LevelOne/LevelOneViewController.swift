@@ -81,7 +81,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     
     func displayData(_ currentWeatherData: Currently) {
         
-        tempLabel.text = " " + currentWeatherData.temp.kelvinToSystemFormat()
+        tempLabel.text = currentWeatherData.temp.kelvinToSystemFormat()
         
         summaryLabel.text = currentWeatherData.weather.first?.description.capitalized
         summaryLabel.numberOfLines = 0

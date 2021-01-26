@@ -23,6 +23,8 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
     
     weak var delegate: NetworkLayerDelegate?
     
+    var timesTried = 0
+    
     override init() {
         super.init()
     }
@@ -67,11 +69,17 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
             fetch(with: cllocation)
         } else {
             guard let location = manager.location else {
-                let errorDetailsDev = "Error Details for Dev:\nLocManager:\(manager)\nLoc: \(String(describing: manager.location))"
 //                let errorDetails = "Could not get your current location at the moment. Please try again or let the developer know if the issue persists."
                 
-                delegate?.didFail(errorTitle: "Location Error",
-                                  errorDetail: errorDetailsDev)
+                if timesTried < 1 {
+                    fetch()
+                    timesTried += 1
+                } else {
+                    let errorDetailsDev = "Error Details for Dev:\nLocManager:\(manager)\nLoc: \(String(describing: manager.location))"
+                    delegate?.didFail(errorTitle: "Location Error",
+                                      errorDetail: errorDetailsDev)
+                }
+                
                 return
             }
             fetch(with: location)

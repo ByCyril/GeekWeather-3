@@ -24,7 +24,7 @@ struct HelpItem: SettingItem {
     
     func performSelector(_ vc: UIViewController) {
         let sf = SFSafariViewController(url: URL(string: "https://bycyril.com/geekweather-help")!)
-        vc.show(sf, sender: vc)
+        vc.present(sf, animated: true)
     }
     
 }

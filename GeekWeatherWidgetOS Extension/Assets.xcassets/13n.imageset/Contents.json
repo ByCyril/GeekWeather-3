@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "13n.png",
+      "idiom" : "watch"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}

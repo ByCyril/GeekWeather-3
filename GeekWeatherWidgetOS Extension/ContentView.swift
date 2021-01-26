@@ -37,23 +37,25 @@ struct ContentView: View {
                         .padding()
                     } else {
                         if let error = weatherFetcher.error.first {
-                                ErrorView(error: error)
-//                            LevelOneView(weatherModel: weatherModel, location: "Mountain View, CA")
-//                            LevelTwoView(weatherModel: weatherModel).padding()
-//                            LevelThreeView(weatherModel: weatherModel)
-//
-//                            VStack {
-//                                Text("Developed and Designed")
-//                                Text("by Cyril © 2017 - 2021")
-//                            }.font(Font.custom("AvenirNext-Medium", size: 12))
-//                            .multilineTextAlignment(.center)
-//                            .foregroundColor(Color.white)
-//                            .padding()
+//                                ErrorView(error: error)
+                            LevelOneView(weatherModel: weatherModel, location: "Mountain View, CA")
+                            LevelTwoView(weatherModel: weatherModel).padding()
+                            LevelThreeView(weatherModel: weatherModel)
+
+                            VStack {
+                                Text("Developed and Designed")
+                                Text("by Cyril © 2017 - 2021")
+                            }.font(Font.custom("AvenirNext-Medium", size: 12))
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color.white)
+                            .padding()
                                 
                         } else {
                             VStack(alignment: .center) {
+                                Spacer()
                                 ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .white))
                                 Text(self.weatherFetcher.currentStatus)
+                                Spacer()
                             }
                         }
                     }

@@ -45,40 +45,39 @@ struct HorizontalItemView: View {
                 
             }
             Spacer()
+            Image(systemName: "chevron.compact.right")
         }
     }
 }
 
 struct LevelThreeView: View {
     let weatherModel: WeatherModel
-    
+        
     var body: some View {
         
-//        ScrollView(.vertical) {
-            VStack(spacing: 15) {
-                let daily = weatherModel.daily
+        VStack(spacing: 15) {
+            let daily = weatherModel.daily
+            
+            ForEach(0..<daily.count) { i in
+                let day = daily[i]
                 
-                ForEach(0..<daily.count) { i in
-                    let day = daily[i]
-                    
-                    let date = (i == 0) ? "Now" : day.dt.date(.day)
-                    
-                    HorizontalItemView(icon: day.weather.first!.icon,
-                                       date: date,
-                                       highTemp: day.temp.max.kelvinToSystemFormat(),
-                                       lowTemp: day.temp.min.kelvinToSystemFormat())
-                }
-                
+                let date = (i == 0) ? "Now" : day.dt.date(.day)
+                NavigationLink(
+                    destination: DetailsView(daily: day),
+                    label: {
+                        HorizontalItemView(icon: day.weather.first!.icon,
+                                           date: date,
+                                           highTemp: day.temp.max.kelvinToSystemFormat(),
+                                           lowTemp: day.temp.min.kelvinToSystemFormat())
+                    })
             }
-//        }
-        
+        }
     }
 }
 
 struct LevelThreeView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelThreeView(weatherModel: Mocks.mock())
+        ContentView(weatherModel: Mocks.mock())
             .previewDevice(PreviewDevice(rawValue: "Apple Watch Series 6 - 44mm"))
-
     }
 }

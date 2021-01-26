@@ -53,6 +53,11 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
             return
         }
         
+        if let err = Mocks.mockError() {
+            delegate?.didFail(errorTitle: "Error", errorDetail: err.localizedDescription)
+            return
+        }
+        
         locationManager = CLLocationManager()
         locationManager?.delegate = self
     }

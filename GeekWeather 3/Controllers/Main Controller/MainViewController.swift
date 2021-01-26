@@ -22,7 +22,7 @@ extension MainViewController: NetworkLayerDelegate {
         UIView.animate(withDuration: 0.15) { [weak self] in
             self?.loadingView.alpha = 0
         }
-        
+        print("🚨 alert",weatherModel.alerts)
         removeErrorItems()
         navView?.rollableTitleView.todayLabel.text = location
         notificationManager.post(data: ["weatherModel": weatherModel],
@@ -83,7 +83,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     private let errorView: AnimationView = {
         let animation = AnimationView(name: "denied")
         animation.translatesAutoresizingMaskIntoConstraints = false
-        animation.animationSpeed = 0.5
+        animation.animationSpeed = 0.45
         animation.loopMode = .autoReverse
         animation.play()
         return animation
@@ -219,6 +219,17 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         errorTextView.font = GWFont.AvenirNext(style: .Medium, size: 17)
         errorTextView.isEditable = false
         
+        let tryAgainButton = UIButton()
+        tryAgainButton.setTitle("Try Again", for: .normal)
+        tryAgainButton.titleLabel?.font = GWFont.AvenirNext(style: .Bold, size: 17)
+        tryAgainButton.layer.borderColor = UIColor.white.cgColor
+        tryAgainButton.layer.borderWidth = 2
+        tryAgainButton.layer.cornerRadius = 10
+        tryAgainButton.setTitleColor(.white, for: .normal)
+        
+        tryAgainButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tryAgainButton)
+        
         [errorTextView, errorTitleLabel].forEach { (element) in
             element.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(element)
@@ -241,7 +252,11 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
             errorTextView.topAnchor.constraint(equalTo: errorTitleLabel.bottomAnchor),
             errorTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             errorTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            errorTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            errorTextView.bottomAnchor.constraint(equalTo: tryAgainButton.topAnchor, constant: -padding),
+            
+            tryAgainButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            tryAgainButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: padding),
+            tryAgainButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
         ])
         
         view.layoutIfNeeded()

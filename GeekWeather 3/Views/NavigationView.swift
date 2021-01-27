@@ -18,5 +18,8 @@ final class GWNavigationView: UIView {
         super.awakeFromNib()
         settingsButton.applyAccessibility(with: "Settings", and: nil, trait: .button)
         searchButton.applyAccessibility(with: "Search", and: nil, trait: .button)
+        
+        settingsButton.layer.cornerRadius = 35 / 2
+        searchButton.layer.cornerRadius = 35 / 2
     }
 }

@@ -42,7 +42,7 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
     
     private var dataSource: UITableViewDiffableDataSource<Section, MKLocalSearchCompletion>?
     private var coreDataManager = PersistenceManager.shared
-        
+    
     init() {
         super.init(style: .plain)
         configureDataSource()
@@ -105,7 +105,7 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
         MKLocalSearch(request: searchRequest).start { [weak self] (response, error) in
             if let location = response?.mapItems.first?.placemark {
                 
-                savedLocation.address = location.locality
+                savedLocation.address = location.locality ?? location.title ?? "na"
                 savedLocation.location = location.location!
                 savedLocation.isDefault = false
                 savedLocation.isDefaultForWidget = false
@@ -113,10 +113,10 @@ final class SearchLocationViewController: UITableViewController, UISearchControl
                 
                 self?.view.window?.rootViewController?.dismiss(animated: true, completion: {
                     NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: savedLocation)
-//                    NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: location.location!)
+                    //                    NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: location.location!)
                 })
             } else {
-//              Handle error
+                //              Handle error
             }
         }
     }

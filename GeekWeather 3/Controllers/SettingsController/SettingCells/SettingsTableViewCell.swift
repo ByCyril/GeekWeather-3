@@ -65,7 +65,7 @@ class SettingsTableViewCell: UITableViewCell {
             detailLabel.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             detailLabel.heightAnchor.constraint(equalTo: titleLabel.heightAnchor),
             detailLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: padding),
-            detailLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding * 2.5),
+            detailLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
 
         ])
         

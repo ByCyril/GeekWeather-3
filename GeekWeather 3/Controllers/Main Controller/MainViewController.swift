@@ -22,9 +22,8 @@ extension MainViewController: NetworkLayerDelegate {
         UIView.animate(withDuration: 0.15) { [weak self] in
             self?.loadingView.alpha = 0
         }
-        print("🚨 alert",weatherModel.alerts)
-        removeErrorItems()
         
+        removeErrorItems()
         navView?.rollableTitleView.todayLabel.text = location
         notificationManager.post(data: ["weatherModel": weatherModel],
                                  to: NotificationName.observerID("weatherModel"))
@@ -69,6 +68,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     
     private let errorTitleLabel = UILabel()
     private let errorTextView = UITextView()
+    private let tryAgainButton = UIButton()
     
     private let loadingView: AnimationView = {
         let animation = AnimationView(name: "fetching")
@@ -206,6 +206,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         errorView.removeFromSuperview()
         errorTitleLabel.removeFromSuperview()
         errorTextView.removeFromSuperview()
+        tryAgainButton.removeFromSuperview()
     }
     
     func prepareDetailsView() {
@@ -259,7 +260,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         errorTextView.font = GWFont.AvenirNext(style: .Medium, size: 17)
         errorTextView.isEditable = false
         
-        let tryAgainButton = UIButton()
         tryAgainButton.setTitle("Try Again", for: .normal)
         tryAgainButton.titleLabel?.font = GWFont.AvenirNext(style: .Bold, size: 17)
         tryAgainButton.layer.borderColor = UIColor.white.cgColor

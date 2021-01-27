@@ -11,7 +11,7 @@ import SwiftUI
 
 struct GeekWeatherSmallWidget: Widget {
     let kind: String = "GeekWeatherSmallWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
             TodayViewSmall(entry: entry)
@@ -23,7 +23,7 @@ struct GeekWeatherSmallWidget: Widget {
 
 struct GeekWeatherLargeLabeledWidget: Widget {
     let kind: String = "GeekWeatherLargeLabeledWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
             LargeLabeledWidget(entry: entry)
@@ -35,7 +35,7 @@ struct GeekWeatherLargeLabeledWidget: Widget {
 
 struct GeekWeatherSmallDetailedWidget: Widget {
     let kind: String = "GeekWeatherSmallDetailedWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
             DetailedSmallView(entry: entry)
@@ -47,7 +47,7 @@ struct GeekWeatherSmallDetailedWidget: Widget {
 
 struct GeekWeatherDetailedTodayWidget: Widget {
     let kind: String = "GeekWeatherDetailedTodayWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
             DetailedTodayView(entry: entry)
@@ -59,7 +59,7 @@ struct GeekWeatherDetailedTodayWidget: Widget {
 
 struct GeekWeatherMediumDetailedWidget: Widget {
     let kind: String = "GeekWeatherMediumDetailedWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
             TodayViewMedium(entry: entry)
@@ -71,7 +71,7 @@ struct GeekWeatherMediumDetailedWidget: Widget {
 
 struct GeekWeatherMediumSimpleWidget: Widget {
     let kind: String = "GeekWeatherMediumSimpleWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
             TodayViewSimpleWidget(entry: entry)
@@ -83,7 +83,7 @@ struct GeekWeatherMediumSimpleWidget: Widget {
 
 struct GeekWeatherMediumMoreDetailedWidget: Widget {
     let kind: String = "GeekWeatherMediumMoreDetailedWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
             TodayViewDetailedMediumWidget(entry: entry)

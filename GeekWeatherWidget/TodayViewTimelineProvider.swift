@@ -31,10 +31,12 @@ class TodayViewTimelineProvider: TimelineProvider {
                                            summary: response.current.weather[0].description.capitalized,
                                            currently: response.current,
                                            hourly: response.hourly,
-                                           daily: response.daily)
+                                           daily: response.daily,
+                                           alerts: response.alerts)
             
             let entry = WeatherEntry(date: Date(), weatherModel: model)
             return entry
+            
         } catch {
             return WeatherEntry.placeholder
         }
@@ -93,9 +95,29 @@ class TodayViewTimelineProvider: TimelineProvider {
                                                hourly: data.hourly,
                                                daily: data.daily)
                 
-                let entry = WeatherEntry(date: Date(), weatherModel: model)
+                
+                
+                var foundOne = false
+                
+                for i in 1..<5 {
+                    let icon = model.hourly[i].weather.first!.icon
+                    
+                    if icon == "sunset" || icon == "sunrise" {
+                        foundOne = true
+                    }
+                }
+                
                 sharedUserDefaults?.setValue(Date(), forKey: SharedUserDefaults.Keys.WidgetLastUpdated)
+                
+                if foundOne {
+                    let entry = WeatherEntry(date: Date(), weatherModel: model, numberOfHourlyItems: 4)
+                    completion(.success(entry))
+                    return
+                }
+                
+                let entry = WeatherEntry(date: Date(), weatherModel: model)
                 completion(.success(entry))
+                
             } else {
                 if let error = error {
                     completion(.failure(error))

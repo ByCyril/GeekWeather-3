@@ -16,6 +16,8 @@ final class SavedLocationViewController: UITableViewController {
     private let coreDataManager = PersistenceManager.shared
     private var savedLocation = [SavedLocation]()
     
+    private let locationManager = CLLocationManager()
+    
     var hideCurrentLocationOption = false
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,15 +63,14 @@ final class SavedLocationViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selection = indexPath.row - 1
         
-        if selection > -1 {
-            let obj = savedLocation[selection]
+        if indexPath.section > 0 {
+            let obj = savedLocation[indexPath.row]
             view.window?.rootViewController?.dismiss(animated: true, completion: {
                 NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: obj)
             })
         } else {
-            if !UserDefaults.standard.bool(forKey: "ExistingUser") {
+            if !UserDefaults.standard.bool(forKey: "ExistingUser") || locationManager.authorizationStatus != .authorizedWhenInUse {
                 UINotificationFeedbackGenerator().notificationOccurred(.error)
                 tableView.deselectRow(at: indexPath, animated: true)
                 return
@@ -82,31 +83,44 @@ final class SavedLocationViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return savedLocation.count + 1
+        if section == 0 {
+            return 1
+        } else {
+            return savedLocation.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        
+        if indexPath.row == 0 && indexPath.section == 0 && locationManager.authorizationStatus != .authorizedWhenInUse {
+            UINotificationFeedbackGenerator().notificationOccurred(.error)
+            return
+        }
         
         let savedLocation = self.savedLocation
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let deleteItem = UIAlertAction(title: "Remove from List", style: .destructive) { [weak self] (_) in
-            let obj = savedLocation[indexPath.row - 1]
+            let obj = savedLocation[indexPath.row]
             PersistenceManager.shared.delete(item: obj)
-            self?.savedLocation.remove(at: indexPath.row - 1)
+            self?.savedLocation.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
         let setDefaultLocation = UIAlertAction(title: "Set Default Location", style: .default) { (_) in
-            if indexPath.row == 0 {
+            if indexPath.row == 0 && indexPath.section == 0 {
                 sharedUserDefaults?.removeObject(forKey: SharedUserDefaults.Keys.DefaultLocation)
                 tableView.reloadData()
                 HapticManager.success()
                 return
             }
             
-            let obj = savedLocation[indexPath.row - 1]
+            let obj = savedLocation[indexPath.row ]
             let coord = ["lon": obj.location!.coordinate.longitude,
                          "lat": obj.location!.coordinate.latitude,
                          "name": obj.address!] as [String : Any]
@@ -116,13 +130,13 @@ final class SavedLocationViewController: UITableViewController {
         }
         
         let setWidgetDefaultLocation = UIAlertAction(title: "Set Default Location for Widgets", style: .default) { (_) in
-            if indexPath.row == 0 {
+            if indexPath.row == 0 && indexPath.section == 0 {
                 sharedUserDefaults?.removeObject(forKey: SharedUserDefaults.Keys.WidgetDefaultLocation)
                 HapticManager.success()
                 WidgetCenter.shared.reloadAllTimelines()
                 return
             }
-            let obj = savedLocation[indexPath.row - 1]
+            let obj = savedLocation[indexPath.row]
             let coord = ["lon": obj.location!.coordinate.longitude,
                          "lat": obj.location!.coordinate.latitude,
                          "name": obj.address!] as [String : Any]
@@ -136,7 +150,7 @@ final class SavedLocationViewController: UITableViewController {
         alert.addAction(setDefaultLocation)
         alert.addAction(setWidgetDefaultLocation)
         
-        if indexPath.row != 0 {
+        if indexPath.section != 0 {
             alert.addAction(deleteItem)
         }
         
@@ -146,30 +160,45 @@ final class SavedLocationViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return "Recent Searches"
+        }
+        return ""
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        if indexPath.row == 0 {
-            if UserDefaults.standard.bool(forKey: "ExistingUser") {
+        if indexPath.row == 0 && indexPath.section == 0 {
+            if UserDefaults.standard.bool(forKey: "ExistingUser") && locationManager.authorizationStatus == .authorizedWhenInUse {
                 cell.textLabel?.text = "Current Location"
+                cell.imageView?.image = UIImage(systemName: "location.fill")
+                cell.accessoryType = .detailButton
+                cell.selectionStyle = .default
             } else {
                 cell.textLabel?.text = "Unavailable"
+                cell.imageView?.image = UIImage(systemName: "location.slash")
+                cell.selectionStyle = .none
+                cell.accessoryType = .none
             }
             
             if sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.DefaultLocation) == nil {
                 cell.detailTextLabel?.text = "Default Location"
+                cell.accessoryType = .detailButton
+                cell.selectionStyle = .default
             } else {
                 cell.detailTextLabel?.text = nil
+                cell.accessoryType = .detailButton
+                cell.selectionStyle = .default
             }
             
-            cell.imageView?.image = UIImage(named: "current")
-            
-        } else {
-            cell.textLabel?.text = savedLocation[indexPath.row - 1].address
+        } else if indexPath.section == 1 {
+            cell.textLabel?.text = savedLocation[indexPath.row].address
+            cell.accessoryType = .detailButton
+            cell.selectionStyle = .default
             cellDefaultLabels(cell, indexPath)
         }
-        
-        cell.accessoryType = .detailButton
         
         return cell
     }
@@ -177,7 +206,7 @@ final class SavedLocationViewController: UITableViewController {
     func cellDefaultLabels(_ cell: UITableViewCell,_ indexPath: IndexPath) {
         if let loc = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.DefaultLocation) as? [String: Any] {
             if let city = loc["name"] as? String {
-                if city == savedLocation[indexPath.row - 1].address! {
+                if city == savedLocation[indexPath.row].address! {
                     cell.detailTextLabel?.text = "Default Location"
                 } else {
                     cell.detailTextLabel?.text = nil

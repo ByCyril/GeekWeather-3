@@ -36,7 +36,7 @@ final class SettingsController: UITableViewController {
         title = "Settings"
         navigationItem.titleView?.isAccessibilityElement = false
         
-        let barButton = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(dismissController))
+        let barButton = UIBarButtonItem(image: UIImage(systemName: "chevron.down.circle.fill"), style: .plain, target: self, action: #selector(dismissController))
         barButton.tintColor = .label
         navigationItem.setRightBarButton(barButton, animated: true)
     }

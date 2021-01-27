@@ -35,9 +35,8 @@ struct DetailedSmallView: View {
                 Spacer()
                 HStack(alignment: .center, spacing: 10) {
                     if let hourly = entry.weatherModel.hourly {
-                        let numOfItems = 5
                         
-                        ForEach(1..<numOfItems) { i in
+                        ForEach(1..<entry.numberOfHourlyItems) { i in
                             let data = hourly[i]
                             let icon = data.weather.first!.icon
                             

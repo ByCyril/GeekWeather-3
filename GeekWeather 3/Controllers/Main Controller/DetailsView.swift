@@ -25,7 +25,7 @@ struct DetailsView: View {
                 Spacer()
 
                 Button(action: dismissAction) {
-                    Image(systemName: "xmark.circle").resizable().frame(width: 25, height: 25, alignment: .center)
+                    Image(systemName: "xmark.circle.fill").resizable().frame(width: 25, height: 25, alignment: .center)
                 }
             }.padding(.top).padding(.leading).padding(.trailing)
             

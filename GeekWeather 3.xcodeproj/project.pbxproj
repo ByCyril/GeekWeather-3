@@ -62,6 +62,8 @@
 		010D53E325C0D99800222FF5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53CA25C0D99800222FF5 /* Color+Extension.swift */; };
 		010D53E425C0D99800222FF5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53CA25C0D99800222FF5 /* Color+Extension.swift */; };
 		010D53E525C0D99800222FF5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53CA25C0D99800222FF5 /* Color+Extension.swift */; };
+		010D540325C0DCED00222FF5 /* AlertList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D540225C0DCED00222FF5 /* AlertList.swift */; };
+		010D540925C0E17100222FF5 /* AlertHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D540825C0E17100222FF5 /* AlertHostingController.swift */; };
 		010F7DB8259C129C00D53BFA /* GWFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D14D2597D72200298ABD /* GWFont.swift */; };
 		010F7DCE259C44DF00D53BFA /* ResetNumberCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010F7DCD259C44DF00D53BFA /* ResetNumberCalls.swift */; };
 		011908C3259D34F400EE1C0F /* GWTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011908C2259D34F400EE1C0F /* GWTest.swift */; };
@@ -309,6 +311,8 @@
 		010D53C825C0D99800222FF5 /* RequestURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestURL.swift; sourceTree = "<group>"; };
 		010D53C925C0D99800222FF5 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		010D53CA25C0D99800222FF5 /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		010D540225C0DCED00222FF5 /* AlertList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertList.swift; sourceTree = "<group>"; };
+		010D540825C0E17100222FF5 /* AlertHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHostingController.swift; sourceTree = "<group>"; };
 		010F7DCD259C44DF00D53BFA /* ResetNumberCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetNumberCalls.swift; sourceTree = "<group>"; };
 		011908C2259D34F400EE1C0F /* GWTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWTest.swift; sourceTree = "<group>"; };
 		0119098D259D891B00EE1C0F /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -598,6 +602,8 @@
 				01228FFF25BE54C500FD47BA /* DetailsView.swift */,
 				0145C67725BFE6ED00EF1AA4 /* SmallItemDetailView.swift */,
 				01B5989525BE9EF70097C4A4 /* DetailsViewHostingController.swift */,
+				010D540225C0DCED00222FF5 /* AlertList.swift */,
+				010D540825C0E17100222FF5 /* AlertHostingController.swift */,
 			);
 			path = "Main Controller";
 			sourceTree = "<group>";
@@ -1292,6 +1298,7 @@
 				01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */,
 				011C620125A3C93B00F131D0 /* HourlyView.swift in Sources */,
 				0119099A259D8CDC00EE1C0F /* HapticFeedbackController.swift in Sources */,
+				010D540925C0E17100222FF5 /* AlertHostingController.swift in Sources */,
 				01328D4525B7D66200E29B31 /* WeatherAlertController.swift in Sources */,
 				0145C67825BFE6ED00EF1AA4 /* SmallItemDetailView.swift in Sources */,
 				01328D1225B6CD1E00E29B31 /* DailyViewLayer.swift in Sources */,
@@ -1303,6 +1310,7 @@
 				01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */,
 				018079CA258DB3B200C88E0E /* NavigationView.swift in Sources */,
 				011C61EF25A3BD9100F131D0 /* iPadMainView.swift in Sources */,
+				010D540325C0DCED00222FF5 /* AlertList.swift in Sources */,
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
 				010D53E025C0D99800222FF5 /* Weather.swift in Sources */,
 				0127D15C2597F55D00298ABD /* AppIconSelectionController.swift in Sources */,

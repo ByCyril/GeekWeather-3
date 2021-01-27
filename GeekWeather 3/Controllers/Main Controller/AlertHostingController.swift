@@ -9,11 +9,15 @@
 import UIKit
 import SwiftUI
 
-final class DetailsViewHostingController: UIHostingController<ContainerView> {
+protocol GWUIHostingControllerDelegate: AnyObject {
+    func didDismissModal()
+}
+
+final class AlertViewHostingController: UIHostingController<AlertContainer> {
     
     weak var delegate: GWUIHostingControllerDelegate?
     
-    override init(rootView: ContainerView) {
+    override init(rootView: AlertContainer) {
         super.init(rootView: rootView)
         modalPresentationStyle = .overFullScreen
         modalTransitionStyle = .coverVertical

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class NavigationView: UIView {
+final class GWNavigationView: UIView {
     
     @IBOutlet var rollableTitleView: RollableTitleView!
     @IBOutlet var settingsButton: UIButton!

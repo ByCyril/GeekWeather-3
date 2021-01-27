@@ -32,7 +32,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.compact.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="x2p-fw-2oG">
-                    <rect key="frame" x="167.5" y="614.5" width="40" height="13"/>
+                    <rect key="frame" x="167.5" y="630" width="40" height="13"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="26.5" id="OUA-sx-wIq"/>
@@ -45,7 +45,7 @@
             <constraints>
                 <constraint firstItem="nyW-7H-r1s" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3ao-hO-QQX"/>
                 <constraint firstItem="nyW-7H-r1s" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="7K4-Mk-n45"/>
-                <constraint firstItem="x2p-fw-2oG" firstAttribute="top" secondItem="czG-2f-3VS" secondAttribute="bottom" id="Ek5-vt-nom"/>
+                <constraint firstItem="x2p-fw-2oG" firstAttribute="top" secondItem="czG-2f-3VS" secondAttribute="bottom" constant="15.5" id="Ek5-vt-nom"/>
                 <constraint firstItem="czG-2f-3VS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="LgR-zc-dXJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nyW-7H-r1s" secondAttribute="trailing" id="MUp-ch-tHJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="czG-2f-3VS" secondAttribute="bottom" constant="59" id="ZCx-6C-QhR"/>

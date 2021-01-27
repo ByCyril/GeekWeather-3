@@ -30,8 +30,10 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         
         createBlurView()
         
+        weatherAlertButton.titleLabel?.font = GWFont.AvenirNext(style: .Bold, size: 15)
         weatherAlertButton.layer.cornerRadius = 10
         weatherAlertButton.isHidden = true
+        weatherAlertButton.addTarget(self, action: #selector(presentWeatherAlertView), for: .touchUpInside)
         
         tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
         summaryLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: summaryLabel.font)
@@ -125,6 +127,12 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         UIView.animate(withDuration: 0.4, delay: 1, options: .curveEaseInOut) {
             self.weatherAlertButton.transform = .identity
         }
+    }
+
+    @objc
+    func presentWeatherAlertView() {
+        guard let alert = weatherModel?.alerts else { return }
+        NotificationCenter.default.post(name: NSNotification.Name("PresentWeatherAlert"), object: alert)
     }
     
     func shrink() {

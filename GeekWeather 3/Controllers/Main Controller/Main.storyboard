@@ -295,7 +295,7 @@
                                 <rect key="frame" x="-46" y="44" width="490" height="75"/>
                                 <color key="backgroundColor" name="01d-Top"/>
                             </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPR-xt-J3y" customClass="NavigationView" customModule="GeekWeather" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPR-xt-J3y" customClass="GWNavigationView" customModule="GeekWeather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="75"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VO3-sv-S78" customClass="RollableTitleView" customModule="GeekWeather" customModuleProvider="target">
@@ -344,9 +344,9 @@
                                     <constraint firstItem="VO3-sv-S78" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="top" id="cLb-WN-5lF"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="rollableTitleView" destination="VO3-sv-S78" id="1kT-cC-Wl8"/>
-                                    <outlet property="searchButton" destination="Imr-JJ-jCn" id="gWf-Fc-eVR"/>
-                                    <outlet property="settingsButton" destination="Shd-eo-sw5" id="3sF-F3-A5A"/>
+                                    <outlet property="rollableTitleView" destination="VO3-sv-S78" id="TTd-VC-YZD"/>
+                                    <outlet property="searchButton" destination="Imr-JJ-jCn" id="25x-bw-yEt"/>
+                                    <outlet property="settingsButton" destination="Shd-eo-sw5" id="8JQ-Pj-l9W"/>
                                 </connections>
                             </view>
                         </subviews>

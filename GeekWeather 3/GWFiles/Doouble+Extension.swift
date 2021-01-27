@@ -58,9 +58,14 @@ extension Double {
         }
     }
     
-    func convertTime() -> String {
+    func convertTime(_ timezone: String? = nil) -> String {
         if let is24 = sharedUserDefaults?.bool(forKey: SharedUserDefaults.Keys.is24Hour) {
-            return is24 ? self.date(.mtime) : self.date(.time)
+            if let tz = timezone {
+                let zone = TimeZone(identifier: tz)
+                return is24 ? self.date(.mtime, zone) : self.date(.time, zone)
+            } else {
+                return is24 ? self.date(.mtime) : self.date(.time)
+            }
         } else {
             return self.date(.time)
         }

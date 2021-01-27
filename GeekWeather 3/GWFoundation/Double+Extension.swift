@@ -19,6 +19,7 @@ public enum TimestampFormat: String {
     case day = "EEEE"
     case shortDay = "EE"
     case year = "yyyy"
+    case truncFullDate = "MMM d, h a"
 }
 
 extension Double {

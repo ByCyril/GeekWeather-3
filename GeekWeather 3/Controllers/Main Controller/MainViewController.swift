@@ -43,14 +43,14 @@ extension MainViewController: NetworkLayerDelegate {
     
 }
 
-class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate, DetailsViewHostingControllerDelegate {
+class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate, GWUIHostingControllerDelegate {
     
     private let notificationManager = NotificationManager()
     private var detailsView = DetailsViewModal()
     
     let networkLayer = NetworkLayer()
     
-    @IBOutlet var navView: NavigationView?
+    @IBOutlet var navView: GWNavigationView?
     @IBOutlet var shadowView: UIView!
     
     private var flexibleCenterYConstraint: NSLayoutConstraint?
@@ -62,6 +62,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     private var levelTwoViewController: LevelTwoViewController?
     private var levelThreeViewController: LevelThreeViewController?
     private var detailsViewHostingController: DetailsViewHostingController?
+    private var alertViewHostingController: AlertViewHostingController?
     private var backdropView: UIView?
     
     let theme = UserDefaults.standard.string(forKey: "Theme") ?? "System-"
@@ -125,6 +126,35 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
                                                selector: #selector(presentDetailsView(_:)),
                                                name: Notification.Name("DailyItemSelection"),
                                                object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(presentWeatherAlert(_:)),
+                                               name: Notification.Name("PresentWeatherAlert"),
+                                               object: nil)
+    }
+    
+    @objc
+    func presentWeatherAlert(_ obj: NSNotification) {
+        guard let alerts = obj.object as? [Alert] else { return }
+        
+        backdropView = UIView(frame: view.bounds)
+        backdropView?.backgroundColor = UIColor.white.withAlphaComponent(0.15)
+        backdropView?.alpha = 0
+
+        let alertContainer = AlertContainer(alerts: alerts) {
+            self.didDismissModal()
+        }
+        
+        alertViewHostingController = AlertViewHostingController(rootView: alertContainer)
+        alertViewHostingController?.delegate = self
+        view.addSubview(backdropView!)
+        
+        UIView.animate(withDuration: 0.4) { [weak self] in
+            self?.backdropView?.alpha = 1
+        }
+        
+        present(alertViewHostingController!, animated: true)
+        
     }
     
     @objc

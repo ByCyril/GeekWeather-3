@@ -44,11 +44,11 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
         let current = weatherModel.current
         
         let itemOne = ItemData(firstItemLabel: "Sunrise",
-                               firstItemValue: current.sunrise.convertTime().lowercased(),
+                               firstItemValue: current.sunrise.convertTime(weatherModel.timezone).lowercased(),
                                width: 115)
         
         let itemTwo = ItemData(firstItemLabel: "Sunset",
-                               firstItemValue: current.sunset.convertTime().lowercased(),
+                               firstItemValue: current.sunset.convertTime(weatherModel.timezone).lowercased(),
                                width: 115)
         
         let itemThree = ItemData(firstItemLabel: "Dew Point",

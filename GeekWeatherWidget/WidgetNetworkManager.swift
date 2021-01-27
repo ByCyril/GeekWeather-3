@@ -36,9 +36,9 @@ final class WidgetNetworkManager: NSObject, CLLocationManagerDelegate {
     
     public func fetch(_ completion: @escaping (WeatherModel?, Error?, String?) -> Void) {
         
-        if let location = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.WidgetDefaultLocation) as? [String: CLLocationDegrees] {
-            let cllocation = CLLocation(latitude: location["lat"]!,
-                                        longitude: location["lon"]!)
+        if let location = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.WidgetDefaultLocation) as? [String: Any] {
+            let cllocation = CLLocation(latitude: location["lat"] as! CLLocationDegrees,
+                                        longitude: location["lon"]  as! CLLocationDegrees)
             
             let url = RequestURL(location: cllocation)
             
@@ -57,17 +57,7 @@ final class WidgetNetworkManager: NSObject, CLLocationManagerDelegate {
                         
                         let model = self.networkManager.formatData(response: weatherModel)
                         
-                        CLGeocoder().reverseGeocodeLocation(cllocation) { (placemark, error) in
-                            guard let firstLocation = placemark?.first else { return }
-                            
-                            if firstLocation.country == "United States" {
-                                let state = firstLocation.administrativeArea ?? ""
-                                completion(model,nil, "\(firstLocation.locality!), \(state)")
-                                return
-                            }
-                            
-                            completion(model,nil,firstLocation.locality!)
-                        }
+                        completion(model,nil, location["name"] as? String ?? "na")
                         
                     } catch {
                         completion(nil,error,nil)

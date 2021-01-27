@@ -38,6 +38,7 @@ final class RollableTitleView: UIView {
         
         todayLabel.adjustsFontSizeToFitWidth = true
         todayLabel.text = ""
+        todayLabel.numberOfLines = 3
         forecastLabel.text = "Forecast"
         geekLabel.text = "Weather Map"
         
@@ -47,7 +48,7 @@ final class RollableTitleView: UIView {
             label.notAccessibilityElement()
             label.textColor = .white
             label.adjustsFontSizeToFitWidth = true
-            label.font = GWFont.AvenirNext(style: .Bold, size: 35)
+            label.font = GWFont.AvenirNext(style: .Bold, size: 30)
             label.translatesAutoresizingMaskIntoConstraints = false
         }
         

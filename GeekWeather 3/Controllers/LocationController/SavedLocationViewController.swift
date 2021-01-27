@@ -66,7 +66,7 @@ final class SavedLocationViewController: UITableViewController {
         if selection > -1 {
             let obj = savedLocation[selection]
             view.window?.rootViewController?.dismiss(animated: true, completion: {
-                NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: obj.location)
+                NotificationCenter.default.post(name: Notification.Name("NewLocationLookup"), object: obj)
             })
         } else {
             if !UserDefaults.standard.bool(forKey: "ExistingUser") {
@@ -124,7 +124,8 @@ final class SavedLocationViewController: UITableViewController {
             }
             let obj = savedLocation[indexPath.row - 1]
             let coord = ["lon": obj.location!.coordinate.longitude,
-                         "lat": obj.location!.coordinate.latitude]
+                         "lat": obj.location!.coordinate.latitude,
+                         "name": obj.address!] as [String : Any]
             sharedUserDefaults?.setValue(coord, forKey: SharedUserDefaults.Keys.WidgetDefaultLocation)
             HapticManager.success()
             WidgetCenter.shared.reloadAllTimelines()

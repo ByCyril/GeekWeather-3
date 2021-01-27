@@ -11,6 +11,7 @@ import CoreLocation
 import Lottie
 import WidgetKit
 import SwiftUI
+import MapKit
 
 extension MainViewController: NetworkLayerDelegate {
     
@@ -23,11 +24,10 @@ extension MainViewController: NetworkLayerDelegate {
         }
         print("🚨 alert",weatherModel.alerts)
         removeErrorItems()
+        
         navView?.rollableTitleView.todayLabel.text = location
         notificationManager.post(data: ["weatherModel": weatherModel],
                                  to: NotificationName.observerID("weatherModel"))
-        
-        levelThreeViewController?.receive(location: networkLayer.locationManager?.location)
     }
     
     func didFail(errorTitle: String, errorDetail: String) {
@@ -337,10 +337,15 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
             self.loadingView.alpha = 1
         }
         
-        if let location = notification.object as? CLLocation {
+        if let location = notification.object as? SavedLocation {
             hideScrollView { [weak self] (_) in
                 self?.scrollView.setContentOffset(.zero, animated: false)
-                self?.networkLayer.fetch(with: location)
+               
+                if let address = location.address, let coord = location.location {
+                    self?.networkLayer.beginFetchingWeatherData(coord, address)
+                } else {
+                    self?.didFail(errorTitle: "Error", errorDetail: "Could not fetch location. Try a new location. If the error persists, please let the developer know!")
+                }
             }
         } else {
             hideScrollView { [weak self] (_) in

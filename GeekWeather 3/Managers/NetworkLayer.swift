@@ -121,7 +121,7 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
             self?.beginFetchingWeatherData(location, locationStr)
         }
     }
-  
+    
     func beginFetchingWeatherData(_ location: CLLocation,_ locationStr: String) {
         let url = RequestURL(location: location)
         print("👀 URL",url.url.absoluteString)

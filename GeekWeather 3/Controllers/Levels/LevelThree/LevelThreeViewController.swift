@@ -43,7 +43,7 @@ final class LevelThreeViewController: BaseView {
         let view = Bundle.main.loadNibNamed("LevelThreeViewController", owner: self, options: nil)?.first as! LevelThreeViewController
         loadXib(view, self)
         layer.masksToBounds = true
-        mapView.showsUserLocation = true
+//        mapView.showsUserLocation = true
         createBlurView()
     }
     

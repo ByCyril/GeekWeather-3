@@ -57,52 +57,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="App Appearance" id="H7b-Rv-eNj">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="55" id="q7t-IX-8Jc">
-                                        <rect key="frame" x="20" y="166.5" width="374" height="55"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q7t-IX-8Jc" id="Wrf-a4-jEi">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YXP-yx-8Ob">
-                                                    <rect key="frame" x="94" y="10" width="260" height="36"/>
-                                                    <segments>
-                                                        <segment title="System"/>
-                                                        <segment title="Light"/>
-                                                        <segment title="Dark"/>
-                                                    </segments>
-                                                    <connections>
-                                                        <action selector="changeAppearance:" destination="f4t-66-EmI" eventType="valueChanged" id="E41-Lg-xi5"/>
-                                                        <action selector="changeAppearance:" destination="FNN-W4-kgd" eventType="valueChanged" id="aiX-M7-fse"/>
-                                                    </connections>
-                                                </segmentedControl>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKK-sW-uqX">
-                                                    <rect key="frame" x="20" y="13" width="54" height="31"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="GKK-sW-uqX" firstAttribute="top" secondItem="Wrf-a4-jEi" secondAttribute="top" constant="13" id="0YU-ww-DjP"/>
-                                                <constraint firstItem="YXP-yx-8Ob" firstAttribute="leading" secondItem="GKK-sW-uqX" secondAttribute="trailing" constant="20" id="0jn-NY-mkj"/>
-                                                <constraint firstAttribute="bottom" secondItem="YXP-yx-8Ob" secondAttribute="bottom" constant="10" id="HGa-Jy-vtO"/>
-                                                <constraint firstAttribute="trailing" secondItem="YXP-yx-8Ob" secondAttribute="trailing" constant="20" symbolic="YES" id="MWt-lz-olM"/>
-                                                <constraint firstAttribute="bottom" secondItem="GKK-sW-uqX" secondAttribute="bottom" constant="11" id="ath-e6-QWZ"/>
-                                                <constraint firstItem="YXP-yx-8Ob" firstAttribute="top" secondItem="Wrf-a4-jEi" secondAttribute="top" constant="10" id="hhe-EE-yT1"/>
-                                                <constraint firstItem="GKK-sW-uqX" firstAttribute="leading" secondItem="Wrf-a4-jEi" secondAttribute="leading" constant="20" symbolic="YES" id="n6I-wJ-b8N"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="Scroll Animation" id="U8y-P3-5qs">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="55" id="yan-IL-UcO">
-                                        <rect key="frame" x="20" y="277.5" width="374" height="55"/>
+                                        <rect key="frame" x="20" y="166.5" width="374" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yan-IL-UcO" id="FzP-KW-Z3p">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
@@ -139,6 +97,46 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Paging" id="Mry-jc-tKJ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="55" id="oT2-tp-o4b">
+                                        <rect key="frame" x="20" y="277.5" width="374" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oT2-tp-o4b" id="qdu-sn-Jkx">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Paging" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbg-9W-Tuz">
+                                                    <rect key="frame" x="20" y="13" width="250" height="31"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0iK-Y3-2R0">
+                                                    <rect key="frame" x="305" y="13" width="49" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="47" id="TOb-8k-Mti"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="pagingEnabledToggle:" destination="f4t-66-EmI" eventType="valueChanged" id="HTG-8i-flQ"/>
+                                                        <action selector="toggleHapticFeedback:" destination="FNN-W4-kgd" eventType="valueChanged" id="1kz-ls-PwR"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="0iK-Y3-2R0" secondAttribute="trailing" constant="22" id="GcM-ZM-hTQ"/>
+                                                <constraint firstItem="gbg-9W-Tuz" firstAttribute="top" secondItem="qdu-sn-Jkx" secondAttribute="top" constant="13" id="GrW-Zc-NuC"/>
+                                                <constraint firstItem="gbg-9W-Tuz" firstAttribute="leading" secondItem="qdu-sn-Jkx" secondAttribute="leading" constant="20" symbolic="YES" id="Is8-0X-x73"/>
+                                                <constraint firstAttribute="bottom" secondItem="0iK-Y3-2R0" secondAttribute="bottom" constant="11" id="JNU-8E-jRG"/>
+                                                <constraint firstItem="0iK-Y3-2R0" firstAttribute="leading" secondItem="gbg-9W-Tuz" secondAttribute="trailing" constant="35" id="TJ7-G0-48U"/>
+                                                <constraint firstItem="0iK-Y3-2R0" firstAttribute="top" secondItem="qdu-sn-Jkx" secondAttribute="top" constant="13" id="Vb3-1h-W3C"/>
+                                                <constraint firstAttribute="bottom" secondItem="gbg-9W-Tuz" secondAttribute="bottom" constant="11" id="XNX-3i-eZd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="f4t-66-EmI" id="Zz5-A2-OZT"/>
@@ -148,8 +146,8 @@
                     <navigationItem key="navigationItem" title="Change Units" id="N6i-cG-sQw"/>
                     <connections>
                         <outlet property="hapticToggle" destination="9cT-mZ-r2o" id="4Om-3f-A27"/>
+                        <outlet property="pagingToggle" destination="0iK-Y3-2R0" id="2qR-uq-tR9"/>
                         <outlet property="scrollAnimationToggle" destination="y8q-oI-3Bc" id="DMK-hP-J31"/>
-                        <outlet property="themeSelector" destination="YXP-yx-8Ob" id="q8a-Fn-gpG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfB-6x-ulr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -181,7 +179,6 @@
                                                     <segments>
                                                         <segment title="°F"/>
                                                         <segment title="°C"/>
-                                                        <segment title="Kelvin"/>
                                                     </segments>
                                                     <connections>
                                                         <action selector="changeScale:" destination="onz-Fb-x4W" eventType="valueChanged" id="CIx-xM-1QG"/>

@@ -18,7 +18,7 @@ extension MainViewController: NetworkLayerDelegate {
     func didFinishFetching(weatherModel: WeatherModel, location: String) {
         UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")
         animateMainScrollView()
-  
+        
         UIView.animate(withDuration: 0.15) { [weak self] in
             self?.loadingView.alpha = 0
         }
@@ -131,6 +131,17 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
                                                selector: #selector(presentWeatherAlert(_:)),
                                                name: Notification.Name("PresentWeatherAlert"),
                                                object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(pagingSettingChanged),
+                                               name: Notification.Name("PagingAnimationToggle"),
+                                               object: nil)
+    }
+    
+    @objc
+    func pagingSettingChanged() {
+        scrollView.isPagingEnabled = !UserDefaults.standard.bool(forKey: "PagingAnimationToggle")
+        scrollView.setContentOffset(.zero, animated: true)
     }
     
     @objc
@@ -140,7 +151,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         backdropView = UIView(frame: view.bounds)
         backdropView?.backgroundColor = UIColor.white.withAlphaComponent(0.15)
         backdropView?.alpha = 0
-
+        
         let alertContainer = AlertContainer(alerts: alerts) {
             self.didDismissModal()
         }
@@ -315,7 +326,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
             
             let differenceInSeconds = abs(lastUpdated.timeIntervalSince(Date()))
             let minutesPassed = differenceInSeconds / 60
-
+            
             print("⏱",minutesPassed)
             if minutesPassed >= 10 {
                 WidgetCenter.shared.reloadAllTimelines()
@@ -340,7 +351,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         if let location = notification.object as? SavedLocation {
             hideScrollView { [weak self] (_) in
                 self?.scrollView.setContentOffset(.zero, animated: false)
-               
+                
                 if let address = location.address, let coord = location.location {
                     self?.networkLayer.beginFetchingWeatherData(coord, address)
                 } else {
@@ -360,6 +371,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         
         scrollView.alpha = 0
         scrollView.delegate = self
+        pagingSettingChanged()
         view.insertSubview(scrollView, at: 0)
         
         guard let navView = self.navView else { return }
@@ -444,7 +456,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         vc.navigationController?.navigationBar.largeTitleTextAttributes = attributes
         present(vc, animated: true, completion: nil)
     }
-
+    
     @IBAction func presentSettingsController() {
         GWTransition.present(SettingsController(), from: self)
     }

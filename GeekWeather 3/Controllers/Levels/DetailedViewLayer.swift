@@ -105,31 +105,21 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
-    var animatedCell = Set<UICollectionViewCell>()
-   
+       
     var d = 0.1
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        d = 0
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        if !animatedCell.contains(cell) {
-            cell.transform = .init(scaleX: 0.001, y: 0.001)
-            d += 0.05
-            UIView.animate(withDuration: 0.4,
-                           delay: d,
-                           usingSpringWithDamping: 0.5,
-                           initialSpringVelocity: 0.5,
-                           options: .curveEaseInOut) {
-                cell.transform = .identity
-                cell.alpha = 1
-            }
-            animatedCell.insert(cell)
+        cell.transform = .init(scaleX: 0.001, y: 0.001)
+        d += 0.05
+        UIView.animate(withDuration: 0.4,
+                       delay: d,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 0.5,
+                       options: .curveEaseInOut) {
+            cell.transform = .identity
+            cell.alpha = 1
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

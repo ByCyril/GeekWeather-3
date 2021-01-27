@@ -9,9 +9,9 @@
 import UIKit
 
 final class SettingsController: UITableViewController {
-  
+    
     private let settingManager = SettingManager()
-
+    
     init() {
         super.init(style: .insetGrouped)
         tableView.estimatedRowHeight = 50
@@ -23,7 +23,6 @@ final class SettingsController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
     override func viewDidLoad() {
@@ -36,21 +35,34 @@ final class SettingsController: UITableViewController {
         
         title = "Settings"
         navigationItem.titleView?.isAccessibilityElement = false
-
+        
         let barButton = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(dismissController))
         barButton.tintColor = .label
         navigationItem.setRightBarButton(barButton, animated: true)
     }
-
+    
     @objc
     func dismissController() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if settingManager.sections.count - 1 == section {
+            return "Developed and Designed by Cyril © 2017 - 2021"
+        }
+        return nil
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let headerView = view as? UITableViewHeaderFooterView else { return }
         headerView.textLabel?.textColor = .label
         headerView.textLabel?.font = GWFont.AvenirNext(style: .Medium, size: 12)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        guard let footerView = view as? UITableViewHeaderFooterView else { return }
+        footerView.textLabel?.textColor = .label
+        footerView.textLabel?.font = GWFont.AvenirNext(style: .Medium, size: 12)
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

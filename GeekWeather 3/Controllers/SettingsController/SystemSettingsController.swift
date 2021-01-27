@@ -11,26 +11,19 @@ import UIKit
 final class SystemSettingsConroller: UITableViewController {
     
     @IBOutlet weak var hapticToggle: UISwitch!
-    @IBOutlet weak var themeSelector: UISegmentedControl!
+    @IBOutlet weak var pagingToggle: UISwitch!
     @IBOutlet weak var scrollAnimationToggle: UISwitch!
     
     let isHapticDisabled = UserDefaults.standard.bool(forKey: "DisableHaptic")
-    let theme = UserDefaults.standard.string(forKey: "Theme")
     let scrollAnimation = UserDefaults.standard.bool(forKey: "ScrollAnimationToggle")
+    let pagingAnimation = UserDefaults.standard.bool(forKey: "PagingAnimationToggle")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hapticToggle.isOn = !isHapticDisabled
         scrollAnimationToggle.isOn = !scrollAnimation
-        
-        if theme == "System-" {
-            themeSelector.selectedSegmentIndex = 0
-        } else if theme == "Light-" {
-            themeSelector.selectedSegmentIndex = 1
-        } else if theme == "Dark-" {
-            themeSelector.selectedSegmentIndex = 2
-        }
+        pagingToggle.isOn = !pagingAnimation
         
     }
     
@@ -49,9 +42,9 @@ final class SystemSettingsConroller: UITableViewController {
         UserDefaults.standard.setValue(!sender.isOn, forKey: "DisableHaptic")
     }
     
-    @IBAction func changeAppearance(_ sender: UISegmentedControl) {
-        let vals = ["System-", "Light-", "Dark-"][sender.selectedSegmentIndex]
-        UserDefaults.standard.setValue(vals, forKey: "Theme")
+    @IBAction func pagingEnabledToggle(_ sender: UISwitch) {
+        UserDefaults.standard.setValue(!sender.isOn, forKey: "PagingAnimationToggle")
+        NotificationCenter.default.post(name: Notification.Name("PagingAnimationToggle"), object: nil)
     }
     
     @IBAction func turnOffScrollAnimation(_ sender: UISwitch) {

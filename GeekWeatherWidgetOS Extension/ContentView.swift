@@ -14,9 +14,7 @@ struct ContentView: View {
     
     var weatherModel: WeatherModel = Mocks.mock()
     @ObservedObject var weatherFetcher = WeatherFetcher()
-    
-    @State var comingFromDetailsView: Bool = false
-    
+        
     var body: some View {
 
         ScrollView {

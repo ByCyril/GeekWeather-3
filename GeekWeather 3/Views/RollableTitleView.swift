@@ -48,7 +48,7 @@ final class RollableTitleView: UIView {
             label.notAccessibilityElement()
             label.textColor = .white
             label.adjustsFontSizeToFitWidth = true
-            label.font = GWFont.AvenirNext(style: .Bold, size: 30)
+            label.font = GWFont.AvenirNext(style: .Bold, size: 35)
             label.translatesAutoresizingMaskIntoConstraints = false
         }
         

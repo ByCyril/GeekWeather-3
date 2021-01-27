@@ -79,7 +79,7 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
                     fetch()
                     timesTried += 1
                 } else {
-                    let errorDetailsDev = "Error Details for Dev:\nLocManager:\(manager)\nLoc: \(String(describing: manager.location))"
+                    let errorDetailsDev = "Error Details for Dev:\n\nLocManager:\(manager)\nLoc: \(String(describing: manager.location))"
                     delegate?.didFail(errorTitle: "Location Error",
                                       errorDetail: errorDetailsDev)
                 }
@@ -114,11 +114,9 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
                                         errorDetail: error?.localizedDescription ?? "Please try again later or try to manually search for a location. If the issue persists, please let the developer know!")
                 return
             }
-            
-            let locality = firstLocation.locality ?? ""
-            let administrativeArea = firstLocation.administrativeArea ?? ""
-            let locationStr = "\(locality), \(administrativeArea)"
-            self?.beginFetchingWeatherData(location, locationStr)
+
+            let locality = firstLocation.locality ?? "na"
+            self?.beginFetchingWeatherData(location, locality)
         }
     }
     

@@ -16,7 +16,7 @@ final class DetailedViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-                
+        
         let label = GWFont.AvenirNext(style: .Regular, size: 17)
         let value = GWFont.AvenirNext(style: .Medium, size: 25)
         
@@ -32,7 +32,7 @@ final class DetailedViewCell: UICollectionViewCell {
         
         contentView.backgroundColor = UIColor.white.withAlphaComponent(0.15)
         contentView.layer.cornerRadius = 20
-    
+        
         contentView.addSubview(firstItemLabel)
         contentView.addSubview(firstItemValue)
         
@@ -53,7 +53,7 @@ final class DetailedViewCell: UICollectionViewCell {
             firstItemLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
             firstItemLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            firstItemValue.topAnchor.constraint(equalTo: firstItemLabel.bottomAnchor, constant: padding),
+            firstItemValue.topAnchor.constraint(equalTo: firstItemLabel.bottomAnchor),
             firstItemValue.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             firstItemValue.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
             firstItemValue.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)
@@ -61,7 +61,7 @@ final class DetailedViewCell: UICollectionViewCell {
         
         layoutIfNeeded()
     }
-  
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

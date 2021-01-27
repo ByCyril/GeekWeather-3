@@ -23,7 +23,7 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
         super.awakeFromNib()
         
         if let layout = collectionViewLayout as? DetailedFlowLayout {
-          layout.delegate = self
+            layout.delegate = self
         }
         
         delegate = self
@@ -105,9 +105,13 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-       
+    
     var d = 0.1
-
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        d = 0
+    }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         cell.transform = .init(scaleX: 0.001, y: 0.001)

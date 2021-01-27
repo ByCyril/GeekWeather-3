@@ -142,7 +142,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
             element?.transform = .init(scaleX: 0.01, y: 0.01)
         }
         detailedViewLayer.d = 0
-        detailedViewLayer.animatedCell.removeAll()
+//        detailedViewLayer.animatedCell.removeAll()
     }
     
     func accessibilityElements() {

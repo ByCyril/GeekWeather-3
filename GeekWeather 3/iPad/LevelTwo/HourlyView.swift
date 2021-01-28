@@ -79,10 +79,8 @@ struct HourlyView: View {
                             }
                         }
                     }
-                    
-                    
                 }
-            }
+            }.padding(.bottom)
         }
     }
 }

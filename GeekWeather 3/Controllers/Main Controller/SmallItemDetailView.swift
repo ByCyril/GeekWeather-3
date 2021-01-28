@@ -16,13 +16,13 @@ struct SmallItemDetailView: View {
         ZStack {
             VStack(alignment: .leading, spacing: 0) {
                 Text(title)
-                    .font(Font.custom("AvenirNext-Medium", size: 15))
+                    .font(Font.custom("AvenirNext-Medium", size: 25))
                     .minimumScaleFactor(0.5)
                     .allowsTightening(true)
                     .lineLimit(1)
                     .foregroundColor(Color.white)
                 Text(value)
-                    .font(Font.custom("AvenirNext-Medium", size: 20))
+                    .font(Font.custom("AvenirNext-Medium", size: 32))
                     .minimumScaleFactor(0.5)
                     .allowsTightening(true)
                     .lineLimit(1)

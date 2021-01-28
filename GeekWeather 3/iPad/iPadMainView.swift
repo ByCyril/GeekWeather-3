@@ -30,7 +30,7 @@ struct iPadMainView: View {
                     Text("Developed and designed by Cyril © 2017 - 2021")
                         .foregroundColor(.white)
                         .font(Font.custom("AvenirNext-Medium", size: 20))
-                        .padding(.bottom)
+                        .padding(.bottom).multilineTextAlignment(.center)
                 }
             }
         }

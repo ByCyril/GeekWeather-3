@@ -31,22 +31,22 @@ struct DetailsView: View {
             
             VStack(alignment: .leading) {
                 HStack {
-                    SmallItemDetailView(title: "Sunrise", value: dailyModel.sunrise.convertTime().lowercased())
-                    SmallItemDetailView(title: "Sunset", value: dailyModel.sunset.convertTime().lowercased())
-                    SmallItemDetailView(title: "Chance of Rain", value: dailyModel.pop.percentage(chop: false))
+                    SmallItemDetailView(title: "Sunrise", value: dailyModel.sunrise.convertTime().lowercased(), titleFontSize: 15, valueFontSize: 20)
+                    SmallItemDetailView(title: "Sunset", value: dailyModel.sunset.convertTime().lowercased(), titleFontSize: 15, valueFontSize: 20)
+                    SmallItemDetailView(title: "Chance of Rain", value: dailyModel.pop.percentage(chop: false), titleFontSize: 15, valueFontSize: 20)
                 }
                 HStack {
-                    SmallItemDetailView(title: "Cloud Cover", value: dailyModel.clouds.percentage(chop: true))
-                    SmallItemDetailView(title: "Humidity", value: dailyModel.humidity.percentage(chop: true))
-                    SmallItemDetailView(title: "UV Index", value: dailyModel.uvi.stringRound())
+                    SmallItemDetailView(title: "Cloud Cover", value: dailyModel.clouds.percentage(chop: true), titleFontSize: 15, valueFontSize: 20)
+                    SmallItemDetailView(title: "Humidity", value: dailyModel.humidity.percentage(chop: true), titleFontSize: 15, valueFontSize: 20)
+                    SmallItemDetailView(title: "UV Index", value: dailyModel.uvi.stringRound(), titleFontSize: 15, valueFontSize: 20)
                 }
                 HStack {
-                    SmallItemDetailView(title: "Dew Point", value: dailyModel.dew_point.kelvinToSystemFormat())
-                    SmallItemDetailView(title: "Wind Speed", value: dailyModel.wind_speed.msToSystemFormat())
-                    SmallItemDetailView(title: "Pressure", value: dailyModel.pressure.stringRound() + " hPA")
+                    SmallItemDetailView(title: "Dew Point", value: dailyModel.dew_point.kelvinToSystemFormat(), titleFontSize: 15, valueFontSize: 20)
+                    SmallItemDetailView(title: "Wind Speed", value: dailyModel.wind_speed.msToSystemFormat(), titleFontSize: 15, valueFontSize: 20)
+                    SmallItemDetailView(title: "Pressure", value: dailyModel.pressure.stringRound() + " hPA", titleFontSize: 15, valueFontSize: 20)
                 }
                 
-            }.padding(.bottom)
+            }.padding()
             
         }.background(LinearGradient(gradient: Gradient(colors: [Color("System-GradientTopColor"),Color("System-GradientBottomColor")]), startPoint: .topLeading, endPoint: .bottomTrailing)).foregroundColor(.white).cornerRadius(25).shadow(radius: 5)
         

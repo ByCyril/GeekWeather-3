@@ -33,7 +33,7 @@ final class DailyViewCell: UITableViewCell {
 
         dayLabel.minimumScaleFactor = 0.1
         dayLabel.font = GWFont.AvenirNext(style: .Medium, size: 25)
-        tempLabels.font = GWFont.AvenirNext(style: .Medium, size: 21)
+        tempLabels.font = GWFont.AvenirNext(style: .Bold, size: 21)
         
         dayLabel.textColor = .white
         tempLabels.textColor = .white

@@ -31,6 +31,32 @@ struct AlertDetails: View {
     }
 }
 
+struct AlertItem: View {
+    
+    var alert: Alert
+    
+    var body: some View {
+        HStack {
+            VStack {
+                Text(alert.event)
+                    .font(Font.custom("AvenirNext-Bold", size: 21))
+                    .minimumScaleFactor(0.5)
+                    .allowsTightening(true)
+                    .lineLimit(1)
+                    .foregroundColor(Color.white)
+                
+                HStack {
+                    Text(alert.start.date(.truncFullDate))
+                    Text("-")
+                    Text(alert.end.date(.truncFullDate))
+                }
+            }
+            Spacer()
+            Image(systemName: "chevron.right").foregroundColor(.white)
+        }
+    }
+}
+
 struct AlertList: View {
     var dismissAction: (() -> Void)
     var alerts: [Alert]
@@ -61,19 +87,8 @@ struct AlertList: View {
                 ForEach(0..<alerts.count) { i in
                     HStack {
                         VStack(alignment: .leading) {
-                            Text(alerts[i].event)
-                                .font(Font.custom("AvenirNext-Bold", size: 21))
-                                .minimumScaleFactor(0.5)
-                                .allowsTightening(true)
-                                .lineLimit(1)
-                                .foregroundColor(Color.white)
                             
-                            HStack {
-                                Text(alerts[i].start.date(.truncFullDate))
-                                Text("-")
-                                Text(alerts[i].end.date(.truncFullDate))
-                            }
-                            
+                            AlertItem(alert: alerts[i])
                             if selectedItem == i {
                                 Spacer()
                                 Text(alerts[i].description)

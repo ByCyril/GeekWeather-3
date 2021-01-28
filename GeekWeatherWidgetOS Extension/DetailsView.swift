@@ -18,7 +18,6 @@ struct DetailsView: View {
             VStack {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack {
-
                         Image(daily.weather.first!.icon).resizable().frame(width: 55, height: 55, alignment: .center)
                         Text(daily.dt.date(.day))
                             .font(Font.custom("AvenirNext-Medium", size: 35))
@@ -37,26 +36,26 @@ struct DetailsView: View {
                 
                 VStack(alignment: .leading) {
                     HStack {
-                        SmallItemDetailView(title: "Sunrise", value: daily.sunrise.convertTime().lowercased())
-                        SmallItemDetailView(title: "Sunset", value: daily.sunset.convertTime().lowercased())
+                        SmallItemDetailView(title: "Sunrise", value: daily.sunrise.convertTime().lowercased(), titleFontSize: 15, valueFontSize: 20)
+                        SmallItemDetailView(title: "Sunset", value: daily.sunset.convertTime().lowercased(), titleFontSize: 15, valueFontSize: 20)
                     }
                     HStack {
-                        SmallItemDetailView(title: "Chance of Rain", value: daily.pop.percentage(chop: false))
+                        SmallItemDetailView(title: "Chance of Rain", value: daily.pop.percentage(chop: false), titleFontSize: 15, valueFontSize: 20)
                     }
                     HStack {
-                        SmallItemDetailView(title: "Cloud Cover", value: daily.clouds.percentage(chop: true))
-                        SmallItemDetailView(title: "Humidity", value: daily.humidity.percentage(chop: true))
+                        SmallItemDetailView(title: "Cloud Cover", value: daily.clouds.percentage(chop: true), titleFontSize: 15, valueFontSize: 20)
+                        SmallItemDetailView(title: "Humidity", value: daily.humidity.percentage(chop: true), titleFontSize: 15, valueFontSize: 20)
                     }
                     HStack {
-                        SmallItemDetailView(title: "UV Index", value: daily.uvi.stringRound())
-                        SmallItemDetailView(title: "Dew Point", value: daily.dew_point.kelvinToSystemFormat())
+                        SmallItemDetailView(title: "UV Index", value: daily.uvi.stringRound(), titleFontSize: 15, valueFontSize: 20)
+                        SmallItemDetailView(title: "Dew Point", value: daily.dew_point.kelvinToSystemFormat(), titleFontSize: 15, valueFontSize: 20)
                     }
                     HStack {
                         
-                        SmallItemDetailView(title: "Wind Speed", value: daily.wind_speed.msToSystemFormat())
+                        SmallItemDetailView(title: "Wind Speed", value: daily.wind_speed.msToSystemFormat(), titleFontSize: 15, valueFontSize: 20)
                         
                     }
-                    SmallItemDetailView(title: "Pressure", value: daily.pressure.stringRound() + " hPA")
+                    SmallItemDetailView(title: "Pressure", value: daily.pressure.stringRound() + " hPA", titleFontSize: 15, valueFontSize: 20)
                     
                 }.padding(.bottom).navigationBarBackButtonHidden(false)
             }

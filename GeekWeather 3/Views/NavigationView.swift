@@ -21,5 +21,11 @@ final class GWNavigationView: UIView {
         
         settingsButton.layer.cornerRadius = 35 / 2
         searchButton.layer.cornerRadius = 35 / 2
+        
+        settingsButton.backgroundColor = UIColor.white.withAlphaComponent(0.15)
+        searchButton.backgroundColor = UIColor.white.withAlphaComponent(0.15)
+        
+        settingsButton.tintColor = .white
+        searchButton.tintColor = .white
     }
 }

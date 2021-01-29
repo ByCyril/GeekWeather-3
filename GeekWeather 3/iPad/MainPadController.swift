@@ -153,8 +153,12 @@ final class MainPadController: UIViewController, NetworkLayerDelegate {
         vc?.view.removeFromSuperview()
         vc?.removeFromParent()
         
-        if let location = notification.object as? CLLocation {
-            networkLayer.fetch(with: location)
+        if let location = notification.object as? SavedLocation {
+            if let address = location.address, let coord = location.location {
+                networkLayer.beginFetchingWeatherData(coord, address)
+            } else {
+                didFail(errorTitle: "Error", errorDetail: "Could not fetch location. Try a new location. If the error persists, please let the developer know!")
+            }
         } else {
             networkLayer.fetch()
         }

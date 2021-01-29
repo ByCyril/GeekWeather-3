@@ -67,12 +67,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             print("⏱",minutesPassed)
             if minutesPassed >= 15 {
+                mainViewController?.networkLayer.cache.removeAllObjects()
                 mainViewController?.networkLayer.fetch()
             }
         }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
+        mainViewController?.networkLayer.cache.removeAllObjects()
         UserDefaults.standard.setValue(nil, forKey: SharedUserDefaults.Keys.LastUpdated)        
     }
 

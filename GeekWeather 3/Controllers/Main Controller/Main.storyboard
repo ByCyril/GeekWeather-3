@@ -625,7 +625,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="7gJ-Rg-hxO">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="chevron.down.circle.fill" catalog="system" id="de5-es-AX5">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="dismissController" destination="qhI-iu-niA" id="ebl-j4-m7q"/>
                             </connections>
@@ -904,6 +904,9 @@
         <namedColor name="White">
             <color red="0.12200000137090683" green="0.32199999690055847" blue="0.51800000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

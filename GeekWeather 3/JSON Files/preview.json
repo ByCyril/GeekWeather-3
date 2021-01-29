@@ -4,7 +4,7 @@
   "timezone": "America/New_York",
   "timezone_offset": -18000,
   "current": {
-    "dt": 1609564904,
+    "dt": 1611825030,
     "sunrise": 1609590839,
     "sunset": 1609625628,
     "temp": 294.817,
@@ -16,7 +16,7 @@
     "clouds": 90,
     "visibility": 10000,
     "wind_speed": 0.21,
-    "wind_deg": 60,
+    "wind_deg": 71,
     "weather": [
       {
         "id": 804,
@@ -29,7 +29,7 @@
   "hourly": [
     {
       "dt": 1609621200,
-      "temp": 294.817,
+      "temp": 296.483,
       "feels_like": 282.84,
       "pressure": 1017,
       "humidity": 77,
@@ -753,8 +753,8 @@
   "daily": [
     {
       "dt": 1609606800,
-      "sunrise": 1609590839,
-      "sunset": 1609625628,
+      "sunrise": 1611847290,
+      "sunset": 1611840870,
       "temp": {
         "day": 284.32,
         "min": 284.57,

@@ -8,6 +8,13 @@
 
 import Foundation
 
+public class WeatherClass {
+    let weatherModel: WeatherModel
+    init(_ weatherModel: WeatherModel) {
+        self.weatherModel = weatherModel
+    }
+}
+
 public struct WeatherModel: Decodable, Encodable, Hashable {
     public var lat: Double
     public var lon: Double

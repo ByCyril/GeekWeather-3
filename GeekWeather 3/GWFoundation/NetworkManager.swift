@@ -121,9 +121,6 @@ final public class NetworkManager {
                 let decoder = JSONDecoder()
                 
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyObject]
-                    print("👀Response",json)
-                     
                     print("#### Parsing Data Here ####")
                     let response = try decoder.decode(WeatherModel.self, from: data)
                     let model = self.formatData(response: response)
@@ -141,13 +138,9 @@ final public class NetworkManager {
         let decoder = JSONDecoder()
         
         do {
-            
-         
             let response = try decoder.decode(WeatherModel.self, from: data)
-            
             let model = formatData(response: response)
             delegate?.didFinishFetching(model)
-            
         } catch {
             delegate?.networkError(error)
         }

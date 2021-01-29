@@ -46,7 +46,7 @@ final class AppSettingSection: SectionItem {
     var cells: [SettingItem]
     
     init() {
-        cells = [UnitSelectorItem(), HapticFeedbackItem()]
+        cells = [UnitSelectorItem(), HapticFeedbackItem(), CustomAPIKey()]
     }
 }
 

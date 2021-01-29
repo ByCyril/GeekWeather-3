@@ -33,6 +33,10 @@ public struct RequestURL {
     public var url: URL {
         let lon = "lon=\(location.coordinate.longitude)"
         let lat = "lat=\(location.coordinate.latitude)"
-        return URL(string: "\(base)?\(lat)&\(lon)&\(appId)&\(exclude)")!
+        if let customAPIID = sharedUserDefaults?.string(forKey: "CustomAPIID") {
+            return URL(string: "\(base)?\(lat)&\(lon)&\(customAPIID)&\(exclude)")!
+        } else {
+            return URL(string: "\(base)?\(lat)&\(lon)&\(appId)&\(exclude)")!
+        }
     }
 }

@@ -32,7 +32,7 @@ struct MockError: MockErrorProtocol {
 final class Mocks {
     
     static func mock() -> WeatherModel {
-        let file = Bundle.main.path(forResource: "demo3", ofType: "json")!
+        let file = Bundle.main.path(forResource: "preview", ofType: "json")!
         let url = URL(fileURLWithPath: file)
         let data = try! Data(contentsOf: url, options: .mappedIfSafe)
         

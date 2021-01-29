@@ -26,7 +26,7 @@ struct AboutSettingItem: SettingItem {
 
         cell.iconImageView.image = UIImage(named: "geekweather")
         cell.titleLabel.text = "App Version"
-        cell.detailLabel.text = (UIApplication.appVersion ?? "na") + " (βeta \(UIApplication.buildVersion))"
+        cell.detailLabel.text = (UIApplication.appVersion ?? "na") + " (βeta 4)"
         cell.selectionStyle = .none
         return cell
     }

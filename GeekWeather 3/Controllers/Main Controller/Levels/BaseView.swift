@@ -15,6 +15,8 @@ class BaseView: UIView, NotificationManagerDelegate {
     
     var weatherModel: WeatherModel?
     
+    @IBOutlet var topLabelConstraint: NSLayoutConstraint!
+    
     private var view: UIView!
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -19,6 +19,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     @IBOutlet var commentLabel: UILabel!
     @IBOutlet var iconView: UIImageView!
     @IBOutlet var detailedViewLayer: DetailedViewLayer!
+    @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet var weatherAlertButton: UIButton!
     
@@ -29,6 +30,9 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         loadXib(view, self)
         
         createBlurView()
+        
+        titleLabel.numberOfLines = 2
+        titleLabel.adjustsFontSizeToFitWidth = true
         
         weatherAlertButton.titleLabel?.font = GWFont.AvenirNext(style: .Bold, size: 15)
         weatherAlertButton.layer.cornerRadius = 10
@@ -59,7 +63,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
             
             if let alerts = weatherModel.alerts {
                 weatherAlertButton.isHidden = false
-                weatherAlertButton.transform = .init(translationX: 0, y: -100)
+                weatherAlertButton.transform = .init(translationX: 0, y: -frame.height)
                 
                 weatherAlert(alerts)
             } else {

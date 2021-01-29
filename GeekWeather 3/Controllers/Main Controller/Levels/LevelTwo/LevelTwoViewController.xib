@@ -13,6 +13,7 @@
                 <outlet property="containerView" destination="iN0-l3-epB" id="Qir-1s-ZDl"/>
                 <outlet property="dailyViewLayer" destination="czG-2f-3VS" id="D8J-a4-Wsm"/>
                 <outlet property="hourlyViewLayer" destination="nyW-7H-r1s" id="M05-6Y-1ZD"/>
+                <outlet property="topLabelConstraint" destination="I50-IR-PxS" id="wkS-cO-SmY"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,38 +21,50 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyW-7H-r1s" customClass="HourlyViewLayer" customModule="GeekWeather" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="100" id="iEr-zw-6q9"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czG-2f-3VS" customClass="DailyViewLayer" customModule="GeekWeather" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="108" width="375" height="500"/>
+                    <rect key="frame" x="0.0" y="171" width="375" height="447.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.compact.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="x2p-fw-2oG">
                     <rect key="frame" x="167.5" y="630" width="40" height="13"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="26.5" id="OUA-sx-wIq"/>
-                        <constraint firstAttribute="width" constant="40" id="sgb-V7-5Pg"/>
+                        <constraint firstAttribute="height" constant="26.5" id="1SC-ka-UlN"/>
+                        <constraint firstAttribute="width" constant="40" id="AUU-tZ-k7V"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forecast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uaa-IX-hxO">
+                    <rect key="frame" x="16" y="0.0" width="142" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="Pxj-2Y-3tr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="35"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyW-7H-r1s" customClass="HourlyViewLayer" customModule="GeekWeather" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="63" width="375" height="100"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="EGV-DR-QZz"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="nyW-7H-r1s" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3ao-hO-QQX"/>
-                <constraint firstItem="nyW-7H-r1s" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="7K4-Mk-n45"/>
-                <constraint firstItem="x2p-fw-2oG" firstAttribute="top" secondItem="czG-2f-3VS" secondAttribute="bottom" constant="15.5" id="Ek5-vt-nom"/>
-                <constraint firstItem="czG-2f-3VS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="LgR-zc-dXJ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nyW-7H-r1s" secondAttribute="trailing" id="MUp-ch-tHJ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="czG-2f-3VS" secondAttribute="bottom" constant="59" id="ZCx-6C-QhR"/>
-                <constraint firstItem="czG-2f-3VS" firstAttribute="top" secondItem="nyW-7H-r1s" secondAttribute="bottom" constant="8" symbolic="YES" id="hdm-tl-flJ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="czG-2f-3VS" secondAttribute="trailing" id="qHd-8B-Kxa"/>
-                <constraint firstItem="x2p-fw-2oG" firstAttribute="centerX" secondItem="czG-2f-3VS" secondAttribute="centerX" id="tlK-yw-CUu"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="czG-2f-3VS" secondAttribute="trailing" id="1Rs-5C-B4n"/>
+                <constraint firstItem="x2p-fw-2oG" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="8Si-Jw-lVz"/>
+                <constraint firstItem="nyW-7H-r1s" firstAttribute="top" secondItem="Uaa-IX-hxO" secondAttribute="bottom" constant="15" id="EJG-z2-q4Y"/>
+                <constraint firstItem="Uaa-IX-hxO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="I50-IR-PxS"/>
+                <constraint firstItem="czG-2f-3VS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Id5-RG-m8y"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="x2p-fw-2oG" secondAttribute="bottom" constant="17" id="SVH-aZ-Syr"/>
+                <constraint firstItem="nyW-7H-r1s" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="VjW-wi-lf1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nyW-7H-r1s" secondAttribute="trailing" id="WfD-j4-hgs"/>
+                <constraint firstItem="nyW-7H-r1s" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dhq-jp-eVs"/>
+                <constraint firstItem="x2p-fw-2oG" firstAttribute="top" secondItem="czG-2f-3VS" secondAttribute="bottom" constant="5" id="evc-q8-Qra"/>
+                <constraint firstItem="Uaa-IX-hxO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="oKf-4h-lba"/>
+                <constraint firstItem="czG-2f-3VS" firstAttribute="top" secondItem="nyW-7H-r1s" secondAttribute="bottom" constant="8" symbolic="YES" id="w59-cC-ibh"/>
             </constraints>
             <connections>
                 <outlet property="dailyViewLayer" destination="czG-2f-3VS" id="wSu-Eh-UAX"/>

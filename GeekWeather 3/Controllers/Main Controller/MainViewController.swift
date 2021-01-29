@@ -24,7 +24,7 @@ extension MainViewController: NetworkLayerDelegate {
         }
         
         removeErrorItems()
-        navView?.rollableTitleView.todayLabel.text = location
+        levelOneViewController?.titleLabel.text = location
         notificationManager.post(data: ["weatherModel": weatherModel],
                                  to: NotificationName.observerID("weatherModel"))
         
@@ -53,10 +53,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     private let notificationManager = NotificationManager()
     
     let networkLayer = NetworkLayer()
-    
-    @IBOutlet var navView: GWNavigationView?
-    @IBOutlet var shadowView: UIView!
-    
+
     private let gradientLayer = CAGradientLayer()
     private let shadowOpacity: CGFloat = 0.75
     
@@ -72,6 +69,9 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     private let errorTitleLabel = UILabel()
     private let errorTextView = UITextView()
     private let tryAgainButton = UIButton()
+    
+    @IBOutlet var settingsButton: UIButton!
+    @IBOutlet var searchButton: UIButton!
     
     private let loadingView: AnimationView = {
         let animation = AnimationView(name: "fetching")
@@ -115,8 +115,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         super.viewDidLoad()
         initUI()
         initMethod()
-        
-        createShadows()
         createGradient()
         
         NotificationCenter.default.addObserver(self,
@@ -210,17 +208,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         errorTextView.removeFromSuperview()
         tryAgainButton.removeFromSuperview()
     }
-    
-    func createShadows() {
-        shadowView.layer.shadowColor = UIColor.black.cgColor
-        shadowView.layer.shadowRadius = 5
-        shadowView.layer.shadowOpacity = Float(shadowOpacity)
-        shadowView.alpha = 0
-        
-        shadowView.backgroundColor = UIColor(named: theme + "GradientTopColor")
-        shadowView.layer.shadowOffset = CGSize(width: 0, height: 10)
-    }
-    
+
     func createGradient() {
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor(named: theme + "GradientTopColor")!.cgColor,
@@ -330,7 +318,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     
     @objc
     func newLocation(_ notification: NSNotification) {
-        navView?.rollableTitleView.hideTitles()
+        
         levelOneViewController?.shrink()
         removeErrorItems()
         loadingView.play()
@@ -360,23 +348,30 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     
     func initUI() {
         
+        settingsButton.layer.cornerRadius = 35 / 2
+        searchButton.layer.cornerRadius = 35 / 2
+        
+        settingsButton.backgroundColor = UIColor.white.withAlphaComponent(0.15)
+        searchButton.backgroundColor = UIColor.white.withAlphaComponent(0.15)
+        
+        settingsButton.tintColor = .white
+        searchButton.tintColor = .white
+
         scrollView.alpha = 0
         scrollView.delegate = self
         pagingSettingChanged()
         view.insertSubview(scrollView, at: 0)
-        
-        guard let navView = self.navView else { return }
-        let scrollViewYOffset = navView.frame.size.height + UIApplication.shared.windows[0].safeAreaInsets.top
-        let trueHeight = view.bounds.size.height - scrollViewYOffset
-        
+ 
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: navView.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
         view.layoutIfNeeded()
+        
+        let trueHeight = view.frame.height
         
         scrollView.contentSize = CGSize(width: view.frame.size.width, height: trueHeight*3)
         
@@ -387,6 +382,16 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         scrollView.addSubview(levelOneViewController!)
         scrollView.addSubview(levelTwoViewController!)
         scrollView.addSubview(levelThreeViewController!)
+        
+        levelOneViewController?.topLabelConstraint.constant = settingsButton.frame.minY - view.safeAreaInsets.top
+        levelTwoViewController?.topLabelConstraint.constant = settingsButton.frame.midY - view.safeAreaInsets.top
+        levelThreeViewController?.topLabelConstraint.constant = settingsButton.frame.maxY - view.safeAreaInsets.top
+        
+        levelOneViewController?.titleLabel.widthAnchor.constraint(lessThanOrEqualToConstant: searchButton.frame.maxX - 50).isActive = true
+        
+        levelOneViewController?.layoutIfNeeded()
+        levelTwoViewController?.layoutIfNeeded()
+        levelThreeViewController?.layoutIfNeeded()
     }
     
     func accessibilityScrollStatus(for scrollView: UIScrollView) -> String? {
@@ -413,7 +418,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
             self?.levelOneViewController?.transform = .identity
             self?.levelTwoViewController?.transform = .identity
             self?.levelThreeViewController?.transform = .identity
-            self?.shadowView.alpha = 0
+//            self?.shadowView.alpha = 0
         }
     }
     
@@ -430,15 +435,14 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
             self?.levelOneViewController?.transform = .init(scaleX: scale, y: scale)
             self?.levelTwoViewController?.transform = .init(scaleX: scale, y: scale)
             self?.levelThreeViewController?.transform = .init(scaleX: scale, y: scale)
-            self?.shadowView.alpha = alpha
+//            self?.shadowView.alpha = alpha
             HapticManager.soft()
         }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scrollPercentage = (scrollView.contentOffset.y / scrollView.contentSize.height)
-        let navScrollViewHeight = (225 * scrollPercentage)
-        navView?.rollableTitleView.animateWithOffset(navScrollViewHeight)
+//        let scrollPercentage = (scrollView.contentOffset.y / scrollView.contentSize.height)
+//        let navScrollViewHeight = (225 * scrollPercentage)
     }
     
     @IBAction func presentSavedLocationController() {
@@ -462,7 +466,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     }
     
     func animateMainScrollView() {
-        navView?.rollableTitleView.showTitles()
         scrollView.isScrollEnabled = true
         scrollView.setContentOffset(.zero, animated: true)
         showScrollView()

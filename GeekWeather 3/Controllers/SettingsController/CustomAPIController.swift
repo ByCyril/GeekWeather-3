@@ -19,7 +19,7 @@ final class CustomAPIController: UITableViewController {
         tableView.rowHeight = 44
         tableView.estimatedRowHeight = UITableView.automaticDimension
         
-        if sharedUserDefaults?.value(forKey: "") == nil {
+        if sharedUserDefaults?.value(forKey: "CustomAPIKey") == nil {
             currentAPIStatus.text = "You are currently using the default API key."
         } else {
             currentAPIStatus.text = "You are currently using a custom API key."

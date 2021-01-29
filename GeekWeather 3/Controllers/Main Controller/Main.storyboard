@@ -291,85 +291,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXi-pg-nEr">
-                                <rect key="frame" x="-46" y="0.0" width="490" height="119"/>
-                                <color key="backgroundColor" name="01d-Top"/>
-                            </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPR-xt-J3y" customClass="GWNavigationView" customModule="GeekWeather" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="75"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VO3-sv-S78" customClass="RollableTitleView" customModule="GeekWeather" customModuleProvider="target">
-                                        <rect key="frame" x="13" y="0.0" width="273" height="75"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shd-eo-sw5">
-                                        <rect key="frame" x="358" y="20" width="35" height="35"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="YKh-t8-Jel"/>
-                                            <constraint firstAttribute="width" constant="35" id="hM6-fX-QIe"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="gearshape" catalog="system">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="presentSettingsController" destination="jJS-OJ-nXl" eventType="touchUpInside" id="TZT-qd-c0N"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imr-JJ-jCn">
-                                        <rect key="frame" x="301" y="20" width="35" height="35"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="GBS-sV-Xt3"/>
-                                            <constraint firstAttribute="width" constant="35" id="xku-4I-9gf"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="magnifyingglass" catalog="system">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="presentSavedLocationController" destination="jJS-OJ-nXl" eventType="touchUpInside" id="EsI-85-LcW"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9uA-cS-p0D">
+                                <rect key="frame" x="359" y="44" width="35" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="VO3-sv-S78" secondAttribute="bottom" id="Byf-Hu-RsZ"/>
-                                    <constraint firstItem="Imr-JJ-jCn" firstAttribute="centerY" secondItem="VO3-sv-S78" secondAttribute="centerY" id="I90-hf-hgW"/>
-                                    <constraint firstItem="Shd-eo-sw5" firstAttribute="leading" secondItem="Imr-JJ-jCn" secondAttribute="trailing" constant="22" id="MGF-FE-pwL"/>
-                                    <constraint firstItem="Imr-JJ-jCn" firstAttribute="centerY" secondItem="Shd-eo-sw5" secondAttribute="centerY" id="R2D-Hl-r0I"/>
-                                    <constraint firstItem="Imr-JJ-jCn" firstAttribute="leading" secondItem="VO3-sv-S78" secondAttribute="trailing" constant="15" id="TCW-fs-nR9"/>
-                                    <constraint firstAttribute="height" constant="75" id="Wpx-NA-Hw9"/>
-                                    <constraint firstAttribute="trailing" secondItem="Shd-eo-sw5" secondAttribute="trailing" constant="21" id="XNI-Ob-Ev9"/>
-                                    <constraint firstItem="VO3-sv-S78" firstAttribute="leading" secondItem="MPR-xt-J3y" secondAttribute="leading" constant="13" id="ZN6-mP-6PT"/>
-                                    <constraint firstItem="VO3-sv-S78" firstAttribute="top" secondItem="MPR-xt-J3y" secondAttribute="top" id="cLb-WN-5lF"/>
+                                    <constraint firstAttribute="width" constant="35" id="VSm-rK-p8a"/>
+                                    <constraint firstAttribute="height" constant="35" id="kjM-GJ-0gg"/>
                                 </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="gearshape" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                </state>
                                 <connections>
-                                    <outlet property="rollableTitleView" destination="VO3-sv-S78" id="TTd-VC-YZD"/>
-                                    <outlet property="searchButton" destination="Imr-JJ-jCn" id="25x-bw-yEt"/>
-                                    <outlet property="settingsButton" destination="Shd-eo-sw5" id="8JQ-Pj-l9W"/>
+                                    <action selector="presentSettingsController" destination="jJS-OJ-nXl" eventType="touchUpInside" id="Hfa-uy-VFk"/>
                                 </connections>
-                            </view>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfh-FG-up0">
+                                <rect key="frame" x="302" y="44" width="35" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="magnifyingglass" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="presentSavedLocationController" destination="jJS-OJ-nXl" eventType="touchUpInside" id="HKI-9W-Nu8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1MB-rF-5oV"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="pXi-pg-nEr" firstAttribute="bottom" secondItem="MPR-xt-J3y" secondAttribute="bottom" id="NaR-61-veC"/>
-                            <constraint firstItem="1MB-rF-5oV" firstAttribute="trailing" secondItem="pXi-pg-nEr" secondAttribute="trailing" constant="-30" id="T54-Vk-sTn"/>
-                            <constraint firstItem="pXi-pg-nEr" firstAttribute="top" secondItem="aeX-s0-w3a" secondAttribute="top" id="ejD-2d-Xks"/>
-                            <constraint firstItem="MPR-xt-J3y" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" id="lbM-lf-XnN"/>
-                            <constraint firstItem="pXi-pg-nEr" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" constant="-46" id="qIz-Wd-Iho"/>
-                            <constraint firstItem="MPR-xt-J3y" firstAttribute="trailing" secondItem="1MB-rF-5oV" secondAttribute="trailing" id="wI8-yz-mZe"/>
-                            <constraint firstItem="MPR-xt-J3y" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" id="zY5-zf-F16"/>
+                            <constraint firstItem="9uA-cS-p0D" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" id="89S-tP-6MF"/>
+                            <constraint firstItem="1MB-rF-5oV" firstAttribute="trailing" secondItem="9uA-cS-p0D" secondAttribute="trailing" constant="20" id="In9-e9-4pW"/>
+                            <constraint firstItem="Dfh-FG-up0" firstAttribute="centerY" secondItem="9uA-cS-p0D" secondAttribute="centerY" id="MbJ-iT-DcP"/>
+                            <constraint firstItem="Dfh-FG-up0" firstAttribute="height" secondItem="9uA-cS-p0D" secondAttribute="height" id="aqg-tj-3sf"/>
+                            <constraint firstItem="9uA-cS-p0D" firstAttribute="leading" secondItem="Dfh-FG-up0" secondAttribute="trailing" constant="22" id="fkG-Db-dXU"/>
+                            <constraint firstItem="Dfh-FG-up0" firstAttribute="width" secondItem="9uA-cS-p0D" secondAttribute="width" id="iYw-oc-kZf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nf1-GG-9gM"/>
                     <connections>
-                        <outlet property="navView" destination="MPR-xt-J3y" id="pYZ-sx-jfG"/>
-                        <outlet property="shadowView" destination="pXi-pg-nEr" id="Wtp-aB-DkR"/>
+                        <outlet property="searchButton" destination="Dfh-FG-up0" id="Edx-Kw-8wy"/>
+                        <outlet property="settingsButton" destination="9uA-cS-p0D" id="JHL-Jc-UnX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n64-EW-qbO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -895,9 +861,6 @@
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="geekweather" width="1024" height="1024"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <namedColor name="01d-Top">
-            <color red="0.99199998378753662" green="0.41999998688697815" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="IconBlue">
             <color red="0.046999998390674591" green="0.071000002324581146" blue="0.20399999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

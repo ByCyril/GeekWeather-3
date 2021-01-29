@@ -8,28 +8,38 @@
 
 import UIKit
 
-final class CustomAPIController: UIViewController {
+final class CustomAPIController: UITableViewController {
     
     @IBOutlet var apiField: UITextField!
+    @IBOutlet var currentAPIStatus: UILabel!
     @IBOutlet var loadingView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 44
+        tableView.estimatedRowHeight = UITableView.automaticDimension
         
-        let barButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveKey))
-        barButton.tintColor = .label
-        navigationItem.setRightBarButton(barButton, animated: true)
+        if sharedUserDefaults?.value(forKey: "") == nil {
+            currentAPIStatus.text = "You are currently using the default API key."
+        } else {
+            currentAPIStatus.text = "You are currently using a custom API key."
+        }
     }
     
-    @objc
-    func saveKey() {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    @IBAction func saveKey() {
         loadingView.startAnimating()
+        apiField.resignFirstResponder()
         if let key = apiField.text {
             NetworkLayer().validate(key) { [weak self] (results) in
                 DispatchQueue.main.async {
                     self?.loadingView.stopAnimating()
                     if let res = results {
                         self?.errorAlert(res)
+                        self?.apiField.becomeFirstResponder()
                     } else {
                         self?.confirmationAlert(key)
                     }
@@ -54,6 +64,23 @@ final class CustomAPIController: UIViewController {
         
         let yes = UIAlertAction(title: "Yes", style: .default) { [weak self] (_) in
             sharedUserDefaults?.setValue(key, forKey: "CustomAPIKey")
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+            self?.dismiss(animated: true)
+        }
+        
+        let no = UIAlertAction(title: "No", style: .cancel)
+        
+        alert.addAction(yes)
+        alert.addAction(no)
+        
+        present(alert, animated: true)
+    }
+    
+    @IBAction func restoreToDefault() {
+        let alert = UIAlertController(title: "Please Confirm", message: "Are you sure you want to restore to the default API key?", preferredStyle: .alert)
+        
+        let yes = UIAlertAction(title: "Yes", style: .default) { [weak self] (_) in
+            sharedUserDefaults?.removeObject(forKey: "CustomAPIKey")
             UINotificationFeedbackGenerator().notificationOccurred(.success)
             self?.dismiss(animated: true)
         }

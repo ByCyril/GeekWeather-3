@@ -45,6 +45,7 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    @objc
     func fetch() {
         
         if Mocks.showMockedResponse() {

@@ -27,10 +27,15 @@ extension MainViewController: NetworkLayerDelegate {
         navView?.rollableTitleView.todayLabel.text = location
         notificationManager.post(data: ["weatherModel": weatherModel],
                                  to: NotificationName.observerID("weatherModel"))
+        
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
     }
     
     func didFail(errorTitle: String, errorDetail: String) {
         
+        print("#################################")
+        print("🚨Error🚨")
+        print("#################################")
         hideScrollView()
         
         UIView.animate(withDuration: 0.15) { [weak self] in
@@ -38,6 +43,7 @@ extension MainViewController: NetworkLayerDelegate {
         }
         
         createErrorView(errorTitle: errorTitle, errorDetail)
+        UINotificationFeedbackGenerator().notificationOccurred(.error)
     }
     
 }
@@ -45,7 +51,6 @@ extension MainViewController: NetworkLayerDelegate {
 class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate, GWUIHostingControllerDelegate {
     
     private let notificationManager = NotificationManager()
-//    private var detailsView = DetailsViewModal()
     
     let networkLayer = NetworkLayer()
     
@@ -110,7 +115,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         super.viewDidLoad()
         initUI()
         initMethod()
-        createLoadingAnimation()
+        
         createShadows()
         createGradient()
         
@@ -134,7 +139,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
                                                name: Notification.Name("PagingAnimationToggle"),
                                                object: nil)
     }
-    
+
     @objc
     func pagingSettingChanged() {
         scrollView.isPagingEnabled = !UserDefaults.standard.bool(forKey: "PagingAnimationToggle")
@@ -227,6 +232,10 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
     
     func createErrorView(errorTitle: String, _ errorDetails: String) {
         
+        errorView.animationSpeed = 0.45
+        errorView.loopMode = .autoReverse
+        errorView.play()
+        
         errorTitleLabel.text = errorTitle
         errorTitleLabel.font = GWFont.AvenirNext(style: .Bold, size: 20)
         errorTitleLabel.textAlignment = .center
@@ -243,7 +252,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         tryAgainButton.layer.borderWidth = 2
         tryAgainButton.layer.cornerRadius = 10
         tryAgainButton.setTitleColor(.white, for: .normal)
-        
+        tryAgainButton.addTarget(self, action: #selector(initMethod), for: .touchUpInside)
         tryAgainButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tryAgainButton)
         
@@ -298,7 +307,12 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         view.layoutIfNeeded()
     }
     
+    @objc
     func initMethod() {
+        
+        removeErrorItems()
+        createLoadingAnimation()
+        
         if let lastUpdated = sharedUserDefaults?.value(forKey: SharedUserDefaults.Keys.WidgetLastUpdated) as? Date {
             
             let differenceInSeconds = abs(lastUpdated.timeIntervalSince(Date()))

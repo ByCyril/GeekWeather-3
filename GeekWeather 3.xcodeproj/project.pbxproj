@@ -146,7 +146,6 @@
 		0186EA0F25BB855400CCD3A2 /* Doouble+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D00821259EE28E00032D17 /* Doouble+Extension.swift */; };
 		0186EA1525BB858F00CCD3A2 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
 		0186EA1B25BB859000CCD3A2 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
-		01871D0A25AD706000E5817D /* DetailsViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01871D0925AD706000E5817D /* DetailsViewModal.swift */; };
 		018840E1258C39D600CED4F1 /* GWAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840E0258C39D600CED4F1 /* GWAnimationView.swift */; };
 		018F66D325A6F5F700FFC539 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D125A6F5F700FFC539 /* loading.json */; };
 		018F66D425A6F5F700FFC539 /* location-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D225A6F5F700FFC539 /* location-loading.json */; };
@@ -391,7 +390,6 @@
 		0186E9CC25BB81D600CCD3A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0186E9CF25BB81D600CCD3A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0186E9D225BB81D600CCD3A2 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		01871D0925AD706000E5817D /* DetailsViewModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsViewModal.swift; path = "../Main Controller/DetailsViewModal.swift"; sourceTree = "<group>"; };
 		018840E0258C39D600CED4F1 /* GWAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GWAnimationView.swift; sourceTree = "<group>"; };
 		018F66D125A6F5F700FFC539 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		018F66D225A6F5F700FFC539 /* location-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "location-loading.json"; sourceTree = "<group>"; };
@@ -573,7 +571,6 @@
 				01BE6CAF259AEBA6000016CA /* OnboardingController */,
 				01042C3424ECDFA50090B349 /* SettingsController */,
 				01042C2724EC8A6A0090B349 /* Main Controller */,
-				01042C2824EC8A7F0090B349 /* Levels */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -606,6 +603,7 @@
 				01B5989525BE9EF70097C4A4 /* DetailsViewHostingController.swift */,
 				010D540225C0DCED00222FF5 /* AlertList.swift */,
 				010D540825C0E17100222FF5 /* AlertHostingController.swift */,
+				01042C2824EC8A7F0090B349 /* Levels */,
 			);
 			path = "Main Controller";
 			sourceTree = "<group>";
@@ -614,7 +612,6 @@
 			isa = PBXGroup;
 			children = (
 				0169434024E244B2006A7FAA /* BaseView.swift */,
-				01871D0925AD706000E5817D /* DetailsViewModal.swift */,
 				01328D4425B7D66200E29B31 /* WeatherAlertController.swift */,
 				01328D1125B6CD1E00E29B31 /* DailyViewLayer.swift */,
 				01B9487F259A687200884150 /* DailyViewCell.swift */,
@@ -1265,7 +1262,6 @@
 				0197FB5325913AA6000C4640 /* ErrorViewController.swift in Sources */,
 				01430F42259BFCD100D67245 /* DeleteAllSearchItems.swift in Sources */,
 				01BE6CAC259AE99D000016CA /* OnboardingViewControllerLevelFour.swift in Sources */,
-				01871D0A25AD706000E5817D /* DetailsViewModal.swift in Sources */,
 				01D28B4725B6C6F7005CD583 /* HourlyViewLayer.swift in Sources */,
 				01B1BEED24EFA0040081C90F /* LevelTwoViewController.swift in Sources */,
 				011C620B25A3C9A100F131D0 /* LevelThreeView.swift in Sources */,
@@ -1784,7 +1780,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = "GeekWeatherWidgetOS Extension/GeekWeatherWidgetOS Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"GeekWeatherWidgetOS Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = R986STKYJ7;
 				ENABLE_PREVIEWS = YES;
@@ -1812,7 +1808,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = "GeekWeatherWidgetOS Extension/GeekWeatherWidgetOS Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"GeekWeatherWidgetOS Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = R986STKYJ7;
 				ENABLE_PREVIEWS = YES;

@@ -45,14 +45,12 @@ extension MainViewController: NetworkLayerDelegate {
 class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate, GWUIHostingControllerDelegate {
     
     private let notificationManager = NotificationManager()
-    private var detailsView = DetailsViewModal()
+//    private var detailsView = DetailsViewModal()
     
     let networkLayer = NetworkLayer()
     
     @IBOutlet var navView: GWNavigationView?
     @IBOutlet var shadowView: UIView!
-    
-    private var flexibleCenterYConstraint: NSLayoutConstraint?
     
     private let gradientLayer = CAGradientLayer()
     private let shadowOpacity: CGFloat = 0.75
@@ -115,7 +113,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         createLoadingAnimation()
         createShadows()
         createGradient()
-        prepareDetailsView()
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(newLocation(_:)),
@@ -207,26 +204,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         errorTitleLabel.removeFromSuperview()
         errorTextView.removeFromSuperview()
         tryAgainButton.removeFromSuperview()
-    }
-    
-    func prepareDetailsView() {
-        
-        detailsView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(detailsView)
-        
-        flexibleCenterYConstraint = detailsView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: view.frame.height * 2)
-        flexibleCenterYConstraint?.isActive = true
-        
-        let padding: CGFloat = 15
-        
-        NSLayoutConstraint.activate([
-            detailsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            detailsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: padding),
-            detailsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
-            detailsView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.55)
-        ])
-        
-        view.layoutIfNeeded()
     }
     
     func createShadows() {

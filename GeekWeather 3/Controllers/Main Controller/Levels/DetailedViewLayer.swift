@@ -137,6 +137,7 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
         
         cell.firstItemLabel.text = data.firstItemLabel
         cell.firstItemValue.text = data.firstItemValue
+        cell.applyAccessibility(with: data.firstItemLabel, and: data.firstItemValue, trait: .staticText)
         
         return cell
     }

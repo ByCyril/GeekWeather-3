@@ -21,7 +21,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     @IBOutlet var detailedViewLayer: DetailedViewLayer!
     @IBOutlet var titleLabel: UILabel!
     
-    @IBOutlet var weatherAlertButton: UIButton!
+    @IBOutlet var tempIconContainer: UIStackView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,12 +33,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         
         titleLabel.numberOfLines = 2
         titleLabel.adjustsFontSizeToFitWidth = true
-        
-        weatherAlertButton.titleLabel?.font = GWFont.AvenirNext(style: .Bold, size: 15)
-        weatherAlertButton.layer.cornerRadius = 10
-        weatherAlertButton.isHidden = true
-        weatherAlertButton.addTarget(self, action: #selector(presentWeatherAlertView), for: .touchUpInside)
-        
+
         tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
         summaryLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: summaryLabel.font)
         commentLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: commentLabel.font)
@@ -60,15 +55,6 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
             self.weatherModel = weatherModel
             displayData(weatherModel.current)
             detailedViewLayer.populate(weatherModel)
-            
-            if let alerts = weatherModel.alerts {
-                weatherAlertButton.isHidden = false
-                weatherAlertButton.transform = .init(translationX: 0, y: -frame.height)
-                
-                weatherAlert(alerts)
-            } else {
-                weatherAlertButton.isHidden = true
-            }
         }
     }
     
@@ -126,19 +112,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         
         accessibilityElements()
     }
-    
-    func weatherAlert(_ alerts: [Alert]) {
-        UIView.animate(withDuration: 0.4, delay: 1, options: .curveEaseInOut) {
-            self.weatherAlertButton.transform = .identity
-        }
-    }
 
-    @objc
-    func presentWeatherAlertView() {
-        guard let alert = weatherModel?.alerts else { return }
-        NotificationCenter.default.post(name: NSNotification.Name("PresentWeatherAlert"), object: alert)
-    }
-    
     func shrink() {
         
         [tempLabel, summaryLabel, commentLabel, iconView].forEach { (element) in
@@ -149,7 +123,17 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     }
     
     func accessibilityElements() {
-        tempLabel.applyAccessibility(with: "Current Temperature", and: tempLabel.text, trait: .staticText)
+        tempLabel.isAccessibilityElement = false
+//        tempLabel.applyAccessibility(with: "Current Temperature", and: tempLabel.text, trait: .staticText)
+        let icon = weatherModel?.current.weather.first?.main ?? ""
+        let temp = tempLabel.text ?? ""
+        
+        tempIconContainer.applyAccessibility(with: "Current Weather Condition", and: "\(icon), \(temp)", trait: .staticText)
+        summaryLabel.applyAccessibility(with: "Weather description", and: summaryLabel.text ?? "", trait: .staticText)
+        let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? ""
+        let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? ""
+        
+        commentLabel.applyAccessibility(with: "High and Low temperatures for the day", and: "High of \(high), and a low of \(low)", trait: .staticText)
     }
     
 }

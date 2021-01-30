@@ -23,13 +23,22 @@ struct SmallItemDetailView: View {
                     .allowsTightening(true)
                     .lineLimit(1)
                     .foregroundColor(Color.white)
+                    .accessibilityHidden(true)
+                    
                 Text(value)
                     .font(Font.custom("AvenirNext-Medium", size: valueFontSize))
                     .minimumScaleFactor(0.5)
                     .allowsTightening(true)
                     .lineLimit(1)
                     .foregroundColor(Color.white)
-            }.padding(.all, 7.5)
-        }.background(Color.white.opacity(0.15)).cornerRadius(15)
+                    .accessibilityHidden(true)
+                
+            }.padding(.all, 7.5).accessibilityElement(children: .combine)
+        }
+        .background(Color.white.opacity(0.15))
+        .cornerRadius(15)
+        .accessibilityHidden(false)
+        .accessibilityLabel(title)
+        .accessibilityValue(value)
     }
 }

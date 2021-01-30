@@ -28,7 +28,10 @@ final class DetailedViewCell: UICollectionViewCell {
             element.adjustsFontSizeToFitWidth = true
             element.translatesAutoresizingMaskIntoConstraints = false
             element.textColor = .white
+            element.isAccessibilityElement = false
         }
+        
+        isAccessibilityElement = true
         
         contentView.backgroundColor = UIColor.white.withAlphaComponent(0.15)
         contentView.layer.cornerRadius = 20

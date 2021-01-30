@@ -17,16 +17,22 @@ struct DetailsView: View {
         
         VStack {
             HStack {
-                Image(dailyModel.weather.first!.icon).resizable().frame(width: 50, height: 50, alignment: .center).padding(.trailing)
+                Image(dailyModel.weather.first!.icon)
+                    .resizable()
+                    .frame(width: 50, height: 50, alignment: .center)
+                    .padding(.trailing)
+                    .accessibility(label: Text("Icon"))
+                    .accessibility(value: Text(dailyModel.weather.first!.main))
+                
                 VStack(alignment: .leading) {
-                    Text(dailyModel.dt.date(.day)).font(Font.custom("AvenirNext-Medium", size: 25))
-                    Text(dailyModel.weather.first!.description.capitalized).font(Font.custom("AvenirNext-Bold", size: 17))
-                }
+                    Text(dailyModel.dt.date(.day)).font(Font.custom("AvenirNext-Medium", size: 25)).accessibility(hidden: true)
+                    Text(dailyModel.weather.first!.description.capitalized).font(Font.custom("AvenirNext-Bold", size: 17)).accessibility(hidden: true)
+                }.accessibility(label: Text("Header")).accessibilityElement(children: .combine).accessibility(value: Text("\(dailyModel.dt.date(.day)), \(dailyModel.weather.first!.description)"))
                 Spacer()
 
                 Button(action: dismissAction) {
                     Image(systemName: "xmark.circle.fill").resizable().frame(width: 25, height: 25, alignment: .center)
-                }
+                }.accessibility(label: Text("Dismiss Button"))
             }.padding(.top).padding(.leading).padding(.trailing)
             
             VStack(alignment: .leading) {

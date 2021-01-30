@@ -17,6 +17,9 @@ class BaseView: UIView, NotificationManagerDelegate {
     
     @IBOutlet var topLabelConstraint: NSLayoutConstraint!
     
+    var searchButton: UIButton?
+    var settingsButton: UIButton?
+    
     private var view: UIView!
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,6 +39,7 @@ class BaseView: UIView, NotificationManagerDelegate {
         view.clipsToBounds = true
         view.layoutIfNeeded()
         main.addSubview(view)
+        topLabelConstraint.constant = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
     }
     
     var blurredEffectView: UIVisualEffectView = {

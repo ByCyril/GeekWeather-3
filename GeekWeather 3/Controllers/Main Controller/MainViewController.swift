@@ -376,17 +376,14 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         scrollView.contentSize = CGSize(width: view.frame.size.width, height: trueHeight*3)
         
         levelOneViewController = LevelOneViewController(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: trueHeight))
+        
         levelTwoViewController = LevelTwoViewController(frame: CGRect(x: 0, y: trueHeight, width: view.bounds.size.width, height: trueHeight))
         levelThreeViewController = LevelThreeViewController(frame: CGRect(x: 0, y: trueHeight * 2, width: view.bounds.size.width, height: trueHeight))
         
         scrollView.addSubview(levelOneViewController!)
         scrollView.addSubview(levelTwoViewController!)
         scrollView.addSubview(levelThreeViewController!)
-        
-        levelOneViewController?.topLabelConstraint.constant = settingsButton.frame.minY - view.safeAreaInsets.top
-        levelTwoViewController?.topLabelConstraint.constant = settingsButton.frame.midY - view.safeAreaInsets.top
-        levelThreeViewController?.topLabelConstraint.constant = settingsButton.frame.maxY - view.safeAreaInsets.top
-        
+      
         levelOneViewController?.titleLabel.widthAnchor.constraint(lessThanOrEqualToConstant: searchButton.frame.maxX - 50).isActive = true
         
         levelOneViewController?.layoutIfNeeded()

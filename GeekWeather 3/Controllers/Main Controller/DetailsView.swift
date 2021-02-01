@@ -33,6 +33,7 @@ struct DetailsView: View {
                 Button(action: dismissAction) {
                     Image(systemName: "xmark.circle.fill").resizable().frame(width: 25, height: 25, alignment: .center)
                 }.accessibility(label: Text("Dismiss Button"))
+                
             }.padding(.top).padding(.leading).padding(.trailing)
             
             VStack(alignment: .leading) {
@@ -62,14 +63,8 @@ struct DetailsView: View {
 struct ContainerView: View {
     var dailyModel: Daily
     var dismissAction: (() -> Void)
-
-    @State var offset: CGFloat = 1000
-
+    
     var body: some View {
-        DetailsView(dismissAction: dismissAction, dailyModel: dailyModel).padding().offset(x: 0, y: self.offset).onAppear {
-            withAnimation(.interactiveSpring()) {
-                self.offset = 0
-            }
-        }
+        DetailsView(dismissAction: dismissAction, dailyModel: dailyModel).padding()
     }
 }

@@ -43,6 +43,7 @@ final class NetworkLayer: NSObject, CLLocationManagerDelegate {
         @unknown default:
             notDetermined()
         }
+        
     }
     
     @objc

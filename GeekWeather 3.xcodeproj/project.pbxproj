@@ -157,6 +157,10 @@
 		0198005D25B8067D00600DC3 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
 		0198006B25B8D22900600DC3 /* GeekWeatherIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0198006A25B8D22900600DC3 /* GeekWeatherIntents.intentdefinition */; };
 		0198006C25B8D22900600DC3 /* GeekWeatherIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0198006A25B8D22900600DC3 /* GeekWeatherIntents.intentdefinition */; };
+		019B4D4A25C8AFDC001C0465 /* IntentDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B4D4925C8AFDC001C0465 /* IntentDemo.swift */; };
+		019B4D5925C8B02A001C0465 /* GWIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 019B4D5825C8B02A001C0465 /* GWIntents.intentdefinition */; };
+		019B4D5A25C8B02A001C0465 /* GWIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 019B4D5825C8B02A001C0465 /* GWIntents.intentdefinition */; };
+		019B4D5B25C8B02A001C0465 /* GWIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 019B4D5825C8B02A001C0465 /* GWIntents.intentdefinition */; };
 		01B1BEB424ED9B050081C90F /* DeveloperInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */; };
 		01B1BEB824EDBE520081C90F /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB724EDBE520081C90F /* SettingManager.swift */; };
 		01B1BEBD24EE33320081C90F /* UnitSelectorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEBC24EE33320081C90F /* UnitSelectorItem.swift */; };
@@ -400,6 +404,8 @@
 		0198005925B803F700600DC3 /* TodayViewDetailedMediumWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewDetailedMediumWidget.swift; sourceTree = "<group>"; };
 		0198006A25B8D22900600DC3 /* GeekWeatherIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = GeekWeatherIntents.intentdefinition; sourceTree = "<group>"; };
 		0198007625B8D35900600DC3 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		019B4D4925C8AFDC001C0465 /* IntentDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentDemo.swift; sourceTree = "<group>"; };
+		019B4D5825C8B02A001C0465 /* GWIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = GWIntents.intentdefinition; sourceTree = "<group>"; };
 		01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoItem.swift; sourceTree = "<group>"; };
 		01B1BEB724EDBE520081C90F /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 		01B1BEBC24EE33320081C90F /* UnitSelectorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSelectorItem.swift; sourceTree = "<group>"; };
@@ -483,6 +489,7 @@
 			children = (
 				01430F35259BF4DB00D67245 /* Model.xcdatamodeld */,
 				0103B84C259449E9008577FD /* GeekWeatherWidgetExtension.entitlements */,
+				019B4D5825C8B02A001C0465 /* GWIntents.intentdefinition */,
 				0100D7D224CE1A8200C9F9B5 /* GeekWeather 3 */,
 				0100D7E924CE1A8300C9F9B5 /* GeekWeather 3Tests */,
 				0103B843259449E7008577FD /* GeekWeatherWidget */,
@@ -513,6 +520,7 @@
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
 				012D3AE0259FEDC60093ED51 /* SharedUserDefaults.swift */,
+				019B4D4925C8AFDC001C0465 /* IntentDemo.swift */,
 				010D53F525C0DAAA00222FF5 /* GWFoundation */,
 				011C620725A3C98B00F131D0 /* iPad */,
 				011908E1259D722400EE1C0F /* GWFiles */,
@@ -1248,6 +1256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				019B4D5925C8B02A001C0465 /* GWIntents.intentdefinition in Sources */,
 				01BE6C85259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift in Sources */,
 				010D53E325C0D99800222FF5 /* Color+Extension.swift in Sources */,
 				01042C2C24EC8FCF0090B349 /* SettingsTableViewCell.swift in Sources */,
@@ -1321,6 +1330,7 @@
 				010D53CB25C0D99800222FF5 /* Double+Extension.swift in Sources */,
 				011C61F525A3BE4C00F131D0 /* LevelOneView.swift in Sources */,
 				01F4CD2D25A119EE00A52971 /* MainPadController.swift in Sources */,
+				019B4D4A25C8AFDC001C0465 /* IntentDemo.swift in Sources */,
 				0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */,
 				01042C2A24EC8AB00090B349 /* SettingsController.swift in Sources */,
 				0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */,
@@ -1356,6 +1366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				019B4D5A25C8B02A001C0465 /* GWIntents.intentdefinition in Sources */,
 				01674F9C25B55026002B9724 /* DetailedTodayView.swift in Sources */,
 				010D53CF25C0D99800222FF5 /* Date+Extension.swift in Sources */,
 				012D3AF825A019760093ED51 /* TodayViewLarge.swift in Sources */,
@@ -1406,6 +1417,7 @@
 				0186EA0F25BB855400CCD3A2 /* Doouble+Extension.swift in Sources */,
 				0186E9C725BB81D600CCD3A2 /* NotificationController.swift in Sources */,
 				010370CA25BB893E000327AC /* LevelOneView.swift in Sources */,
+				019B4D5B25C8B02A001C0465 /* GWIntents.intentdefinition in Sources */,
 				010D53D325C0D99800222FF5 /* DataManager.swift in Sources */,
 				0141F60425BD4378001931C3 /* ComplicationForecastView.swift in Sources */,
 				0145C68125BFE70300EF1AA4 /* SmallItemDetailView.swift in Sources */,

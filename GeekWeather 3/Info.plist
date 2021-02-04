@@ -27,6 +27,7 @@
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>SelectLocationIntent</string>
+		<string>WeatherConditionIntent</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

@@ -14,6 +14,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     private var animationView: AnimationView!
     
     @IBOutlet var containerView: UIView!
+    
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var summaryLabel: UILabel!
     @IBOutlet var commentLabel: UILabel!
@@ -60,7 +61,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     
     override func didUpdateValues() {
         guard let currentWeatherData = weatherModel?.current else { return }
-        tempLabel.text = " " + currentWeatherData.temp.kelvinToSystemFormat()
+        tempLabel.text = currentWeatherData.temp.kelvinToSystemFormat()
         
         let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? ""
         let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? ""

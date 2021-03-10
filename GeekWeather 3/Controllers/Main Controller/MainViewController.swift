@@ -12,6 +12,7 @@ import Lottie
 import WidgetKit
 import SwiftUI
 import MapKit
+import CoreHaptics
 
 extension MainViewController: NetworkLayerDelegate {
     
@@ -28,7 +29,6 @@ extension MainViewController: NetworkLayerDelegate {
         notificationManager.post(data: ["weatherModel": weatherModel],
                                  to: NotificationName.observerID("weatherModel"))
         
-        UINotificationFeedbackGenerator().notificationOccurred(.success)
     }
     
     func didFail(errorTitle: String, errorDetail: String) {
@@ -36,6 +36,7 @@ extension MainViewController: NetworkLayerDelegate {
         print("#################################")
         print("🚨Error🚨")
         print("#################################")
+        
         hideScrollView()
         
         UIView.animate(withDuration: 0.15) { [weak self] in
@@ -48,18 +49,19 @@ extension MainViewController: NetworkLayerDelegate {
     
 }
 
-class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate, GWUIHostingControllerDelegate {
+final class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate, GWUIHostingControllerDelegate {
     
     private let notificationManager = NotificationManager()
     
     let networkLayer = NetworkLayer()
-
+    
     private let gradientLayer = CAGradientLayer()
     private let shadowOpacity: CGFloat = 0.75
     
     private var levelOneViewController: LevelOneViewController?
     private var levelTwoViewController: LevelTwoViewController?
     private var levelThreeViewController: LevelThreeViewController?
+    
     private var detailsViewHostingController: DetailsViewHostingController?
     private var alertViewHostingController: AlertViewHostingController?
     private var backdropView: UIView?
@@ -137,7 +139,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
                                                name: Notification.Name("PagingAnimationToggle"),
                                                object: nil)
     }
-
+    
     @objc
     func pagingSettingChanged() {
         scrollView.isPagingEnabled = !UserDefaults.standard.bool(forKey: "PagingAnimationToggle")
@@ -208,7 +210,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         errorTextView.removeFromSuperview()
         tryAgainButton.removeFromSuperview()
     }
-
+    
     func createGradient() {
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor(named: theme + "GradientTopColor")!.cgColor,
@@ -356,12 +358,12 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         
         settingsButton.tintColor = .white
         searchButton.tintColor = .white
-
+        
         scrollView.alpha = 0
         scrollView.delegate = self
         pagingSettingChanged()
         view.insertSubview(scrollView, at: 0)
- 
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -383,7 +385,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
         scrollView.addSubview(levelOneViewController!)
         scrollView.addSubview(levelTwoViewController!)
         scrollView.addSubview(levelThreeViewController!)
-      
+        
         levelOneViewController?.titleLabel.widthAnchor.constraint(lessThanOrEqualToConstant: searchButton.frame.maxX - 50).isActive = true
         
         levelOneViewController?.layoutIfNeeded()
@@ -415,14 +417,14 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
             self?.levelOneViewController?.transform = .identity
             self?.levelTwoViewController?.transform = .identity
             self?.levelThreeViewController?.transform = .identity
-//            self?.shadowView.alpha = 0
+            //            self?.shadowView.alpha = 0
         }
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         guard !UserDefaults.standard.bool(forKey: "ScrollAnimationToggle") else { return }
         let scale: CGFloat = 0.95
-        let alpha = shadowOpacity
+        
         let blurEffect: CGFloat = 0.25
         levelThreeViewController?.mainViewController(isScrolling: true)
         UIView.animate(withDuration: 0.2) { [weak self] in
@@ -432,14 +434,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAc
             self?.levelOneViewController?.transform = .init(scaleX: scale, y: scale)
             self?.levelTwoViewController?.transform = .init(scaleX: scale, y: scale)
             self?.levelThreeViewController?.transform = .init(scaleX: scale, y: scale)
-//            self?.shadowView.alpha = alpha
             HapticManager.soft()
         }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let scrollPercentage = (scrollView.contentOffset.y / scrollView.contentSize.height)
-//        let navScrollViewHeight = (225 * scrollPercentage)
     }
     
     @IBAction func presentSavedLocationController() {

@@ -7,30 +7,12 @@
 //
 
 import UIKit
-
 import MapKit
-
-extension String {
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).capitalized + dropFirst()
-    }
-    
-    mutating func capitalizeFirstLetter() {
-        self = self.capitalizingFirstLetter()
-    }
-}
 
 struct ItemData {
     var firstItemLabel: String
     var firstItemValue: String
     var width: CGFloat
-}
-
-struct DetailsData {
-    var firstItemLabel: String
-    var firstItemValue: String
-    var secondItemLabel: String
-    var secondItemValue: String
 }
 
 final class LevelThreeViewController: BaseView {

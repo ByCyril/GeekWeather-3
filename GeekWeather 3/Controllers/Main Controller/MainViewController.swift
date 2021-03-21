@@ -58,7 +58,7 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
     private let gradientLayer = CAGradientLayer()
     private let shadowOpacity: CGFloat = 0.75
     
-    private var levelOneViewController: LevelOneViewController?
+    var levelOneViewController: LevelOneViewController?
     private var levelTwoViewController: LevelTwoViewController?
     private var levelThreeViewController: LevelThreeViewController?
     
@@ -484,6 +484,10 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
                        animations: { [weak self] in
                         self?.scrollView.alpha = 1
                        }, completion: completion)
+    }
+    
+    func scrollToTop() {
+        scrollView.setContentOffset(.zero, animated: false)
     }
     
 }

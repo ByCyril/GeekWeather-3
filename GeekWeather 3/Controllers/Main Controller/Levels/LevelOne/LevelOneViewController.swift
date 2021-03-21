@@ -37,7 +37,6 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
 
         tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
         summaryLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: summaryLabel.font)
-        commentLabel.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: commentLabel.font)
     
         [tempLabel, summaryLabel, commentLabel].forEach { (element) in
             element?.adjustsFontForContentSizeCategory = true
@@ -66,8 +65,8 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? ""
         let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? ""
         
-        commentLabel.text = "⬆︎\(high)  ⬇︎\(low)"
-        
+        summaryLabel.text = (currentWeatherData.weather.first?.description.capitalized)! + "\n⬆︎\(high)  ⬇︎\(low)"
+                
         detailedViewLayer.update()
     }
     
@@ -75,19 +74,23 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         
         tempLabel.text = currentWeatherData.temp.kelvinToSystemFormat()
         
-        summaryLabel.text = currentWeatherData.weather.first?.description.capitalized
-        summaryLabel.numberOfLines = 0
-        
         let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? "na"
         let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? "na"
         
-        commentLabel.text = "⬆︎\(high)  ⬇︎\(low)"
-        commentLabel.numberOfLines = 0
-        
+        summaryLabel.text = (currentWeatherData.weather.first?.description.capitalized)! + "\n⬆︎\(high)  ⬇︎\(low)"
+        summaryLabel.numberOfLines = 0
+
         iconView.image = UIImage(named: currentWeatherData.weather.first!.icon)
         
+        showElements()
+        
+        accessibilityElements()
+    }
+    
+    func showElements() {
+        print("Triggered",#function)
         var elementsRowOne = [iconView, tempLabel]
-        var elementsRowTwo = [summaryLabel, commentLabel]
+        var elementsRowTwo = [summaryLabel]
         var a: Double = 0
         
         while !elementsRowOne.isEmpty {
@@ -108,19 +111,18 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
                 element?.transform = .identity
             }
         }
-        
+        detailedViewLayer.update()
         detailedViewLayer.alpha = 1
-        
-        accessibilityElements()
     }
 
     func shrink() {
+        print("Triggered",#function)
+        detailedViewLayer.d = 0
         
-        [tempLabel, summaryLabel, commentLabel, iconView].forEach { (element) in
+        [tempLabel, summaryLabel, iconView].forEach { (element) in
             element?.alpha = 0
             element?.transform = .init(scaleX: 0.01, y: 0.01)
         }
-        detailedViewLayer.d = 0
     }
     
     func accessibilityElements() {
@@ -134,7 +136,7 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? ""
         let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? ""
         
-        commentLabel.applyAccessibility(with: "High and Low temperatures for the day", and: "High of \(high), and a low of \(low)", trait: .staticText)
+//        commentLabel.applyAccessibility(with: "High and Low temperatures for the day", and: "High of \(high), and a low of \(low)", trait: .staticText)
     }
     
 }

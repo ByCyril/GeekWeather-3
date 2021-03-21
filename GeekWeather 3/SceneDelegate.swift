@@ -10,13 +10,13 @@ import UIKit
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
-
+    
     var mainViewController: MainViewController?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-                
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         if let vc = GWTest.forceViewController() {
@@ -29,13 +29,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if UIDevice.current.userInterfaceIdiom == .pad {
                 let vc = MainPadController()
                 
-//                let vc = UIHostingController(rootView: iPadMainView())
+                //                let vc = UIHostingController(rootView: iPadMainView())
                 
                 #if targetEnvironment(macCatalyst)
-                    windowScene.sizeRestrictions?.maximumSize = CGSize(width: 660, height: 1260)
+                windowScene.sizeRestrictions?.maximumSize = CGSize(width: 660, height: 1260)
                 
                 #else
-                    print("Your regular code")
+                print("Your regular code")
                 #endif
                 
                 setWindow(with: windowScene, vc: vc)
@@ -53,24 +53,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func setWindow(with windowScene: UIWindowScene, vc: UIViewController) {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-
+        
         window?.windowScene = windowScene
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }
     
     func sceneWillEnterForeground(_ scene: UIScene) {
-        if let lastUpdate = UserDefaults.standard.value(forKey: SharedUserDefaults.Keys.LastUpdated) as? Date {
-            
-            let differenceInSeconds = abs(lastUpdate.timeIntervalSince(Date()))
-            let minutesPassed = differenceInSeconds / 60
-
-            print("⏱",minutesPassed)
-            if minutesPassed >= 15 {
-                mainViewController?.networkLayer.cache.removeAllObjects()
-                mainViewController?.networkLayer.fetch()
-            }
-        }
+        
+        mainViewController?.levelOneViewController?.shrink()
+        mainViewController?.networkLayer.cache.removeAllObjects()
+        mainViewController?.networkLayer.fetch()
+//
+//        guard let lastUpdate = UserDefaults.standard.value(forKey: SharedUserDefaults.Keys.LastUpdated) as? Date else { return }
+//
+//        let differenceInSeconds = abs(lastUpdate.timeIntervalSince(Date()))
+//        let minutesPassed = differenceInSeconds / 60
+//
+//        print("⏱",minutesPassed)
+//        if minutesPassed >= 15 {
+//            mainViewController?.levelOneViewController?.shrink()
+//            mainViewController?.networkLayer.cache.removeAllObjects()
+//            mainViewController?.networkLayer.fetch()
+//        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -78,7 +83,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UserDefaults.standard.setValue(nil, forKey: SharedUserDefaults.Keys.LastUpdated)        
     }
 
-    func sceneDidEnterBackground(_ scene: UIScene) { }
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        mainViewController?.scrollToTop()
+    }
+    
     func sceneDidBecomeActive(_ scene: UIScene) { }
     func sceneWillResignActive(_ scene: UIScene) { }
 

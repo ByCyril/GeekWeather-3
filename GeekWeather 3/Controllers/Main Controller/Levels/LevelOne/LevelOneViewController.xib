@@ -10,7 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LevelOneViewController" customModule="GeekWeather" customModuleProvider="target">
             <connections>
-                <outlet property="commentLabel" destination="mho-6g-1kE" id="lJM-CZ-QEa"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="ZGl-Nj-vbC"/>
                 <outlet property="detailedViewLayer" destination="Ogh-tL-8Ml" id="ofA-an-fXF"/>
                 <outlet property="iconView" destination="eDq-ea-meq" id="6F2-0n-bto"/>
@@ -44,20 +43,20 @@
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="swV-l8-trl">
-                    <rect key="frame" x="40" y="252" width="310" height="150"/>
+                    <rect key="frame" x="40" y="252" width="310" height="150.66666666666663"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CTP-k3-ISq">
-                            <rect key="frame" x="0.0" y="0.0" width="310" height="150"/>
+                            <rect key="frame" x="0.0" y="0.0" width="310" height="150.66666666666666"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eDq-ea-meq">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.33333333333334281" width="150" height="150"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="150" id="TVd-fV-p97"/>
                                         <constraint firstAttribute="width" constant="150" id="cZv-8a-A38"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkq-Va-aH5">
-                                    <rect key="frame" x="160" y="50" width="150" height="50"/>
+                                    <rect key="frame" x="160" y="50.333333333333314" width="150" height="50"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="75"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -67,15 +66,8 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mho-6g-1kE">
-                    <rect key="frame" x="40" y="450" width="310" height="36.666666666666686"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loi-YQ-lJ1">
-                    <rect key="frame" x="40" y="410" width="310" height="34"/>
+                    <rect key="frame" x="40" y="410.66666666666669" width="310" height="33"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
                     <nil key="textColor"/>
@@ -94,15 +86,10 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="mho-6g-1kE" firstAttribute="top" secondItem="loi-YQ-lJ1" secondAttribute="bottom" constant="6" id="86z-sp-BX8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="4vb-y8-BIC" secondAttribute="bottom" constant="17" id="8Jf-vT-IOz"/>
                 <constraint firstItem="fIX-yd-m1x" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="A9O-OD-PO5"/>
-                <constraint firstItem="mho-6g-1kE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="BJw-K7-U5D"/>
-                <constraint firstItem="Ogh-tL-8Ml" firstAttribute="top" relation="lessThanOrEqual" secondItem="mho-6g-1kE" secondAttribute="bottom" constant="80" id="Bll-NH-MvV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CTP-k3-ISq" secondAttribute="trailing" constant="40" id="CT3-PN-0AP"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mho-6g-1kE" secondAttribute="trailing" constant="40" id="ERj-L5-oQd"/>
                 <constraint firstItem="Ogh-tL-8Ml" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Gk4-Cv-wfF"/>
-                <constraint firstItem="mho-6g-1kE" firstAttribute="height" secondItem="loi-YQ-lJ1" secondAttribute="height" multiplier="1.08081" id="KmG-eg-k0U"/>
                 <constraint firstItem="loi-YQ-lJ1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="MTU-tW-wqd"/>
                 <constraint firstItem="CTP-k3-ISq" firstAttribute="top" relation="lessThanOrEqual" secondItem="fIX-yd-m1x" secondAttribute="bottom" constant="160" id="PEb-yj-BuS"/>
                 <constraint firstItem="loi-YQ-lJ1" firstAttribute="top" secondItem="CTP-k3-ISq" secondAttribute="bottom" constant="8" symbolic="YES" id="PrT-wW-Aon"/>
@@ -111,7 +98,6 @@
                 <constraint firstItem="4vb-y8-BIC" firstAttribute="top" secondItem="Ogh-tL-8Ml" secondAttribute="bottom" constant="15" id="emZ-tT-ayY"/>
                 <constraint firstItem="CTP-k3-ISq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="lPd-Ha-CVS"/>
                 <constraint firstItem="4vb-y8-BIC" firstAttribute="centerX" secondItem="Ogh-tL-8Ml" secondAttribute="centerX" id="mmU-mI-bGp"/>
-                <constraint firstItem="Ogh-tL-8Ml" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mho-6g-1kE" secondAttribute="bottom" id="och-1w-tYB"/>
                 <constraint firstItem="fIX-yd-m1x" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="q4j-vT-pzH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="loi-YQ-lJ1" secondAttribute="trailing" constant="40" id="qE4-Rz-7TH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ogh-tL-8Ml" secondAttribute="trailing" id="uzt-Lm-vpl"/>

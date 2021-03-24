@@ -24,10 +24,10 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     
     @IBOutlet var tempIconContainer: UIStackView!
     
-    override init(frame: CGRect) {
+    init(frame: CGRect,_ bundle: Bundle = Bundle.main) {
         super.init(frame: frame)
         
-        let view = Bundle.main.loadNibNamed("LevelOneViewController", owner: self)!.first as! LevelOneViewController
+        let view = bundle.loadNibNamed("LevelOneViewController", owner: self)!.first as! LevelOneViewController
         loadXib(view, self)
         
         createBlurView()

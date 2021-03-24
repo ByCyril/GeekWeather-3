@@ -13,13 +13,20 @@ protocol SectionItem {
     var cells: [SettingItem] { get }
 }
 
-final class SettingManager {
+protocol SettingManagerProtocol {
+    var sections: [SectionItem] { get }
+    var cells: [CellType] { get }
+    
+    func cellRegistration(to tableView: UITableView)
+}
+
+final class SettingManager: SettingManagerProtocol {
     
     var sections = [SectionItem]()
     var cells = [CellType]()
     
     init() {
-        sections = [AppSettingSection(),AppInfoSection(),AppSupprtSection()]
+        sections = [AppSettingSection(), AppInfoSection(), AppSupprtSection()]
         cells = [CellType(cell: SettingsTableViewCell.self, id: "cell")]
     }
     
@@ -46,7 +53,9 @@ final class AppSettingSection: SectionItem {
     var cells: [SettingItem]
     
     init() {
-        cells = [UnitSelectorItem(), HapticFeedbackItem(), CustomAPIKey()]
+        cells = [UnitSelectorItem(),
+                 HapticFeedbackItem(),
+                 CustomAPIKey()]
     }
 }
 
@@ -68,7 +77,9 @@ final class AppSupprtSection: SectionItem {
     var cells: [SettingItem]
     
     init() {
-        cells = [HelpItem(), DeveloperInfoItem(), DesignerInfoItem()]
+        cells = [HelpItem(),
+                 DeveloperInfoItem(),
+                 DesignerInfoItem()]
     }
     
 }

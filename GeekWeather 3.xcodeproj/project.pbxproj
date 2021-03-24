@@ -122,6 +122,110 @@
 		01674F9825B41079002B9724 /* TodayViewSimpleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01674F9725B41079002B9724 /* TodayViewSimpleWidget.swift */; };
 		01674F9C25B55026002B9724 /* DetailedTodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01674F9B25B55026002B9724 /* DetailedTodayView.swift */; };
 		0169434124E244B2006A7FAA /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169434024E244B2006A7FAA /* BaseView.swift */; };
+		017170A5260AA5D100390B74 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2924EC8AB00090B349 /* SettingsController.swift */; };
+		017170B6260AA72C00390B74 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB724EDBE520081C90F /* SettingManager.swift */; };
+		017170BE260AA73C00390B74 /* FormatSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0081D259EDB5100032D17 /* FormatSettingsController.swift */; };
+		017170BF260AA73C00390B74 /* SystemSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431ED259E76A300B0D44F /* SystemSettingsController.swift */; };
+		017170C0260AA73C00390B74 /* CustomAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01931DE025C353D2001BA0EA /* CustomAPIController.swift */; };
+		017170C5260AA74000390B74 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2B24EC8FCF0090B349 /* SettingsTableViewCell.swift */; };
+		017170CA260AA74200390B74 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C2E24ECDF510090B349 /* SettingItem.swift */; };
+		017170CF260AA74900390B74 /* DeveloperInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEB324ED9B050081C90F /* DeveloperInfoItem.swift */; };
+		017170D0260AA74900390B74 /* HelpItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125E46425A90E4D00DBD33B /* HelpItem.swift */; };
+		017170D1260AA74900390B74 /* DesignerInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C3AFA25BA6D0F003B2F5D /* DesignerInfoItem.swift */; };
+		017170D6260AA74C00390B74 /* AppIconSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3224ECDF850090B349 /* AppIconSettingItem.swift */; };
+		017170D7260AA74C00390B74 /* UnitSelectorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEBC24EE33320081C90F /* UnitSelectorItem.swift */; };
+		017170D8260AA74C00390B74 /* CusstomAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01931DE625C357D7001BA0EA /* CusstomAPIKey.swift */; };
+		017170D9260AA74C00390B74 /* HapticFeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01190999259D8CDC00EE1C0F /* HapticFeedbackController.swift */; };
+		017170DE260AA74F00390B74 /* AboutSettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042C3024ECDF660090B349 /* AboutSettingItem.swift */; };
+		017170DF260AA74F00390B74 /* WeatherDataInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEBE24EE34740081C90F /* WeatherDataInfoItem.swift */; };
+		017170E0260AA74F00390B74 /* PrivacyPolicyInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEC024EE36310081C90F /* PrivacyPolicyInfoItem.swift */; };
+		017170E5260AA75300390B74 /* ToggleMockedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6CC0259B1C40000016CA /* ToggleMockedResponse.swift */; };
+		017170E6260AA75300390B74 /* DeleteAllSearchItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01430F41259BFCD100D67245 /* DeleteAllSearchItems.swift */; };
+		017170E7260AA75300390B74 /* ResetNumberCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010F7DCD259C44DF00D53BFA /* ResetNumberCalls.swift */; };
+		017170E8260AA75300390B74 /* ToggleOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */; };
+		017170ED260AA77600390B74 /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01190995259D8C7B00EE1C0F /* StoryboardManager.swift */; };
+		017170F2260AA78600390B74 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */; };
+		017170F7260AA79800390B74 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D125A6F5F700FFC539 /* loading.json */; };
+		017170F8260AA79800390B74 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 01F20C1C25C2577F00672211 /* preview.json */; };
+		017170F9260AA79800390B74 /* denied.json in Resources */ = {isa = PBXBuildFile; fileRef = 0157E8E0259144270026706D /* denied.json */; };
+		017170FA260AA79800390B74 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 01FCE337258B21E200C841C8 /* demo.json */; };
+		017170FB260AA79800390B74 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
+		017170FC260AA79800390B74 /* location-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D225A6F5F700FFC539 /* location-loading.json */; };
+		017170FD260AA79800390B74 /* fetching.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D2A25B7A12C00E29B31 /* fetching.json */; };
+		01717102260AA79B00390B74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */; };
+		01717103260AA79B00390B74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */; };
+		01717104260AA79B00390B74 /* SharedUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D3AE0259FEDC60093ED51 /* SharedUserDefaults.swift */; };
+		01717105260AA79B00390B74 /* IntentDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019B4D4925C8AFDC001C0465 /* IntentDemo.swift */; };
+		0171710A260AA7A100390B74 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C325C0D99700222FF5 /* Date+Extension.swift */; };
+		0171710B260AA7A100390B74 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C225C0D99700222FF5 /* Double+Extension.swift */; };
+		0171710C260AA7A100390B74 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53CA25C0D99800222FF5 /* Color+Extension.swift */; };
+		0171710D260AA7A100390B74 /* GWFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C625C0D99800222FF5 /* GWFoundation.swift */; };
+		0171710E260AA7A100390B74 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C925C0D99800222FF5 /* Weather.swift */; };
+		0171710F260AA7A100390B74 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C525C0D99800222FF5 /* NetworkManager.swift */; };
+		01717110260AA7A100390B74 /* RequestURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C825C0D99800222FF5 /* RequestURL.swift */; };
+		01717111260AA7A100390B74 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C725C0D99800222FF5 /* String+Extension.swift */; };
+		01717112260AA7A100390B74 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D53C425C0D99800222FF5 /* DataManager.swift */; };
+		01717117260AA7A400390B74 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E51A7525BD7DA700B0BBD3 /* ErrorView.swift */; };
+		01717118260AA7A400390B74 /* iPadMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C61EE25A3BD9100F131D0 /* iPadMainView.swift */; };
+		01717119260AA7A400390B74 /* MainPadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F4CD2C25A119EE00A52971 /* MainPadController.swift */; };
+		0171711A260AA7A400390B74 /* LevelOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C61F425A3BE4C00F131D0 /* LevelOneView.swift */; };
+		0171711F260AA7A800390B74 /* LevelTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C61F825A3C17B00F131D0 /* LevelTwoView.swift */; };
+		01717120260AA7A800390B74 /* HourlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C620025A3C93B00F131D0 /* HourlyView.swift */; };
+		01717121260AA7A800390B74 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C61FC25A3C91C00F131D0 /* DailyView.swift */; };
+		01717126260AA7AA00390B74 /* LevelThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011C620A25A3C9A100F131D0 /* LevelThreeView.swift */; };
+		0171712B260AA7AE00390B74 /* Doouble+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D00821259EE28E00032D17 /* Doouble+Extension.swift */; };
+		0171712C260AA7AE00390B74 /* GWFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D14D2597D72200298ABD /* GWFont.swift */; };
+		0171712D260AA7AE00390B74 /* GWTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011908C2259D34F400EE1C0F /* GWTest.swift */; };
+		0171712E260AA7AE00390B74 /* GWTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153693325174D580044D108 /* GWTransition.swift */; };
+		0171712F260AA7AE00390B74 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146C05924F787D000967A37 /* Mocks.swift */; };
+		01717134260AA7B100390B74 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018079C9258DB3B200C88E0E /* NavigationView.swift */; };
+		01717135260AA7B100390B74 /* AccessibilityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0185665A24D767050035BF59 /* AccessibilityFactory.swift */; };
+		01717136260AA7B100390B74 /* GWAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018840E0258C39D600CED4F1 /* GWAnimationView.swift */; };
+		01717137260AA7B100390B74 /* RollableTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018079CE258DBE5A00C88E0E /* RollableTitleView.swift */; };
+		01717138260AA7B100390B74 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF024EFA9A10081C90F /* Array+Extension.swift */; };
+		01717139260AA7B100390B74 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF224EFAD500081C90F /* View+Extension.swift */; };
+		0171713E260AA7B400390B74 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01305A9E25A3F2C3005C8B19 /* NetworkLayer.swift */; };
+		0171713F260AA7B400390B74 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D2A3924D3F6090038623E /* LocationManager.swift */; };
+		01717140260AA7B400390B74 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119098D259D891B00EE1C0F /* HapticManager.swift */; };
+		01717145260AA7B900390B74 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80724CE4F9400C9F9B5 /* NotificationManager.swift */; };
+		01717146260AA7B900390B74 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D80124CE46A200C9F9B5 /* NotificationNames.swift */; };
+		0171714B260AA7BE00390B74 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01190991259D8BEA00EE1C0F /* Settings.storyboard */; };
+		01717150260AA7C900390B74 /* DesignerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C3AF525BA6CB5003B2F5D /* DesignerController.swift */; };
+		01717155260AA7CC00390B74 /* DeveloperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017B9F0D25930A4A007AB956 /* DeveloperController.swift */; };
+		0171715A260AA7CE00390B74 /* ChangeUnitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */; };
+		0171715F260AA7D100390B74 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197FB5225913AA6000C4640 /* ErrorViewController.swift */; };
+		01717164260AA7D300390B74 /* AppIconSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127D15B2597F55D00298ABD /* AppIconSelectionController.swift */; };
+		01717169260AA7D600390B74 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01430F3D259BF58400D67245 /* PersistenceManager.swift */; };
+		0171716A260AA7D600390B74 /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0158D0292505DF0C008692DC /* SearchLocationViewController.swift */; };
+		0171716B260AA7D600390B74 /* SavedLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0158D0302505E3ED008692DC /* SavedLocationViewController.swift */; };
+		01717170260AA7D900390B74 /* OnboardingViewControllerLevelTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6C9E259AD6DC000016CA /* OnboardingViewControllerLevelTwo.swift */; };
+		01717171260AA7D900390B74 /* OnboardingViewControllerLevelThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6CA7259ADE2E000016CA /* OnboardingViewControllerLevelThree.swift */; };
+		01717172260AA7D900390B74 /* OnboardingViewControllerLevelFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6CAB259AE99D000016CA /* OnboardingViewControllerLevelFour.swift */; };
+		01717173260AA7D900390B74 /* OnboardingViewControllerLevelOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */; };
+		01717174260AA7D900390B74 /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */; };
+		01717179260AA7E500390B74 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01228FFF25BE54C500FD47BA /* DetailsView.swift */; };
+		0171717A260AA7E500390B74 /* AlertList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D540225C0DCED00222FF5 /* AlertList.swift */; };
+		0171717B260AA7E500390B74 /* SmallItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0145C67725BFE6ED00EF1AA4 /* SmallItemDetailView.swift */; };
+		0171717C260AA7E500390B74 /* AlertHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010D540825C0E17100222FF5 /* AlertHostingController.swift */; };
+		0171717D260AA7E500390B74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1524F22113000B0D52 /* Main.storyboard */; };
+		0171717E260AA7E500390B74 /* DetailsViewHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B5989525BE9EF70097C4A4 /* DetailsViewHostingController.swift */; };
+		01717183260AA7EA00390B74 /* WeatherAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D4425B7D66200E29B31 /* WeatherAlertController.swift */; };
+		01717184260AA7EA00390B74 /* HourlyViewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D28B4625B6C6F7005CD583 /* HourlyViewLayer.swift */; };
+		01717185260AA7EA00390B74 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169434024E244B2006A7FAA /* BaseView.swift */; };
+		01717186260AA7EA00390B74 /* DailyViewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D1125B6CD1E00E29B31 /* DailyViewLayer.swift */; };
+		01717187260AA7EA00390B74 /* DetailedViewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D1925B6D0D100E29B31 /* DetailedViewLayer.swift */; };
+		01717188260AA7EA00390B74 /* HourlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487B259A654400884150 /* HourlyViewCell.swift */; };
+		01717189260AA7EA00390B74 /* DailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487F259A687200884150 /* DailyViewCell.swift */; };
+		0171718A260AA7EA00390B74 /* DetailedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D3825B7BD1000E29B31 /* DetailedFlowLayout.swift */; };
+		0171718B260AA7EA00390B74 /* DetailedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D1D25B6D28C00E29B31 /* DetailedViewCell.swift */; };
+		01717190260AA7EE00390B74 /* LevelOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEC324EF95920081C90F /* LevelOneViewController.swift */; };
+		01717191260AA7EE00390B74 /* LevelOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1724F2219F000B0D52 /* LevelOneViewController.xib */; };
+		01717196260AA7F100390B74 /* LevelTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1B24F22646000B0D52 /* LevelTwoViewController.xib */; };
+		01717197260AA7F100390B74 /* LevelTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEEC24EFA0040081C90F /* LevelTwoViewController.swift */; };
+		0171719C260AA7F500390B74 /* LevelThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01844A1E24F226B5000B0D52 /* LevelThreeViewController.xib */; };
+		0171719D260AA7F500390B74 /* LevelThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */; };
+		017171A6260AA82A00390B74 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01430F35259BF4DB00D67245 /* Model.xcdatamodeld */; };
+		017171B0260ABD4C00390B74 /* GeekWether3TestLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017171AF260ABD4C00390B74 /* GeekWether3TestLevels.swift */; };
 		017B9F0E25930A4A007AB956 /* DeveloperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017B9F0D25930A4A007AB956 /* DeveloperController.swift */; };
 		018079CA258DB3B200C88E0E /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018079C9258DB3B200C88E0E /* NavigationView.swift */; };
 		018079CF258DBE5A00C88E0E /* RollableTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018079CE258DBE5A00C88E0E /* RollableTitleView.swift */; };
@@ -375,6 +479,7 @@
 		01674F9B25B55026002B9724 /* DetailedTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedTodayView.swift; sourceTree = "<group>"; };
 		0169434024E244B2006A7FAA /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		016C382B25BB73AF00000888 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		017171AF260ABD4C00390B74 /* GeekWether3TestLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekWether3TestLevels.swift; sourceTree = "<group>"; };
 		017B9F0D25930A4A007AB956 /* DeveloperController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperController.swift; sourceTree = "<group>"; };
 		018079C9258DB3B200C88E0E /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		018079CE258DBE5A00C88E0E /* RollableTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollableTitleView.swift; sourceTree = "<group>"; };
@@ -539,6 +644,7 @@
 			isa = PBXGroup;
 			children = (
 				0100D7EA24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift */,
+				017171AF260ABD4C00390B74 /* GeekWether3TestLevels.swift */,
 				0100D7EC24CE1A8300C9F9B5 /* Info.plist */,
 			);
 			path = "GeekWeather 3Tests";
@@ -639,8 +745,8 @@
 			isa = PBXGroup;
 			children = (
 				01042C2924EC8AB00090B349 /* SettingsController.swift */,
-				01931DE025C353D2001BA0EA /* CustomAPIController.swift */,
 				01B1BEB724EDBE520081C90F /* SettingManager.swift */,
+				01931DE025C353D2001BA0EA /* CustomAPIController.swift */,
 				01F431ED259E76A300B0D44F /* SystemSettingsController.swift */,
 				01D0081D259EDB5100032D17 /* FormatSettingsController.swift */,
 				01B1BEB924EE318A0081C90F /* SettingCells */,
@@ -1150,6 +1256,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0171719C260AA7F500390B74 /* LevelThreeViewController.xib in Resources */,
+				017170F9260AA79800390B74 /* denied.json in Resources */,
+				017170F8260AA79800390B74 /* preview.json in Resources */,
+				017170FA260AA79800390B74 /* demo.json in Resources */,
+				0171714B260AA7BE00390B74 /* Settings.storyboard in Resources */,
+				017170FC260AA79800390B74 /* location-loading.json in Resources */,
+				017170FB260AA79800390B74 /* demo3.json in Resources */,
+				01717196260AA7F100390B74 /* LevelTwoViewController.xib in Resources */,
+				0171717D260AA7E500390B74 /* Main.storyboard in Resources */,
+				017170FD260AA79800390B74 /* fetching.json in Resources */,
+				01717191260AA7EE00390B74 /* LevelOneViewController.xib in Resources */,
+				017170F7260AA79800390B74 /* loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1358,7 +1476,99 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0171718B260AA7EA00390B74 /* DetailedViewCell.swift in Sources */,
+				017170E8260AA75300390B74 /* ToggleOnboarding.swift in Sources */,
+				017170A5260AA5D100390B74 /* SettingsController.swift in Sources */,
+				0171715F260AA7D100390B74 /* ErrorViewController.swift in Sources */,
+				0171710D260AA7A100390B74 /* GWFoundation.swift in Sources */,
+				017170E0260AA74F00390B74 /* PrivacyPolicyInfoItem.swift in Sources */,
+				01717134260AA7B100390B74 /* NavigationView.swift in Sources */,
+				01717174260AA7D900390B74 /* OnboardingBaseViewController.swift in Sources */,
+				017170E5260AA75300390B74 /* ToggleMockedResponse.swift in Sources */,
+				0171713F260AA7B400390B74 /* LocationManager.swift in Sources */,
+				0171712C260AA7AE00390B74 /* GWFont.swift in Sources */,
+				017170D7260AA74C00390B74 /* UnitSelectorItem.swift in Sources */,
+				01717179260AA7E500390B74 /* DetailsView.swift in Sources */,
+				017170D0260AA74900390B74 /* HelpItem.swift in Sources */,
+				0171711A260AA7A400390B74 /* LevelOneView.swift in Sources */,
+				0171711F260AA7A800390B74 /* LevelTwoView.swift in Sources */,
+				01717170260AA7D900390B74 /* OnboardingViewControllerLevelTwo.swift in Sources */,
+				017170D1260AA74900390B74 /* DesignerInfoItem.swift in Sources */,
+				017170CF260AA74900390B74 /* DeveloperInfoItem.swift in Sources */,
+				01717187260AA7EA00390B74 /* DetailedViewLayer.swift in Sources */,
+				0171710B260AA7A100390B74 /* Double+Extension.swift in Sources */,
+				01717185260AA7EA00390B74 /* BaseView.swift in Sources */,
+				01717188260AA7EA00390B74 /* HourlyViewCell.swift in Sources */,
+				01717169260AA7D600390B74 /* PersistenceManager.swift in Sources */,
+				01717120260AA7A800390B74 /* HourlyView.swift in Sources */,
+				0171710F260AA7A100390B74 /* NetworkManager.swift in Sources */,
+				0171717A260AA7E500390B74 /* AlertList.swift in Sources */,
+				01717110260AA7A100390B74 /* RequestURL.swift in Sources */,
+				017170CA260AA74200390B74 /* SettingItem.swift in Sources */,
 				0100D7EB24CE1A8300C9F9B5 /* GeekWeather_3Tests.swift in Sources */,
+				0171712E260AA7AE00390B74 /* GWTransition.swift in Sources */,
+				0171712F260AA7AE00390B74 /* Mocks.swift in Sources */,
+				0171719D260AA7F500390B74 /* LevelThreeViewController.swift in Sources */,
+				0171713E260AA7B400390B74 /* NetworkLayer.swift in Sources */,
+				0171717E260AA7E500390B74 /* DetailsViewHostingController.swift in Sources */,
+				0171718A260AA7EA00390B74 /* DetailedFlowLayout.swift in Sources */,
+				017170DF260AA74F00390B74 /* WeatherDataInfoItem.swift in Sources */,
+				017170D6260AA74C00390B74 /* AppIconSettingItem.swift in Sources */,
+				0171716A260AA7D600390B74 /* SearchLocationViewController.swift in Sources */,
+				01717164260AA7D300390B74 /* AppIconSelectionController.swift in Sources */,
+				01717126260AA7AA00390B74 /* LevelThreeView.swift in Sources */,
+				01717119260AA7A400390B74 /* MainPadController.swift in Sources */,
+				01717172260AA7D900390B74 /* OnboardingViewControllerLevelFour.swift in Sources */,
+				01717190260AA7EE00390B74 /* LevelOneViewController.swift in Sources */,
+				017170B6260AA72C00390B74 /* SettingManager.swift in Sources */,
+				01717139260AA7B100390B74 /* View+Extension.swift in Sources */,
+				01717102260AA79B00390B74 /* AppDelegate.swift in Sources */,
+				017171A6260AA82A00390B74 /* Model.xcdatamodeld in Sources */,
+				0171717C260AA7E500390B74 /* AlertHostingController.swift in Sources */,
+				017170DE260AA74F00390B74 /* AboutSettingItem.swift in Sources */,
+				017170ED260AA77600390B74 /* StoryboardManager.swift in Sources */,
+				01717121260AA7A800390B74 /* DailyView.swift in Sources */,
+				01717137260AA7B100390B74 /* RollableTitleView.swift in Sources */,
+				01717136260AA7B100390B74 /* GWAnimationView.swift in Sources */,
+				01717173260AA7D900390B74 /* OnboardingViewControllerLevelOne.swift in Sources */,
+				0171710A260AA7A100390B74 /* Date+Extension.swift in Sources */,
+				01717117260AA7A400390B74 /* ErrorView.swift in Sources */,
+				0171712B260AA7AE00390B74 /* Doouble+Extension.swift in Sources */,
+				017170F2260AA78600390B74 /* MainViewController.swift in Sources */,
+				01717138260AA7B100390B74 /* Array+Extension.swift in Sources */,
+				017170E7260AA75300390B74 /* ResetNumberCalls.swift in Sources */,
+				01717105260AA79B00390B74 /* IntentDemo.swift in Sources */,
+				01717145260AA7B900390B74 /* NotificationManager.swift in Sources */,
+				017170BF260AA73C00390B74 /* SystemSettingsController.swift in Sources */,
+				01717112260AA7A100390B74 /* DataManager.swift in Sources */,
+				017171B0260ABD4C00390B74 /* GeekWether3TestLevels.swift in Sources */,
+				01717189260AA7EA00390B74 /* DailyViewCell.swift in Sources */,
+				01717118260AA7A400390B74 /* iPadMainView.swift in Sources */,
+				01717104260AA79B00390B74 /* SharedUserDefaults.swift in Sources */,
+				0171712D260AA7AE00390B74 /* GWTest.swift in Sources */,
+				01717150260AA7C900390B74 /* DesignerController.swift in Sources */,
+				0171710C260AA7A100390B74 /* Color+Extension.swift in Sources */,
+				0171716B260AA7D600390B74 /* SavedLocationViewController.swift in Sources */,
+				01717140260AA7B400390B74 /* HapticManager.swift in Sources */,
+				0171710E260AA7A100390B74 /* Weather.swift in Sources */,
+				01717111260AA7A100390B74 /* String+Extension.swift in Sources */,
+				01717146260AA7B900390B74 /* NotificationNames.swift in Sources */,
+				01717183260AA7EA00390B74 /* WeatherAlertController.swift in Sources */,
+				017170D9260AA74C00390B74 /* HapticFeedbackController.swift in Sources */,
+				01717197260AA7F100390B74 /* LevelTwoViewController.swift in Sources */,
+				0171717B260AA7E500390B74 /* SmallItemDetailView.swift in Sources */,
+				01717135260AA7B100390B74 /* AccessibilityFactory.swift in Sources */,
+				017170C5260AA74000390B74 /* SettingsTableViewCell.swift in Sources */,
+				01717184260AA7EA00390B74 /* HourlyViewLayer.swift in Sources */,
+				01717155260AA7CC00390B74 /* DeveloperController.swift in Sources */,
+				01717103260AA79B00390B74 /* SceneDelegate.swift in Sources */,
+				017170BE260AA73C00390B74 /* FormatSettingsController.swift in Sources */,
+				017170E6260AA75300390B74 /* DeleteAllSearchItems.swift in Sources */,
+				017170C0260AA73C00390B74 /* CustomAPIController.swift in Sources */,
+				01717186260AA7EA00390B74 /* DailyViewLayer.swift in Sources */,
+				017170D8260AA74C00390B74 /* CusstomAPIKey.swift in Sources */,
+				01717171260AA7D900390B74 /* OnboardingViewControllerLevelThree.swift in Sources */,
+				0171715A260AA7CE00390B74 /* ChangeUnitController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1598,7 +1808,7 @@
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = R986STKYJ7;
 				INFOPLIST_FILE = "GeekWeather 3/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1624,7 +1834,7 @@
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = R986STKYJ7;
 				INFOPLIST_FILE = "GeekWeather 3/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1648,7 +1858,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R986STKYJ7;
 				INFOPLIST_FILE = "GeekWeather 3Tests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1658,7 +1868,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeekWeather 3.app/GeekWeather 3";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeekWeather.app/GeekWeather";
 			};
 			name = Debug;
 		};
@@ -1671,7 +1881,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R986STKYJ7;
 				INFOPLIST_FILE = "GeekWeather 3Tests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1681,7 +1891,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeekWeather 3.app/GeekWeather 3";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeekWeather.app/GeekWeather";
 			};
 			name = Release;
 		};

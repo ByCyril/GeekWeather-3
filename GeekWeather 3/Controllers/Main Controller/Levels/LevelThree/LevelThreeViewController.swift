@@ -20,9 +20,9 @@ final class LevelThreeViewController: BaseView {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var mapView: MKMapView!
     
-    override init(frame: CGRect) {
+    init(frame: CGRect,_ bundle: Bundle = Bundle.main) {
         super.init(frame: frame)
-        let view = Bundle.main.loadNibNamed("LevelThreeViewController", owner: self, options: nil)?.first as! LevelThreeViewController
+        let view = bundle.loadNibNamed("LevelThreeViewController", owner: self, options: nil)?.first as! LevelThreeViewController
         loadXib(view, self)
         layer.masksToBounds = true
 //        mapView.showsUserLocation = true

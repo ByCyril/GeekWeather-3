@@ -18,10 +18,10 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate {
     @IBOutlet var hourlyViewLayer: HourlyViewLayer!
     @IBOutlet var dailyViewLayer: DailyViewLayer!
     
-    override init(frame: CGRect) {
+    init(frame: CGRect,_ bundle: Bundle = .main) {
         super.init(frame: frame)
         
-        let view = Bundle.main.loadNibNamed("LevelTwoViewController", owner: self)!.first as! LevelTwoViewController
+        let view = bundle.loadNibNamed("LevelTwoViewController", owner: self)!.first as! LevelTwoViewController
         loadXib(view, self)
         
         createBlurView()

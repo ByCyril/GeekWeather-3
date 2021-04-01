@@ -10,9 +10,9 @@ import UIKit
 
 final class DetailedViewCell: UICollectionViewCell {
     
-    let firstItemLabel = UILabel()
-    let firstItemValue = UILabel()
-    let container = UIView()
+    let firstItemLabel: UILabel = UILabel()
+    let firstItemValue: UILabel = UILabel()
+    let container: UIView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)

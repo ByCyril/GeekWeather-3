@@ -10,8 +10,8 @@ import UIKit
 
 class BaseView: UIView, NotificationManagerDelegate {
      
-    let notificationManager = NotificationManager()
-    let gradientLayer = CAGradientLayer()
+    let notificationManager: NotificationManager = NotificationManager()
+    let gradientLayer: CAGradientLayer = CAGradientLayer()
     
     var weatherModel: WeatherModel?
     
@@ -19,8 +19,8 @@ class BaseView: UIView, NotificationManagerDelegate {
     
     var searchButton: UIButton?
     var settingsButton: UIButton?
-    
     private var view: UIView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         notificationManager.delegate = self
@@ -60,8 +60,8 @@ class BaseView: UIView, NotificationManagerDelegate {
     func applyAccessibility() {}
     func didRecieve(from notification: NSNotification) {}
     func getContentOffset(_ offset: CGPoint) {}
+    func mainViewController(isScrolling: Bool) {}
     
     @objc func didUpdateValues() {}
     
-    func mainViewController(isScrolling: Bool) {}
 }

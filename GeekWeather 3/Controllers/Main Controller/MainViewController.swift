@@ -51,11 +51,11 @@ extension MainViewController: NetworkLayerDelegate {
 
 final class MainViewController: UIViewController, UIScrollViewDelegate, UIScrollViewAccessibilityDelegate, GWUIHostingControllerDelegate {
     
-    private let notificationManager = NotificationManager()
+    private let notificationManager: NotificationManager = NotificationManager()
     
-    let networkLayer = NetworkLayer()
+    let networkLayer: NetworkLayer = NetworkLayer()
     
-    private let gradientLayer = CAGradientLayer()
+    private let gradientLayer: CAGradientLayer = CAGradientLayer()
     private let shadowOpacity: CGFloat = 0.75
     
     var levelOneViewController: LevelOneViewController?
@@ -68,9 +68,9 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
     
     let theme = UserDefaults.standard.string(forKey: "Theme") ?? "System-"
     
-    private let errorTitleLabel = UILabel()
-    private let errorTextView = UITextView()
-    private let tryAgainButton = UIButton()
+    private let errorTitleLabel: UILabel = UILabel()
+    private let errorTextView: UITextView = UITextView()
+    private let tryAgainButton: UIButton = UIButton()
     
     @IBOutlet var settingsButton: UIButton!
     @IBOutlet var searchButton: UIButton!
@@ -112,7 +112,7 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
     override var prefersHomeIndicatorAutoHidden: Bool {
         return true
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()

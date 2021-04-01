@@ -7,20 +7,24 @@
 //
 
 import XCTest
-@testable import GeekWeather
+//@testable import GeekWeather
 
 class GeekWether3TestLevels: XCTestCase {
 
+    let mockNotification = NSNotification(name: .init(""), object: nil, userInfo: ["weatherModel": Mocks.mock()])
+    
+    override func setUp() {
+        
+    }
+    
     func testLevelOne() {
         
         let bundle = Bundle(for: self.classForCoder)
-        
         let levelOne = LevelOneViewController(frame: .zero, bundle)
-        let mock = Mocks.mock()
-        let mockNotification = NSNotification(name: .init(""), object: nil, userInfo: ["weatherModel": mock])
         
         levelOne.didRecieve(from: mockNotification)
         XCTAssertEqual(levelOne.tempLabel.text, "71°")
+        
         
     }
 }

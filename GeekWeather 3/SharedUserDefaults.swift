@@ -11,16 +11,16 @@ import Foundation
 let sharedUserDefaults = UserDefaults(suiteName: SharedUserDefaults.suiteName)
 
 struct SharedUserDefaults {
-    static let suiteName = "group.com.ByCyril.GeekWeather-2"
+    static let suiteName: String = "group.com.ByCyril.GeekWeather-2"
     
     struct Keys {
-        static let is24Hour = "is24Hour"
-        static let Units = "Units"
-        static let Temperature = "Temperature"
-        static let ExistingUser = "ExistingUser"
-        static let LastUpdated = "LastUpdated"
-        static let DefaultLocation = "DefaultLocation"
-        static let WidgetDefaultLocation = "WidgetDefaultLocation"
-        static let WidgetLastUpdated = "WidgetLastUpdated"
+        static let is24Hour: String = "is24Hour"
+        static let Units: String = "Units"
+        static let Temperature: String = "Temperature"
+        static let ExistingUser: String = "ExistingUser"
+        static let LastUpdated: String = "LastUpdated"
+        static let DefaultLocation: String = "DefaultLocation"
+        static let WidgetDefaultLocation: String = "WidgetDefaultLocation"
+        static let WidgetLastUpdated: String = "WidgetLastUpdated"
     }
 }

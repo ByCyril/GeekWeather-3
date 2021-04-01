@@ -10,6 +10,7 @@ import UIKit
 
 final class SettingsController: UITableViewController {
     
+//    viewModel
     private var settingManager: SettingManagerProtocol
     
     init(_ settingManager: SettingManagerProtocol = SettingManager()) {

@@ -7,10 +7,10 @@
 //
 
 import XCTest
-@testable import GeekWeather
+//@testable import GeekWeather
 
 class GeekWeather_3Tests: XCTestCase {
-
+  
     func testSettingsController() {
         
         let settingsController = SettingsController()
@@ -20,16 +20,10 @@ class GeekWeather_3Tests: XCTestCase {
         XCTAssertEqual(settingsController.tableView.numberOfRows(inSection: 2), 3)
         
     }
-
+    
     class MockSetttingsManager: SettingManagerProtocol {
-        var sections: [SectionItem]
-        
-        var cells: [CellType]
-        
-        init() {
-            sections = [MockSectionItem("FirstItem"),MockSectionItem("SecondItem"),MockSectionItem("ThirdItem")]
-            cells = [CellType(cell: UITableViewCell.self, id: "cell")]
-        }
+        var sections: [SectionItem] = [MockSectionItem("FirstItem"),MockSectionItem("SecondItem"),MockSectionItem("ThirdItem")]
+        var cells: [CellType] = [CellType(cell: UITableViewCell.self, id: "cell")]
         
         func cellRegistration(to tableView: UITableView) {
             cells.forEach { (cell) in
@@ -74,6 +68,4 @@ class GeekWeather_3Tests: XCTestCase {
         XCTAssertEqual(settingsController.tableView.numberOfSections, 3)
         
     }
-    
-
 }

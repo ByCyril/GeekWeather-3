@@ -212,12 +212,13 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
     }
     
     func createGradient() {
-        gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor(named: theme + "GradientTopColor")!.cgColor,
-                                UIColor(named: theme + "GradientBottomColor")!.cgColor]
-        
-        view.layer.insertSublayer(gradientLayer, at: 0)
-        view.setNeedsDisplay()
+        view.backgroundColor = UIColor(named: "demo-background")!
+//        gradientLayer.frame = view.bounds
+//        gradientLayer.colors = [UIColor(named: theme + "GradientTopColor")!.cgColor,
+//                                UIColor(named: theme + "GradientBottomColor")!.cgColor]
+//
+//        view.layer.insertSublayer(gradientLayer, at: 0)
+//        view.setNeedsDisplay()
     }
     
     func createErrorView(errorTitle: String, _ errorDetails: String) {

@@ -43,7 +43,7 @@ struct TodayViewMedium: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color("System-GradientTopColor"),Color("System-GradientBottomColor")]), startPoint: .top, endPoint: .bottom)
+            Color("demo-background").ignoresSafeArea()
             
             VStack(spacing: 0) {
                 HStack(spacing: 0) {

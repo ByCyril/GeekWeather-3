@@ -55,7 +55,7 @@ struct DetailsView: View {
                 
             }.padding()
             
-        }.background(LinearGradient(gradient: Gradient(colors: [Color("System-GradientTopColor"),Color("System-GradientBottomColor")]), startPoint: .topLeading, endPoint: .bottomTrailing)).foregroundColor(.white).cornerRadius(25).shadow(radius: 5)
+        }.background(Color("demo-background")).foregroundColor(.white).cornerRadius(25).shadow(radius: 5)
         
     }
 }

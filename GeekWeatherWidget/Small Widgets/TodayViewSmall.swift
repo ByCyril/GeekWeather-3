@@ -15,8 +15,7 @@ struct TodayViewSmall: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color("System-GradientTopColor"),Color("System-GradientBottomColor")]), startPoint: .top, endPoint: .bottom)
-
+            Color("demo-background").ignoresSafeArea()
             VStack {
                 Spacer()
                 Text(entry.weatherModel.location).font(Font.custom("AvenirNext-Medium", size: 15)).foregroundColor(.white)

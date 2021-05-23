@@ -15,8 +15,7 @@ struct DetailedSmallView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color("System-GradientTopColor"),Color("System-GradientBottomColor")]), startPoint: .top, endPoint: .bottom)
-            
+            Color("demo-background").ignoresSafeArea()
             VStack {
                 Text(entry.weatherModel.location).font(Font.custom("AvenirNext-Medium", size: 12)).foregroundColor(.white).padding(.top)
                 Spacer()
@@ -64,6 +63,6 @@ struct DetailedSmallView_Previews: PreviewProvider {
     static var previews: some View {
         DetailedSmallView(entry: .stub)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
-            .environment(\.colorScheme, .light)
+            .environment(\.colorScheme, .dark)
     }
 }

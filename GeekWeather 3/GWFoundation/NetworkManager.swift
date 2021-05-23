@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Combine
+
 
 public protocol URLSessionProtocol {
     func dataTaskWithUrl(_ url: RequestURL, completion: @escaping (Data?, URLResponse?, Error?) -> Void)
@@ -31,12 +33,15 @@ public protocol NetworkManagerDelegate: AnyObject {
 }
 
 final public class NetworkManager {
+
+    @Published var weatherModel: WeatherModel?
     
     public var session: URLSessionProtocol?
+    private var mockData: Data?
     
     private weak var delegate: NetworkManagerDelegate?
     
-    private var mockData: Data?
+    private var anyCancellable: AnyCancellable?
     
     public init() {
         let config = URLSessionConfiguration.default
@@ -90,6 +95,19 @@ final public class NetworkManager {
             }
         }
         task?.resume()
+    }
+    
+    public func fetchP(_ url: RequestURL) {
+        let url = url.url
+        anyCancellable = URLSession.shared.dataTaskPublisher(for: url).tryMap { (data, response) in
+            return data
+        }.decode(type: WeatherModel.self, decoder: JSONDecoder()).receive(on: DispatchQueue.main)
+        .sink { (_) in
+            
+        } receiveValue: { (weather) in
+            self.weatherModel = weather
+        }
+
     }
     
     public func fetch(_ url: RequestURL,_ completion: @escaping (WeatherModel?, Error?) -> Void) {

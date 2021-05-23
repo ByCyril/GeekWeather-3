@@ -146,7 +146,6 @@
 		017170ED260AA77600390B74 /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01190995259D8C7B00EE1C0F /* StoryboardManager.swift */; };
 		017170F2260AA78600390B74 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */; };
 		017170F7260AA79800390B74 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 018F66D125A6F5F700FFC539 /* loading.json */; };
-		017170F8260AA79800390B74 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 01F20C1C25C2577F00672211 /* preview.json */; };
 		017170F9260AA79800390B74 /* denied.json in Resources */ = {isa = PBXBuildFile; fileRef = 0157E8E0259144270026706D /* denied.json */; };
 		017170FA260AA79800390B74 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 01FCE337258B21E200C841C8 /* demo.json */; };
 		017170FB260AA79800390B74 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
@@ -274,6 +273,14 @@
 		01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF024EFA9A10081C90F /* Array+Extension.swift */; };
 		01B1BEF324EFAD500081C90F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1BEF224EFAD500081C90F /* View+Extension.swift */; };
 		01B5989625BE9EF70097C4A4 /* DetailsViewHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B5989525BE9EF70097C4A4 /* DetailsViewHostingController.swift */; };
+		01B720E12633F7E400F33386 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 01B720E02633F7E400F33386 /* preview.json */; };
+		01B720E22633F7E400F33386 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 01B720E02633F7E400F33386 /* preview.json */; };
+		01B720E32633F7E400F33386 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 01B720E02633F7E400F33386 /* preview.json */; };
+		01B720E42633F7E400F33386 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 01B720E02633F7E400F33386 /* preview.json */; };
+		01B720E52633F7E400F33386 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 01B720E02633F7E400F33386 /* preview.json */; };
+		01B720FA2633FB3900F33386 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
+		01B720FF2633FB3900F33386 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
+		01B721002633FB3A00F33386 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0100D7DC24CE1A8300C9F9B5 /* Assets.xcassets */; };
 		01B9487C259A654400884150 /* HourlyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487B259A654400884150 /* HourlyViewCell.swift */; };
 		01B94880259A687200884150 /* DailyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9487F259A687200884150 /* DailyViewCell.swift */; };
 		01BE6C85259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */; };
@@ -288,9 +295,6 @@
 		01E3B56C259EE9130099F212 /* Doouble+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D00821259EE28E00032D17 /* Doouble+Extension.swift */; };
 		01E51A7625BD7DA700B0BBD3 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E51A7525BD7DA700B0BBD3 /* ErrorView.swift */; };
 		01E65B2024F19D9400D8F76F /* ChangeUnitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */; };
-		01F20C1D25C2577F00672211 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 01F20C1C25C2577F00672211 /* preview.json */; };
-		01F20C1E25C2577F00672211 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 01F20C1C25C2577F00672211 /* preview.json */; };
-		01F20C1F25C2577F00672211 /* preview.json in Resources */ = {isa = PBXBuildFile; fileRef = 01F20C1C25C2577F00672211 /* preview.json */; };
 		01F431DC259E288600B0D44F /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */; };
 		01F431EE259E76A300B0D44F /* SystemSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431ED259E76A300B0D44F /* SystemSettingsController.swift */; };
 		01F4CD2D25A119EE00A52971 /* MainPadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F4CD2C25A119EE00A52971 /* MainPadController.swift */; };
@@ -521,6 +525,7 @@
 		01B1BEF024EFA9A10081C90F /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		01B1BEF224EFAD500081C90F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		01B5989525BE9EF70097C4A4 /* DetailsViewHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewHostingController.swift; sourceTree = "<group>"; };
+		01B720E02633F7E400F33386 /* preview.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = preview.json; sourceTree = "<group>"; };
 		01B9487B259A654400884150 /* HourlyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyViewCell.swift; sourceTree = "<group>"; };
 		01B9487F259A687200884150 /* DailyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyViewCell.swift; sourceTree = "<group>"; };
 		01BE6C84259ACCCE000016CA /* OnboardingViewControllerLevelOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewControllerLevelOne.swift; sourceTree = "<group>"; };
@@ -533,7 +538,6 @@
 		01D28B4625B6C6F7005CD583 /* HourlyViewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyViewLayer.swift; sourceTree = "<group>"; };
 		01E51A7525BD7DA700B0BBD3 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUnitController.swift; sourceTree = "<group>"; };
-		01F20C1C25C2577F00672211 /* preview.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = preview.json; path = ../../../../../../Desktop/preview.json; sourceTree = "<group>"; };
 		01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBaseViewController.swift; sourceTree = "<group>"; };
 		01F431ED259E76A300B0D44F /* SystemSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettingsController.swift; sourceTree = "<group>"; };
 		01F4CD2C25A119EE00A52971 /* MainPadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPadController.swift; sourceTree = "<group>"; };
@@ -1018,7 +1022,7 @@
 			isa = PBXGroup;
 			children = (
 				010370B225BB87C6000327AC /* GeekWeather 3.entitlements */,
-				01F20C1C25C2577F00672211 /* preview.json */,
+				01B720E02633F7E400F33386 /* preview.json */,
 				01FCE337258B21E200C841C8 /* demo.json */,
 				01328D4025B7D45500E29B31 /* demo3.json */,
 				0157E8E0259144270026706D /* denied.json */,
@@ -1239,6 +1243,7 @@
 				018F66D325A6F5F700FFC539 /* loading.json in Resources */,
 				01190992259D8BEA00EE1C0F /* Settings.storyboard in Resources */,
 				01844A1C24F22646000B0D52 /* LevelTwoViewController.xib in Resources */,
+				01B720E12633F7E400F33386 /* preview.json in Resources */,
 				01328D2B25B7A12C00E29B31 /* fetching.json in Resources */,
 				01844A1824F2219F000B0D52 /* LevelOneViewController.xib in Resources */,
 				0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */,
@@ -1247,7 +1252,6 @@
 				01844A1624F22113000B0D52 /* Main.storyboard in Resources */,
 				0157E8E3259144270026706D /* denied.json in Resources */,
 				0100D7DD24CE1A8300C9F9B5 /* Assets.xcassets in Resources */,
-				01F20C1D25C2577F00672211 /* preview.json in Resources */,
 				01FCE338258B21E200C841C8 /* demo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1258,10 +1262,11 @@
 			files = (
 				0171719C260AA7F500390B74 /* LevelThreeViewController.xib in Resources */,
 				017170F9260AA79800390B74 /* denied.json in Resources */,
-				017170F8260AA79800390B74 /* preview.json in Resources */,
+				01B720E22633F7E400F33386 /* preview.json in Resources */,
 				017170FA260AA79800390B74 /* demo.json in Resources */,
 				0171714B260AA7BE00390B74 /* Settings.storyboard in Resources */,
 				017170FC260AA79800390B74 /* location-loading.json in Resources */,
+				01B721002633FB3A00F33386 /* Assets.xcassets in Resources */,
 				017170FB260AA79800390B74 /* demo3.json in Resources */,
 				01717196260AA7F100390B74 /* LevelTwoViewController.xib in Resources */,
 				0171717D260AA7E500390B74 /* Main.storyboard in Resources */,
@@ -1279,7 +1284,7 @@
 				0198005D25B8067D00600DC3 /* demo3.json in Resources */,
 				0103B847259449E9008577FD /* Assets.xcassets in Resources */,
 				0145C66925BFCECB00EF1AA4 /* Assets.xcassets in Resources */,
-				01F20C1E25C2577F00672211 /* preview.json in Resources */,
+				01B720E32633F7E400F33386 /* preview.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1288,6 +1293,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0186EA1B25BB859000CCD3A2 /* demo3.json in Resources */,
+				01B720E42633F7E400F33386 /* preview.json in Resources */,
+				01B720FF2633FB3900F33386 /* Assets.xcassets in Resources */,
 				0186E9B725BB81D600CCD3A2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1298,8 +1305,9 @@
 			files = (
 				0186E9D025BB81D600CCD3A2 /* Preview Assets.xcassets in Resources */,
 				0186E9CD25BB81D600CCD3A2 /* Assets.xcassets in Resources */,
-				01F20C1F25C2577F00672211 /* preview.json in Resources */,
 				0186EA1525BB858F00CCD3A2 /* demo3.json in Resources */,
+				01B720E52633F7E400F33386 /* preview.json in Resources */,
+				01B720FA2633FB3900F33386 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

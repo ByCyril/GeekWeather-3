@@ -95,25 +95,7 @@ class TodayViewTimelineProvider: TimelineProvider {
                                                hourly: data.hourly,
                                                daily: data.daily)
                 
-                
-                
-                var foundOne = false
-                
-                for i in 1..<5 {
-                    let icon = model.hourly[i].weather.first!.icon
-                    
-                    if icon == "sunset" || icon == "sunrise" {
-                        foundOne = true
-                    }
-                }
-                
                 sharedUserDefaults?.setValue(Date(), forKey: SharedUserDefaults.Keys.WidgetLastUpdated)
-                
-                if foundOne {
-                    let entry = WeatherEntry(date: Date(), weatherModel: model, numberOfHourlyItems: 4)
-                    completion(.success(entry))
-                    return
-                }
                 
                 let entry = WeatherEntry(date: Date(), weatherModel: model)
                 completion(.success(entry))

@@ -27,7 +27,7 @@ struct WeatherEntry: TimelineEntry {
     var date: Date
     var weatherModel: WidgetWeatherModel
     var isPlaceholder = false
-    var numberOfHourlyItems = 5
+    var numberOfHourlyItems = 4
 }
 
 extension WeatherEntry {

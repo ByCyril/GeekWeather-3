@@ -32,7 +32,7 @@ struct DetailedSmallView: View {
                         .foregroundColor(.white)
                 }
                 Spacer()
-                HStack(alignment: .center, spacing: 10) {
+                HStack(alignment: .center, spacing: 14) {
                     if let hourly = entry.weatherModel.hourly {
                         
                         ForEach(1..<entry.numberOfHourlyItems) { i in

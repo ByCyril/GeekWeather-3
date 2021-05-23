@@ -97,6 +97,7 @@
 		01328D3925B7BD1000E29B31 /* DetailedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D3825B7BD1000E29B31 /* DetailedFlowLayout.swift */; };
 		01328D4125B7D45500E29B31 /* demo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 01328D4025B7D45500E29B31 /* demo3.json */; };
 		01328D4525B7D66200E29B31 /* WeatherAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01328D4425B7D66200E29B31 /* WeatherAlertController.swift */; };
+		013A1C86265A1A73001FF1C1 /* InteractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013A1C85265A1A73001FF1C1 /* InteractionManager.swift */; };
 		0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */; };
 		0141F60425BD4378001931C3 /* ComplicationForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141F60325BD4378001931C3 /* ComplicationForecastView.swift */; };
 		01430F31259B1EFA00D67245 /* ToggleOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */; };
@@ -458,6 +459,7 @@
 		01328D3825B7BD1000E29B31 /* DetailedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedFlowLayout.swift; sourceTree = "<group>"; };
 		01328D4025B7D45500E29B31 /* demo3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo3.json; sourceTree = "<group>"; };
 		01328D4425B7D66200E29B31 /* WeatherAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAlertController.swift; sourceTree = "<group>"; };
+		013A1C85265A1A73001FF1C1 /* InteractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionManager.swift; sourceTree = "<group>"; };
 		0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelThreeViewController.swift; sourceTree = "<group>"; };
 		0141F60325BD4378001931C3 /* ComplicationForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationForecastView.swift; sourceTree = "<group>"; };
 		01430F30259B1EFA00D67245 /* ToggleOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleOnboarding.swift; sourceTree = "<group>"; };
@@ -716,6 +718,7 @@
 			children = (
 				01844A1524F22113000B0D52 /* Main.storyboard */,
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
+				013A1C85265A1A73001FF1C1 /* InteractionManager.swift */,
 				01228FFF25BE54C500FD47BA /* DetailsView.swift */,
 				0145C67725BFE6ED00EF1AA4 /* SmallItemDetailView.swift */,
 				01B5989525BE9EF70097C4A4 /* DetailsViewHostingController.swift */,
@@ -1460,6 +1463,7 @@
 				0100D7D424CE1A8200C9F9B5 /* AppDelegate.swift in Sources */,
 				01042C2A24EC8AB00090B349 /* SettingsController.swift in Sources */,
 				0100D80224CE46A200C9F9B5 /* NotificationNames.swift in Sources */,
+				013A1C86265A1A73001FF1C1 /* InteractionManager.swift in Sources */,
 				0141EB8224F19C3F0018D09F /* LevelThreeViewController.swift in Sources */,
 				01430F31259B1EFA00D67245 /* ToggleOnboarding.swift in Sources */,
 				017B9F0E25930A4A007AB956 /* DeveloperController.swift in Sources */,

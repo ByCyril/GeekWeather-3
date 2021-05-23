@@ -30,6 +30,8 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         let view = bundle.loadNibNamed("LevelOneViewController", owner: self)!.first as! LevelOneViewController
         loadXib(view, self)
         
+        layer.frame.size = CGSize(width: view.frame.width, height: view.frame.width)
+//        layer.frame.origin = CGPoint(x: -view.frame.width / 2, y: 0)
         createBlurView()
         
         titleLabel.numberOfLines = 2

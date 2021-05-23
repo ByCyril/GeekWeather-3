@@ -61,10 +61,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func sceneWillEnterForeground(_ scene: UIScene) {
         
-//        mainViewController?.levelOneViewController?.shrink()
-//        mainViewController?.networkLayer.cache.removeAllObjects()
-//        mainViewController?.networkLayer.fetch()
-//
         guard let lastUpdate = UserDefaults.standard.value(forKey: SharedUserDefaults.Keys.LastUpdated) as? Date else { return }
 
         let differenceInSeconds = abs(lastUpdate.timeIntervalSince(Date()))
@@ -83,10 +79,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UserDefaults.standard.setValue(nil, forKey: SharedUserDefaults.Keys.LastUpdated)        
     }
 
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        mainViewController?.scrollToTop()
-    }
-    
+    func sceneDidEnterBackground(_ scene: UIScene) {}
     func sceneDidBecomeActive(_ scene: UIScene) { }
     func sceneWillResignActive(_ scene: UIScene) { }
 

@@ -99,7 +99,7 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
                                firstItemValue: current.pressure.stringRound() + " hPa",
                                height: 165)
         
-        detailsData = [itemOne, itemThree, itemTwo, itemFour, itemFive, itemSix, itemSeven, itemEight, itemNine, itemTen]
+        detailsData = [itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, itemSeven, itemEight, itemNine, itemTen]
         reloadData()
     }
     

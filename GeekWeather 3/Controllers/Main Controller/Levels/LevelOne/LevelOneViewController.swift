@@ -11,19 +11,12 @@ import Lottie
 
 final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout {
    
-    private var animationView: AnimationView!
-    
+    @IBOutlet var animationView: AnimationView!
     @IBOutlet var containerView: UIView!
-    
     @IBOutlet var tempLabel: UILabel!
-    @IBOutlet var summaryLabel: UILabel!
-    @IBOutlet var commentLabel: UILabel!
-    @IBOutlet var iconView: UIImageView!
     @IBOutlet var detailedViewLayer: DetailedViewLayer!
-    @IBOutlet var titleLabel: UILabel!
-    
-    @IBOutlet var tempIconContainer: UIStackView!
-    
+    @IBOutlet var locationLabel: UILabel!
+        
     init(frame: CGRect,_ bundle: Bundle = Bundle.main) {
         super.init(frame: frame)
         
@@ -31,11 +24,13 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         loadXib(view, self)
         
         createBlurView()
-        
+        animationView.loopMode = .autoReverse
+        animationView.backgroundColor = .clear
+        animationView.animationSpeed = 1.5
 //        titleLabel.numberOfLines = 2
 //        titleLabel.adjustsFontSizeToFitWidth = true
 
-        tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
+//        tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
 //        summaryLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: summaryLabel.font)
     
         [tempLabel].forEach { (element) in
@@ -54,8 +49,14 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     override func didRecieve(from notification: NSNotification) {
         if let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel {
             self.weatherModel = weatherModel
+            
+            animationView.play()
             displayData(weatherModel.current)
             detailedViewLayer.populate(weatherModel)
+        }
+        
+        if let location = notification.userInfo?["location"] as? String {
+            locationLabel.text = location
         }
     }
     
@@ -63,11 +64,9 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         guard let currentWeatherData = weatherModel?.current else { return }
         tempLabel.text = currentWeatherData.temp.kelvinToSystemFormat()
         
-        let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? ""
-        let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? ""
-        
-        summaryLabel.text = (currentWeatherData.weather.first?.description.capitalized)! + "\n⬆︎\(high)  ⬇︎\(low)"
-                
+//        let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? ""
+//        let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? ""
+                        
         detailedViewLayer.update()
     }
     
@@ -75,13 +74,13 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         
         tempLabel.text = currentWeatherData.temp.kelvinToSystemFormat()
         
-        let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? "na"
-        let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? "na"
+//        let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? "na"
+//        let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? "na"
         
 //        summaryLabel.text = (currentWeatherData.weather.first?.description.capitalized)! + "\n⬆︎\(high)  ⬇︎\(low)"
 //        summaryLabel.numberOfLines = 0
 
-        iconView.image = UIImage(named: currentWeatherData.weather.first!.icon)
+//        iconView.image = UIImage(named: currentWeatherData.weather.first!.icon)
         
         showElements()
         
@@ -89,38 +88,18 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     }
     
     func showElements() {
-        print("Triggered",#function)
-        var elementsRowOne = [iconView, tempLabel]
-        var elementsRowTwo = [summaryLabel]
-        var a: Double = 0
-        
-        while !elementsRowOne.isEmpty {
-            let element = elementsRowOne.removeFirst()
-            a += 0.15
-            UIView.animate(withDuration: 0.4, delay: a, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.9, options: .curveEaseInOut) {
-                element?.alpha = 1
-                element?.transform = .identity
-            }
-        }
-        
-        var b: Double = 0.05
-        while !elementsRowTwo.isEmpty {
-            let element = elementsRowTwo.removeFirst()
-            b += 0.15
-            UIView.animate(withDuration: 0.4, delay: b, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.9, options: .curveEaseInOut) {
-                element?.alpha = 1
-                element?.transform = .identity
-            }
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.9, options: .curveEaseInOut) { [weak self] in
+            self?.tempLabel.alpha = 1
+            self?.tempLabel.transform = .identity
         }
         detailedViewLayer.update()
         detailedViewLayer.alpha = 1
     }
 
     func shrink() {
-        print("Triggered",#function)
         detailedViewLayer.d = 0
         
-        [tempLabel, summaryLabel, iconView].forEach { (element) in
+        [tempLabel].forEach { (element) in
             element?.alpha = 0
             element?.transform = .init(scaleX: 0.01, y: 0.01)
         }
@@ -129,13 +108,11 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     func accessibilityElements() {
         tempLabel.isAccessibilityElement = false
 //        tempLabel.applyAccessibility(with: "Current Temperature", and: tempLabel.text, trait: .staticText)
-        let icon = weatherModel?.current.weather.first?.main ?? ""
-        let temp = tempLabel.text ?? ""
+//        let icon = weatherModel?.current.weather.first?.main ?? ""
+//        let temp = tempLabel.text ?? ""
         
-        tempIconContainer.applyAccessibility(with: "Current Weather Condition", and: "\(icon), \(temp)", trait: .staticText)
-        summaryLabel.applyAccessibility(with: "Weather description", and: summaryLabel.text ?? "", trait: .staticText)
-        let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? ""
-        let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? ""
+//        let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? ""
+//        let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? ""
         
 //        commentLabel.applyAccessibility(with: "High and Low temperatures for the day", and: "High of \(high), and a low of \(low)", trait: .staticText)
     }

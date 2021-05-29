@@ -1,26 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "Broken.clouds-01 2-1.png",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ],
-      "filename" : "Broken.clouds-01 2-2.png",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
       "filename" : "Broken.clouds-1.png",
       "idiom" : "universal"
     }

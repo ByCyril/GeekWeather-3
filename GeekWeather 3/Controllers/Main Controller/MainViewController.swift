@@ -25,8 +25,8 @@ extension MainViewController: NetworkLayerDelegate {
         }
         
         removeErrorItems()
-//        levelOneViewController?.titleLabel.text = location
-        notificationManager.post(data: ["weatherModel": weatherModel],
+
+        notificationManager.post(data: ["weatherModel": weatherModel, "location": location],
                                  to: NotificationName.observerID("weatherModel"))
         
     }

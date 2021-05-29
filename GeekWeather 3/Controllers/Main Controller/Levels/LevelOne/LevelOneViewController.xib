@@ -10,10 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LevelOneViewController" customModule="GeekWeather" customModuleProvider="target">
             <connections>
+                <outlet property="animationView" destination="2Bi-Hb-O2o" id="CPo-A8-Yhu"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="ZGl-Nj-vbC"/>
                 <outlet property="detailedViewLayer" destination="Ogh-tL-8Ml" id="ofA-an-fXF"/>
-                <outlet property="iconView" destination="eDq-ea-meq" id="6F2-0n-bto"/>
-                <outlet property="tempIconContainer" destination="CTP-k3-ISq" id="8dE-Vk-tv8"/>
+                <outlet property="locationLabel" destination="JUd-Am-nhr" id="R8w-jx-flg"/>
                 <outlet property="tempLabel" destination="qkq-Va-aH5" id="QCp-bS-sZw"/>
             </connections>
         </placeholder>
@@ -23,21 +23,29 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ogh-tL-8Ml" customClass="DetailedViewLayer" customModule="GeekWeather" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="253" width="390" height="591"/>
+                    <rect key="frame" x="0.0" y="255" width="390" height="589"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewLayout key="collectionViewLayout" id="g6o-qB-ck5" customClass="DetailedFlowLayout" customModule="GeekWeather" customModuleProvider="target"/>
                 </collectionView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="swV-l8-trl">
-                    <rect key="frame" x="35" y="95" width="315" height="150"/>
+                    <rect key="frame" x="35" y="119" width="315" height="128"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="CTP-k3-ISq">
-                            <rect key="frame" x="0.0" y="0.0" width="315" height="150"/>
+                            <rect key="frame" x="0.0" y="0.0" width="315" height="128"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eDq-ea-meq">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                </imageView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Bi-Hb-O2o" customClass="AnimationView" customModule="Lottie">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="128"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="128" id="AbV-P6-jZU"/>
+                                        <constraint firstAttribute="width" constant="150" id="zgY-hM-Pbb"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="rain"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkq-Va-aH5">
-                                    <rect key="frame" x="165" y="50" width="150" height="50"/>
+                                    <rect key="frame" x="165" y="39" width="150" height="50"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="75"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -47,15 +55,24 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUd-Am-nhr">
+                    <rect key="frame" x="195" y="61" width="0.0" height="50"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Ogh-tL-8Ml" secondAttribute="bottom" id="6Ng-PH-VBv"/>
-                <constraint firstItem="swV-l8-trl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="51" id="84U-Nt-BXi"/>
+                <constraint firstItem="swV-l8-trl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="75" id="84U-Nt-BXi"/>
                 <constraint firstItem="Ogh-tL-8Ml" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Anx-y4-kEb"/>
+                <constraint firstItem="JUd-Am-nhr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="17" id="E8U-6o-DoG"/>
+                <constraint firstItem="JUd-Am-nhr" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="IZ3-Rn-qKf"/>
                 <constraint firstItem="Ogh-tL-8Ml" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="UsC-KD-gHa"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="swV-l8-trl" secondAttribute="trailing" constant="40" id="dA2-Nf-akN"/>
+                <constraint firstItem="CTP-k3-ISq" firstAttribute="top" secondItem="JUd-Am-nhr" secondAttribute="bottom" constant="8" symbolic="YES" id="hKh-UV-I5h"/>
                 <constraint firstItem="Ogh-tL-8Ml" firstAttribute="top" secondItem="swV-l8-trl" secondAttribute="bottom" constant="8" symbolic="YES" id="lPs-5B-9be"/>
                 <constraint firstItem="swV-l8-trl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="35" id="rOf-oa-wq2"/>
             </constraints>

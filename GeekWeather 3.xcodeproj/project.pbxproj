@@ -224,6 +224,11 @@
 		0171719D260AA7F500390B74 /* LevelThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141EB8124F19C3F0018D09F /* LevelThreeViewController.swift */; };
 		017171A6260AA82A00390B74 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01430F35259BF4DB00D67245 /* Model.xcdatamodeld */; };
 		017171B0260ABD4C00390B74 /* GeekWether3TestLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017171AF260ABD4C00390B74 /* GeekWether3TestLevels.swift */; };
+		017673EB2662D7E800312424 /* sun.json in Resources */ = {isa = PBXBuildFile; fileRef = 017673EA2662D7E800312424 /* sun.json */; };
+		017673ED2662D91900312424 /* clouds.json in Resources */ = {isa = PBXBuildFile; fileRef = 017673EC2662D91900312424 /* clouds.json */; };
+		017673EF2662DF0D00312424 /* brokenclouds.json in Resources */ = {isa = PBXBuildFile; fileRef = 017673EE2662DEEA00312424 /* brokenclouds.json */; };
+		017673F12662DF3900312424 /* moon.json in Resources */ = {isa = PBXBuildFile; fileRef = 017673F02662DF2F00312424 /* moon.json */; };
+		017673F52662DFCC00312424 /* rain.json in Resources */ = {isa = PBXBuildFile; fileRef = 017673F42662DFCC00312424 /* rain.json */; };
 		017B9F0E25930A4A007AB956 /* DeveloperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017B9F0D25930A4A007AB956 /* DeveloperController.swift */; };
 		018079CA258DB3B200C88E0E /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018079C9258DB3B200C88E0E /* NavigationView.swift */; };
 		018079CF258DBE5A00C88E0E /* RollableTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018079CE258DBE5A00C88E0E /* RollableTitleView.swift */; };
@@ -481,6 +486,11 @@
 		0169434024E244B2006A7FAA /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		016C382B25BB73AF00000888 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		017171AF260ABD4C00390B74 /* GeekWether3TestLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekWether3TestLevels.swift; sourceTree = "<group>"; };
+		017673EA2662D7E800312424 /* sun.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sun.json; sourceTree = "<group>"; };
+		017673EC2662D91900312424 /* clouds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clouds.json; sourceTree = "<group>"; };
+		017673EE2662DEEA00312424 /* brokenclouds.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = brokenclouds.json; sourceTree = "<group>"; };
+		017673F02662DF2F00312424 /* moon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = moon.json; sourceTree = "<group>"; };
+		017673F42662DFCC00312424 /* rain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rain.json; sourceTree = "<group>"; };
 		017B9F0D25930A4A007AB956 /* DeveloperController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperController.swift; sourceTree = "<group>"; };
 		018079C9258DB3B200C88E0E /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		018079CE258DBE5A00C88E0E /* RollableTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollableTitleView.swift; sourceTree = "<group>"; };
@@ -621,6 +631,7 @@
 		0100D7D224CE1A8200C9F9B5 /* GeekWeather 3 */ = {
 			isa = PBXGroup;
 			children = (
+				017673E92662D73200312424 /* AnimationFiles */,
 				0186E9F625BB844900CCD3A2 /* JSON Files */,
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
@@ -942,6 +953,18 @@
 			path = "Medium Widgets";
 			sourceTree = "<group>";
 		};
+		017673E92662D73200312424 /* AnimationFiles */ = {
+			isa = PBXGroup;
+			children = (
+				017673EC2662D91900312424 /* clouds.json */,
+				017673EA2662D7E800312424 /* sun.json */,
+				017673EE2662DEEA00312424 /* brokenclouds.json */,
+				017673F02662DF2F00312424 /* moon.json */,
+				017673F42662DFCC00312424 /* rain.json */,
+			);
+			path = AnimationFiles;
+			sourceTree = "<group>";
+		};
 		01844A1A24F22633000B0D52 /* LevelOne */ = {
 			isa = PBXGroup;
 			children = (
@@ -1235,16 +1258,21 @@
 			files = (
 				01844A1F24F226B5000B0D52 /* LevelThreeViewController.xib in Resources */,
 				018F66D325A6F5F700FFC539 /* loading.json in Resources */,
+				017673F12662DF3900312424 /* moon.json in Resources */,
 				01190992259D8BEA00EE1C0F /* Settings.storyboard in Resources */,
 				01844A1C24F22646000B0D52 /* LevelTwoViewController.xib in Resources */,
 				01B720E12633F7E400F33386 /* preview.json in Resources */,
 				01328D2B25B7A12C00E29B31 /* fetching.json in Resources */,
 				01844A1824F2219F000B0D52 /* LevelOneViewController.xib in Resources */,
+				017673EF2662DF0D00312424 /* brokenclouds.json in Resources */,
 				0100D7E024CE1A8300C9F9B5 /* LaunchScreen.storyboard in Resources */,
+				017673EB2662D7E800312424 /* sun.json in Resources */,
 				01328D4125B7D45500E29B31 /* demo3.json in Resources */,
 				018F66D425A6F5F700FFC539 /* location-loading.json in Resources */,
 				01844A1624F22113000B0D52 /* Main.storyboard in Resources */,
 				0157E8E3259144270026706D /* denied.json in Resources */,
+				017673F52662DFCC00312424 /* rain.json in Resources */,
+				017673ED2662D91900312424 /* clouds.json in Resources */,
 				0100D7DD24CE1A8300C9F9B5 /* Assets.xcassets in Resources */,
 				01FCE338258B21E200C841C8 /* demo.json in Resources */,
 			);

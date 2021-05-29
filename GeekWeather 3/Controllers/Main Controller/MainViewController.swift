@@ -25,7 +25,7 @@ extension MainViewController: NetworkLayerDelegate {
         }
         
         removeErrorItems()
-        levelOneViewController?.titleLabel.text = location
+//        levelOneViewController?.titleLabel.text = location
         notificationManager.post(data: ["weatherModel": weatherModel],
                                  to: NotificationName.observerID("weatherModel"))
         
@@ -213,12 +213,6 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
     
     func createGradient() {
         view.backgroundColor = UIColor(named: "demo-background")!
-//        gradientLayer.frame = view.bounds
-//        gradientLayer.colors = [UIColor(named: theme + "GradientTopColor")!.cgColor,
-//                                UIColor(named: theme + "GradientBottomColor")!.cgColor]
-//
-//        view.layer.insertSublayer(gradientLayer, at: 0)
-//        view.setNeedsDisplay()
     }
     
     func createErrorView(errorTitle: String, _ errorDetails: String) {
@@ -376,18 +370,19 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
         
         let trueHeight = view.frame.height
         
-        scrollView.contentSize = CGSize(width: view.frame.size.width, height: trueHeight*3)
+        scrollView.contentSize = CGSize(width: view.frame.size.width, height: trueHeight*2)
         
         levelOneViewController = LevelOneViewController(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: trueHeight))
         
         levelTwoViewController = LevelTwoViewController(frame: CGRect(x: 0, y: trueHeight, width: view.bounds.size.width, height: trueHeight))
-        levelThreeViewController = LevelThreeViewController(frame: CGRect(x: 0, y: trueHeight * 2, width: view.bounds.size.width, height: trueHeight))
+//        levelThreeViewController = LevelThreeViewController(frame: CGRect(x: 0, y: trueHeight * 2, width: view.bounds.size.width, height: trueHeight))
         
-        scrollView.addSubview(levelOneViewController!)
+        
         scrollView.addSubview(levelTwoViewController!)
-        scrollView.addSubview(levelThreeViewController!)
+        view.insertSubview(levelOneViewController!, at: 0)
+//        scrollView.addSubview(levelThreeViewController!)
         
-        levelOneViewController?.titleLabel.widthAnchor.constraint(lessThanOrEqualToConstant: searchButton.frame.maxX - 50).isActive = true
+//        levelOneViewController?.titleLabel.widthAnchor.constraint(lessThanOrEqualToConstant: searchButton.frame.maxX - 50).isActive = true
         
         levelOneViewController?.layoutIfNeeded()
         levelTwoViewController?.layoutIfNeeded()

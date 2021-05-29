@@ -32,17 +32,18 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         
         createBlurView()
         
-        titleLabel.numberOfLines = 2
-        titleLabel.adjustsFontSizeToFitWidth = true
+//        titleLabel.numberOfLines = 2
+//        titleLabel.adjustsFontSizeToFitWidth = true
 
         tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: tempLabel.font)
-        summaryLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: summaryLabel.font)
+//        summaryLabel.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: summaryLabel.font)
     
-        [tempLabel, summaryLabel, commentLabel].forEach { (element) in
+        [tempLabel].forEach { (element) in
             element?.adjustsFontForContentSizeCategory = true
             element?.adjustsFontSizeToFitWidth = true
             element?.textColor = .white
         }
+        
         shrink()
     }
     
@@ -77,14 +78,14 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         let high = weatherModel?.daily.first?.temp.max.kelvinToSystemFormat() ?? "na"
         let low = weatherModel?.daily.first?.temp.min.kelvinToSystemFormat() ?? "na"
         
-        summaryLabel.text = (currentWeatherData.weather.first?.description.capitalized)! + "\n⬆︎\(high)  ⬇︎\(low)"
-        summaryLabel.numberOfLines = 0
+//        summaryLabel.text = (currentWeatherData.weather.first?.description.capitalized)! + "\n⬆︎\(high)  ⬇︎\(low)"
+//        summaryLabel.numberOfLines = 0
 
         iconView.image = UIImage(named: currentWeatherData.weather.first!.icon)
         
         showElements()
         
-        accessibilityElements()
+//        accessibilityElements()
     }
     
     func showElements() {

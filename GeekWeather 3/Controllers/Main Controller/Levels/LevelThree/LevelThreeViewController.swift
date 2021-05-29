@@ -12,7 +12,7 @@ import MapKit
 struct ItemData {
     var firstItemLabel: String
     var firstItemValue: String
-    var width: CGFloat
+    var height: CGFloat
 }
 
 final class LevelThreeViewController: BaseView {

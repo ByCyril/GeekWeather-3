@@ -9,75 +9,75 @@
 import UIKit
 
 protocol DetailedFlowLayoutDelegate: AnyObject {
-    func collectionView(_ collectionView: UICollectionView, widthForItemAtIndexPath indexPath: IndexPath) -> CGFloat
+    
+    func collectionView(_ collectionView: UICollectionView, heightForItemAtIndexPath indexPath: IndexPath) -> CGFloat
 }
 
-class DetailedFlowLayout: UICollectionViewLayout {
+class DetailedFlowLayout: UICollectionViewFlowLayout {
     
     weak var delegate: DetailedFlowLayoutDelegate?
     
-    let numberOfRows = 2
+    let numberOfColumns = 2
     let cellPadding: CGFloat = 6
     
     var cache: [UICollectionViewLayoutAttributes] = []
     
-    var contentHeight: CGFloat {
+    var contentWidth: CGFloat {
         guard let collectionView = collectionView else { return 0 }
         let insets = collectionView.contentInset
-        return collectionView.bounds.height - (insets.top + insets.bottom)
+        return collectionView.bounds.width - (insets.left + insets.right)
     }
     
-    var contentWidth: CGFloat = 0
+    var contentHeight: CGFloat = 0
     
     override var collectionViewContentSize: CGSize {
       return CGSize(width: contentWidth, height: contentHeight)
     }
     
     override func prepare() {
-        // 1
+        
         guard cache.isEmpty, let collectionView = collectionView else { return }
         
-        let rowHeight = contentHeight / CGFloat(numberOfRows)
-        var yOffset: [CGFloat] = []
+        let colWidth = contentWidth / CGFloat(numberOfColumns)
+        var xOffset: [CGFloat] = []
         
-        for row in 0..<numberOfRows {
-            yOffset.append(CGFloat(row) * rowHeight)
+        for col in 0..<numberOfColumns {
+            xOffset.append(CGFloat(col) * colWidth)
         }
                 
-        var row = 0
-        var xOffset: [CGFloat] = .init(repeating: 0, count: numberOfRows)
+        var column = 0
+        var yOffset: [CGFloat] = .init(repeating: 0, count: numberOfColumns)
         
-        // 3
         for item in 0..<collectionView.numberOfItems(inSection: 0) {
             let indexPath = IndexPath(item: item, section: 0)
             
-            // 4
-            let itemWidth = delegate?.collectionView(collectionView, widthForItemAtIndexPath: indexPath) ?? 180
-            let width = cellPadding * 2 + itemWidth
-            let frame = CGRect(x: xOffset[row],
-                               y: yOffset[row],
-                               width: width,
-                               height: rowHeight)
+//            let itemHeight = delegate?.collectionView(collectionView, heightForItemAtIndexPath: indexPath) ?? 180
+//            print("Content height", )
+//            let itemHeight: CGFloat = contentHeight / ((CGFloat(item) + 1) / 2)
+            let itemHeight: CGFloat = 75
+            let height = cellPadding * 2 + itemHeight
+            let frame = CGRect(x: xOffset[column],
+                               y: yOffset[column],
+                               width: colWidth,
+                               height: height)
 
             let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
-            
-            // 5
+        
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = insetFrame
+            
             cache.append(attributes)
             
-            // 6
-            contentWidth = max(contentWidth, frame.maxX)
-            xOffset[row] = xOffset[row] + width
+            contentHeight = max(contentHeight, frame.maxY)
+            yOffset[column] = yOffset[column] + height
             
-            row = row < (numberOfRows - 1) ? (row + 1) : 0
+            column = column < (numberOfColumns - 1) ? (column + 1) : 0
         }
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var visibleLayoutAttributes: [UICollectionViewLayoutAttributes] = []
         
-        // Loop through the cache and look for items in the rect
         for attributes in cache {
             if attributes.frame.intersects(rect) {
                 visibleLayoutAttributes.append(attributes)

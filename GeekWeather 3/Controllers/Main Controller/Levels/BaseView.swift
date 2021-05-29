@@ -39,7 +39,7 @@ class BaseView: UIView, NotificationManagerDelegate {
         view.clipsToBounds = true
         view.layoutIfNeeded()
         main.addSubview(view)
-        topLabelConstraint.constant = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
+//        topLabelConstraint.constant = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
     }
     
     var blurredEffectView: UIVisualEffectView = {

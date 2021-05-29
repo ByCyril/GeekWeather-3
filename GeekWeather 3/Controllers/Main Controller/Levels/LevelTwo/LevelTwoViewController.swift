@@ -23,7 +23,8 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate {
         
         let view = bundle.loadNibNamed("LevelTwoViewController", owner: self)!.first as! LevelTwoViewController
         loadXib(view, self)
-        
+        view.backgroundColor = UIColor(named: "demo-background")!
+
         createBlurView()
     }
     

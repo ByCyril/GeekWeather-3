@@ -9,8 +9,8 @@
 import UIKit
 
 extension DetailedViewLayer: DetailedFlowLayoutDelegate {
-    func collectionView(_ collectionView: UICollectionView, widthForItemAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return detailsData[indexPath.row].width
+    func collectionView(_ collectionView: UICollectionView, heightForItemAtIndexPath indexPath: IndexPath) -> CGFloat {
+        return detailsData[indexPath.row].height
     }
 }
 
@@ -29,6 +29,7 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
         delegate = self
         dataSource = self
         backgroundColor = .clear
+        
         register(DetailedViewCell.self, forCellWithReuseIdentifier: "cell")
         flashScrollIndicators()
     }
@@ -45,27 +46,27 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
         
         let itemOne = ItemData(firstItemLabel: "Sunrise",
                                firstItemValue: current.sunrise.convertTime(weatherModel.timezone).lowercased(),
-                               width: 115)
+                               height: 115)
         
         let itemTwo = ItemData(firstItemLabel: "Sunset",
                                firstItemValue: current.sunset.convertTime(weatherModel.timezone).lowercased(),
-                               width: 115)
+                               height: 115)
         
         let itemThree = ItemData(firstItemLabel: "Dew Point",
                                  firstItemValue: weatherModel.current.dew_point.kelvinToSystemFormat(),
-                                 width: 90)
+                                 height: 90)
         
         let itemFour = ItemData(firstItemLabel: "Visibility",
                                 firstItemValue: weatherModel.current.visibility.mToSystemFormat(),
-                                width: 115)
+                                height: 115)
         
         let itemFive = ItemData(firstItemLabel: "Chance of Rain",
                                 firstItemValue: weatherModel.daily.first!.pop.percentage(chop: true),
-                                width: 125)
+                                height: 125)
         
         let itemSix = ItemData(firstItemLabel: "Cloud Cover",
                                firstItemValue: current.clouds.percentage(chop: true),
-                               width: 115)
+                               height: 115)
         
         let uvi = current.uvi
         var uviLevel = uvi.stringRound()
@@ -84,19 +85,19 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
         
         let itemSeven = ItemData(firstItemLabel: "Humidity",
                                  firstItemValue: current.humidity.percentage(chop: true),
-                                 width: 85)
+                                 height: 85)
         
         let itemEight = ItemData(firstItemLabel: "UV Index",
                                  firstItemValue: uviLevel,
-                                 width: 125)
+                                 height: 125)
         
         let itemNine = ItemData(firstItemLabel: "Wind Speed",
                                 firstItemValue: current.wind_speed.msToSystemFormat(),
-                                width: 145)
+                                height: 145)
         
         let itemTen = ItemData(firstItemLabel: "Pressure",
                                firstItemValue: current.pressure.stringRound() + " hPa",
-                               width: 165)
+                               height: 165)
         
         detailsData = [itemOne, itemThree, itemTwo, itemFour, itemFive, itemSix, itemSeven, itemEight, itemNine, itemTen]
         reloadData()

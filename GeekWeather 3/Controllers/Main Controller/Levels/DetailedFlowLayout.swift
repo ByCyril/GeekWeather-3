@@ -51,10 +51,7 @@ class DetailedFlowLayout: UICollectionViewFlowLayout {
         for item in 0..<collectionView.numberOfItems(inSection: 0) {
             let indexPath = IndexPath(item: item, section: 0)
             
-//            let itemHeight = delegate?.collectionView(collectionView, heightForItemAtIndexPath: indexPath) ?? 180
-//            print("Content height", )
-//            let itemHeight: CGFloat = contentHeight / ((CGFloat(item) + 1) / 2)
-            let itemHeight: CGFloat = 75
+            let itemHeight: CGFloat = 65
             let height = cellPadding * 2 + itemHeight
             let frame = CGRect(x: xOffset[column],
                                y: yOffset[column],

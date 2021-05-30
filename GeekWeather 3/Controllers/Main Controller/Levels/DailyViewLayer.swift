@@ -11,7 +11,7 @@ import UIKit
 final class DailyViewLayer: UIView, UITableViewDelegate {
     
     private var dailyDataSource: UITableViewDiffableDataSource<Section, Daily>?
-
+    
     let dailyTableView = UITableView()
     
     override func awakeFromNib() {

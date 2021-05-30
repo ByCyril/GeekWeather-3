@@ -44,23 +44,14 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
         self.weatherModel = weatherModel
         let current = weatherModel.current
         
-        let itemOne = ItemData(firstItemLabel: "Sunrise",
-                               firstItemValue: current.sunrise.convertTime(weatherModel.timezone).lowercased(),
+        let itemOne = ItemData(firstItemLabel: "Sunrise/Sunset",
+                               firstItemValue: current.sunrise.convertTime(weatherModel.timezone).lowercased() + "/\(current.sunset.convertTime(weatherModel.timezone).lowercased())",
                                height: 115)
         
-        let itemTwo = ItemData(firstItemLabel: "Sunset",
-                               firstItemValue: current.sunset.convertTime(weatherModel.timezone).lowercased(),
+        let itemTwo = ItemData(firstItemLabel: "High/Low",
+                               firstItemValue: weatherModel.daily.first!.temp.max.kelvinToSystemFormat() + "/\(weatherModel.daily.first!.temp.min.kelvinToSystemFormat())",
                                height: 115)
-        
-        let itemThree = ItemData(firstItemLabel: "Dew Point",
-                                 firstItemValue: weatherModel.current.dew_point.kelvinToSystemFormat(),
-                                 height: 90)
-        
-        
-        let itemFour = ItemData(firstItemLabel: "Visibility",
-                                firstItemValue: weatherModel.current.visibility.mToSystemFormat(),
-                                height: 115)
-        
+    
         let itemFive = ItemData(firstItemLabel: "Chance of Rain",
                                 firstItemValue: weatherModel.daily.first!.pop.percentage(chop: true),
                                 height: 125)
@@ -100,7 +91,7 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
                                firstItemValue: current.pressure.stringRound() + " hPa",
                                height: 165)
         
-        detailsData = [itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, itemSeven, itemEight, itemNine, itemTen]
+        detailsData = [itemOne, itemTwo, itemFive, itemSix, itemSeven, itemEight, itemNine, itemTen]
         reloadData()
     }
     

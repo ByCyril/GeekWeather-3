@@ -79,6 +79,9 @@
             <point key="canvasLocation" x="-244.61538461538461" y="-20.616113744075829"/>
         </view>
     </objects>
+    <designables>
+        <designable name="2Bi-Hb-O2o"/>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

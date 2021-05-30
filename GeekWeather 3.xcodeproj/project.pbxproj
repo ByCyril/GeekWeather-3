@@ -233,6 +233,7 @@
 		0176740B2663382300312424 /* storm.json in Resources */ = {isa = PBXBuildFile; fileRef = 0176740A2663382300312424 /* storm.json */; };
 		0176740D2663383100312424 /* snowflake.json in Resources */ = {isa = PBXBuildFile; fileRef = 0176740C2663383000312424 /* snowflake.json */; };
 		0176740F2663383B00312424 /* mist.json in Resources */ = {isa = PBXBuildFile; fileRef = 0176740E2663383B00312424 /* mist.json */; };
+		0176741126633BEB00312424 /* InteractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0176741026633BEB00312424 /* InteractionManager.swift */; };
 		017B9F0E25930A4A007AB956 /* DeveloperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017B9F0D25930A4A007AB956 /* DeveloperController.swift */; };
 		018079CA258DB3B200C88E0E /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018079C9258DB3B200C88E0E /* NavigationView.swift */; };
 		018079CF258DBE5A00C88E0E /* RollableTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018079CE258DBE5A00C88E0E /* RollableTitleView.swift */; };
@@ -499,6 +500,7 @@
 		0176740A2663382300312424 /* storm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = storm.json; sourceTree = "<group>"; };
 		0176740C2663383000312424 /* snowflake.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snowflake.json; sourceTree = "<group>"; };
 		0176740E2663383B00312424 /* mist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mist.json; sourceTree = "<group>"; };
+		0176741026633BEB00312424 /* InteractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionManager.swift; sourceTree = "<group>"; };
 		017B9F0D25930A4A007AB956 /* DeveloperController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperController.swift; sourceTree = "<group>"; };
 		018079C9258DB3B200C88E0E /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		018079CE258DBE5A00C88E0E /* RollableTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollableTitleView.swift; sourceTree = "<group>"; };
@@ -639,14 +641,7 @@
 		0100D7D224CE1A8200C9F9B5 /* GeekWeather 3 */ = {
 			isa = PBXGroup;
 			children = (
-				01767400266337DA00312424 /* clouds.json */,
-				01767404266337FE00312424 /* rain.json */,
-				017674062663380D00312424 /* night-rain.json */,
-				01767402266337E800312424 /* cloud.json */,
-				017674082663381500312424 /* sun.json */,
-				0176740C2663383000312424 /* snowflake.json */,
-				0176740E2663383B00312424 /* mist.json */,
-				0176740A2663382300312424 /* storm.json */,
+				0176741226633C8400312424 /* Animations */,
 				0186E9F625BB844900CCD3A2 /* JSON Files */,
 				0100D7D324CE1A8200C9F9B5 /* AppDelegate.swift */,
 				0100D7D524CE1A8200C9F9B5 /* SceneDelegate.swift */,
@@ -739,6 +734,7 @@
 			children = (
 				01844A1524F22113000B0D52 /* Main.storyboard */,
 				0100D7D724CE1A8200C9F9B5 /* MainViewController.swift */,
+				0176741026633BEB00312424 /* InteractionManager.swift */,
 				01228FFF25BE54C500FD47BA /* DetailsView.swift */,
 				0145C67725BFE6ED00EF1AA4 /* SmallItemDetailView.swift */,
 				01B5989525BE9EF70097C4A4 /* DetailsViewHostingController.swift */,
@@ -967,6 +963,21 @@
 				0127D1142595736F00298ABD /* TodayViewMedium.swift */,
 			);
 			path = "Medium Widgets";
+			sourceTree = "<group>";
+		};
+		0176741226633C8400312424 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				01767400266337DA00312424 /* clouds.json */,
+				01767404266337FE00312424 /* rain.json */,
+				017674062663380D00312424 /* night-rain.json */,
+				01767402266337E800312424 /* cloud.json */,
+				017674082663381500312424 /* sun.json */,
+				0176740C2663383000312424 /* snowflake.json */,
+				0176740E2663383B00312424 /* mist.json */,
+				0176740A2663382300312424 /* storm.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		01844A1A24F22633000B0D52 /* LevelOne */ = {
@@ -1480,6 +1491,7 @@
 				0100D80824CE4F9400C9F9B5 /* NotificationManager.swift in Sources */,
 				010D53E025C0D99800222FF5 /* Weather.swift in Sources */,
 				0127D15C2597F55D00298ABD /* AppIconSelectionController.swift in Sources */,
+				0176741126633BEB00312424 /* InteractionManager.swift in Sources */,
 				0185665B24D767050035BF59 /* AccessibilityFactory.swift in Sources */,
 				0100D7D824CE1A8200C9F9B5 /* MainViewController.swift in Sources */,
 				010F7DCE259C44DF00D53BFA /* ResetNumberCalls.swift in Sources */,

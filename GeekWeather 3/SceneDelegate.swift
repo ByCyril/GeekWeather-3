@@ -72,21 +72,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         print("⏱",minutesPassed)
         if minutesPassed >= 15 {
-            mainViewController?.levelOneViewController?.shrink()
-            mainViewController?.networkLayer.cache.removeAllObjects()
-            mainViewController?.networkLayer.fetch()
+//            mainViewController?.levelOneViewController?.shrink()
+//            mainViewController?.networkLayer.cache.removeAllObjects()
+//            mainViewController?.networkLayer.fetch()
         }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
-        mainViewController?.networkLayer.cache.removeAllObjects()
+//        mainViewController?.networkLayer.cache.removeAllObjects()
         UserDefaults.standard.setValue(nil, forKey: SharedUserDefaults.Keys.LastUpdated)        
     }
 
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        mainViewController?.scrollToTop()
-    }
-    
+    func sceneDidEnterBackground(_ scene: UIScene) {}
     func sceneDidBecomeActive(_ scene: UIScene) { }
     func sceneWillResignActive(_ scene: UIScene) { }
 

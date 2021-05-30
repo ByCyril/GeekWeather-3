@@ -292,7 +292,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9uA-cS-p0D">
-                                <rect key="frame" x="359" y="44" width="35" height="35"/>
+                                <rect key="frame" x="359" y="49" width="35" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="VSm-rK-p8a"/>
@@ -308,7 +308,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfh-FG-up0">
-                                <rect key="frame" x="20" y="44" width="35" height="35"/>
+                                <rect key="frame" x="20" y="49" width="35" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Sxj-Kx-ZT6"/>
@@ -328,8 +328,8 @@
                         <viewLayoutGuide key="safeArea" id="1MB-rF-5oV"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Dfh-FG-up0" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" id="64q-OO-qdr"/>
-                            <constraint firstItem="9uA-cS-p0D" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" id="89S-tP-6MF"/>
+                            <constraint firstItem="Dfh-FG-up0" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" constant="5" id="64q-OO-qdr"/>
+                            <constraint firstItem="9uA-cS-p0D" firstAttribute="top" secondItem="1MB-rF-5oV" secondAttribute="top" constant="5" id="89S-tP-6MF"/>
                             <constraint firstItem="1MB-rF-5oV" firstAttribute="trailing" secondItem="9uA-cS-p0D" secondAttribute="trailing" constant="20" id="In9-e9-4pW"/>
                             <constraint firstItem="Dfh-FG-up0" firstAttribute="leading" secondItem="1MB-rF-5oV" secondAttribute="leading" constant="20" id="ior-1C-RAj"/>
                         </constraints>

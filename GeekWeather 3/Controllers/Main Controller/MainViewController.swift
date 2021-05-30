@@ -18,14 +18,15 @@ extension MainViewController: NetworkLayerDelegate {
     
     func didFinishFetching(weatherModel: WeatherModel, location: String) {
         UserDefaults.standard.setValue(Date(), forKey: "LastUpdated")
+        animateMainScrollView()
         
         UIView.animate(withDuration: 0.15) { [weak self] in
             self?.loadingView.alpha = 0
         }
         
         removeErrorItems()
-        levelOneViewController?.titleLabel.text = location
-        notificationManager.post(data: ["weatherModel": weatherModel],
+
+        notificationManager.post(data: ["weatherModel": weatherModel, "location": location],
                                  to: NotificationName.observerID("weatherModel"))
         
     }
@@ -35,6 +36,8 @@ extension MainViewController: NetworkLayerDelegate {
         print("#################################")
         print("🚨Error🚨")
         print("#################################")
+        
+        hideScrollView()
         
         UIView.animate(withDuration: 0.15) { [weak self] in
             self?.loadingView.alpha = 0
@@ -72,8 +75,6 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
     @IBOutlet var settingsButton: UIButton!
     @IBOutlet var searchButton: UIButton!
     
-    private var interactionManager: InteractionManager?
-    
     private let loadingView: AnimationView = {
         let animation = AnimationView(name: "fetching")
         animation.translatesAutoresizingMaskIntoConstraints = false
@@ -91,6 +92,17 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
         animation.loopMode = .autoReverse
         animation.play()
         return animation
+    }()
+    
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.isPagingEnabled = true
+        scrollView.isScrollEnabled = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.isAccessibilityElement = false
+        return scrollView
     }()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -122,6 +134,16 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
                                                name: Notification.Name("PresentWeatherAlert"),
                                                object: nil)
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(pagingSettingChanged),
+                                               name: Notification.Name("PagingAnimationToggle"),
+                                               object: nil)
+    }
+    
+    @objc
+    func pagingSettingChanged() {
+        scrollView.isPagingEnabled = !UserDefaults.standard.bool(forKey: "PagingAnimationToggle")
+        scrollView.setContentOffset(.zero, animated: true)
     }
     
     @objc
@@ -303,13 +325,20 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
         }
         
         if let location = notification.object as? SavedLocation {
-            if let address = location.address, let coord = location.location {
-                networkLayer.beginFetchingWeatherData(coord, address)
-            } else {
-                didFail(errorTitle: "Error", errorDetail: "Could not fetch location. Try a new location. If the error persists, please let the developer know!")
+            hideScrollView { [weak self] (_) in
+                self?.scrollView.setContentOffset(.zero, animated: false)
+                
+                if let address = location.address, let coord = location.location {
+                    self?.networkLayer.beginFetchingWeatherData(coord, address)
+                } else {
+                    self?.didFail(errorTitle: "Error", errorDetail: "Could not fetch location. Try a new location. If the error persists, please let the developer know!")
+                }
             }
         } else {
-            networkLayer.fetch()
+            hideScrollView { [weak self] (_) in
+                self?.scrollView.setContentOffset(.zero, animated: false)
+                self?.networkLayer.fetch()
+            }
         }
         
     }
@@ -324,21 +353,40 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
         
         settingsButton.tintColor = .white
         searchButton.tintColor = .white
-
+        
+        scrollView.alpha = 0
+        scrollView.delegate = self
+        pagingSettingChanged()
+        view.insertSubview(scrollView, at: 0)
+        
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
         view.layoutIfNeeded()
-            
-        levelOneViewController = LevelOneViewController(frame: view.frame)
-        levelTwoViewController = LevelTwoViewController(frame: view.frame)
         
-        interactionManager = InteractionManager(levelOneViewController!, view)
+        let trueHeight = view.frame.height
         
-        view.addSubview(levelTwoViewController!)
-        view.addSubview(levelOneViewController!)
+        scrollView.contentSize = CGSize(width: view.frame.size.width, height: trueHeight*2)
         
-        levelOneViewController?.titleLabel.widthAnchor.constraint(lessThanOrEqualToConstant: searchButton.frame.maxX - 50).isActive = true
+        levelOneViewController = LevelOneViewController(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: trueHeight))
+        
+        levelTwoViewController = LevelTwoViewController(frame: CGRect(x: 0, y: trueHeight, width: view.bounds.size.width, height: trueHeight))
+//        levelThreeViewController = LevelThreeViewController(frame: CGRect(x: 0, y: trueHeight * 2, width: view.bounds.size.width, height: trueHeight))
+        
+        
+        scrollView.addSubview(levelTwoViewController!)
+        view.insertSubview(levelOneViewController!, at: 0)
+//        scrollView.addSubview(levelThreeViewController!)
+        
+//        levelOneViewController?.titleLabel.widthAnchor.constraint(lessThanOrEqualToConstant: searchButton.frame.maxX - 50).isActive = true
         
         levelOneViewController?.layoutIfNeeded()
         levelTwoViewController?.layoutIfNeeded()
+        levelThreeViewController?.layoutIfNeeded()
     }
     
     func accessibilityScrollStatus(for scrollView: UIScrollView) -> String? {
@@ -397,13 +445,36 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
         GWTransition.present(SettingsController(), from: self)
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else {
-            return
-        }
-        let theme = UserDefaults.standard.string(forKey: "Theme") ?? "System-"
-        gradientLayer.colors = [UIColor(named: theme + "GradientTopColor")!.cgColor,
-                                UIColor(named: theme + "GradientBottomColor")!.cgColor]
+    func animateMainScrollView() {
+        scrollView.isScrollEnabled = true
+        scrollView.setContentOffset(.zero, animated: true)
+        showScrollView()
     }
-  
+    
+    func hideScrollView(_ completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: 0.4,
+                       delay: 0,
+                       usingSpringWithDamping: 1,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseInOut,
+                       animations: { [weak self] in
+                        self?.scrollView.alpha = 0
+                       }, completion: completion)
+    }
+    
+    func showScrollView(_ completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: 0.4,
+                       delay: 0,
+                       usingSpringWithDamping: 1,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseInOut,
+                       animations: { [weak self] in
+                        self?.scrollView.alpha = 1
+                       }, completion: completion)
+    }
+    
+    func scrollToTop() {
+        scrollView.setContentOffset(.zero, animated: false)
+    }
+    
 }

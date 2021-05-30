@@ -3,26 +3,6 @@
     {
       "filename" : "Storm.Moon-3.png",
       "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ],
-      "filename" : "Storm.Moon-1.png",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "Storm.Moon-2.png",
-      "idiom" : "universal"
     }
   ],
   "info" : {

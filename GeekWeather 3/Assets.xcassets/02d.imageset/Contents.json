@@ -1,27 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Storm.Sun-13.png",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ],
-      "filename" : "Storm.Sun-12.png",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "Storm.Sun-2.png",
+      "filename" : "Storm.Sun-4.png",
       "idiom" : "universal"
     }
   ],

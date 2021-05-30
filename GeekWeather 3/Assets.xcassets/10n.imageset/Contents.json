@@ -1,27 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Storm.Moon-13.png",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ],
-      "filename" : "Storm.Moon-12.png",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "10n.png",
+      "filename" : "10n-2.png",
       "idiom" : "universal"
     }
   ],

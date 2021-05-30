@@ -33,6 +33,18 @@ struct GeekWeatherLargeLabeledWidget: Widget {
     }
 }
 
+struct GeekWeatherSmallSummaryWidget: Widget {
+    let kind: String = "GeekWeatherSmallSummaryWidget"
+    
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
+            SummaryWidgetView(entry: entry)
+        }.supportedFamilies([.systemSmall])
+        .configurationDisplayName("Small GeekWeather Widget")
+        .description("Simple summary widget")
+    }
+}
+
 struct GeekWeatherSmallDetailedWidget: Widget {
     let kind: String = "GeekWeatherSmallDetailedWidget"
     
@@ -45,18 +57,6 @@ struct GeekWeatherSmallDetailedWidget: Widget {
     }
 }
 
-struct GeekWeatherDetailedTodayWidget: Widget {
-    let kind: String = "GeekWeatherDetailedTodayWidget"
-    
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
-            DetailedTodayView(entry: entry)
-        }.supportedFamilies([.systemSmall])
-        .configurationDisplayName("Small GeekWeather Widget")
-        .description("Detailed widget with detailed conditions")
-    }
-}
-
 struct GeekWeatherMediumDetailedWidget: Widget {
     let kind: String = "GeekWeatherMediumDetailedWidget"
     
@@ -66,29 +66,5 @@ struct GeekWeatherMediumDetailedWidget: Widget {
         }.supportedFamilies([.systemMedium])
         .configurationDisplayName("Medium GeekWeather Widget")
         .description("Detailed Medium Widget")
-    }
-}
-
-struct GeekWeatherMediumSimpleWidget: Widget {
-    let kind: String = "GeekWeatherMediumSimpleWidget"
-    
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
-            TodayViewSimpleWidget(entry: entry)
-        }.supportedFamilies([.systemMedium])
-        .configurationDisplayName("GeekWeather Widget")
-        .description("Simple Medium Widget")
-    }
-}
-
-struct GeekWeatherMediumMoreDetailedWidget: Widget {
-    let kind: String = "GeekWeatherMediumMoreDetailedWidget"
-    
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: TodayViewTimelineProvider()) { entry in
-            TodayViewDetailedMediumWidget(entry: entry)
-        }.supportedFamilies([.systemMedium])
-        .configurationDisplayName("GeekWeather Widget")
-        .description("More Detailed Medium Widget")
     }
 }

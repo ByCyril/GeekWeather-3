@@ -1,27 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "09d.png",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ],
-      "filename" : "09d-1.png",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "09n-1.png",
+      "filename" : "09n-3.png",
       "idiom" : "universal"
     }
   ],

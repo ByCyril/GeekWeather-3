@@ -21,18 +21,18 @@ struct LargeLabeledWidget: View {
                 HStack {
                     Spacer()
                     Image(entry.weatherModel.currently.weather.first!.icon).resizable()
-                        .frame(width: 75, height: 75, alignment: .center)
+                        .frame(width: 50, height: 50, alignment: .center)
                         .cornerRadius(15).padding(.top).padding(.trailing)
                 }
                 HStack {
                     VStack(alignment: .leading, spacing: 0) {
                         Text(entry.weatherModel.temp)
-                            .font(Font.custom("AvenirNext-Bold", size: 50))
+                            .font(Font.custom("AvenirNext-Bold", size: 65))
                             .minimumScaleFactor(0.2)
                             .allowsTightening(true)
                             .lineLimit(1)
                             .foregroundColor(.white)
-                        Text(entry.weatherModel.location).font(Font.custom("AvenirNext-Regular", size: 12))
+                        Text(entry.weatherModel.location).font(Font.custom("AvenirNext-Medium", size: 15))
                             .allowsTightening(true)
                             .lineLimit(1)
                             .foregroundColor(.white).padding(EdgeInsets(top: -10, leading: 0, bottom: 0, trailing: 0))

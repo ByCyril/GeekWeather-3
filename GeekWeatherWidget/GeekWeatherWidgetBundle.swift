@@ -24,15 +24,13 @@ struct SmallBundles: WidgetBundle {
         GeekWeatherSmallWidget()
         GeekWeatherLargeLabeledWidget()
         GeekWeatherSmallDetailedWidget()
-        GeekWeatherDetailedTodayWidget()
+        GeekWeatherSmallSummaryWidget()
     }
 }
 
 struct MediumBundles: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
-        GeekWeatherMediumSimpleWidget()
         GeekWeatherMediumDetailedWidget()
-        GeekWeatherMediumMoreDetailedWidget()
     }
 }

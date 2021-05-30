@@ -234,6 +234,7 @@
 		0176740D2663383100312424 /* snowflake.json in Resources */ = {isa = PBXBuildFile; fileRef = 0176740C2663383000312424 /* snowflake.json */; };
 		0176740F2663383B00312424 /* mist.json in Resources */ = {isa = PBXBuildFile; fileRef = 0176740E2663383B00312424 /* mist.json */; };
 		0176741126633BEB00312424 /* InteractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0176741026633BEB00312424 /* InteractionManager.swift */; };
+		017674152663500C00312424 /* Tests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 017674142663500C00312424 /* Tests.plist */; };
 		017B9F0E25930A4A007AB956 /* DeveloperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017B9F0D25930A4A007AB956 /* DeveloperController.swift */; };
 		018079CA258DB3B200C88E0E /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018079C9258DB3B200C88E0E /* NavigationView.swift */; };
 		018079CF258DBE5A00C88E0E /* RollableTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018079CE258DBE5A00C88E0E /* RollableTitleView.swift */; };
@@ -501,6 +502,7 @@
 		0176740C2663383000312424 /* snowflake.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snowflake.json; sourceTree = "<group>"; };
 		0176740E2663383B00312424 /* mist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mist.json; sourceTree = "<group>"; };
 		0176741026633BEB00312424 /* InteractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionManager.swift; sourceTree = "<group>"; };
+		017674142663500C00312424 /* Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Tests.plist; sourceTree = "<group>"; };
 		017B9F0D25930A4A007AB956 /* DeveloperController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperController.swift; sourceTree = "<group>"; };
 		018079C9258DB3B200C88E0E /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		018079CE258DBE5A00C88E0E /* RollableTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollableTitleView.swift; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 				01430F35259BF4DB00D67245 /* Model.xcdatamodeld */,
 				0103B84C259449E9008577FD /* GeekWeatherWidgetExtension.entitlements */,
 				019B4D5825C8B02A001C0465 /* GWIntents.intentdefinition */,
+				017674142663500C00312424 /* Tests.plist */,
 				0100D7D224CE1A8200C9F9B5 /* GeekWeather 3 */,
 				0100D7E924CE1A8300C9F9B5 /* GeekWeather 3Tests */,
 				0103B843259449E7008577FD /* GeekWeatherWidget */,
@@ -1292,6 +1295,7 @@
 				01844A1624F22113000B0D52 /* Main.storyboard in Resources */,
 				0157E8E3259144270026706D /* denied.json in Resources */,
 				0100D7DD24CE1A8300C9F9B5 /* Assets.xcassets in Resources */,
+				017674152663500C00312424 /* Tests.plist in Resources */,
 				01FCE338258B21E200C841C8 /* demo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

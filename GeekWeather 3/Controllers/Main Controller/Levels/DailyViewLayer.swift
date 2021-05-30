@@ -8,12 +8,17 @@
 
 import UIKit
 
-final class DailyViewLayer: UIView, UITableViewDelegate {
+final class DailyViewLayer: UIView, UICollectionViewDelegate {
+        
+    lazy var collectionView: UICollectionView = {
+        var config = UICollectionLayoutListConfiguration(appearance: .plain)
+        config.backgroundColor = .clear
+        let layout = UICollectionViewCompositionalLayout.list(using: config)
+        return UICollectionView(frame: .zero, collectionViewLayout: layout)
+    }()
     
-    private var dailyDataSource: UITableViewDiffableDataSource<Section, Daily>?
-    
-    let dailyTableView = UITableView()
-    
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Daily>?
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         dailyViewSetup()
@@ -21,24 +26,20 @@ final class DailyViewLayer: UIView, UITableViewDelegate {
     
     private func dailyViewSetup() {
         backgroundColor = .clear
-        dailyTableView.translatesAutoresizingMaskIntoConstraints = false
-        dailyTableView.delegate = self
-        dailyTableView.backgroundColor = .clear
-        dailyTableView.separatorStyle = .none
-        
-        addSubview(dailyTableView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .clear
+        collectionView.isScrollEnabled = false
+        collectionView.delegate = self
+        addSubview(collectionView)
 
         NSLayoutConstraint.activate([
-            dailyTableView.topAnchor.constraint(equalTo: topAnchor),
-            dailyTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            dailyTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            dailyTableView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
-        
-        dailyTableView.register(DailyViewCell.self, forCellReuseIdentifier: "cell")
-        
-        dailyDataSource = UITableViewDiffableDataSource<Section, Daily>(tableView: dailyTableView, cellProvider: { (tableView, indexPath, daily) -> DailyViewCell? in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DailyViewCell
+                
+        let cellRegistration = UICollectionView.CellRegistration<DailyViewCell, Daily> {  (cell, indexPath, daily) in
             let summary = daily.weather.first!.description
             
             if indexPath.row == 0 {
@@ -53,6 +54,11 @@ final class DailyViewLayer: UIView, UITableViewDelegate {
             cell.iconView.image = UIImage(named: daily.weather.first!.icon)
             cell.tempLabels.text = daily.temp.max.kelvinToSystemFormat() + "  " + daily.temp.min.kelvinToSystemFormat()
 
+        }
+        
+        dataSource = UICollectionViewDiffableDataSource<Section, Daily>(collectionView: collectionView, cellProvider: { collectionView, indexPath, daily in
+            let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: daily)
+            
             return cell
         })
         
@@ -63,22 +69,14 @@ final class DailyViewLayer: UIView, UITableViewDelegate {
         var dailySnapshot = NSDiffableDataSourceSnapshot<Section, Daily>()
         dailySnapshot.appendSections([.main])
         dailySnapshot.appendItems(weatherModel.daily)
-        dailyDataSource?.apply(dailySnapshot)
+        dataSource?.apply(dailySnapshot)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if traitCollection.preferredContentSizeCategory >= .extraExtraExtraLarge {
-            return UITableView.automaticDimension
-        } else {
-            
-            return dailyTableView.frame.size.height / 8
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let daily = dailyDataSource?.itemIdentifier(for: indexPath) {
+  
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let daily = dataSource?.itemIdentifier(for: indexPath) {
             NotificationCenter.default.post(name: Notification.Name("DailyItemSelection"), object: daily)
         }
-        tableView.deselectRow(at: indexPath, animated: true)
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
+
 }

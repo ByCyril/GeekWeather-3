@@ -44,7 +44,20 @@ final class Mocks {
     }
     
     static func showMockedResponse() -> Bool {
-        return true
+        var config: [String: Bool]?
+        if let infoPlistPath = Bundle.main.url(forResource: "Tests", withExtension: "plist") {
+            do {
+                let infoPlistData = try Data(contentsOf: infoPlistPath)
+                
+                if let dict = try PropertyListSerialization.propertyList(from: infoPlistData, options: [], format: nil) as? [String: Bool] {
+                    config = dict
+                }
+            } catch {
+                print(error)
+            }
+        }
+        
+        return config?["Show Mock"] ?? false
     }
     
     static func mockedResponse() -> Data? {

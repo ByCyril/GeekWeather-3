@@ -40,7 +40,7 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate {
     
     override func didUpdateValues() {
         hourlyViewLayer.hourlyView.reloadData()
-        dailyViewLayer.dailyTableView.reloadData()
+        dailyViewLayer.collectionView.reloadData()
     }
 
 }

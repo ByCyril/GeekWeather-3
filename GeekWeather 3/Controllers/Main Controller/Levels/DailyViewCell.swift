@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class DailyViewCell: UITableViewCell {
+final class DailyViewCell: UICollectionViewCell {
     
     let dayLabel = UILabel()
     let tempLabels = UILabel()
@@ -20,8 +20,8 @@ final class DailyViewCell: UITableViewCell {
     
     let containerView = UIView()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .default, reuseIdentifier: "cell")
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
         initUI()
         layout()
         setupAccessibilityElements()
@@ -88,15 +88,15 @@ final class DailyViewCell: UITableViewCell {
             iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
             iconView.heightAnchor.constraint(equalToConstant: 75),
             iconView.widthAnchor.constraint(equalToConstant: 75),
-            iconView.centerYAnchor.constraint(equalTo: dayLabel.centerYAnchor),
+            iconView.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             dayLabel.topAnchor.constraint(equalTo: topAnchor),
             dayLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: padding),
-            dayLabel.bottomAnchor.constraint(equalTo: tempContainerView.topAnchor, constant: -padding),
+            dayLabel.bottomAnchor.constraint(equalTo: tempContainerView.topAnchor, constant: -(padding - 5)),
             dayLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             tempContainerView.topAnchor.constraint(equalTo: dayLabel.bottomAnchor),
-            tempContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            tempContainerView.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: padding),
             tempContainerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding),
         ]
         

@@ -41,7 +41,6 @@ final class InteractionManager {
         
         switch gesture.state {
         case .changed:
-            print("hello")
             if interactionView.frame.origin.y > 45 {
                 interactionView.frame.origin.y += translation.y
             }

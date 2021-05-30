@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,35 +17,27 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LevelTwoViewController" customModule="GeekWeather" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czG-2f-3VS" customClass="DailyViewLayer" customModule="GeekWeather" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="149" width="375" height="488"/>
+                    <rect key="frame" x="0.0" y="207" width="390" height="573"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.compact.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OFP-mr-ZUB">
-                    <rect key="frame" x="167.5" y="16.5" width="40" height="13"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="40" id="37T-Zv-Wh9"/>
-                        <constraint firstAttribute="height" constant="26.5" id="rJf-E0-TTa"/>
-                    </constraints>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyW-7H-r1s" customClass="HourlyViewLayer" customModule="GeekWeather" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="44" width="375" height="100"/>
+                    <rect key="frame" x="0.0" y="102" width="390" height="100"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="EGV-DR-QZz"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed and Designed by Cyril" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrt-I1-rtc">
-                    <rect key="frame" x="16" y="639" width="343" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forecast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gF-wb-TcQ">
+                    <rect key="frame" x="90" y="60" width="210" height="22"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="aCF-CH-54E"/>
-                        <constraint firstAttribute="width" constant="343" id="uuh-FZ-00A"/>
+                        <constraint firstAttribute="height" constant="22" id="G0H-yF-VJP"/>
+                        <constraint firstAttribute="width" constant="210" id="NkY-XM-ZE4"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="0.0"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -54,17 +46,14 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="czG-2f-3VS" secondAttribute="trailing" id="1Rs-5C-B4n"/>
-                <constraint firstItem="OFP-mr-ZUB" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="EHm-5f-Arv"/>
+                <constraint firstItem="nyW-7H-r1s" firstAttribute="top" secondItem="6gF-wb-TcQ" secondAttribute="bottom" constant="20" id="6oH-vY-a7C"/>
                 <constraint firstItem="czG-2f-3VS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Id5-RG-m8y"/>
-                <constraint firstItem="mrt-I1-rtc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Qcq-Cc-9G9"/>
-                <constraint firstItem="mrt-I1-rtc" firstAttribute="top" secondItem="czG-2f-3VS" secondAttribute="bottom" constant="2" id="Sii-1H-UMd"/>
-                <constraint firstItem="nyW-7H-r1s" firstAttribute="top" secondItem="OFP-mr-ZUB" secondAttribute="bottom" constant="7.5" id="SqT-s8-nDp"/>
+                <constraint firstItem="6gF-wb-TcQ" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Tic-bl-KBM"/>
                 <constraint firstItem="nyW-7H-r1s" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="VjW-wi-lf1"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nyW-7H-r1s" secondAttribute="trailing" id="WfD-j4-hgs"/>
-                <constraint firstAttribute="bottom" secondItem="mrt-I1-rtc" secondAttribute="bottom" constant="8" id="aA0-uX-eKf"/>
                 <constraint firstItem="nyW-7H-r1s" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dhq-jp-eVs"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mrt-I1-rtc" secondAttribute="trailing" constant="16" id="f1s-I8-2vt"/>
-                <constraint firstItem="OFP-mr-ZUB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="seH-rS-iD9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="czG-2f-3VS" secondAttribute="bottom" constant="30" id="jEz-nq-H9v"/>
+                <constraint firstItem="6gF-wb-TcQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="jVb-Hq-xmg"/>
                 <constraint firstItem="czG-2f-3VS" firstAttribute="top" secondItem="nyW-7H-r1s" secondAttribute="bottom" constant="5" id="w59-cC-ibh"/>
             </constraints>
             <connections>
@@ -75,7 +64,6 @@
         </view>
     </objects>
     <resources>
-        <image name="chevron.compact.up" catalog="system" width="128" height="43"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

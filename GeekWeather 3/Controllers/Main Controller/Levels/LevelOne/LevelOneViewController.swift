@@ -22,7 +22,8 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         
         let view = bundle.loadNibNamed("LevelOneViewController", owner: self)!.first as! LevelOneViewController
         loadXib(view, self)
-        
+        view.backgroundColor = UIColor(named: "demo-background")!
+
         createBlurView()
         animationView.loopMode = .loop
         animationView.backgroundColor = .clear

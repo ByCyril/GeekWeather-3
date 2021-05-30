@@ -29,7 +29,7 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
         delegate = self
         dataSource = self
         backgroundColor = .clear
-        
+        isScrollEnabled = false
         register(DetailedViewCell.self, forCellWithReuseIdentifier: "cell")
         flashScrollIndicators()
     }

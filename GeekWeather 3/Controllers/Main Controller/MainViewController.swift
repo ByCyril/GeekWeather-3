@@ -313,26 +313,23 @@ final class MainViewController: UIViewController, GWUIHostingControllerDelegate 
     
     func initUI() {
         
-        settingsButton.layer.cornerRadius = 35 / 2
-        searchButton.layer.cornerRadius = 35 / 2
+//        settingsButton.layer.cornerRadius = 35 / 2
+//        searchButton.layer.cornerRadius = 35 / 2
         
-        settingsButton.backgroundColor = UIColor.white.withAlphaComponent(0.05)
-        searchButton.backgroundColor = UIColor.white.withAlphaComponent(0.05)
+//        settingsButton.backgroundColor = UIColor.white.withAlphaComponent(0.15)
+//        searchButton.backgroundColor = UIColor.white.withAlphaComponent(0.15)
         
         settingsButton.tintColor = .white
         searchButton.tintColor = .white
 
-        view.layoutIfNeeded()
+        levelOneViewController = LevelOneViewController(frame: view.frame)
+        levelTwoViewController = LevelTwoViewController(frame: view.frame)
         
-        let trueHeight = view.frame.height
-                
-        levelOneViewController = LevelOneViewController(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: trueHeight))
-        levelTwoViewController = LevelTwoViewController(frame: CGRect(x: 0, y: trueHeight - 170, width: view.bounds.size.width, height: trueHeight))
-        
-        interactionManager = InteractionManager(levelTwoViewController!, view)
-        view.addSubview(levelTwoViewController!)
+        interactionManager = InteractionManager(levelOneViewController!, view)
         view.insertSubview(levelOneViewController!, at: 0)
+        view.insertSubview(levelTwoViewController!, at: 0)
                 
+        view.layoutIfNeeded()
         levelOneViewController?.layoutIfNeeded()
         levelTwoViewController?.layoutIfNeeded()
     }

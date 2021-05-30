@@ -11,7 +11,7 @@ import UIKit
 final class GWTest {
     
     static func forceViewController() -> UIViewController? {
-        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "OnboardingViewControllerLevelOne")
+        let _ = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "OnboardingViewControllerLevelOne")
         return nil
     }
 }

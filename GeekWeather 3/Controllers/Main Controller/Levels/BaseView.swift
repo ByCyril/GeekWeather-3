@@ -39,21 +39,10 @@ class BaseView: UIView, NotificationManagerDelegate {
         view.clipsToBounds = true
         view.layoutIfNeeded()
         main.addSubview(view)
-//        topLabelConstraint.constant = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
     }
-    
-    var blurredEffectView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .light)
-        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
-        return blurredEffectView
-    }()
- 
+
     func createBlurView() {
-        blurredEffectView.layer.cornerRadius = 25
-        blurredEffectView.alpha = 0
-        blurredEffectView.frame = bounds
-        blurredEffectView.clipsToBounds = true
-        insertSubview(blurredEffectView, at: 0)
+
     }
     
     func initUI() {}

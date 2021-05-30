@@ -13,7 +13,8 @@ final class InteractionManager {
     private let view: UIView
     
     private let cornerRadius: CGFloat = 15
-    private let difference: CGFloat = 125
+    private let difference: CGFloat = 230
+    private var isCollapsed: Bool = false
     
     init(_ interactionView: UIView,_ view: UIView) {
         self.interactionView = interactionView
@@ -40,16 +41,20 @@ final class InteractionManager {
         let velocity = gesture.velocity(in: view)
         
         switch gesture.state {
-        case .changed:
-            if interactionView.frame.origin.y > 45 {
-                interactionView.frame.origin.y += translation.y
+        case .began:
+            if isCollapsed == false {
+                HapticManager.soft()
             }
+        case .changed:
+            interactionView.frame.origin.y += translation.y
         case .ended:
             curve()
             if velocity.y > 0 {
                 hide()
+                isCollapsed = true
             } else {
                 show()
+                isCollapsed = false
             }
         
         default:
@@ -69,15 +74,16 @@ final class InteractionManager {
     }
     
     private func show() {
+        HapticManager.soft()
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        usingSpringWithDamping: 1,
                        initialSpringVelocity: 1,
                        options: .curveEaseInOut,
                        animations: { [unowned self] in
-            self.interactionView.frame.origin.y = 50
+            self.interactionView.frame.origin.y = 0
             self.interactionView.layer.cornerRadius = self.cornerRadius
-        })
+                       })
     }
     
     private func hide() {

@@ -445,15 +445,6 @@ final class MainViewController: UIViewController, UIScrollViewDelegate, UIScroll
         GWTransition.present(SettingsController(), from: self)
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else {
-            return
-        }
-        let theme = UserDefaults.standard.string(forKey: "Theme") ?? "System-"
-        gradientLayer.colors = [UIColor(named: theme + "GradientTopColor")!.cgColor,
-                                UIColor(named: theme + "GradientBottomColor")!.cgColor]
-    }
-    
     func animateMainScrollView() {
         scrollView.isScrollEnabled = true
         scrollView.setContentOffset(.zero, animated: true)

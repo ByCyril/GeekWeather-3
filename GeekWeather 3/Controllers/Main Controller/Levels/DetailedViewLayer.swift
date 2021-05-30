@@ -56,6 +56,7 @@ final class DetailedViewLayer: UICollectionView, UICollectionViewDataSource, UIC
                                  firstItemValue: weatherModel.current.dew_point.kelvinToSystemFormat(),
                                  height: 90)
         
+        
         let itemFour = ItemData(firstItemLabel: "Visibility",
                                 firstItemValue: weatherModel.current.visibility.mToSystemFormat(),
                                 height: 115)

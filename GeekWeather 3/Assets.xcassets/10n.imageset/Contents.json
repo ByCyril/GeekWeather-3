@@ -3,26 +3,6 @@
     {
       "filename" : "10n-2.png",
       "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ],
-      "filename" : "10n-1.png",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "10n.png",
-      "idiom" : "universal"
     }
   ],
   "info" : {

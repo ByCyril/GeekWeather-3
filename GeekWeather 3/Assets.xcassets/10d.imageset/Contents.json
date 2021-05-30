@@ -3,26 +3,6 @@
     {
       "filename" : "Storm.Sun-16.png",
       "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ],
-      "filename" : "Storm.Sun-15.png",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "Storm.Sun-14.png",
-      "idiom" : "universal"
     }
   ],
   "info" : {

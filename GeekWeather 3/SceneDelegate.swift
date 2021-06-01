@@ -60,11 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneWillEnterForeground(_ scene: UIScene) {
-        
-//        mainViewController?.levelOneViewController?.shrink()
-//        mainViewController?.networkLayer.cache.removeAllObjects()
-//        mainViewController?.networkLayer.fetch()
-//
+
         guard let lastUpdate = UserDefaults.standard.value(forKey: SharedUserDefaults.Keys.LastUpdated) as? Date else { return }
 
         let differenceInSeconds = abs(lastUpdate.timeIntervalSince(Date()))
@@ -72,14 +68,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         print("⏱",minutesPassed)
         if minutesPassed >= 15 {
-//            mainViewController?.levelOneViewController?.shrink()
-//            mainViewController?.networkLayer.cache.removeAllObjects()
-//            mainViewController?.networkLayer.fetch()
+            mainViewController?.refresh()
         }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
-//        mainViewController?.networkLayer.cache.removeAllObjects()
+        mainViewController?.clearCache()
         UserDefaults.standard.setValue(nil, forKey: SharedUserDefaults.Keys.LastUpdated)        
     }
 

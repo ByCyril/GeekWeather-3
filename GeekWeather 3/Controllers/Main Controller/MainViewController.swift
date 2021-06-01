@@ -24,7 +24,7 @@ extension MainViewController: NetworkLayerDelegate {
         }
         
         removeErrorItems()
-
+        interactionManager?.show()
         notificationManager.post(data: ["weatherModel": weatherModel, "location": location],
                                  to: NotificationName.observerID("weatherModel"))
         
@@ -49,12 +49,8 @@ extension MainViewController: NetworkLayerDelegate {
 final class MainViewController: UIViewController, GWUIHostingControllerDelegate {
     
     private let notificationManager: NotificationManager = NotificationManager()
-    
     private let networkLayer: NetworkLayer = NetworkLayer()
-    
-    private let gradientLayer: CAGradientLayer = CAGradientLayer()
-    private let shadowOpacity: CGFloat = 0.75
-    
+        
     private var levelOneViewController: LevelOneViewController?
     private var levelTwoViewController: LevelTwoViewController?
     
@@ -312,13 +308,7 @@ final class MainViewController: UIViewController, GWUIHostingControllerDelegate 
     }
     
     func initUI() {
-        
-//        settingsButton.layer.cornerRadius = 35 / 2
-//        searchButton.layer.cornerRadius = 35 / 2
-        
-//        settingsButton.backgroundColor = UIColor.white.withAlphaComponent(0.15)
-//        searchButton.backgroundColor = UIColor.white.withAlphaComponent(0.15)
-        
+  
         settingsButton.tintColor = .white
         searchButton.tintColor = .white
 
@@ -343,6 +333,16 @@ final class MainViewController: UIViewController, GWUIHostingControllerDelegate 
     
     @IBAction func presentSettingsController() {
         GWTransition.present(SettingsController(), from: self)
+    }
+    
+    func clearCache() {
+        networkLayer.cache.removeAllObjects()
+    }
+    
+    func refresh() {
+        levelOneViewController?.shrink()
+        networkLayer.cache.removeAllObjects()
+        networkLayer.fetch()
     }
  
 }

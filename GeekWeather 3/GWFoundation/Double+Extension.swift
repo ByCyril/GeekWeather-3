@@ -36,7 +36,7 @@ extension Double {
             return String(temp.dropFirst()) + u
         }
         
-        return temp + u
+        return " " + temp + u
     }
     
     public func date(_ format: TimestampFormat, _ timezone: TimeZone? = nil) -> String {

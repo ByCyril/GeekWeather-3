@@ -14,7 +14,6 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     @IBOutlet var animationView: AnimationView!
     @IBOutlet var containerView: UIView!
     @IBOutlet var tempLabel: UILabel!
-    @IBOutlet var detailedViewLayer: DetailedViewLayer!
     @IBOutlet var locationLabel: UILabel!
         
     init(frame: CGRect,_ bundle: Bundle = Bundle.main) {
@@ -23,13 +22,19 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
         let view = bundle.loadNibNamed("LevelOneViewController", owner: self)!.first as! LevelOneViewController
         loadXib(view, self)
         view.backgroundColor = UIColor(named: "demo-background")!
-
+        
         createBlurView()
         animationView.loopMode = .loop
         animationView.backgroundColor = .clear
         animationView.animationSpeed = 1.5
 
-        [tempLabel].forEach { (element) in
+        tempLabel.font = UIFontMetrics(forTextStyle: .largeTitle)
+            .scaledFont(for: tempLabel.font)
+
+        locationLabel.font = UIFontMetrics(forTextStyle: .headline)
+            .scaledFont(for: locationLabel.font)
+        
+        [tempLabel, locationLabel].forEach { (element) in
             element?.adjustsFontForContentSizeCategory = true
             element?.adjustsFontSizeToFitWidth = true
             element?.textColor = .white
@@ -48,7 +53,6 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
             
             animationView.play()
             displayData(weatherModel.current)
-            detailedViewLayer.populate(weatherModel)
         }
         
         if let location = notification.userInfo?["location"] as? String {
@@ -59,7 +63,6 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     override func didUpdateValues() {
         guard let currentWeatherData = weatherModel?.current else { return }
         tempLabel.text = currentWeatherData.temp.kelvinToSystemFormat()
-        detailedViewLayer.update()
     }
     
     func displayData(_ currentWeatherData: Currently) {
@@ -73,21 +76,17 @@ final class LevelOneViewController: BaseView, UICollectionViewDelegateFlowLayout
     }
     
     func showElements() {
-        [tempLabel, animationView].forEach { (element) in
+        [tempLabel].forEach { (element) in
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.9, options: .curveEaseInOut) {
                 element?.alpha = 1
                 element?.transform = .identity
             }
         }
-        
-        detailedViewLayer.update()
-        detailedViewLayer.alpha = 1
     }
 
     func shrink() {
-        detailedViewLayer.d = 0
         
-        [tempLabel, animationView].forEach { (element) in
+        [tempLabel].forEach { (element) in
             element?.alpha = 0
             element?.transform = .init(scaleX: 0.01, y: 0.01)
         }

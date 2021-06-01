@@ -17,6 +17,9 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate {
     @IBOutlet var containerView: UIView!
     @IBOutlet var hourlyViewLayer: HourlyViewLayer!
     @IBOutlet var dailyViewLayer: DailyViewLayer!
+    @IBOutlet var scrollView: UIScrollView!
+    
+    @IBOutlet var dailyViewHeightConstraint: NSLayoutConstraint?
     
     init(frame: CGRect,_ bundle: Bundle = .main) {
         super.init(frame: frame)
@@ -36,11 +39,18 @@ final class LevelTwoViewController: BaseView, UITableViewDelegate {
         guard let weatherModel = notification.userInfo?["weatherModel"] as? WeatherModel else { return }
         hourlyViewLayer.populate(weatherModel)
         dailyViewLayer.populate(weatherModel)
+        updateStoryboardConstraints()
     }
     
     override func didUpdateValues() {
         hourlyViewLayer.hourlyView.reloadData()
         dailyViewLayer.collectionView.reloadData()
+        updateStoryboardConstraints()
+    }
+    
+    func updateStoryboardConstraints() {
+        dailyViewHeightConstraint?.constant = dailyViewLayer.collectionView.collectionViewLayout.collectionViewContentSize.height + 150
+        dailyViewLayer.layoutIfNeeded()
     }
 
 }

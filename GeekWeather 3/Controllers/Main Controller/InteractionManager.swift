@@ -9,21 +9,20 @@ import UIKit
 
 final class InteractionManager {
     
-    private let interactionView: UIView
+    private let interactionView: LevelOneViewController
     private let view: UIView
     
     private let cornerRadius: CGFloat = 15
-    private let difference: CGFloat = 230
+    private let difference: CGFloat = 100
     private var isCollapsed: Bool = false
     
-    init(_ interactionView: UIView,_ view: UIView) {
+    init(_ interactionView: LevelOneViewController,_ view: UIView) {
         self.interactionView = interactionView
         self.view = view
         setup()
     }
     
     private func setup() {
-        interactionView.backgroundColor = .systemBlue
         interactionView.layer.shadowColor = UIColor.black.cgColor
         interactionView.layer.shadowOffset = .zero
         interactionView.layer.shadowOpacity = 1.0
@@ -35,10 +34,16 @@ final class InteractionManager {
     
     @objc
     private func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
+        
         let translation = gesture.translation(in: view)
         gesture.setTranslation(.zero, in: view)
         
         let velocity = gesture.velocity(in: view)
+        
+        if !isCollapsed && velocity.y < 0 {
+            show()
+            return
+        }
         
         switch gesture.state {
         case .began:
@@ -46,15 +51,19 @@ final class InteractionManager {
                 HapticManager.soft()
             }
         case .changed:
-            interactionView.frame.origin.y += translation.y
+            if interactionView.frame.origin.y >= 0 {
+                interactionView.frame.origin.y += translation.y
+            }
         case .ended:
             curve()
             if velocity.y > 0 {
                 hide()
                 isCollapsed = true
+                HapticManager.soft()
             } else {
                 show()
                 isCollapsed = false
+                HapticManager.soft()
             }
         
         default:
@@ -73,8 +82,7 @@ final class InteractionManager {
         })
     }
     
-    private func show() {
-        HapticManager.soft()
+    func show() {
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        usingSpringWithDamping: 1,
@@ -86,7 +94,7 @@ final class InteractionManager {
                        })
     }
     
-    private func hide() {
+    func hide() {
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        usingSpringWithDamping: 1,

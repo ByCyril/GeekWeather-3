@@ -303,6 +303,7 @@
 		01E3B56C259EE9130099F212 /* Doouble+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D00821259EE28E00032D17 /* Doouble+Extension.swift */; };
 		01E51A7625BD7DA700B0BBD3 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E51A7525BD7DA700B0BBD3 /* ErrorView.swift */; };
 		01E65B2024F19D9400D8F76F /* ChangeUnitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */; };
+		01F132A22712B1440006E135 /* SavedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F132A12712B1440006E135 /* SavedLocation.swift */; };
 		01F431DC259E288600B0D44F /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */; };
 		01F431EE259E76A300B0D44F /* SystemSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F431ED259E76A300B0D44F /* SystemSettingsController.swift */; };
 		01F4CD2D25A119EE00A52971 /* MainPadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F4CD2C25A119EE00A52971 /* MainPadController.swift */; };
@@ -554,6 +555,7 @@
 		01D28B4625B6C6F7005CD583 /* HourlyViewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyViewLayer.swift; sourceTree = "<group>"; };
 		01E51A7525BD7DA700B0BBD3 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		01E65B1F24F19D9400D8F76F /* ChangeUnitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUnitController.swift; sourceTree = "<group>"; };
+		01F132A12712B1440006E135 /* SavedLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocation.swift; sourceTree = "<group>"; };
 		01F431DB259E288600B0D44F /* OnboardingBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBaseViewController.swift; sourceTree = "<group>"; };
 		01F431ED259E76A300B0D44F /* SystemSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettingsController.swift; sourceTree = "<group>"; };
 		01F4CD2C25A119EE00A52971 /* MainPadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPadController.swift; sourceTree = "<group>"; };
@@ -648,6 +650,7 @@
 				012D3AE0259FEDC60093ED51 /* SharedUserDefaults.swift */,
 				019B4D4925C8AFDC001C0465 /* IntentDemo.swift */,
 				017673FE26632F7800312424 /* AssetMap.swift */,
+				01F132A12712B1440006E135 /* SavedLocation.swift */,
 				010D53F525C0DAAA00222FF5 /* GWFoundation */,
 				011C620725A3C98B00F131D0 /* iPad */,
 				011908E1259D722400EE1C0F /* GWFiles */,
@@ -1484,6 +1487,7 @@
 				0164943B25BBBBAD00925321 /* WeatherFetcher.swift in Sources */,
 				01BE6CC1259B1C40000016CA /* ToggleMockedResponse.swift in Sources */,
 				011908C3259D34F400EE1C0F /* GWTest.swift in Sources */,
+				01F132A22712B1440006E135 /* SavedLocation.swift in Sources */,
 				01B1BEF124EFA9A10081C90F /* Array+Extension.swift in Sources */,
 				018079CA258DB3B200C88E0E /* NavigationView.swift in Sources */,
 				011C61EF25A3BD9100F131D0 /* iPadMainView.swift in Sources */,

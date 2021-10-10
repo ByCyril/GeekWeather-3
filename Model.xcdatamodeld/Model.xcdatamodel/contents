@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="SavedLocation" representedClassName="SavedLocation" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="SavedLocation" representedClassName="SavedLocation" syncable="YES">
         <attribute name="address" attributeType="String"/>
         <attribute name="isDefault" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isDefaultForWidget" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="location" attributeType="Transformable" valueTransformerName="" customClassName="CLLocation"/>
+        <attribute name="location" optional="YES" attributeType="Transformable" customClassName="CLLocation"/>
     </entity>
     <elements>
         <element name="SavedLocation" positionX="-63" positionY="-18" width="128" height="89"/>

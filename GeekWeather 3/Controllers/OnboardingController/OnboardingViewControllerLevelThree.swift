@@ -28,10 +28,10 @@ final class OnboardingViewControllerLevelThree: OnboardingBaseViewController {
     
     @objc
     func searchedResults(_ object: NSNotification) {
-        guard let location = object.object as? CLLocation else { return }
+        guard let location = object.object as? SavedLocation else { return }
         
-        let coord = ["lon": location.coordinate.longitude,
-                     "lat": location.coordinate.latitude]
+        let coord = ["lon": location.location!.coordinate.longitude,
+                     "lat": location.location!.coordinate.latitude]
         sharedUserDefaults?.setValue(coord, forKey: SharedUserDefaults.Keys.DefaultLocation)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in

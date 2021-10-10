@@ -26,10 +26,10 @@ final class OnboardingViewControllerLevelOne: OnboardingBaseViewController {
         continueButton.layer.cornerRadius = 10
         
         logoView.layer.cornerRadius = 35
-        view.backgroundColor = UIColor(named: "IconBlue")!
+        view.backgroundColor = UIColor(named: "demo-background")!
         
         let backgroundView = UIView(frame: view.bounds)
-        backgroundView.backgroundColor = UIColor(named: "IconBlue")!
+        backgroundView.backgroundColor = UIColor(named: "demo-background")!
         view.insertSubview(backgroundView, at: 1)
         
         UIView.animate(withDuration: 1, delay: 1.5, options: .curveEaseInOut) { [weak self] in
@@ -41,7 +41,7 @@ final class OnboardingViewControllerLevelOne: OnboardingBaseViewController {
     
     @objc
     func firstAnimation() {
-        view.backgroundColor = UIColor(named: "White")!
+        view.backgroundColor = UIColor(named: "demo-background")!
         
         UIView.animate(withDuration: 1, delay: 2, options: .curveEaseInOut) {
             self.logoView.transform = .init(translationX: 0, y: -100)

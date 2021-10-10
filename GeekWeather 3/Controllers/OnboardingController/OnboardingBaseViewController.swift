@@ -18,7 +18,7 @@ class OnboardingBaseViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        createGradient()
+        
     }
     
     private func createGradient() {
